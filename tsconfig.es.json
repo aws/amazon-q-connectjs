@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["dom", "ES5", "ES2015.Promise", "ES2015.Collection", "ES2015.Iterable", "ES2015.Symbol.WellKnown"],
+    "outDir": "dist/es",
+  },
+}
