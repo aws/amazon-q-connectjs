@@ -8,6 +8,7 @@
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
     "release": "npm run build:all",
+    "prepublish": "npm run clean:dist && npm run build:all",
     "watch:all": "npm run watch:cjs && npm run watch:es",
     "watch:cjs": "tsc -w -p tsconfig.json",
     "watch:es": "tsc -w -p tsconfig.json",
@@ -39,14 +40,11 @@
   "files": [
     "dist"
   ],
-  "author": {
-    "name": "Wisdom SDK for Javascript Team",
-    "url": ""
-  },
+  "author": "Amazon Web Services",
   "license": "Apache-2.0",
-  "homepage": "",
+  "homepage": "https://github.com/aws/amazon-connect-wisdomjs#readme",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/aws/amazon-connect-wisdomjs.git"
   }
 }
