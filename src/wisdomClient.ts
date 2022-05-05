@@ -3,8 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Client, ClientConfiguration } from './client';
-import { getRuntimeConfig } from './utils/runtimeConfig.browser';
+import { Client, ClientConfiguration, ClientResolvedConfig } from './client';
 import {
   GetAuthorizedWidgetsForUser, GetAuthorizedWidgetsForUserInput, GetAuthorizedWidgetsForUserOutput,
   GetContent, GetContentInput, GetContentOutput,
@@ -38,7 +37,7 @@ export type ServiceOutputTypes =
 /*
  * The configuration interface of WisdomClient class constructor that sets the instance url and other options.
  */
-export interface WisdomClientConfig extends Partial<ClientConfiguration<HttpHandlerOptions>> {
+export interface WisdomClientConfig extends ClientConfiguration {
   /*
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -48,7 +47,7 @@ export interface WisdomClientConfig extends Partial<ClientConfiguration<HttpHand
 /*
  * The resolved configuration interface of WisdomClient class.
  */
-export type WisdomClientResolvedConfig = Required<Omit<ClientConfiguration<HttpHandlerOptions>, 'frameWindow'>> & WisdomClientConfig;
+export type WisdomClientResolvedConfig = ClientResolvedConfig;
 
 /*
  * All Amazon Connect Wisdom agent application functionality is accessible using the API.
@@ -63,12 +62,8 @@ export class WisdomClient extends Client<
   ServiceOutputTypes,
   WisdomClientResolvedConfig
 > {
-  readonly config: WisdomClientResolvedConfig;
-
-  constructor(config: WisdomClientConfig = {}) {
-    const _config = getRuntimeConfig(config);
-    super(_config);
-    this.config = _config;
+  constructor(config: WisdomClientConfig) {
+    super(config);
   }
 
   /*

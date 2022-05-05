@@ -3,18 +3,19 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { getRuntimeConfig } from './utils/runtimeConfig.browser';
 import { Client as $Client } from './types/client';
 import { Command } from './types/command';
 import { RequestHandler } from './types/requestHandler';
-import { HttpHeaders, HttpResponse } from './types/http';
+import { HttpHeaders, HttpResponse, HttpHandlerOptions } from './types/http';
 import { Logger } from './types/logger';
 import { ServiceIds } from './types/serviceIds';
 import { CallSources } from './types/callSources';
 
 /*
- * The configuration interface of Client class constructor.
+ * The resolved configuration interface of the Client class.
  */
-export interface ClientConfiguration<HttpHandlerOptions> {
+export interface ClientResolvedConfig {
   /*
    * Unique source identifier.
    */
@@ -51,16 +52,22 @@ export interface ClientConfiguration<HttpHandlerOptions> {
   frameWindow?: HTMLIFrameElement;
 }
 
+/*
+ * The configuration interface of the Client class constructor.
+ */
+export type ClientConfiguration = Partial<ClientResolvedConfig>;
+
 export class Client<
   HandlerOptions,
   ClientInput extends object,
   ClientOutput extends object,
-  ClientConfig extends ClientConfiguration<HandlerOptions>
+  ClientConfig extends ClientResolvedConfig,
 > implements $Client<ClientInput, ClientOutput, ClientConfig> {
   readonly config: ClientConfig;
 
-  constructor(config: ClientConfig) {
-    this.config = config;
+  constructor(config: ClientConfiguration) {
+    const _config = getRuntimeConfig(config) as ClientConfig;
+    this.config = _config;
 
     window.addEventListener('load', () => {
       if (window.location.origin !== this.config.instanceUrl) {

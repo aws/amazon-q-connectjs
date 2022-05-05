@@ -4,7 +4,7 @@
  */
 
 import { getRuntimeConfig as getSharedRuntimeConfig } from './runtimeConfig.shared';
-import { WisdomClientConfig } from '../wisdomClient';
+import { ClientConfiguration } from '../client';
 import { FetchHttpHandler } from '../fetchHttpHandler';
 import { getDefaultHeaders } from './getDefaultHeaders';
 
@@ -14,7 +14,7 @@ import { getDefaultHeaders } from './getDefaultHeaders';
  */
 const DEFAULT_MAX_ATTEMPTS = 3;
 
-export const getRuntimeConfig = (config: WisdomClientConfig) => {
+export const getRuntimeConfig = (config: ClientConfiguration) => {
   const sharedRuntimeConfig = getSharedRuntimeConfig(config);
 
   return {
