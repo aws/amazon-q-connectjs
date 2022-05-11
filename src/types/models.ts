@@ -35,6 +35,16 @@ export enum IntegrationTypes {
   WISDOM_KNOWLEDGE_BASE = "WISDOM_KNOWLEDGE_BASE",
 }
 
+export enum RecommendationTriggerType {
+  QUERY = "QUERY",
+}
+
+export enum RecommendationSourceType {
+  ISSUE_DETECTION = "ISSUE_DETECTION",
+  RULE_EVALUATION = "RULE_EVALUATION",
+  OTHER = "OTHER",
+}
+
 /*
  * Information about the content.
  */
@@ -222,6 +232,52 @@ export interface RecommendationData {
 }
 
 /*
+ * Information about the query that triggered the recommendation.
+ */
+export interface QueryRecommendationTriggerData {
+  /*
+   * The text to search for.
+   */
+  text?: string;
+}
+
+/*
+ * Information about what triggered the recommendation.
+ */
+export interface RecommendationTriggerData {
+  /*
+   * Information about the query that triggered the recommendation.
+ */
+  query?: QueryRecommendationTriggerData;
+}
+
+/*
+ * Information about the recommendation trigger.
+ */
+export interface RecommendationTrigger {
+  /*
+   * The identifier of the trigger.
+   */
+  id: string;
+  /*
+   * The source type of the trigger.
+   */
+  type: RecommendationTriggerType;
+  /*
+   * The source type of the recommendation.
+   */
+  source: RecommendationSourceType;
+  /*
+   * Information about what triggered the recommendation.
+   */
+  data: RecommendationTriggerData;
+  /*
+   * A list of recommendation Ids associated with a given trigger.
+   */
+  recommendationIds: string[];
+}
+
+/*
  * Information about the result.
  */
 export interface ResultData {
@@ -326,6 +382,10 @@ export interface GetRecommendationsResponse {
    * The recommendations.
    */
   recommendations: RecommendationData[];
+  /*
+   * Recommendation triggers
+   */
+  triggers?: [];
 }
 
 /*
