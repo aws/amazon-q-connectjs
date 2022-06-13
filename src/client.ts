@@ -70,7 +70,7 @@ export class Client<
     this.config = _config;
 
     window.addEventListener('load', () => {
-      if (window.location.origin !== this.config.instanceUrl) {
+      if (!this.config.instanceUrl.includes(window.location.origin)) {
         this.initFrameConduit();
       }
     });
