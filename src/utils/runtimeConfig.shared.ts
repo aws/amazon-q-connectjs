@@ -8,6 +8,7 @@ import { getBaseUrl } from './urlParser';
 import { Logger } from '../types/logger';
 import { CallSources } from '../types/callSources';
 import { ServiceIds } from '../types/serviceIds';
+import { generateEndpoint } from '../utils/appConfig';
 
 export const getRuntimeConfig = (config: ClientConfiguration) => {
   return {
@@ -15,6 +16,6 @@ export const getRuntimeConfig = (config: ClientConfiguration) => {
     serviceId: config?.serviceId ?? ServiceIds.Wisdom,
     callSource: config?.callSource ?? CallSources.AgentApp,
     instanceUrl: config?.instanceUrl ?? getBaseUrl(),
-    endpoint: config?.endpoint || config?.instanceUrl || getBaseUrl(),
+    endpoint: config?.endpoint || generateEndpoint(config?.instanceUrl || getBaseUrl()),
   }
 }
