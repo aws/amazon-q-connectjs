@@ -15,18 +15,41 @@ import { QueryAssistant } from './commands/queryAssistant';
 import { SearchSessions } from './commands/searchSessions';
 
 describe('WisdomClient', () => {
+  let client: WisdomClient;
+
+  const instanceUrl = 'https://foo.amazonaws.com';
   const mockHandler = jest.fn((args: any) => Promise.resolve('success response'));
   const mockResolveRequestHandler = jest.fn((args: any) => mockHandler);
 
   (global as any).location = { href: 'https://foo.amazonaws.com' };
   (global as any).MessageChannel = MessageChannel;
 
-  const client = new WisdomClient({
-    instanceUrl: 'https://foo.amazonaws.com',
-  });
-
   beforeEach(() => {
     jest.clearAllMocks();
+
+    client = new WisdomClient({
+      instanceUrl,
+    });
+  });
+
+  it('should properly construct the endpoint from the instanceUrl when not provided', () => {
+    client = new WisdomClient({
+      instanceUrl,
+      endpoint: 'https://localhost:4000/example-api/',
+    });
+    expect(client.config.endpoint).toEqual('https://localhost:4000/example-api/');
+
+    const cfInstanceUrl = 'https://foo.com.awsapps.com/connect/'
+    client = new WisdomClient({
+      instanceUrl: cfInstanceUrl,
+    });
+    expect(client.config.endpoint).toEqual('https://foo.com.awsapps.com/connect/agent-app/api');
+
+    const nginxInstanceUrl = 'https://foo.my.connect.aws';
+    client = new WisdomClient({
+      instanceUrl: nginxInstanceUrl,
+    });
+    expect(client.config.endpoint).toEqual('https://foo.my.connect.aws/agent-app/api');
   });
 
   it('should return a response promise when calling getAuthorizedWidgetsForUser', async () => {
