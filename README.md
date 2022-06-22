@@ -6,7 +6,13 @@ The Amazon Connect Wisdom JavaScript library (WisdomJS) gives you the power to b
 
 All Amazon Connect Wisdom `Agent Assistant` functionality is accessible using WisdomJS. For example, you can manually query knowledge documents, get knowledge content, or start generating automated suggestions.
 
-For more advanced features all Amazon Connect Wisdom functionality is accessible using the API. For example, you can create an assistant and a knowledge base. Check out [Wisdom](https://docs.aws.amazon.com/cli/latest/reference/wisdom/index.html) available via the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
+This library must be used in conjunction with [amazon-connect-streams](https://github.com/amazon-connect/amazon-connect-streams) in order to utilize Amazon Connect's Chat or Task functionality.
+
+## Learn More
+
+For more advanced features, all Amazon Connect Wisdom functionality is accessible using the public API. For example, you can create an assistant and a knowledge base. Check out [Wisdom](https://docs.aws.amazon.com/cli/latest/reference/wisdom/index.html) available via the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
+
+To learn more about Amazon Connect and its capabilities, please check out the [Amazon Connect User Guide](https://docs.aws.amazon.com/connect/latest/userguide/).
 
 ## Installing
 
@@ -17,6 +23,9 @@ npm install amazon-connect-wisdomjs
 
 ## Getting Started
 
+### Prerequisites
+
+To utilize WisdomJS, start by allow listing your existing web application in the AWS Connect console. To allow list a domain URL follow the [app integration guide](https://docs.aws.amazon.com/connect/latest/adminguide/app-integration.html).
 ### Import
 
 WisdomJS is modularized by client and commands.
