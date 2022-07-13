@@ -14,4 +14,5 @@ export enum ClientMethods {
   NotifyRecommendationsReceived = 'notifyRecommendationsReceived',
   QueryAssistant = 'queryAssistant',
   SearchSessions = 'searchSessions',
+  GetContact = 'getContact',
 }

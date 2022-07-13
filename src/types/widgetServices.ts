@@ -10,4 +10,5 @@ export enum WidgetServices {
   Wisdom = 'WisdomV2',
   AgentApp = 'AgentApp',
   Acs = 'Acs',
+  Lcms = 'Lcms'
 }

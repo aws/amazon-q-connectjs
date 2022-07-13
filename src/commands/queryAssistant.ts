@@ -38,16 +38,12 @@ export class QueryAssistant extends Command<
   serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
     const { assistantId, queryText } = this.clientInput;
 
-    if (assistantId === undefined) {
-      throw new Error('No value provided for assistandId.');
-    } else if (!assistantId.length) {
-      throw new Error('Empty value provided for assistantId.');
+    if ((assistantId === undefined) || !assistantId.length) {
+      throw new Error('Invalid assistantId.');
     }
 
-    if (queryText === undefined) {
-      throw new Error('No value provided for queryText.');
-    } else if (!queryText.length) {
-      throw new Error('Empty value provided for queryText.');
+    if ((queryText === undefined) || !queryText.length) {
+      throw new Error('Invalid queryText.');
     }
 
     return super.serialize(configuration);

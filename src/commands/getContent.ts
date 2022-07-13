@@ -38,16 +38,12 @@ export class GetContent extends Command<
   serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
     const { contentId, knowledgeBaseId } = this.clientInput;
 
-    if (contentId === undefined) {
-      throw new Error('No value provided for contentId.');
-    } else if (!contentId.length) {
-      throw new Error('Empty value provided for contentId.');
+    if ((contentId === undefined) || !contentId.length) {
+      throw new Error('Invalid contentId.');
     }
 
-    if (knowledgeBaseId === undefined) {
-      throw new Error('No value provided for knowledgeBaseId.');
-    } else if (!knowledgeBaseId.length) {
-      throw new Error('Empty value provided for knowledgeBaseId.');
+    if ((knowledgeBaseId === undefined) || !knowledgeBaseId.length) {
+      throw new Error('Invalid knowledgeBaseId.');
     }
 
     return super.serialize(configuration);

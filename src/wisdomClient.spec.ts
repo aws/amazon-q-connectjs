@@ -13,6 +13,7 @@ import { ListIntegrationAssociations } from './commands/listIntegrationAssociati
 import { NotifyRecommendationsReceived } from './commands/notifyRecommendationsReceived';
 import { QueryAssistant } from './commands/queryAssistant';
 import { SearchSessions } from './commands/searchSessions';
+import { GetContact } from './commands/getContact';
 
 describe('WisdomClient', () => {
   let client: WisdomClient;
@@ -132,6 +133,18 @@ describe('WisdomClient', () => {
             },
           ],
         },
+      }),
+    ).resolves.toEqual('success response');
+  });
+
+  it('should return a response promise when calling getContact', async () => {
+    GetContact.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
+
+    await expect(
+      client.getContact({
+        awsAccountId: '85be2a14-94d7-41f2-835e-85368acb55df',
+        instanceId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
+        contactId: '249bbb30-aede-42a8-be85-d8483c317686',
       }),
     ).resolves.toEqual('success response');
   });

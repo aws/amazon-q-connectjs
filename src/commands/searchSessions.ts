@@ -38,16 +38,12 @@ export class SearchSessions extends Command<
   serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
     const { assistantId, searchExpression } = this.clientInput;
 
-    if (assistantId === undefined) {
-      throw new Error('No value provided for assistandId.');
-    } else if (!assistantId.length) {
-      throw new Error('Empty value provided for assistantId.');
+    if ((assistantId === undefined) || !assistantId.length) {
+      throw new Error('Invalid assistantId.');
     }
 
-    if (searchExpression === undefined) {
-      throw new Error('No value provided for searchExpression.');
-    } else if (!searchExpression.filters.length) {
-      throw new Error('No filters provided for searchExpression.');
+    if ((searchExpression === undefined) || !searchExpression?.filters || !searchExpression?.filters?.length) {
+      throw new Error('Invalid searchExpression.');
     }
 
     return super.serialize(configuration);

@@ -565,3 +565,31 @@ export interface ListIntegrationAssociationsResponse {
     SourceType: string,
   }[],
 }
+
+export interface GetContactRequest {
+  /*
+   * The identifier of the AWS account. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   */
+  awsAccountId: string;
+  /*
+   * The identifier of the Connect instance. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   */
+  instanceId: string;
+  /*
+   * The identifier of the Connect contact. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   */
+  contactId: string;
+}
+
+export interface GetContactResponse {
+  contactFeature: {
+    wisdomFeatures: {
+      wisdomConfig: {
+        /*
+         * The Amazon Resource Name (ARN) of the Wisdom session.
+         */
+        sessionArn: string;
+      };
+    };
+  }
+}
