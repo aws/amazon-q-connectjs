@@ -12,6 +12,7 @@ import {
   NotifyRecommendationsReceived, NotifyRecommendationsReceivedInput, NotifyRecommendationsReceivedOutput,
   QueryAssistant, QueryAssistantInput, QueryAssistantOutput,
   SearchSessions, SearchSessionsInput, SearchSessionsOutput,
+  GetContact, GetContactInput, GetContactOutput,
 } from './commands';
 import { RequestHandler } from './types/requestHandler';
 import { HttpResponse, HttpHandlerOptions } from './types/http';
@@ -23,7 +24,8 @@ export type ServiceInputTypes =
   | ListIntegrationAssociationsInput
   | NotifyRecommendationsReceivedInput
   | QueryAssistantInput
-  | SearchSessionsInput;
+  | SearchSessionsInput
+  | GetContactInput;
 
 export type ServiceOutputTypes =
   | GetAuthorizedWidgetsForUserOutput
@@ -32,7 +34,8 @@ export type ServiceOutputTypes =
   | ListIntegrationAssociationsOutput
   | NotifyRecommendationsReceivedOutput
   | QueryAssistantOutput
-  | SearchSessionsOutput;
+  | SearchSessionsOutput
+  | GetContactOutput;
 
 /*
  * The configuration interface of WisdomClient class constructor that sets the instance url and other options.
@@ -147,6 +150,14 @@ export class WisdomClient extends Client<
     options?: HttpHandlerOptions,
   ): Promise<HttpResponse<SearchSessionsOutput>> {
     const command = new SearchSessions(args);
+    return this.call(command, options);
+  }
+
+  public getContact(
+    args: GetContactInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<GetContactOutput>> {
+    const command = new GetContact(args);
     return this.call(command, options);
   }
 }

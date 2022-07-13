@@ -146,7 +146,7 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
       headers,
       body,
       // some browsers support abort signal
-      ...(AbortController && abortSignal && { signal : abortSignal }),
+      ...(!frameWindow && AbortController && abortSignal && { signal : abortSignal }),
     };
 
     return Promise.race([

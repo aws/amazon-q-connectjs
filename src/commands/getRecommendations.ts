@@ -38,16 +38,12 @@ export class GetRecommendations extends Command<
   serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
     const { assistantId, sessionId } = this.clientInput;
 
-    if (assistantId === undefined) {
-      throw new Error('No value provided for assistandId.');
-    } else if (!assistantId.length) {
-      throw new Error('Empty value provided for assistantId.');
+    if ((assistantId === undefined) || !assistantId.length) {
+      throw new Error('Invalid assistantId.');
     }
 
-    if (sessionId === undefined) {
-      throw new Error('No value provided for sessionId.');
-    } else if (!sessionId.length) {
-      throw new Error('Empty value provided for sessionId.');
+    if ((sessionId === undefined) || !sessionId.length) {
+      throw new Error('Invalid sessionId.');
     }
 
     return super.serialize(configuration);

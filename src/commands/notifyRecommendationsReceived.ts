@@ -38,22 +38,16 @@ export class NotifyRecommendationsReceived extends Command<
   serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
     const { assistantId, sessionId, recommendationIds } = this.clientInput;
 
-    if (assistantId === undefined) {
-      throw new Error('No value provided for assistandId.');
-    } else if (!assistantId.length) {
-      throw new Error('Empty value provided for assistantId.');
+    if ((assistantId === undefined) || !assistantId.length) {
+      throw new Error('Invalid assistantId.');
     }
 
-    if (sessionId === undefined) {
-      throw new Error('No value provided for sessionId.');
-    } else if (!sessionId.length) {
-      throw new Error('Empty value provided for sessionId.');
+    if ((sessionId === undefined) || !sessionId.length) {
+      throw new Error('Invalid sessionId.');
     }
 
-    if (recommendationIds === undefined) {
-      throw new Error('No value provided for recommendationIds.');
-    } else if (!recommendationIds.length) {
-      throw new Error('Empty value provided for recommendationIds.');
+    if ((recommendationIds === undefined) || !recommendationIds.length) {
+      throw new Error('Invalid recommendationIds.');
     }
 
     return super.serialize(configuration);

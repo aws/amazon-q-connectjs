@@ -6,46 +6,54 @@
 import { Command } from './command';
 import { WisdomClientResolvedConfig } from '../wisdomClient';
 import { HttpRequest } from '../httpRequest';
-import { ListIntegrationAssociationsRequest, ListIntegrationAssociationsResponse } from '../types/models';
+import { GetContactRequest, GetContactResponse } from '../types/models';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
 import { ServiceIds } from '../types/serviceIds';
 
-export interface ListIntegrationAssociationsInput extends ListIntegrationAssociationsRequest {}
+export interface GetContactInput extends GetContactRequest {}
 
-export interface ListIntegrationAssociationsOutput extends ListIntegrationAssociationsResponse {}
+export interface GetContactOutput extends GetContactResponse {}
 
-export class ListIntegrationAssociations extends Command<
-  ListIntegrationAssociationsInput,
-  ListIntegrationAssociationsOutput,
+export class GetContact extends Command<
+  GetContactInput,
+  GetContactOutput,
   WisdomClientResolvedConfig
 > {
   readonly clientMethod: ClientMethods;
 
-  constructor(readonly clientInput: ListIntegrationAssociationsInput) {
+  constructor(readonly clientInput: GetContactInput) {
     super();
-    this.clientMethod = ClientMethods.ListIntegrationAssociations;
+    this.clientMethod = ClientMethods.GetContact;
   }
 
   resolveRequestHandler(
     configuration: WisdomClientResolvedConfig,
     options: HttpHandlerOptions,
-  ): InvokeFunction<HttpResponse<ListIntegrationAssociationsOutput>> {
+  ): InvokeFunction<HttpResponse<GetContactOutput>> {
     const { requestHandler } = configuration;
     return () => requestHandler.handle(this.serialize(configuration), options || {});
   }
 
   serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
-    const { InstanceId } = this.clientInput;
+    const { awsAccountId, instanceId, contactId } = this.clientInput;
 
-    if ((InstanceId === undefined) || !InstanceId.length) {
-      throw new Error('Invalid InstanceId.');
+    if ((awsAccountId === undefined) || !awsAccountId.length) {
+      throw new Error('Invalid awsAccountId.');
+    }
+
+    if ((instanceId === undefined) || !instanceId.length) {
+      throw new Error('Invalid instanceId.');
+    }
+
+    if ((contactId === undefined) || !contactId.length) {
+      throw new Error('Invalid contactId.');
     }
 
     return super.serialize({
       ...configuration,
-      serviceId: ServiceIds.Acs,
+      serviceId: ServiceIds.Lcms,
     });
   }
 }
