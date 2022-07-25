@@ -254,6 +254,68 @@ try {
 }
 ```
 
+## GetContact
+
+Retrieves contact details, including the Wisdom `session ARN`, for a specified contact.
+
+### URI Request Parameters
+
+* `awsAccountId`: The identifier of the AWS account. You can find the awsAccountId in the ARN of the instance.
+* `InstanceId`: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+* `contactId`: The identifier of the Connect contact. Can be either the ID or the ARN. URLs cannot contain the ARN.
+
+#### A few things to note:
+
+* One of the request parameters of the `GetContact` API is the Amazon Connect `contactId`. The StreamsJS Contact API provides event subscription methods and action methods which can be called on behalf of a Contact and used to retrieve the Amazon Connect `contactId`. See [StreamsJS Integration](#StreamsJS-Integration) below for more information.
+
+### Response Syntax
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```json
+{
+  "contactId": "string",
+  "contactState": "string",
+  "contactSchemaVersion": "number",
+  "channel": "string",
+  "targetQueueResourceId": "string",
+  "agentResourceId": "string",
+  "targetAgentResourceId": "string",
+  "attributes": {},
+  "participants": [],
+  "contactFeature": {
+    "loggingEnabled": "boolean",
+    "textToSpeechFeatures": {},
+    "voiceIdFeatures": {},
+    "wisdomFeatures": {
+      "wisdomConfig": {
+        "sessionArn": "string"
+      }
+    }
+  },
+  "routingAttributes": {},
+  "languageCode": "string",
+  "channelContext": {},
+}
+```
+
+### Sample Query
+
+```ts
+const getContactCommand = new GetContact({
+  awsAccountId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
+  instanceId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
+  contactId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
+});
+
+try {
+  const response = await wisdomClient.call(getContactCommand);
+    // process response.
+} catch (error) {
+  // error handling.
+}
+```
+
 ## GetRecommendations
 
 Retrieves recommendations for the specified session. To avoid retrieving the same recommendations in subsequent calls, use NotifyRecommendationsReceived. This API supports long-polling behavior with the `waitTimeSeconds` parameter. Short poll is the default behavior and only returns recommendations already available. To perform a manual query against an assistant, use the QueryAssistant API. For more information check out the [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html) API reference.
@@ -268,6 +330,7 @@ Retrieves recommendations for the specified session. To avoid retrieving the sam
 #### A few things to note:
 
 * The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by WisdomJS to look up the `assistant` and `knowledge base` that has been configured for Wisdom. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
+* The `session ARN` can be retrieved by used the `GetContact` API provided by WisdomJS to look up the `session` associated with a given active `contact`. See [GetContact](#GetContact) for more information.
 * To avoid retrieving the same recommendations on subsequent calls, the `NotifyRecommendationsReceived` API should be called after each response. See [NotifyRecommendationsReceived]() for more information.
 
 ### Response Syntax
@@ -341,6 +404,7 @@ Removes the specified recommendations from the specified assistant's queue of ne
 #### A few things to note:
 
 * The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by WisdomJS to look up the `assistant` and `knowledge base` that has been configured for Wisdom. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
+* The `session ARN` can be retrieved by used the `GetContact` API provided by WisdomJS to look up the `session` associated with a given active `contact`. See [GetContact](#GetContact) for more information.
 
 ### Response Syntax
 
@@ -541,6 +605,17 @@ const routingProfile = agent.getRoutingProfile();
 const instanceId = routingProfile.routingProfileId.match(
   /instance\/([0-9a-fA-F|-]+)\//
 )[1];
+```
+
+## Contact
+
+The StreamsJS Contact API provides event subscription methods and action methods which can be called on behalf of a contact. For more information check out the StreamsJS [Contact API](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation.md#contact-api) reference.
+### ContactId
+
+The StreamsJS Contact API can be used to retrieve the Amazon Connect `contactId` using the Contact `getContactId` method.
+
+```js
+const contactId = contact.getContactId();
 ```
 
 # Troubleshooting
