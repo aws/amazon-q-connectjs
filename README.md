@@ -1,10 +1,18 @@
 # amazon-connect-wisdomjs
 
-## Description
-
 The Amazon Connect Wisdom JavaScript library (WisdomJS) gives you the power to build your own Wisdom widget.
 
-All Amazon Connect Wisdom `Agent Assistant` functionality is accessible using WisdomJS. For example, you can manually query knowledge documents, get knowledge content, or start generating automated suggestions.
+The library uses an Amazon Connect authentication token to make API calls to Amazon Connect Wisdom and supports all Wisdom `Agent Assistant` functionality. For example, you can manually query knowledge documents, get knowledge content, or start generating automated suggestions.
+
+WisdomJS supports the following APIs:
+* [QueryAssistant](#QueryAssistant)
+* [GetContact](#GetContact)
+* [GetRecommendations](#GetRecommendations)
+* [NotifyRecommendationsReceived](#NotifyRecommendationsReceived)
+* [GetContent](#GetContent)
+* [SearchSessions](#SearchSessions)
+* [ListIntegrationAssociations](#ListIntegrationAssociations)
+
 
 Note that this library must be used in conjunction with [amazon-connect-streams](https://github.com/amazon-connect/amazon-connect-streams).
 
@@ -36,45 +44,91 @@ All domains looking to integrate with Amazon Connect and Amazon Connect Wisdom m
 * Allowlisted domains must be HTTPS.
 * All of the pages that attempt to initialize the WisdomJS library must be hosted on domains that are allowlisted.
 
-# Installing
+# Usage
 
-Install using `npm`:
-```
+## Install from NPM
+
+```bash
 npm install amazon-connect-wisdomjs
 ```
-# Imports
 
-WisdomJS is modularized by client and commands.
-To send a request, you only need to import the `WisdomClient` and
-the commands you need, for example `GetRecommendations`:
+## Build with NPM
 
-```js
-// ES5 example
-const { Client, GetRecommendations } = require("amazon-connect-wisdomjs");
+```bash
+$ git clone https://github.com/aws/amazon-connect-wisdomjs
+cd amazon-connect-wisdomjs
+npm install
+npm run bundle
 ```
 
-```ts
-// ES6+ example
-import { Client, GetRecommendations } from "amazon-connect-wisdomjs";
+Find build artifacts in the `release` directory. This will generate a file called `amazon-connect-wisdomjs.js` and a minified version `amazon-connect-wisdomjs-min.js`. This is the full WisdomJS client which you will want to include in your page.
+
+## Download from Github
+
+`amazon-connect-wisdomjs` is available on [NPM](https://www.npmjs.com/package/amazon-connect-wisdomjs) but if you'd like to download it here, you can find build artificacts in the [release](/release) directory.
+
+## Load from CDN
+
+`amazon-connect-wisdomjs` is also available on open source CDNs. If you'd like to load build artifacts from a CDN, you can use either of the script tags below.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/amazon-connect-wisdomjs@1/release/amazon-connect-wisdomjs.js"><script>
+```
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/amazon-connect-wisdomjs@1/release/amazon-connect-wisdomjs-min.js"></script>
 ```
 
 # Initialization
 
 Initializing the WisdomJS client is the fist step to verify that you have everything setup correctly.
 
-```js
-import { Client } from "amazon-connect-wisdomjs";
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="connect-streams-min.js"></script>
+    <script type="text/javascript" src="amazon-connect-wisdomjs-min.js"></script>
+  </head>
+  <!-- Add the call to init() as an onload so it will only run once the page is loaded -->
+  <body onload="init()">
+    <div id='ccp-container' style="width: 400px; height: 800px;"></div>
+    <script type="text/javascript">
+      const instanceUrl = 'https://my-instance-domain.awsapps.com/connect';
 
-const wisdomClient = new Client({
-  instanceUrl: "https://your-connect-instance.my.connect.aws",   // required
-  endpoint: "https://your-connect-instance.my.connect.aws/api",  // optional, defaults to '<instanceUrl>'
-  callSource: "agent-app",                                       // optional, defaults to 'agent-app'
-  serviceId: 'Wisdom',                                           // optional, defaults to 'Wisdom'
-  maxAttempts: 3,                                                // optional, defaults to 3
-  logger: {},                                                    // optional, if provided overrides default logger
-  headers: {},                                                   // optional, if provided overrides request headers
-  requestHandler: {},                                            // optional, if provided overrides the default request handler
-});
+      function init() {
+        // Initialize StreamsJS API
+        connect.agentApp.initApp(
+          'ccp',
+          'ccp-container',
+          `${instanceUrl}/ccp-v2/`,
+          {
+            ccpParams: {
+              style: 'width:400px; height:600px;',
+            }
+          }
+        );
+  
+        // Initialize WisdomJS client
+        const wisdomClient = new connect.wisdomjs.WisdomClient({
+          instanceUrl,
+        });
+
+        const wisdomClient = new connect.wisdomjs.Client({
+          instanceUrl: instanceUrl,                                        // REQUIRED
+          endpoint: "https://my-instance-domain.awsapps.com/connect/api",  // optional, defaults to '<instanceUrl>'
+          callSource: "agent-app",                                         // optional, defaults to 'agent-app'
+          serviceId: 'Wisdom',                                             // optional, defaults to 'Wisdom'
+          maxAttempts: 3,                                                  // optional, defaults to 3
+          logger: {},                                                      // optional, if provided overrides default logger
+          headers: {},                                                     // optional, if provided overrides request headers
+          requestHandler: {},                                              // optional, if provided overrides the default request handler
+        });
+      }
+    </script>
+  </body>
+</html>
 ```
 
 The WisdomJS client integrates with Connect by loading the pre-built Wisdom widget located at `<instanceUrl>/wisdom-v2` into an iframe and placing it into a container div. API requests are funneled through this widget and made available to your JS client code.
@@ -88,64 +142,23 @@ The WisdomJS client integrates with Connect by loading the pre-built Wisdom widg
 * `requestHandler`: This object is optional and allows overriding the default request handler.
 * `serviceId`: Optional, set to override the unique service identifier on requests.
 
-# Usage
 
-## Sending Requests
+# ES Modules
 
-To send a request, you:
+## Imports
 
-- Initiate the client with the desired configuration (e.g. `instanceUrl`, `endpoint`).
-- Initiate a command with input parameters.
-- Use the `call` operation on the client with the command object as the input.
+WisdomJS is modularized by client and commands.
+To send a request, you only need to import the `WisdomClient` and
+the commands you need, for example `GetRecommendations`:
 
 ```js
-// a client can be shared by different commands.
-const wisdomClient = new Client({
-  instanceUrl: "https://your-connect-instance.my.connect.aws",
-});
-
-const getRecommendationsCommand = new GetRecommendations({
-  /** input parameters */
-});
+// ES5 example
+const { Client, GetRecommendations } = require("amazon-connect-wisdomjs");
 ```
 
-## Async/await
-
-We recommend using the [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
-operator to wait for the promise returned by the `call` operation as follows:
-
-```js
-// async/await.
-try {
-  const response = await wisdomClient.call(getRecommendationsCommand);
-  // process response.
-} catch (error) {
-  // error handling.
-} finally {
-  // finally.
-}
-```
-
-`async`-`await` is clean, concise, intuitive, easy to debug and has better error handling
-as compared to using Promise chains.
-
-## Promises
-
-You can also use [Promise chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining)
-to execute the call operation.
-
-```js
-wisdomClient
-  .call(command)
-  .then((response) => {
-    // process response.
-  })
-  .catch((error) => {
-    // error handling.
-  })
-  .finally(() => {
-    // finally.
-  });
+```ts
+// ES6+ example
+import { Client, GetRecommendations } from "amazon-connect-wisdomjs";
 ```
 
 ## Convenience Methods
@@ -178,7 +191,66 @@ wisdomClient
   });
 ```
 
-# API
+# Sending Requests
+
+To send a request, you:
+
+- Initiate the client with the desired configuration (e.g. `instanceUrl`, `endpoint`).
+- call the desired API
+
+```js
+const wisdomClient = new WisdomClient({
+  instanceUrl: "https://your-connect-instance.my.connect.aws",
+});
+
+wisdomClient.getRecommendations({
+  // input parameters
+});
+```
+
+# Reading Responses
+
+All API calls through WisdomJS return a promise. The promise resolves/rejects to provide the response from the API call.
+
+## Async/await
+
+We recommend using the [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+operator.
+
+```js
+// async/await.
+try {
+  const response = await wisdomClient.getRecommendations({
+    // input parameters
+  });
+  // process response.
+} catch (error) {
+  // error handling.
+} finally {
+  // finally.
+}
+```
+
+`async`-`await` is clean, concise, intuitive, easy to debug and has better error handling
+as compared to using Promise chains.
+
+## Promises
+
+You can also use [Promise chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining).
+
+```js
+wisdomClient.getRecommendations({
+  // input parameters
+}).then((response) => {
+  // process response.
+}).catch((error) => {
+  // error handling.
+}).finally(() => {
+  // finally.
+});
+```
+
+# APIs
 
 ## QueryAssistant
 

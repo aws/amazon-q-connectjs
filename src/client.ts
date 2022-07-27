@@ -69,14 +69,20 @@ export class Client<
     const _config = getRuntimeConfig(config) as ClientConfig;
     this.config = _config;
 
-    window.addEventListener('load', () => {
-      if (!this.config.instanceUrl.includes(window.location.origin)) {
-        this.initFrameConduit();
-      }
-    });
+    if (document.readyState === 'complete') {
+      this.initFrameConduit();
+    } else {
+      document.addEventListener('readystatechange', () => {
+        if (document.readyState === 'complete') {
+          this.initFrameConduit();
+        }
+      });
+    }
   }
 
   initFrameConduit() {
+    if (this.config.frameWindow || this.config.instanceUrl.includes(window?.location?.origin)) return;
+
     // Check if Wisdom is already initialized
     const iframe = document.querySelector('iframe[src*="wisdom-v2"]') as HTMLIFrameElement;
     
