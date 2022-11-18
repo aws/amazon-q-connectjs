@@ -101,7 +101,7 @@ export class Client<
         (window as any)?.connect?.agentApp.initApp(
           ServiceIds.Wisdom,
           'wisdom-container',
-          `${this.config.instanceUrl}/wisdom-v2/`,
+          `${this.config.instanceUrl}/wisdom-v2?theme=hidden_page`,
           {
             style: 'display: none',
           }
