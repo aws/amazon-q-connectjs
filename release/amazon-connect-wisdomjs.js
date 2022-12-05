@@ -80,7 +80,7 @@ class Client {
                     container.id = 'wisdom-container';
                     document.body.appendChild(container);
                 }
-                (_b = window === null || window === void 0 ? void 0 : window.connect) === null || _b === void 0 ? void 0 : _b.agentApp.initApp(serviceIds_1.ServiceIds.Wisdom, 'wisdom-container', `${this.config.instanceUrl}/wisdom-v2/`, {
+                (_b = window === null || window === void 0 ? void 0 : window.connect) === null || _b === void 0 ? void 0 : _b.agentApp.initApp(serviceIds_1.ServiceIds.Wisdom, 'wisdom-container', `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`, {
                     style: 'display: none',
                 });
                 this.config.frameWindow = document.getElementById(serviceIds_1.ServiceIds.Wisdom);
@@ -1018,7 +1018,7 @@ function __generator(thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
