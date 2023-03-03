@@ -3,10 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { WisdomClientResolvedConfig } from './wisdomClient';
 import { HttpRequestOptions } from './httpRequest';
 import { fetchWithChannel, subscribeToChannel } from './utils/communicationProxy';
 import { HttpResponse, HttpHeaders, HttpHandlerOptions } from './types/http';
 import { RequestHandler } from './types/requestHandler';
+import { Commands } from './types/command';
+import { parseAmzTarget } from './utils/buildAmzTarget';
 
 /*
  * Represents the http options that can be passed to a browser http client.
@@ -20,12 +23,17 @@ import { RequestHandler } from './types/requestHandler';
 }
 
 export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, HttpResponse<any>, HttpHandlerOptions> {
+  private runtimeConfig?: WisdomClientResolvedConfig;
   private config?: FetchHttpHandlerOptions;
 
   constructor(config?: FetchHttpHandlerOptions) {
     this.config = config ?? {};
 
-    subscribeToChannel(this.fetchRequestHandler.bind(this));
+    subscribeToChannel(this.channelRequestHandler.bind(this));
+  }
+
+  setRuntimeConfig(config: WisdomClientResolvedConfig) {
+    this.runtimeConfig = config;
   }
 
   async responseHandler(response: any): Promise<HttpResponse<any>> {
@@ -77,9 +85,38 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
     };
   }
 
+  async channelRequestHandler(_: string, options: RequestInit): Promise<HttpResponse<any>>  {
+    try {
+      const { headers, body } = options;
+
+      // Source the x-amz-target from the incoming headers
+      const amzTarget = (headers as any)?.['x-amz-target'];
+
+      // Parse the client method from x-amz-target
+      const clientMethod = parseAmzTarget(amzTarget);
+
+      // Source the helper command from the client method
+      const Command = Commands[clientMethod];
+
+      // Initialize helper command from the incoming request body
+      // this sets up a serializer to validate request args
+      const clientCommand = new Command(JSON.parse(body as string));
+
+      return this.handle(clientCommand.serialize(this.runtimeConfig as WisdomClientResolvedConfig), {});
+    } catch (e) {
+      console.log('Something went wrong during request.', e);
+      return Promise.reject(e);
+    }
+  }
+
   async fetchRequestHandler(url: string, options: RequestInit): Promise<HttpResponse<any>> {
-    const response = await fetch(url, options);
-    return this.responseHandler(response);
+    try {
+      const response = await fetch(url, options);
+      return this.responseHandler(response);
+    } catch (e) {
+      console.log('Something went wrong during request.', e);
+      return Promise.reject(e);
+    }
   }
 
   async fetchRequest(url: string, options: RequestInit, frameWindow?: HTMLIFrameElement): Promise<HttpResponse<any>> {

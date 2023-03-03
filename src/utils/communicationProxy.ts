@@ -34,8 +34,15 @@ export const fetchWithChannel = (
 export const subscribeToChannel = (
   cb: (url: string, options: RequestInit) => Promise<HttpResponse<any>>,
 ): void => {
+  // If the current window location is the same as the window parent Wisdom is not embedded.
+  if (window.location === window.parent.location) return;
+
   window.addEventListener('message', async (e) => {
     if (e.data.source !== AppNames.WisdomJS) return;
+
+    // Do we trust the sender of this message?
+    // (might be different from what we originally opened, for example).
+    if ((e.source as Window)?.location !== ((window.top || window.parent).location)) return;
 
     const port = e.ports[0];
     const { url, options } = e.data.data;

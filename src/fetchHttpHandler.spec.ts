@@ -5,6 +5,9 @@
 
 import { FetchHttpHandler } from './fetchHttpHandler';
 import { HttpRequest } from './httpRequest';
+import { CallSources } from './types/callSources';
+import { getRuntimeConfig } from './utils/runtimeConfig.shared';
+import { WisdomClientResolvedConfig } from './wisdomClient';
 
 describe('FetchHttpHandler', () => {
   let mockRequest = new HttpRequest({
@@ -43,6 +46,11 @@ describe('FetchHttpHandler', () => {
   });
 
   const fetchHttpHandler = new FetchHttpHandler();
+  fetchHttpHandler.setRuntimeConfig(
+    getRuntimeConfig({
+      instanceUrl: 'https://foo.amazonaws.com',
+    }) as WisdomClientResolvedConfig,
+  );
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -139,5 +147,85 @@ describe('FetchHttpHandler', () => {
 
     await expect(fetchHttpHandler.handle({} as any, {})).rejects.toHaveProperty('name', 'TimeoutError');
     expect(mockFetch.mock.calls.length).toBe(1);
+  });
+
+  it('should throw an unsupported service prefix error if the incoming MessageChannel request x-amz-target is invalid', async () => {
+    const requestOptions = {
+      headers: {
+        'x-amz-target': 'some-client-method',
+      },
+    };
+
+    await expect(fetchHttpHandler.channelRequestHandler('', requestOptions)).rejects.toThrowError('Unsupported service prefix.');
+  });
+
+  it('should throw an unsupported service error if the incoming MessageChannel request x-amz-target is invalid', async () => {
+    const requestOptions = {
+      headers: {
+        'x-amz-target': 'AgentAppService.Cases.some-client-method',
+      },
+    };
+
+    await expect(fetchHttpHandler.channelRequestHandler('', requestOptions)).rejects.toThrowError('Unsupported service.');
+  });
+
+  it('should throw an unsupported client method error if the incoming MessageChannel request x-amz-target is invalid', async () => {
+    const requestOptions = {
+      headers: {
+        'x-amz-target': 'AgentAppService.WisdomV2.some-client-method',
+      },
+    };
+
+    await expect(fetchHttpHandler.channelRequestHandler('', requestOptions)).rejects.toThrowError('Unsupported client method.');
+  });
+
+  it('should throw an invalid user input error if the incoming MessageChannel request body is invalid', async () => {
+    const requestUrl = 'https://other-origin-domain.amazonaws.com';
+    let requestOptions = {
+      headers: {
+        'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations',
+      },
+      body: JSON.stringify({}),
+    };
+
+    await expect(fetchHttpHandler.channelRequestHandler(requestUrl, requestOptions)).rejects.toThrowError('Invalid InstanceId.');
+
+    requestOptions = {
+      headers: {
+        'x-amz-target': 'AgentAppService.Lcms.getContact',
+      },
+      body: JSON.stringify({
+        instanceId: '1234567890',
+      }),
+    };
+
+    await expect(fetchHttpHandler.channelRequestHandler(requestUrl, requestOptions)).rejects.toThrowError('Invalid awsAccountId.');
+  });
+
+  it('should reconstruct the url even if the incoming MessageChannel request body is valid', async () => {
+    const requestUrl = 'https://other-origin-domain.amazonaws.com';
+    const requestOptions = {
+      headers: {
+        'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations',
+      },
+      body: JSON.stringify({
+        InstanceId: '1234567890',
+      }),
+    };
+
+    await fetchHttpHandler.channelRequestHandler(requestUrl, requestOptions);
+
+    expect(mockFetch.mock.calls.pop()).toEqual([
+      'https://foo.amazonaws.com/agent-app/api',
+      {
+        method: 'POST',
+        headers: {
+          'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations'
+        },
+        body: JSON.stringify({
+          InstanceId: '1234567890',
+        }),
+      },
+    ]);
   });
 });
