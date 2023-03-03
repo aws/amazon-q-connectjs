@@ -22,6 +22,7 @@ describe('WisdomClient', () => {
   const mockHandler = jest.fn((args: any) => Promise.resolve('success response'));
   const mockResolveRequestHandler = jest.fn((args: any) => mockHandler);
 
+  delete (global as any).location;
   (global as any).location = { href: 'https://foo.amazonaws.com' };
   (global as any).MessageChannel = MessageChannel;
 

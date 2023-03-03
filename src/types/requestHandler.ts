@@ -3,7 +3,13 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { WisdomClientResolvedConfig } from "../wisdomClient";
+
 export interface RequestHandler<RequestType, ResponseType, HandlerOptions> {
+  setRuntimeConfig: (
+    config: WisdomClientResolvedConfig,
+  ) => void;
+
   handle: (
     request: RequestType,
     HandlerOptions?: HandlerOptions,

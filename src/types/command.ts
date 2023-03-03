@@ -5,6 +5,16 @@
 
 import { ClientMethods } from './clientMethods';
 import { HttpResponse } from '../types/http';
+import {
+  GetAuthorizedWidgetsForUser,
+  GetContent,
+  GetRecommendations,
+  ListIntegrationAssociations,
+  NotifyRecommendationsReceived,
+  QueryAssistant,
+  SearchSessions,
+  GetContact,
+} from '../commands';
 
 /*
  * Function definition of command's 'resolveRequestHandler' function.
@@ -27,3 +37,14 @@ export interface Command<
     options: any
   ): InvokeFunction<HttpResponse<OutputType>>;
 }
+
+export const Commands = {
+  getAuthorizedWidgetsForUser: GetAuthorizedWidgetsForUser,
+  getContent: GetContent,
+  getRecommendations: GetRecommendations,
+  listIntegrationAssociations: ListIntegrationAssociations,
+  notifyRecommendationsReceived: NotifyRecommendationsReceived,
+  queryAssistant: QueryAssistant,
+  searchSessions: SearchSessions,
+  getContact: GetContact,
+};
