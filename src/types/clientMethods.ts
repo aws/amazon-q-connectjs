@@ -16,3 +16,23 @@ export enum ClientMethods {
   SearchSessions = 'searchSessions',
   GetContact = 'getContact',
 }
+
+export enum WisdomMethods {
+  GetContent = 'getContent',
+  GetRecommendations = 'getRecommendations',
+  NotifyRecommendationsReceived = 'notifyRecommendationsReceived',
+  QueryAssistant = 'queryAssistant',
+  SearchSessions = 'searchSessions',
+}
+
+export enum AgentAppMethods {
+  GetAuthorizedWidgetsForUser = 'getAuthorizedWidgetsForUser',
+}
+
+export enum AcsMethods {
+  ListIntegrationAssociations = 'listIntegrationAssociations',
+}
+
+export enum LcmsMethods {
+  GetContact = 'getContact',
+}

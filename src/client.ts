@@ -78,6 +78,8 @@ export class Client<
         }
       });
     }
+
+    this.config.requestHandler.setRuntimeConfig(this.config)
   }
 
   initFrameConduit() {
