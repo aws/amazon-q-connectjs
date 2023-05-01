@@ -1,7 +1,7 @@
 {
   "name": "amazon-connect-wisdomjs",
   "description": "Wisdom SDK for JavaScript Wisdom Client",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "scripts": {
     "bundle": "webpack",
     "build:all": "npm run build:cjs && npm run build:es && npm run build:types",
