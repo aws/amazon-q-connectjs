@@ -11,7 +11,7 @@ module.exports = {
   ],
   globals: {
     connect: 'readonly',
-    wisdom: 'readonly',
+    qconnectjs: 'readonly',
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {

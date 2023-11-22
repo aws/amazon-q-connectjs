@@ -1,10 +1,10 @@
-# amazon-connect-wisdomjs
+# amazon-q-connectjs
 
-The Amazon Connect Wisdom JavaScript library (WisdomJS) gives you the power to build your own Wisdom widget.
+Amazon Q in Connect, an LLM-enhanced evolution of Amazon Connect Wisdom. The Amazon Q Connect JavaScript library (QConnectJS) gives you the power to build your own Amazon Q Connect widget.
 
-The library uses an Amazon Connect authentication token to make API calls to Amazon Connect Wisdom and supports all Wisdom `Agent Assistant` functionality. For example, you can manually query knowledge documents, get knowledge content, or start generating automated suggestions.
+The library uses an Amazon Connect authentication token to make API calls to Amazon Q Connect and supports all Amazon Q Connect `Agent Assistant` functionality. For example, you can manually query knowledge documents, get knowledge content, or start generating automated suggestions.
 
-WisdomJS supports the following APIs:
+QConnectJS supports the following APIs:
 * [QueryAssistant](#QueryAssistant)
 * [GetContact](#GetContact)
 * [GetRecommendations](#GetRecommendations)
@@ -18,9 +18,9 @@ Note that this library must be used in conjunction with [amazon-connect-streams]
 
 ## Learn More
 
-For more advanced features, all Amazon Connect Wisdom functionality is accessible using the public API. For example, you can create an assistant and a knowledge base. Check out [Wisdom](https://docs.aws.amazon.com/cli/latest/reference/wisdom/index.html) available via the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
+For more advanced features, all Amazon Q Connect functionality is accessible using the public API. For example, you can create an assistant and a knowledge base. Check out [Amazon Q Connect](https://docs.aws.amazon.com/cli/latest/reference/amazon-q-connect/index.html) available via the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
 
-To learn more about Amazon Connect Wisdom and its capabilities, please check out the [Amazon Connect Wisdom User Guide](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html).
+To learn more about Amazon Q Connect and its capabilities, please check out the [Amazon Q Connect User Guide](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html).
 
 To learn more about Amazon Connect and its capabilities, please check out the [Amazon Connect User Guide](https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html).
 
@@ -32,56 +32,56 @@ To learn more about Amazon Connect and its capabilities, please check out the [A
 
 The first step in setting up your Amazon Connect contact center is to create a virtual contact center instance. Each instance contains all the resources and settings related to your contact center. Follow the [Get started with Amazon Connect](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) user guide to get started.
 
-### Enable Amazon Connect Wisdom For Your Instance
+### Enable Amazon Q Connect For Your Instance
 
-To utilize WisdomJS you should start by enabling Amazon Connect Wisdom for your Amazon Connect instance. Follow the [Enable Wisdom](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) user guide to get started.
+To utilize QConnectJS you should start by enabling Amazon Q Connect for your Amazon Connect instance. Follow the [Enable Amazon Q Connect](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q-connect.html) user guide to get started.
 
 ### Set Up Integrated Applications
 
-All domains looking to integrate with Amazon Connect and Amazon Connect Wisdom must be explicitly allowed for cross-domain access to the instance. For example, to integrate with your custom agent application, you must place your agent application domain in an allow list. To allow list a domain URL follow the [app integration guide](https://docs.aws.amazon.com/connect/latest/adminguide/app-integration.html).
+All domains looking to integrate with Amazon Connect and Amazon Q Connect must be explicitly allowed for cross-domain access to the instance. For example, to integrate with your custom agent application, you must place your agent application domain in an allow list. To allow list a domain URL follow the [app integration guide](https://docs.aws.amazon.com/connect/latest/adminguide/app-integration.html).
 
 ### A few things to note:
 * Allowlisted domains must be HTTPS.
-* All of the pages that attempt to initialize the WisdomJS library must be hosted on domains that are allowlisted.
+* All of the pages that attempt to initialize the QConnectJS library must be hosted on domains that are allowlisted.
 
 # Usage
 
 ## Install from NPM
 
 ```bash
-npm install amazon-connect-wisdomjs
+npm install amazon-q-connectjs
 ```
 
 ## Build with NPM
 
 ```bash
-$ git clone https://github.com/aws/amazon-connect-wisdomjs
-cd amazon-connect-wisdomjs
+$ git clone https://github.com/aws/amazon-q-connectjs
+cd amazon-q-connectjs
 npm install
 npm run bundle
 ```
 
-Find build artifacts in the `release` directory. This will generate a file called `amazon-connect-wisdomjs.js` and a minified version `amazon-connect-wisdomjs-min.js`. This is the full WisdomJS client which you will want to include in your page.
+Find build artifacts in the `release` directory. This will generate a file called `amazon-q-connectjs.js` and a minified version `amazon-q-connectjs-min.js`. This is the full QConnectJS client which you will want to include in your page.
 
 ## Download from Github
 
-`amazon-connect-wisdomjs` is available on [NPM](https://www.npmjs.com/package/amazon-connect-wisdomjs) but if you'd like to download it here, you can find build artificacts in the [release](/release) directory.
+`amazon-q-connectjs` is available on [NPM](https://www.npmjs.com/package/amazon-q-connectjs) but if you'd like to download it here, you can find build artificacts in the [release](/release) directory.
 
 ## Load from CDN
 
-`amazon-connect-wisdomjs` is also available on open source CDNs. If you'd like to load build artifacts from a CDN, you can use either of the script tags below.
+`amazon-q-connectjs` is also available on open source CDNs. If you'd like to load build artifacts from a CDN, you can use either of the script tags below.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/amazon-connect-wisdomjs@1/release/amazon-connect-wisdomjs.js"><script>
+<script src="https://cdn.jsdelivr.net/npm/amazon-q-connectjs@1/release/amazon-q-connectjs.js"></script>
 ```
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/amazon-connect-wisdomjs@1/release/amazon-connect-wisdomjs-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/amazon-q-connectjs@1/release/amazon-q-connectjs-min.js"></script>
 ```
 
 # Initialization
 
-Initializing the WisdomJS client is the fist step to verify that you have everything setup correctly.
+Initializing the QConnectJS client is the fist step to verify that you have everything setup correctly.
 
 ```html
 <!doctype html>
@@ -89,7 +89,7 @@ Initializing the WisdomJS client is the fist step to verify that you have everyt
   <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="connect-streams-min.js"></script>
-    <script type="text/javascript" src="amazon-connect-wisdomjs-min.js"></script>
+    <script type="text/javascript" src="amazon-q-connectjs-min.js"></script>
   </head>
   <!-- Add the call to init() as an onload so it will only run once the page is loaded -->
   <body onload="init()">
@@ -110,16 +110,16 @@ Initializing the WisdomJS client is the fist step to verify that you have everyt
           }
         );
   
-        // Initialize WisdomJS client
-        const wisdomClient = new connect.wisdomjs.WisdomClient({
+        // Initialize QConnectJS client with either "QConnectClient" or "Client"
+        const qConnectClient = new connect.qconnectjs.QConnectClient({
           instanceUrl,
         });
 
-        const wisdomClient = new connect.wisdomjs.Client({
+        const qConnectClient = new connect.qconnectjs.Client({
           instanceUrl: instanceUrl,                                        // REQUIRED
           endpoint: "https://my-instance-domain.awsapps.com/connect/api",  // optional, defaults to '<instanceUrl>'
           callSource: "agent-app",                                         // optional, defaults to 'agent-app'
-          serviceId: 'Wisdom',                                             // optional, defaults to 'Wisdom'
+          serviceId: 'AmazonQConnect',                                     // optional, defaults to 'AmazonQConnect'
           maxAttempts: 3,                                                  // optional, defaults to 3
           logger: {},                                                      // optional, if provided overrides default logger
           headers: {},                                                     // optional, if provided overrides request headers
@@ -131,7 +131,7 @@ Initializing the WisdomJS client is the fist step to verify that you have everyt
 </html>
 ```
 
-The WisdomJS client integrates with Connect by loading the pre-built Wisdom widget located at `<instanceUrl>/wisdom-v2` into an iframe and placing it into a container div. API requests are funneled through this widget and made available to your JS client code.
+The QConnectJS client integrates with Connect by loading the pre-built Amazon Q Connect widget located at `<instanceUrl>/wisdom-v2` into an iframe and placing it into a container div. API requests are funneled through this widget and made available to your JS client code.
 
 * `instanceUrl`: The Connect instance url.
 * `endpoint`: Optional, set to override the Connect endpoint to use.
@@ -147,41 +147,41 @@ The WisdomJS client integrates with Connect by loading the pre-built Wisdom widg
 
 ## Imports
 
-WisdomJS is modularized by client and commands.
-To send a request, you only need to import the `WisdomClient` and
+QConnectJS is modularized by client and commands.
+To send a request, you only need to import the `QConnectClient` and
 the commands you need, for example `GetRecommendations`:
 
 ```js
 // ES5 example
-const { Client, GetRecommendations } = require("amazon-connect-wisdomjs");
+const { Client, GetRecommendations } = require("amazon-q-connectjs");
 ```
 
 ```ts
 // ES6+ example
-import { Client, GetRecommendations } from "amazon-connect-wisdomjs";
+import { Client, GetRecommendations } from "amazon-q-connectjs";
 ```
 
 ## Convenience Methods
 
-The WisdomJS client can also send requests using convenience methods. However, it results in a bigger bundle size.
+The QConnectJS client can also send requests using convenience methods. However, it results in a bigger bundle size.
 
 ```ts
-import { WisdomClient } from "amazon-connect-wisdomjs";
+import { QConnectClient } from "amazon-q-connectjs";
 
-const wisdomClient = new WisdomClient({
+const qConnectClient = new QConnectClient({
   instanceUrl: "https://your-connect-instance.my.connect.aws",
 });
 
 // async/await.
 try {
-  const response = await wisdomClient.getRecommendations(params);
+  const response = await qConnectClient.getRecommendations(params);
   // process response.
 } catch (error) {
   // error handling.
 }
 
 // Promises.
-wisdomClient
+qConnectClient
   .getRecommendations(params)
   .then((response) => {
     // process response.
@@ -199,18 +199,18 @@ To send a request, you:
 - call the desired API
 
 ```js
-const wisdomClient = new WisdomClient({
+const qConnectClient = new QConnectClient({
   instanceUrl: "https://your-connect-instance.my.connect.aws",
 });
 
-wisdomClient.getRecommendations({
+qConnectClient.getRecommendations({
   // input parameters
 });
 ```
 
 # Reading Responses
 
-All API calls through WisdomJS return a promise. The promise resolves/rejects to provide the response from the API call.
+All API calls through QConnectJS return a promise. The promise resolves/rejects to provide the response from the API call.
 
 ## Async/await
 
@@ -220,7 +220,7 @@ operator.
 ```js
 // async/await.
 try {
-  const response = await wisdomClient.getRecommendations({
+  const response = await qConnectClient.getRecommendations({
     // input parameters
   });
   // process response.
@@ -239,7 +239,7 @@ as compared to using Promise chains.
 You can also use [Promise chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining).
 
 ```js
-wisdomClient.getRecommendations({
+qConnectClient.getRecommendations({
   // input parameters
 }).then((response) => {
   // process response.
@@ -254,18 +254,18 @@ wisdomClient.getRecommendations({
 
 ## QueryAssistant
 
-Performs a manual search against the specified assistant. To retrieve recommendations for an assistant, use GetRecommendations. For more information check out the [QueryAssistant](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html) API reference.
+Performs a manual search against the specified assistant. To retrieve recommendations for an assistant, use GetRecommendations. For more information check out the [QueryAssistant](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_QueryAssistant.html) API reference.
 
 ### URI Request Parameters
 
-* `assistantId`: The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `assistantId`: The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `queryText`: The text to search for.
 * `maxResults`: The maximum number of results to return per page.
 * `nextToken`: The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 
 #### A few things to note:
 
-* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by WisdomJS to look up the `assistant` and `knowledge base` that has been configured for Wisdom. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
 
 ### Response Syntax
 
@@ -319,7 +319,7 @@ const queryAssistantCommand = new QueryAssistant({
 });
 
 try {
-  const response = await wisdomClient.call(queryAssistantCommand);
+  const response = await qConnectClient.call(queryAssistantCommand);
     // process response.
 } catch (error) {
   // error handling.
@@ -328,7 +328,7 @@ try {
 
 ## GetContact
 
-Retrieves contact details, including the Wisdom `session ARN`, for a specified contact.
+Retrieves contact details, including the Amazon Q Connect `session ARN`, for a specified contact.
 
 ### URI Request Parameters
 
@@ -381,7 +381,7 @@ const getContactCommand = new GetContact({
 });
 
 try {
-  const response = await wisdomClient.call(getContactCommand);
+  const response = await qConnectClient.call(getContactCommand);
     // process response.
 } catch (error) {
   // error handling.
@@ -390,19 +390,19 @@ try {
 
 ## GetRecommendations
 
-Retrieves recommendations for the specified session. To avoid retrieving the same recommendations in subsequent calls, use NotifyRecommendationsReceived. This API supports long-polling behavior with the `waitTimeSeconds` parameter. Short poll is the default behavior and only returns recommendations already available. To perform a manual query against an assistant, use the QueryAssistant API. For more information check out the [GetRecommendations](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html) API reference.
+Retrieves recommendations for the specified session. To avoid retrieving the same recommendations in subsequent calls, use NotifyRecommendationsReceived. This API supports long-polling behavior with the `waitTimeSeconds` parameter. Short poll is the default behavior and only returns recommendations already available. To perform a manual query against an assistant, use the QueryAssistant API. For more information check out the [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html) API reference.
 
 ### URI Request Parameters
 
-* `assistantId`: The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `assistantId`: The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `maxResult`: The maximum number of results to return per page.
 * `sessionId`: The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `waitTimeSeconds`: The duration (in seconds) for which the call waits for a recommendation to be made available before returning. If a recommendation is available, the call returns sooner than WaitTimeSeconds. If no messages are available and the wait time expires, the call returns successfully with an empty list.
 
 #### A few things to note:
 
-* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by WisdomJS to look up the `assistant` and `knowledge base` that has been configured for Wisdom. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
-* The `session ARN` can be retrieved by used the `GetContact` API provided by WisdomJS to look up the `session` associated with a given active `contact`. See [GetContact](#GetContact) for more information.
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
+* The `session ARN` can be retrieved by used the `GetContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [GetContact](#GetContact) for more information.
 * To avoid retrieving the same recommendations on subsequent calls, the `NotifyRecommendationsReceived` API should be called after each response. See [NotifyRecommendationsReceived]() for more information.
 
 ### Response Syntax
@@ -456,7 +456,7 @@ const getRecommendationsCommand = new GetRecommendations({
 });
 
 try {
-  const response = await wisdomClient.call(getRecommendationsCommand);
+  const response = await qConnectClient.call(getRecommendationsCommand);
     // process response.
 } catch (error) {
   // error handling.
@@ -465,18 +465,18 @@ try {
 
 ## NotifyRecommendationsReceived
 
-Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with GetRecommendations and a `waitTimeSeconds` input for long-polling behavior and avoiding duplicate recommendations. For more information check out the [NotifyRecommendationsReceived](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html) API reference.
+Removes the specified recommendations from the specified assistant's queue of newly available recommendations. You can use this API in conjunction with GetRecommendations and a `waitTimeSeconds` input for long-polling behavior and avoiding duplicate recommendations. For more information check out the [NotifyRecommendationsReceived](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_NotifyRecommendationsReceived.html) API reference.
 
 ### URI Request Parameters
 
-* `assistantId`: The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `assistantId`: The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `sessionId`: The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `recommendationIds`: The identifier of the recommendations.
 
 #### A few things to note:
 
-* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by WisdomJS to look up the `assistant` and `knowledge base` that has been configured for Wisdom. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
-* The `session ARN` can be retrieved by used the `GetContact` API provided by WisdomJS to look up the `session` associated with a given active `contact`. See [GetContact](#GetContact) for more information.
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
+* The `session ARN` can be retrieved by used the `GetContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [GetContact](#GetContact) for more information.
 
 ### Response Syntax
 
@@ -504,7 +504,7 @@ const notifyRecommendationsReceivedCommand = new NotifyRecommendationsReceived({
 });
 
 try {
-  const response = await wisdomClient.call(notifyRecommendationsReceivedCommand);
+  const response = await qConnectClient.call(notifyRecommendationsReceivedCommand);
     // process response.
 } catch (error) {
   // error handling.
@@ -513,7 +513,7 @@ try {
 
 ## GetContent
 
-Retrieves content, including a pre-signed URL to download the content. The `contentId` and `knowledgeBaseId` request parameters are part of search results response syntax when calling `QueryAssistant` or recommendations response syntax when calling `GetRecommendations`. For more information check out the [GetContent](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html) API reference.
+Retrieves content, including a pre-signed URL to download the content. The `contentId` and `knowledgeBaseId` request parameters are part of search results response syntax when calling `QueryAssistant` or recommendations response syntax when calling `GetRecommendations`. For more information check out the [GetContent](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetContent.html) API reference.
 
 ### URI Request Parameters
 
@@ -533,7 +533,7 @@ const getContentCommand = new GetContent({
 });
 
 try {
-  const response = await wisdomClient.call(getContentCommand);
+  const response = await qConnectClient.call(getContentCommand);
     // process response.
 } catch (error) {
   // error handling.
@@ -542,18 +542,18 @@ try {
 
 ## SearchSessions
 
-Searches for sessions. For more information check out the [SearchSessions](https://docs.aws.amazon.com/wisdom/latest/APIReference/API_SearchSessions.html) API reference.
+Searches for sessions. For more information check out the [SearchSessions](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_SearchSessions.html) API reference.
 
 ### URI Request Parameters
 
-* `assistantId`: The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `assistantId`: The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `searchExpression`: The search expression to filter results.
 * `maxResults`: The maximum number of results to return per page.
 * `nextToken`: The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 
 #### A few things to note:
 
-* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by WisdomJS to look up the `assistant` and `knowledge base` that has been configured for Wisdom. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
 
 ### Response Syntax
 
@@ -588,7 +588,7 @@ const searchSessionsCommand = new SearchSessions({
 });
 
 try {
-  const response = await wisdomClient.call(searchSessionsCommand);
+  const response = await qConnectClient.call(searchSessionsCommand);
     // process response.
 } catch (error) {
   // error handling.
@@ -642,7 +642,7 @@ const listIntegrationAssociationsCommand = new ListIntegrationAssociations({
 });
 
 try {
-  const response = await wisdomClient.call(listIntegrationAssociations);
+  const response = await qConnectClient.call(listIntegrationAssociations);
     // process response.
 } catch (error) {
   // error handling.
@@ -651,7 +651,7 @@ try {
 
 # StreamsJS Integration
 
-In order to use WisdomJS, the library must be used in conjunction with [amazon-connect-streams](https://github.com/amazon-connect/amazon-connect-streams). Integrating with Amazon
+In order to use QConnectJS, the library must be used in conjunction with [amazon-connect-streams](https://github.com/amazon-connect/amazon-connect-streams). Integrating with Amazon
 Connect Streams provides enables you to handle agent and contact state events directly through an object oriented event driven interface.
 
 ## Agent
@@ -710,6 +710,6 @@ See [CONTRIBUTING](CONTRIBUTING.md) for more information.
 
 # License
 
-WisdomJS is distributed under the
+QConnectJS is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE for more information.

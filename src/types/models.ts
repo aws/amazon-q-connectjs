@@ -87,7 +87,7 @@ export interface ContentData {
   status: ContentStatus | string;
   /*
    * A key/value map to store attributes without affecting tagging or recommendations.
-   * For example, when synchronizing data between an external system and Wisdom, you can store an external version identifier as metadata to utilize for determining drift.
+   * For example, when synchronizing data between an external system and Amazon Q Connect, you can store an external version identifier as metadata to utilize for determining drift.
    */
   metadata: { [key: string]: string };
   /*
@@ -318,11 +318,11 @@ export interface SearchExpression {
    */
   sessionArn: string;
   /*
-   * The identifier of the Wisdom assistant.
+   * The identifier of the Amazon Q Connect assistant.
    */
   assistantId: string;
   /*
-   * The Amazon Resource Name (ARN) of the Wisdom assistant
+   * The Amazon Resource Name (ARN) of the Amazon Q Connect assistant
    */
   assistantArn: string;
 }
@@ -357,7 +357,7 @@ export interface GetContentResponse {
  */
 export interface GetRecommendationsRequest {
   /*
-   * The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   * The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
    */
   assistantId: string;
   /*
@@ -395,7 +395,7 @@ export interface GetRecommendationsResponse {
  */
 export interface NotifyRecommendationsReceivedRequest {
   /*
-   * The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   * The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
    */
   assistantId: string;
   /*
@@ -425,7 +425,7 @@ export interface NotifyRecommendationsReceivedResponse {
  */
 export interface QueryAssistantRequest {
   /*
-   * The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   * The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
    */
   assistantId: string;
   /*
@@ -468,7 +468,7 @@ export interface SearchSessionsRequest {
    */
   maxResults?: number;
   /*
-   * The identifier of the Wisdom assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   * The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
    */
   assistantId: string;
   /*
@@ -544,11 +544,11 @@ export interface ListIntegrationAssociationsResponse {
     */
     InstanceId: string,
     /*
-    * The identifier of the Connect integration type. For Wisdom integration association integrationType should be one of WISDOM_ASSISTANT or WISDOM_KNOWLEDGE_BASE.
+    * The identifier of the Connect integration type. For Amazon Q Connect integration association integrationType should be one of WISDOM_ASSISTANT or WISDOM_KNOWLEDGE_BASE.
     */
     IntegrationType: string,
     /*
-    * The Amazon Resource Name (ARN) of the Connect integration source. For Wisdom integration association integrationArn should be the ARN of either a Wisdom assistant or Wisdom knowledge base.
+    * The Amazon Resource Name (ARN) of the Connect integration source. For Amazon Q Connect integration association integrationArn should be the ARN of either a Amazon Q Connect assistant or Amazon Q Connect knowledge base.
     */
     IntegrationArn: string,
     /*
@@ -556,11 +556,11 @@ export interface ListIntegrationAssociationsResponse {
     */
     SourceApplicationUrl: string,
     /*
-    * The application name of the Connect integration source. For Wisdom integration association sourceApplicationName should be 'Wisdom'.
+    * The application name of the Connect integration source. For Amazon Q Connect integration association sourceApplicationName should be 'Amazon Q Connect'.
     */
     SourceApplicationName: string,
     /*
-    * The identifier of the Connect integration source. For Wisdom integration association sourceType should be 'Wisdom'.
+    * The identifier of the Connect integration source. For Amazon Q Connect integration association sourceType should be 'Amazon Q Connect'.
     */
     SourceType: string,
   }[],
@@ -586,7 +586,7 @@ export interface GetContactResponse {
     wisdomFeatures: {
       wisdomConfig: {
         /*
-         * The Amazon Resource Name (ARN) of the Wisdom session.
+         * The Amazon Resource Name (ARN) of the Amazon Q Connect session.
          */
         sessionArn: string;
       };

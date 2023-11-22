@@ -7,6 +7,6 @@
  * Represents the AppNames that can be passed via the communication proxy for MessageChannel source.
  */
 export enum AppNames {
-  WisdomJS = 'wisdom-js',
+  QConnectJS = 'wisdom-js',
   WisdomUI = 'wisdom-ui',
 }

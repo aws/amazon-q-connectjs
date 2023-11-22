@@ -38,9 +38,9 @@ export type ServiceOutputTypes =
   | GetContactOutput;
 
 /*
- * The configuration interface of WisdomClient class constructor that sets the instance url and other options.
+ * The configuration interface of the QConnectClient class constructor that sets the instance url and other options.
  */
-export interface WisdomClientConfig extends ClientConfiguration {
+export interface QConnectClientConfig extends ClientConfiguration {
   /*
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
    */
@@ -48,24 +48,24 @@ export interface WisdomClientConfig extends ClientConfiguration {
 }
 
 /*
- * The resolved configuration interface of WisdomClient class.
+ * The resolved configuration interface of the QConnectClient class.
  */
-export type WisdomClientResolvedConfig = ClientResolvedConfig;
+export type QConnectClientResolvedConfig = ClientResolvedConfig;
 
 /*
- * All Amazon Connect Wisdom agent application functionality is accessible using the API.
+ * All Amazon Q Connect agent application functionality is accessible using the API.
  * For example, you can search sessions, and get automatic recommendations.
  *
- * Some more advanced features are only accessible using the AWS SDK Wisdom API.
+ * Some more advanced features are only accessible using the AWS SDK Amazon Q Connect API.
  * For example, you can manually manage content by uploading custom files and control their lifecycle.
  */
-export class WisdomClient extends Client<
+export class QConnectClient extends Client<
   HttpHandlerOptions,
   ServiceInputTypes,
   ServiceOutputTypes,
-  WisdomClientResolvedConfig
+  QConnectClientResolvedConfig
 > {
-  constructor(config: WisdomClientConfig) {
+  constructor(config: QConnectClientConfig) {
     super(config);
   }
 

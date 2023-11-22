@@ -4,7 +4,7 @@
  */
 
 import { Command } from './command';
-import { WisdomClientResolvedConfig } from '../wisdomClient';
+import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
 import { NotifyRecommendationsReceivedRequest, NotifyRecommendationsReceivedResponse } from '../types/models';
 import { ClientMethods } from '../types/clientMethods';
@@ -18,7 +18,7 @@ export interface NotifyRecommendationsReceivedOutput extends NotifyRecommendatio
 export class NotifyRecommendationsReceived extends Command<
   NotifyRecommendationsReceivedInput,
   NotifyRecommendationsReceivedOutput,
-  WisdomClientResolvedConfig
+  QConnectClientResolvedConfig
 > {
   readonly clientMethod: ClientMethods;
 
@@ -28,14 +28,14 @@ export class NotifyRecommendationsReceived extends Command<
   }
 
   resolveRequestHandler(
-    configuration: WisdomClientResolvedConfig,
+    configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<NotifyRecommendationsReceivedOutput>> {
     const { requestHandler } = configuration;
     return () => requestHandler.handle(this.serialize(configuration), options || {});
   }
 
-  serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
+  serialize(configuration: QConnectClientResolvedConfig): HttpRequest {
     const { assistantId, sessionId, recommendationIds } = this.clientInput;
 
     if ((assistantId === undefined) || !assistantId.length) {

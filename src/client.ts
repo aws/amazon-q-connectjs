@@ -85,32 +85,32 @@ export class Client<
   initFrameConduit() {
     if (this.config.frameWindow || this.config.instanceUrl.includes(window?.location?.origin)) return;
 
-    // Check if Wisdom is already initialized
+    // Check if Amazon Q Connect is already initialized
     const iframe = document.querySelector('iframe[src*="wisdom-v2"]') as HTMLIFrameElement;
     
     if (iframe && iframe.contentWindow) {
       this.config.frameWindow = iframe;
     } else {
       try {
-        let container = document.querySelector('wisdom-container');
+        let container = document.querySelector('q-connect-container');
 
         if (!container) {
           container = document.createElement('div');
-          container.id = 'wisdom-container';
+          container.id = 'q-connect-container';
           document.body.appendChild(container);
         }
 
         (window as any)?.connect?.agentApp.initApp(
-          ServiceIds.Wisdom,
-          'wisdom-container',
+          ServiceIds.AmazonQConnect,
+          'q-connect-container',
           `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`,
           {
             style: 'display: none',
           }
         );
-        this.config.frameWindow = document.getElementById(ServiceIds.Wisdom) as HTMLIFrameElement;
+        this.config.frameWindow = document.getElementById(ServiceIds.AmazonQConnect) as HTMLIFrameElement;
       } catch (e) {
-        console.error('There was an error initializing Wisdom');
+        console.error('There was an error initializing Amazon Q Connect');
       }
     }
   }

@@ -4,5 +4,5 @@
  */
 
 export * from './client';
-export * from './wisdomClient';
+export * from './qConnectClient';
 export * from './commands';
