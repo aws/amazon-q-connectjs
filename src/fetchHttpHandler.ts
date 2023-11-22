@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { WisdomClientResolvedConfig } from './wisdomClient';
+import { QConnectClientResolvedConfig } from './qConnectClient';
 import { HttpRequestOptions } from './httpRequest';
 import { fetchWithChannel, subscribeToChannel } from './utils/communicationProxy';
 import { HttpResponse, HttpHeaders, HttpHandlerOptions } from './types/http';
@@ -23,7 +23,7 @@ import { parseAmzTarget } from './utils/buildAmzTarget';
 }
 
 export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, HttpResponse<any>, HttpHandlerOptions> {
-  private runtimeConfig?: WisdomClientResolvedConfig;
+  private runtimeConfig?: QConnectClientResolvedConfig;
   private config?: FetchHttpHandlerOptions;
 
   constructor(config?: FetchHttpHandlerOptions) {
@@ -32,7 +32,7 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
     subscribeToChannel(this.channelRequestHandler.bind(this));
   }
 
-  setRuntimeConfig(config: WisdomClientResolvedConfig) {
+  setRuntimeConfig(config: QConnectClientResolvedConfig) {
     this.runtimeConfig = config;
   }
 
@@ -102,7 +102,7 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
       // this sets up a serializer to validate request args
       const clientCommand = new Command(JSON.parse(body as string));
 
-      return this.handle(clientCommand.serialize(this.runtimeConfig as WisdomClientResolvedConfig), {});
+      return this.handle(clientCommand.serialize(this.runtimeConfig as QConnectClientResolvedConfig), {});
     } catch (e) {
       console.log('Something went wrong during request.', e);
       return Promise.reject(e);

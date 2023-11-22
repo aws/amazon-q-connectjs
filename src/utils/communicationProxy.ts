@@ -22,7 +22,7 @@ export const fetchWithChannel = (
       };
 
       destination.postMessage({
-        source: AppNames.WisdomJS,
+        source: AppNames.QConnectJS,
         data,
       }, origin, [port2]);
     } catch (e) {
@@ -34,11 +34,11 @@ export const fetchWithChannel = (
 export const subscribeToChannel = (
   cb: (url: string, options: RequestInit) => Promise<HttpResponse<any>>,
 ): void => {
-  // If the current window location is the same as the window parent Wisdom is not embedded.
-  if (window.location === window.parent.location) return;
+  // If the current window location is the same as the window parent Amazon Q Connect is not embedded.
+  if (window.self == window.top) return;
 
   window.addEventListener('message', async (e) => {
-    if (e.data.source !== AppNames.WisdomJS) return;
+    if (e.data.source !== AppNames.QConnectJS) return;
 
     // Do we trust the sender of this message?
     // (might be different from what we originally opened, for example).

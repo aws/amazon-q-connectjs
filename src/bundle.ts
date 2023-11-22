@@ -1,5 +1,5 @@
 import {
-  Client, WisdomClient,
+  Client, QConnectClient,
   GetAuthorizedWidgetsForUser,
   ListIntegrationAssociations,
   SearchSessions,
@@ -12,13 +12,13 @@ import {
 
 (() => {
   const connect = (global as any).connect || {};
-  const wisdomjs = connect.WisdomJS || {};
-  connect.wisdomjs = wisdomjs;
+  const qconnectjs = connect.qconnectjs || {};
+  connect.qconnectjs = qconnectjs;
   (global as any).connect = connect;
 
-  wisdomjs.Client = Client;
-  wisdomjs.WisdomClient = WisdomClient;
-  wisdomjs.commands = {
+  qconnectjs.Client = Client;
+  qconnectjs.QConnectClient = QConnectClient;
+  qconnectjs.commands = {
     GetAuthorizedWidgetsForUser,
     ListIntegrationAssociations,
     SearchSessions,

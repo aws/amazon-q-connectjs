@@ -4,7 +4,7 @@
  */
 
 import { Command } from './command';
-import { WisdomClientResolvedConfig } from '../wisdomClient';
+import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
 import { GetAuthorizedWidgetsForUserRequest, GetAuthorizedWidgetsForUserResponse } from '../types/models';
 import { ClientMethods } from '../types/clientMethods';
@@ -19,7 +19,7 @@ export interface GetAuthorizedWidgetsForUserOutput extends GetAuthorizedWidgetsF
 export class GetAuthorizedWidgetsForUser extends Command<
   GetAuthorizedWidgetsForUserInput,
   GetAuthorizedWidgetsForUserOutput,
-  WisdomClientResolvedConfig
+  QConnectClientResolvedConfig
 > {
   readonly clientMethod: ClientMethods;
 
@@ -29,14 +29,14 @@ export class GetAuthorizedWidgetsForUser extends Command<
   }
 
   resolveRequestHandler(
-    configuration: WisdomClientResolvedConfig,
+    configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<GetAuthorizedWidgetsForUserOutput>> {
     const { requestHandler } = configuration;
     return () => requestHandler.handle(this.serialize(configuration), options || {});
   }
 
-  serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
+  serialize(configuration: QConnectClientResolvedConfig): HttpRequest {
     return super.serialize({
       ...configuration,
       serviceId: ServiceIds.AgentApp,

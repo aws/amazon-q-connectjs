@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { WisdomClientResolvedConfig } from "../wisdomClient";
+import { QConnectClientResolvedConfig } from "../qConnectClient";
 
 export interface RequestHandler<RequestType, ResponseType, HandlerOptions> {
   setRuntimeConfig: (
-    config: WisdomClientResolvedConfig,
+    config: QConnectClientResolvedConfig,
   ) => void;
 
   handle: (

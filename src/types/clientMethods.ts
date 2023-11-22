@@ -4,7 +4,7 @@
  */
 
 /*
- * Represents the ClientMethods that can be called by the WisdomClient.
+ * Represents the ClientMethods that can be called by the QConnectClient.
  */
 export enum ClientMethods {
   GetAuthorizedWidgetsForUser = 'getAuthorizedWidgetsForUser',
@@ -17,7 +17,7 @@ export enum ClientMethods {
   GetContact = 'getContact',
 }
 
-export enum WisdomMethods {
+export enum QConnectMethods {
   GetContent = 'getContent',
   GetRecommendations = 'getRecommendations',
   NotifyRecommendationsReceived = 'notifyRecommendationsReceived',

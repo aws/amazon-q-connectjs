@@ -5,7 +5,7 @@
 
 import { MessageChannel } from 'worker_threads';
 
-import { WisdomClient } from './wisdomClient';
+import { QConnectClient } from './qConnectClient';
 import { GetAuthorizedWidgetsForUser } from './commands/getAuthorizedWidgetsForUser';
 import { GetContent } from './commands/getContent';
 import { GetRecommendations } from './commands/getRecommendations';
@@ -15,40 +15,39 @@ import { QueryAssistant } from './commands/queryAssistant';
 import { SearchSessions } from './commands/searchSessions';
 import { GetContact } from './commands/getContact';
 
-describe('WisdomClient', () => {
-  let client: WisdomClient;
+describe('QConnectClient', () => {
+  let client: QConnectClient;
 
   const instanceUrl = 'https://foo.amazonaws.com';
   const mockHandler = jest.fn((args: any) => Promise.resolve('success response'));
   const mockResolveRequestHandler = jest.fn((args: any) => mockHandler);
 
-  delete (global as any).location;
   (global as any).location = { href: 'https://foo.amazonaws.com' };
   (global as any).MessageChannel = MessageChannel;
 
   beforeEach(() => {
     jest.clearAllMocks();
 
-    client = new WisdomClient({
+    client = new QConnectClient({
       instanceUrl,
     });
   });
 
   it('should properly construct the endpoint from the instanceUrl when not provided', () => {
-    client = new WisdomClient({
+    client = new QConnectClient({
       instanceUrl,
       endpoint: 'https://localhost:4000/example-api/',
     });
     expect(client.config.endpoint).toEqual('https://localhost:4000/example-api/');
 
     const cfInstanceUrl = 'https://foo.com.awsapps.com/connect/'
-    client = new WisdomClient({
+    client = new QConnectClient({
       instanceUrl: cfInstanceUrl,
     });
     expect(client.config.endpoint).toEqual('https://foo.com.awsapps.com/connect/agent-app/api');
 
     const nginxInstanceUrl = 'https://foo.my.connect.aws';
-    client = new WisdomClient({
+    client = new QConnectClient({
       instanceUrl: nginxInstanceUrl,
     });
     expect(client.config.endpoint).toEqual('https://foo.my.connect.aws/agent-app/api');

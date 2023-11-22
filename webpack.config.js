@@ -3,11 +3,11 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: {
-    "amazon-connect-wisdomjs": [
+    "amazon-q-connectjs": [
       path.resolve(__dirname, 'src/bundle.ts'),
       path.resolve(__dirname, 'src/index.ts'),
     ],
-    "amazon-connect-wisdomjs-min": [
+    "amazon-q-connectjs-min": [
       path.resolve(__dirname, 'src/bundle.ts'),
       path.resolve(__dirname, 'src/index.ts'),
     ],
@@ -16,7 +16,7 @@ module.exports = {
     path: path.resolve(__dirname, 'release'),
     filename: '[name].js',
     library: {
-      name: 'WisdomJS',
+      name: 'QConnectJS',
       type: 'umd',
     },
   },

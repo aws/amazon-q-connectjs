@@ -7,7 +7,7 @@
  * Unique service identifier.
  */
 export enum ServiceIds {
-  Wisdom = 'Wisdom',
+  AmazonQConnect = 'AmazonQConnect',
   AgentApp = 'AgentApp',
   Acs = 'Acs',
   Lcms = 'Lcms',

@@ -4,7 +4,7 @@
  */
 
 import { Command } from './command';
-import { WisdomClientResolvedConfig } from '../wisdomClient';
+import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
 import { ListIntegrationAssociationsRequest, ListIntegrationAssociationsResponse } from '../types/models';
 import { ClientMethods } from '../types/clientMethods';
@@ -19,7 +19,7 @@ export interface ListIntegrationAssociationsOutput extends ListIntegrationAssoci
 export class ListIntegrationAssociations extends Command<
   ListIntegrationAssociationsInput,
   ListIntegrationAssociationsOutput,
-  WisdomClientResolvedConfig
+  QConnectClientResolvedConfig
 > {
   readonly clientMethod: ClientMethods;
 
@@ -29,14 +29,14 @@ export class ListIntegrationAssociations extends Command<
   }
 
   resolveRequestHandler(
-    configuration: WisdomClientResolvedConfig,
+    configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<ListIntegrationAssociationsOutput>> {
     const { requestHandler } = configuration;
     return () => requestHandler.handle(this.serialize(configuration), options || {});
   }
 
-  serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
+  serialize(configuration: QConnectClientResolvedConfig): HttpRequest {
     const { InstanceId } = this.clientInput;
 
     if ((InstanceId === undefined) || !InstanceId.length) {

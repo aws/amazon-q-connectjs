@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["WisdomJS"] = factory();
+		exports["QConnectJS"] = factory();
 	else
-		root["WisdomJS"] = factory();
+		root["QConnectJS"] = factory();
 })(self, () => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
@@ -21,12 +21,12 @@ __webpack_unused_export__ = ({ value: true });
 const index_1 = __webpack_require__(607);
 (() => {
     const connect = __webpack_require__.g.connect || {};
-    const wisdomjs = connect.WisdomJS || {};
-    connect.wisdomjs = wisdomjs;
+    const qconnectjs = connect.QConnectJS || {};
+    connect.qconnectjs = qconnectjs;
     __webpack_require__.g.connect = connect;
-    wisdomjs.Client = index_1.Client;
-    wisdomjs.WisdomClient = index_1.WisdomClient;
-    wisdomjs.commands = {
+    qconnectjs.Client = index_1.Client;
+    qconnectjs.QConnectClient = index_1.QConnectClient;
+    qconnectjs.commands = {
         GetAuthorizedWidgetsForUser: index_1.GetAuthorizedWidgetsForUser,
         ListIntegrationAssociations: index_1.ListIntegrationAssociations,
         SearchSessions: index_1.SearchSessions,
@@ -63,6 +63,7 @@ class Client {
                 }
             });
         }
+        this.config.requestHandler.setRuntimeConfig(this.config);
     }
     initFrameConduit() {
         var _a, _b;
@@ -74,19 +75,19 @@ class Client {
         }
         else {
             try {
-                let container = document.querySelector('wisdom-container');
+                let container = document.querySelector('q-connect-container');
                 if (!container) {
                     container = document.createElement('div');
-                    container.id = 'wisdom-container';
+                    container.id = 'q-connect-container';
                     document.body.appendChild(container);
                 }
-                (_b = window === null || window === void 0 ? void 0 : window.connect) === null || _b === void 0 ? void 0 : _b.agentApp.initApp(serviceIds_1.ServiceIds.Wisdom, 'wisdom-container', `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`, {
+                (_b = window === null || window === void 0 ? void 0 : window.connect) === null || _b === void 0 ? void 0 : _b.agentApp.initApp(serviceIds_1.ServiceIds.AmazonQConnect, 'q-connect-container', `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`, {
                     style: 'display: none',
                 });
-                this.config.frameWindow = document.getElementById(serviceIds_1.ServiceIds.Wisdom);
+                this.config.frameWindow = document.getElementById(serviceIds_1.ServiceIds.AmazonQConnect);
             }
             catch (e) {
-                console.error('There was an error initializing Wisdom');
+                console.error('There was an error initializing Amazon Q Connect');
             }
         }
     }
@@ -433,10 +434,15 @@ exports.SearchSessions = SearchSessions;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.FetchHttpHandler = void 0;
 const communicationProxy_1 = __webpack_require__(477);
+const command_1 = __webpack_require__(770);
+const buildAmzTarget_1 = __webpack_require__(517);
 class FetchHttpHandler {
     constructor(config) {
         this.config = config !== null && config !== void 0 ? config : {};
-        (0, communicationProxy_1.subscribeToChannel)(this.fetchRequestHandler.bind(this));
+        (0, communicationProxy_1.subscribeToChannel)(this.channelRequestHandler.bind(this));
+    }
+    setRuntimeConfig(config) {
+        this.runtimeConfig = config;
     }
     async responseHandler(response) {
         const { status, statusText, ok, headers, body } = response;
@@ -479,9 +485,29 @@ class FetchHttpHandler {
             body: JSON.parse(new TextDecoder('utf8').decode(res)),
         };
     }
+    async channelRequestHandler(_, options) {
+        try {
+            const { headers, body } = options;
+            const amzTarget = headers === null || headers === void 0 ? void 0 : headers['x-amz-target'];
+            const clientMethod = (0, buildAmzTarget_1.parseAmzTarget)(amzTarget);
+            const Command = command_1.Commands[clientMethod];
+            const clientCommand = new Command(JSON.parse(body));
+            return this.handle(clientCommand.serialize(this.runtimeConfig), {});
+        }
+        catch (e) {
+            console.log('Something went wrong during request.', e);
+            return Promise.reject(e);
+        }
+    }
     async fetchRequestHandler(url, options) {
-        const response = await fetch(url, options);
-        return this.responseHandler(response);
+        try {
+            const response = await fetch(url, options);
+            return this.responseHandler(response);
+        }
+        catch (e) {
+            console.log('Something went wrong during request.', e);
+            return Promise.reject(e);
+        }
     }
     async fetchRequest(url, options, frameWindow) {
         try {
@@ -587,8 +613,58 @@ exports.HttpRequest = HttpRequest;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const tslib_1 = __webpack_require__(655);
 tslib_1.__exportStar(__webpack_require__(934), exports);
-tslib_1.__exportStar(__webpack_require__(863), exports);
+tslib_1.__exportStar(__webpack_require__(891), exports);
 tslib_1.__exportStar(__webpack_require__(885), exports);
+
+
+/***/ }),
+
+/***/ 891:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.QConnectClient = void 0;
+const client_1 = __webpack_require__(934);
+const commands_1 = __webpack_require__(885);
+class QConnectClient extends client_1.Client {
+    constructor(config) {
+        super(config);
+    }
+    getAuthorizedWidgetsForUser(args, options) {
+        const command = new commands_1.GetAuthorizedWidgetsForUser(args);
+        return this.call(command, options);
+    }
+    getContent(args, options) {
+        const command = new commands_1.GetContent(args);
+        return this.call(command, options);
+    }
+    getRecommendations(args, options) {
+        const command = new commands_1.GetRecommendations(args);
+        return this.call(command, options);
+    }
+    listIntegrationAssociations(args, options) {
+        const command = new commands_1.ListIntegrationAssociations(args);
+        return this.call(command, options);
+    }
+    notifyRecommendationsReceived(args, options) {
+        const command = new commands_1.NotifyRecommendationsReceived(args);
+        return this.call(command, options);
+    }
+    queryAssistant(args, options) {
+        const command = new commands_1.QueryAssistant(args);
+        return this.call(command, options);
+    }
+    searchSessions(args, options) {
+        const command = new commands_1.SearchSessions(args);
+        return this.call(command, options);
+    }
+    getContact(args, options) {
+        const command = new commands_1.GetContact(args);
+        return this.call(command, options);
+    }
+}
+exports.QConnectClient = QConnectClient;
 
 
 /***/ }),
@@ -601,7 +677,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppNames = void 0;
 var AppNames;
 (function (AppNames) {
-    AppNames["WisdomJS"] = "wisdom-js";
+    AppNames["QConnectJS"] = "wisdom-js";
     AppNames["WisdomUI"] = "wisdom-ui";
 })(AppNames = exports.AppNames || (exports.AppNames = {}));
 
@@ -627,7 +703,7 @@ var CallSources;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ClientMethods = void 0;
+exports.LcmsMethods = exports.AcsMethods = exports.AgentAppMethods = exports.QConnectMethods = exports.ClientMethods = void 0;
 var ClientMethods;
 (function (ClientMethods) {
     ClientMethods["GetAuthorizedWidgetsForUser"] = "getAuthorizedWidgetsForUser";
@@ -639,6 +715,47 @@ var ClientMethods;
     ClientMethods["SearchSessions"] = "searchSessions";
     ClientMethods["GetContact"] = "getContact";
 })(ClientMethods = exports.ClientMethods || (exports.ClientMethods = {}));
+var QConnectMethods;
+(function (QConnectMethods) {
+    QConnectMethods["GetContent"] = "getContent";
+    QConnectMethods["GetRecommendations"] = "getRecommendations";
+    QConnectMethods["NotifyRecommendationsReceived"] = "notifyRecommendationsReceived";
+    QConnectMethods["QueryAssistant"] = "queryAssistant";
+    QConnectMethods["SearchSessions"] = "searchSessions";
+})(QConnectMethods = exports.QConnectMethods || (exports.QConnectMethods = {}));
+var AgentAppMethods;
+(function (AgentAppMethods) {
+    AgentAppMethods["GetAuthorizedWidgetsForUser"] = "getAuthorizedWidgetsForUser";
+})(AgentAppMethods = exports.AgentAppMethods || (exports.AgentAppMethods = {}));
+var AcsMethods;
+(function (AcsMethods) {
+    AcsMethods["ListIntegrationAssociations"] = "listIntegrationAssociations";
+})(AcsMethods = exports.AcsMethods || (exports.AcsMethods = {}));
+var LcmsMethods;
+(function (LcmsMethods) {
+    LcmsMethods["GetContact"] = "getContact";
+})(LcmsMethods = exports.LcmsMethods || (exports.LcmsMethods = {}));
+
+
+/***/ }),
+
+/***/ 770:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Commands = void 0;
+const commands_1 = __webpack_require__(885);
+exports.Commands = {
+    getAuthorizedWidgetsForUser: commands_1.GetAuthorizedWidgetsForUser,
+    getContent: commands_1.GetContent,
+    getRecommendations: commands_1.GetRecommendations,
+    listIntegrationAssociations: commands_1.ListIntegrationAssociations,
+    notifyRecommendationsReceived: commands_1.NotifyRecommendationsReceived,
+    queryAssistant: commands_1.QueryAssistant,
+    searchSessions: commands_1.SearchSessions,
+    getContact: commands_1.GetContact,
+};
 
 
 /***/ }),
@@ -651,7 +768,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ServiceIds = void 0;
 var ServiceIds;
 (function (ServiceIds) {
-    ServiceIds["Wisdom"] = "Wisdom";
+    ServiceIds["AmazonQConnect"] = "AmazonQConnect";
     ServiceIds["AgentApp"] = "AgentApp";
     ServiceIds["Acs"] = "Acs";
     ServiceIds["Lcms"] = "Lcms";
@@ -668,7 +785,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WidgetServices = void 0;
 var WidgetServices;
 (function (WidgetServices) {
-    WidgetServices["Wisdom"] = "WisdomV2";
+    WidgetServices["AmazonQConnect"] = "WisdomV2";
     WidgetServices["AgentApp"] = "AgentApp";
     WidgetServices["Acs"] = "Acs";
     WidgetServices["Lcms"] = "Lcms";
@@ -698,7 +815,8 @@ exports.generateEndpoint = generateEndpoint;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.buildAmzTarget = void 0;
+exports.parseAmzTarget = exports.buildAmzTarget = void 0;
+const clientMethods_1 = __webpack_require__(294);
 const widgetServices_1 = __webpack_require__(924);
 const buildAmzTarget = (clientMethod, { serviceId }) => {
     return {
@@ -706,6 +824,35 @@ const buildAmzTarget = (clientMethod, { serviceId }) => {
     };
 };
 exports.buildAmzTarget = buildAmzTarget;
+const parseAmzTarget = (xAmzTarget) => {
+    const [prefix, widgetService, clientMethod] = (xAmzTarget === null || xAmzTarget === void 0 ? void 0 : xAmzTarget.split('.')) || [];
+    if (!prefix || prefix !== 'AgentAppService') {
+        throw new Error('Unsupported service prefix.');
+    }
+    if (!widgetService || !Object.values(widgetServices_1.WidgetServices).includes(widgetService)) {
+        throw new Error('Unsupported service.');
+    }
+    let serviceMethods;
+    switch (widgetService) {
+        case widgetServices_1.WidgetServices.AmazonQConnect:
+            serviceMethods = clientMethods_1.QConnectMethods;
+            break;
+        case widgetServices_1.WidgetServices.AgentApp:
+            serviceMethods = clientMethods_1.AgentAppMethods;
+            break;
+        case widgetServices_1.WidgetServices.Acs:
+            serviceMethods = clientMethods_1.AcsMethods;
+            break;
+        case widgetServices_1.WidgetServices.Lcms:
+            serviceMethods = clientMethods_1.LcmsMethods;
+            break;
+    }
+    if (!clientMethod || !Object.values(serviceMethods).includes(clientMethod)) {
+        throw new Error('Unsupported client method.');
+    }
+    return clientMethod;
+};
+exports.parseAmzTarget = parseAmzTarget;
 
 
 /***/ }),
@@ -727,7 +874,7 @@ const fetchWithChannel = (destination, origin, data) => {
                 resolve(e.data.data);
             };
             destination.postMessage({
-                source: appNames_1.AppNames.WisdomJS,
+                source: appNames_1.AppNames.QConnectJS,
                 data,
             }, origin, [port2]);
         }
@@ -738,8 +885,13 @@ const fetchWithChannel = (destination, origin, data) => {
 };
 exports.fetchWithChannel = fetchWithChannel;
 const subscribeToChannel = (cb) => {
+    if (window.self == window.top)
+        return;
     window.addEventListener('message', async (e) => {
-        if (e.data.source !== appNames_1.AppNames.WisdomJS)
+        var _a;
+        if (e.data.source !== appNames_1.AppNames.QConnectJS)
+            return;
+        if (((_a = e.source) === null || _a === void 0 ? void 0 : _a.location) !== ((window.top || window.parent).location))
             return;
         const port = e.ports[0];
         const { url, options } = e.data.data;
@@ -817,7 +969,7 @@ const getRuntimeConfig = (config) => {
     var _a, _b, _c, _d;
     return {
         logger: (_a = config === null || config === void 0 ? void 0 : config.logger) !== null && _a !== void 0 ? _a : {},
-        serviceId: (_b = config === null || config === void 0 ? void 0 : config.serviceId) !== null && _b !== void 0 ? _b : serviceIds_1.ServiceIds.Wisdom,
+        serviceId: (_b = config === null || config === void 0 ? void 0 : config.serviceId) !== null && _b !== void 0 ? _b : serviceIds_1.ServiceIds.AmazonQConnect,
         callSource: (_c = config === null || config === void 0 ? void 0 : config.callSource) !== null && _c !== void 0 ? _c : callSources_1.CallSources.AgentApp,
         instanceUrl: (_d = config === null || config === void 0 ? void 0 : config.instanceUrl) !== null && _d !== void 0 ? _d : (0, urlParser_1.getBaseUrl)(),
         endpoint: (config === null || config === void 0 ? void 0 : config.endpoint) || (0, appConfig_1.generateEndpoint)((config === null || config === void 0 ? void 0 : config.instanceUrl) || (0, urlParser_1.getBaseUrl)()),
@@ -848,56 +1000,6 @@ const parseUrl = (url) => {
     };
 };
 exports.parseUrl = parseUrl;
-
-
-/***/ }),
-
-/***/ 863:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.WisdomClient = void 0;
-const client_1 = __webpack_require__(934);
-const commands_1 = __webpack_require__(885);
-class WisdomClient extends client_1.Client {
-    constructor(config) {
-        super(config);
-    }
-    getAuthorizedWidgetsForUser(args, options) {
-        const command = new commands_1.GetAuthorizedWidgetsForUser(args);
-        return this.call(command, options);
-    }
-    getContent(args, options) {
-        const command = new commands_1.GetContent(args);
-        return this.call(command, options);
-    }
-    getRecommendations(args, options) {
-        const command = new commands_1.GetRecommendations(args);
-        return this.call(command, options);
-    }
-    listIntegrationAssociations(args, options) {
-        const command = new commands_1.ListIntegrationAssociations(args);
-        return this.call(command, options);
-    }
-    notifyRecommendationsReceived(args, options) {
-        const command = new commands_1.NotifyRecommendationsReceived(args);
-        return this.call(command, options);
-    }
-    queryAssistant(args, options) {
-        const command = new commands_1.QueryAssistant(args);
-        return this.call(command, options);
-    }
-    searchSessions(args, options) {
-        const command = new commands_1.SearchSessions(args);
-        return this.call(command, options);
-    }
-    getContact(args, options) {
-        const command = new commands_1.GetContact(args);
-        return this.call(command, options);
-    }
-}
-exports.WisdomClient = WisdomClient;
 
 
 /***/ }),

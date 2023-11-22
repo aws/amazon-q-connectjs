@@ -3,11 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { ClientMethods, WisdomMethods, AgentAppMethods, AcsMethods, LcmsMethods } from '../types/clientMethods';
+import { ClientMethods, QConnectMethods, AgentAppMethods, AcsMethods, LcmsMethods } from '../types/clientMethods';
 import { WidgetServices } from '../types/widgetServices';
-import { WisdomClientResolvedConfig } from '../wisdomClient';
+import { QConnectClientResolvedConfig } from '../qConnectClient';
 
-export const buildAmzTarget = (clientMethod: ClientMethods, { serviceId }: WisdomClientResolvedConfig) => {
+export const buildAmzTarget = (clientMethod: ClientMethods, { serviceId }: QConnectClientResolvedConfig) => {
   return {
     'x-amz-target': `AgentAppService.${WidgetServices[serviceId]}.${clientMethod}`,
   };
@@ -31,8 +31,8 @@ export const parseAmzTarget = (xAmzTarget: string): ClientMethods => {
   let serviceMethods;
 
   switch (widgetService) {
-    case WidgetServices.Wisdom:
-      serviceMethods = WisdomMethods;
+    case WidgetServices.AmazonQConnect:
+      serviceMethods = QConnectMethods;
       break;
     case WidgetServices.AgentApp:
       serviceMethods = AgentAppMethods;

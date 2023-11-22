@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { WisdomClientResolvedConfig } from '../wisdomClient';
+import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
 import { parseUrl } from '../utils/urlParser';
 import { buildAmzTarget } from '../utils/buildAmzTarget';
@@ -26,7 +26,7 @@ export abstract class Command<
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<Output>>;
 
-  serialize(configuration: WisdomClientResolvedConfig) {
+  serialize(configuration: QConnectClientResolvedConfig) {
     return new HttpRequest({
       ...parseUrl(configuration.endpoint),
       headers: {

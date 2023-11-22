@@ -4,7 +4,7 @@
  */
 
 import { Command } from './command';
-import { WisdomClientResolvedConfig } from '../wisdomClient';
+import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
 import { GetContentRequest, GetContentResponse } from '../types/models';
 import { ClientMethods } from '../types/clientMethods';
@@ -18,7 +18,7 @@ export interface GetContentOutput extends GetContentResponse {}
 export class GetContent extends Command<
   GetContentInput,
   GetContentOutput,
-  WisdomClientResolvedConfig
+  QConnectClientResolvedConfig
 > {
   readonly clientMethod: ClientMethods;
 
@@ -28,14 +28,14 @@ export class GetContent extends Command<
   }
 
   resolveRequestHandler(
-    configuration: WisdomClientResolvedConfig,
+    configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<GetContentOutput>> {
     const { requestHandler } = configuration;
     return () => requestHandler.handle(this.serialize(configuration), options || {});
   }
 
-  serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
+  serialize(configuration: QConnectClientResolvedConfig): HttpRequest {
     const { contentId, knowledgeBaseId } = this.clientInput;
 
     if ((contentId === undefined) || !contentId.length) {

@@ -1,14 +1,14 @@
 {
-  "name": "amazon-connect-wisdomjs",
-  "description": "Wisdom SDK for JavaScript Wisdom Client",
-  "version": "1.2.2",
+  "name": "@amzn/amazon-q-connectjs",
+  "description": "Amazon Q Connect JavaScript Client",
+  "version": "1.0.0",
   "scripts": {
     "bundle": "webpack",
     "build:all": "npm run build:cjs && npm run build:es && npm run build:types",
     "build:cjs": "tsc -p tsconfig.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build:types": "tsc -p tsconfig.types.json",
-    "release": "npm run build:all",
+    "release": "npm run build:all && npm run bundle",
     "prepublish": "npm run clean:dist && npm run build:all",
     "watch:all": "npm run watch:cjs && npm run watch:es",
     "watch:cjs": "tsc -w -p tsconfig.json",
@@ -48,9 +48,9 @@
   ],
   "author": "Amazon Web Services",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/aws/amazon-connect-wisdomjs#readme",
+  "homepage": "https://github.com/aws/amazon-q-connectjs#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aws/amazon-connect-wisdomjs.git"
+    "url": "https://github.com/aws/amazon-q-connectjs.git"
   }
 }

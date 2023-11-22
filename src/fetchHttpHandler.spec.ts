@@ -5,9 +5,8 @@
 
 import { FetchHttpHandler } from './fetchHttpHandler';
 import { HttpRequest } from './httpRequest';
-import { CallSources } from './types/callSources';
 import { getRuntimeConfig } from './utils/runtimeConfig.shared';
-import { WisdomClientResolvedConfig } from './wisdomClient';
+import { QConnectClientResolvedConfig } from './qConnectClient';
 
 describe('FetchHttpHandler', () => {
   let mockRequest = new HttpRequest({
@@ -49,7 +48,7 @@ describe('FetchHttpHandler', () => {
   fetchHttpHandler.setRuntimeConfig(
     getRuntimeConfig({
       instanceUrl: 'https://foo.amazonaws.com',
-    }) as WisdomClientResolvedConfig,
+    }) as QConnectClientResolvedConfig,
   );
 
   beforeEach(() => {

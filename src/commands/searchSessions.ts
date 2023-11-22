@@ -4,7 +4,7 @@
  */
 
 import { Command } from './command';
-import { WisdomClientResolvedConfig } from '../wisdomClient';
+import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
 import { SearchSessionsRequest, SearchSessionsResponse } from '../types/models';
 import { ClientMethods } from '../types/clientMethods';
@@ -18,7 +18,7 @@ export interface SearchSessionsOutput extends SearchSessionsResponse {}
 export class SearchSessions extends Command<
   SearchSessionsInput,
   SearchSessionsOutput,
-  WisdomClientResolvedConfig
+  QConnectClientResolvedConfig
 > {
   readonly clientMethod: ClientMethods;
 
@@ -28,14 +28,14 @@ export class SearchSessions extends Command<
   }
 
   resolveRequestHandler(
-    configuration: WisdomClientResolvedConfig,
+    configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<SearchSessionsOutput>> {
     const { requestHandler } = configuration;
     return () => requestHandler.handle(this.serialize(configuration), options || {});
   }
 
-  serialize(configuration: WisdomClientResolvedConfig): HttpRequest {
+  serialize(configuration: QConnectClientResolvedConfig): HttpRequest {
     const { assistantId, searchExpression } = this.clientInput;
 
     if ((assistantId === undefined) || !assistantId.length) {
