@@ -37,12 +37,47 @@ export enum IntegrationTypes {
 
 export enum RecommendationTriggerType {
   QUERY = "QUERY",
+  GENERATIVE = "GENERATIVE",
 }
 
 export enum RecommendationSourceType {
   ISSUE_DETECTION = "ISSUE_DETECTION",
   RULE_EVALUATION = "RULE_EVALUATION",
   OTHER = "OTHER",
+}
+
+export enum RecommendationType {
+  KNOWLEDGE_CONTENT = "KNOWLEDGE_CONTENT",
+  GENERATIVE_RESPONSE = "GENERATIVE_RESPONSE",
+  GENERATIVE_ANSWER = "GENERATIVE_ANSWER",
+}
+
+export enum QueryConditionFieldName {
+  RESULT_TYPE = "RESULT_TYPE",
+}
+
+export enum QueryConditionComparisonOperator {
+  EQUALS = "EQUALS",
+}
+
+export enum SourceContentType {
+  KNOWLEDGE_CONTENT = "KNOWLEDGE_CONTENT",
+}
+
+export enum QueryResultType {
+  KNOWLEDGE_CONTENT = "KNOWLEDGE_CONTENT",
+  GENERATIVE_RESPONSE = "GENERATIVE_RESPONSE",
+  GENERATIVE_ANSWER = "GENERATIVE_ANSWER",
+}
+
+export enum TargetType {
+  RECOMMENDATION = "RECOMMENDATION",
+  RESULT = "RESULT",
+}
+
+export enum Relevance {
+  HELPFUL = "HELPFUL",
+  NOT_HELPFUL = "NOT_HELPFUL",
 }
 
 /*
@@ -84,7 +119,7 @@ export interface ContentData {
   /*
    * The status of the content.
    */
-  status: ContentStatus | string;
+  status: ContentStatus;
   /*
    * A key/value map to store attributes without affecting tagging or recommendations.
    * For example, when synchronizing data between an external system and Amazon Q Connect, you can store an external version identifier as metadata to utilize for determining drift.
@@ -117,7 +152,7 @@ export interface ContentReference {
    */
   knowledgeBaseArn?: string;
   /*
-   * The the identifier of the knowledge base.
+   * The identifier of the knowledge base.
    */
   knowledgeBaseId?: string;
   /*
@@ -163,17 +198,187 @@ export interface DocumentText {
 }
 
 /*
+ * The data summary.
+ */
+export interface DataSummary {
+  /*
+   * Data reference.
+   */
+  reference: DataReference;
+  /*
+   * Data details.
+   */
+  details: DataDetails;
+}
+
+/*
+ * Reference information about the generative content.
+ */
+export interface GenerativeReference {
+  /*
+   * The identifier of the LLM model.
+   */
+  modelId?: string;
+  /*
+   * The identifier of the generative content.
+   */
+  generationId?: string;
+}
+
+/*
+ * Part of the union of DataReference.
+ */
+export interface GenerativeReferenceUnion {
+  /*
+   * The generative content reference.
+   */
+  generativeReference?: GenerativeReference;
+}
+
+/*
+ * Part of the union of DataReference.
+ */
+export interface ContentReferenceUnion {
+  /*
+   * The content reference.
+   */
+  contentReference?: ContentReference;
+}
+
+/*
+ * The data reference - An union of the content reference and the generative content reference.
+ */
+export type DataReference = ContentReferenceUnion | GenerativeReferenceUnion;
+
+/*
+ * Details about the source content ranking data.
+ */
+export interface RankingData {
+  /*
+   * The relevance score of the content.
+   */
+  relevanceScore?: number;
+  /*
+   * The relevance level of the recommendation.
+   */
+  relevanceLevel?: RelevanceLevel;
+}
+
+/*
+ * Details about the source content text data.
+ */
+export interface TextData {
+  /*
+   * The title of the document.
+   */
+  title?: DocumentText;
+  /*
+   * The text of the document.
+   */
+  excerpt?: DocumentText;
+}
+
+/*
+ * Details about generative data.
+ */
+export interface GenerativeDataDetails {
+  /*
+   * The LLM response.
+   */
+  completion: string;
+  /*
+   * The references used to generative the LLM response.
+   */
+  references: DataSummary[];
+  /*
+   * Details about the generative content ranking data.
+   */
+  rankingData: RankingData;
+}
+
+/*
+ * Part of the union of DataDetails.
+ */
+export interface GenerativeDataDetailsUnion {
+  /*
+   * Details about generative data.
+   */
+  generativeData?: GenerativeDataDetails;
+}
+
+/*
+ * Details about the source content data.
+ */
+export interface SourceContentDataDetails {
+  /*
+   * The identifier of the source content.
+   */
+  id: string;
+  /*
+   * The type of the source content.
+   */
+  type: SourceContentType;
+  /*
+   *  Details about the source content text data.
+   */
+  textData: TextData;
+  /*
+   * Details about the source content ranking data.
+   */
+  rankingData: RankingData;
+}
+
+/*
+ * Part of the union of DataDetails.
+ */
+export interface SourceContentDataDetailsUnion {
+  /*
+   * Details about the source content data.
+   */
+  sourceContentData?: SourceContentDataDetails;
+}
+
+/*
+ * Details about the content data.
+ */
+export interface ContentDataDetails {
+  /*
+   * Details about the content text data.
+   */
+  textData: TextData;
+  /*
+   * Details about the content ranking data.
+   */
+  rankingData: RankingData;
+}
+
+/*
+ * Part of the union of DataDetails.
+ */
+export interface ContentDataDetailsUnion {
+  /*
+   * Details about the content data.
+   */
+  contentData?: ContentDataDetails;
+}
+
+/*
+ * Details about the data.
+ */
+export type DataDetails = ContentDataDetailsUnion | GenerativeDataDetailsUnion | SourceContentDataDetailsUnion;
+
+/*
  * A search filter.
  */
 export interface Filter {
   /*
    * The field on which to filter.
    */
-  field: FilterField | string;
+  field: FilterField;
   /*
    * The operator to use for comparing the field’s value with the provided value.
    */
-  operator: FilterOperator | string;
+  operator: FilterOperator;
   /*
    * The desired field value on which to filter.
    */
@@ -220,7 +425,11 @@ export interface RecommendationData {
   /*
    * The recommended document.
    */
-  document: Document;
+  document?: Document;
+  /*
+   * The data summary of the recommendation.
+   */
+  data?: DataSummary;
   /*
    * The relevance score of the recommendation.
    */
@@ -228,7 +437,11 @@ export interface RecommendationData {
   /*
    * The relevance level of the recommendation.
    */
-  relevanceLevel?: RelevanceLevel | string;
+  relevanceLevel?: RelevanceLevel;
+  /*
+   * The recommendation type.
+   */
+  type?: RecommendationType;
 }
 
 /*
@@ -288,7 +501,15 @@ export interface ResultData {
   /*
    * The document.
    */
-  document: Document;
+  document?: Document;
+  /*
+   * The data summary of the recommendation.
+   */
+  data?: DataSummary;
+  /*
+   * The type of query result.
+   */
+  type?: QueryResultType;
   /*
    * The relevance score of the results.
    */
@@ -385,7 +606,7 @@ export interface GetRecommendationsResponse {
   /*
    * Recommendation triggers
    */
-  triggers?: [];
+  triggers?: RecommendationTrigger[];
 }
 
 /*
@@ -433,6 +654,14 @@ export interface QueryAssistantRequest {
    */
   queryText: string;
   /*
+   * The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   */
+  sessionId?: string;
+  /*
+   * List of query condition.
+   */
+  queryCondition?: QueryCondition[];
+  /*
    * The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.
    */
@@ -442,6 +671,39 @@ export interface QueryAssistantRequest {
    */
   maxResults?: number;
 }
+
+/*
+ * The condition for the query.
+ */
+export interface QueryConditionItem {
+  /*
+   * The name of the field for query condition to query on.
+   */
+  field: QueryConditionFieldName;
+  /*
+   * The comparison operator for query condition to query on.
+   */
+  comparator: QueryConditionComparisonOperator;
+  /*
+   * The value for the query condition to query on.
+   */
+  value: string;
+}
+
+/*
+ * Part of the union of QueryCondition.
+ */
+export interface QueryConditionItemUnion {
+  /*
+   * The condition for the query.
+   */
+  single?: QueryConditionItem;
+}
+
+/*
+ * Information about how to query content.
+ */
+export type QueryCondition = QueryConditionItemUnion
 
 export interface QueryAssistantResponse {
   /*
@@ -593,3 +855,52 @@ export interface GetContactResponse {
     };
   }
 }
+
+export interface PutFeedbackRequest {
+  assistantId: string;
+  targetId: string;
+  targetType: TargetType;
+  contentFeedback: ContentFeedbackData;
+}
+
+export interface PutFeedbackResponse {
+  /*
+   * The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+   */
+  assistantId: string;
+  /*
+   * The Amazon Resource Name (ARN) of the Amazon Q Connect assistant.
+   */
+  assistantArn: string;
+  /*
+   * The identifier of the feedback target.
+   */
+  targetId: string;
+  /*
+   * The type of the feedback target.
+   */
+  targetType: TargetType;
+  /*
+   * Information about the feedback provided.
+   */
+  contentFeedback: ContentFeedbackData;
+}
+
+export interface GenerativeContentFeedbackData {
+  /*
+   * The relevance of the feedback.
+   */
+  relevance: Relevance;
+}
+
+/*
+ * Part of the union of ContentFeedbackData.
+ */
+export interface GenerativeContentFeedbackDataUnion {
+  /*
+   * The feedback information for a generative target type.
+   */
+  generativeContentFeedbackData: GenerativeContentFeedbackData;
+}
+
+type ContentFeedbackData = GenerativeContentFeedbackDataUnion;

@@ -11,3 +11,4 @@ export * from './notifyRecommendationsReceived';
 export * from './queryAssistant';
 export * from './searchSessions';
 export * from './getContact';
+export * from './putFeedback';

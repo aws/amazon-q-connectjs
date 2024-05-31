@@ -8,6 +8,7 @@ import {
   GetRecommendations,
   NotifyRecommendationsReceived,
   GetContact,
+  PutFeedback,
 } from './index';
 
 (() => {
@@ -27,5 +28,6 @@ import {
     GetRecommendations,
     NotifyRecommendationsReceived,
     GetContact,
+    PutFeedback,
   }
 })();
