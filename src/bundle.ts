@@ -13,7 +13,7 @@ import {
 
 (() => {
   const connect = (global as any).connect || {};
-  const qconnectjs = connect.QConnectJS || {};
+  const qconnectjs = connect.qconnectjs || {};
   connect.qconnectjs = qconnectjs;
   (global as any).connect = connect;
 

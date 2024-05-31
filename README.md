@@ -1,4 +1,4 @@
-#amazon-q-connectjs
+# amazon-q-connectjs
 
 Amazon Q in Connect, an LLM-enhanced evolution of Amazon Connect Wisdom. The Amazon Q Connect JavaScript library (QConnectJS) gives you the power to build your own Amazon Q Connect widget.
 
@@ -120,7 +120,7 @@ Initializing the QConnectJS client is the fist step to verify that you have ever
           instanceUrl: instanceUrl,                                        // REQUIRED
           endpoint: "https://my-instance-domain.awsapps.com/connect/api",  // optional, defaults to '<instanceUrl>'
           callSource: "agent-app",                                         // optional, defaults to 'agent-app'
-          serviceId: 'AmazonQConnect',                                             // optional, defaults to 'AmazonQConnect'
+          serviceId: 'AmazonQConnect',                                     // optional, defaults to 'AmazonQConnect'
           maxAttempts: 3,                                                  // optional, defaults to 3
           logger: {},                                                      // optional, if provided overrides default logger
           headers: {},                                                     // optional, if provided overrides request headers
