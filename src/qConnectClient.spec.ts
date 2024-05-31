@@ -14,9 +14,29 @@ import { NotifyRecommendationsReceived } from './commands/notifyRecommendationsR
 import { QueryAssistant } from './commands/queryAssistant';
 import { SearchSessions } from './commands/searchSessions';
 import { GetContact } from './commands/getContact';
+import { PutFeedback } from './commands/putFeedback';
+import {
+  FilterOperator,
+  FilterField,
+  QueryConditionFieldName,
+  QueryConditionComparisonOperator,
+  QueryResultType,
+  Relevance,
+  TargetType,
+} from './types/models';
+
 
 describe('QConnectClient', () => {
   let client: QConnectClient;
+
+  const awsAccountId = '85be2a14-94d7-41f2-835e-85368acb55df';
+  const assistantId = 'b5b0e4af-026e-4472-9371-d171a9fdf75a';
+  const contactId = 'E6B381BD-83B5-47C7-AB48-6170607E13BB';
+  const contentId =  'c6ca58b9-b046-4664-ba63-da17f51fc332';
+  const instanceId = '6BF7FA0A-35A4-48F6-8260-D2939B4D6D1D';
+  const knowledgeBaseId = 'f9b5fa90-b3ce-45c9-9967-582c87074864';
+  const sessionId = '249bbb30-aede-42a8-be85-d8483c317686';
+  const targetId =  '4EA10D8D-0769-4E94-8B08-DFED196F33CD';
 
   const instanceUrl = 'https://foo.amazonaws.com';
   const mockHandler = jest.fn((args: any) => Promise.resolve('success response'));
@@ -67,8 +87,8 @@ describe('QConnectClient', () => {
 
     await expect(
       client.getContent({
-        contentId: 'c6ca58b9-b046-4664-ba63-da17f51fc332',
-        knowledgeBaseId: 'f9b5fa90-b3ce-45c9-9967-582c87074864',
+        contentId: contentId,
+        knowledgeBaseId: knowledgeBaseId,
       }),
     ).resolves.toEqual('success response');
   });
@@ -78,8 +98,8 @@ describe('QConnectClient', () => {
 
     await expect(
       client.getRecommendations({
-        assistantId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
-        sessionId: '249bbb30-aede-42a8-be85-d8483c317686',
+        assistantId: assistantId,
+        sessionId: sessionId,
       }),
     ).resolves.toEqual('success response');
   });
@@ -89,7 +109,7 @@ describe('QConnectClient', () => {
 
     await expect(
       client.listIntegrationAssociations({
-        InstanceId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
+        InstanceId: instanceId,
       }),
     ).resolves.toEqual('success response');
   });
@@ -99,8 +119,8 @@ describe('QConnectClient', () => {
 
     await expect(
       client.notifyRecommendationsReceived({
-        assistantId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
-        sessionId: '249bbb30-aede-42a8-be85-d8483c317686',
+        assistantId: assistantId,
+        sessionId: sessionId,
         recommendationIds: [],
       }),
     ).resolves.toEqual('success response');
@@ -111,9 +131,19 @@ describe('QConnectClient', () => {
 
     await expect(
       client.queryAssistant({
-        assistantId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
+        assistantId: assistantId,
         maxResults: 10,
         queryText: 'aws',
+        sessionId: sessionId,
+        queryCondition: [
+          {
+            single: {
+              field: QueryConditionFieldName.RESULT_TYPE,
+              comparator: QueryConditionComparisonOperator.EQUALS,
+              value: QueryResultType.GENERATIVE_ANSWER,
+            }
+          }
+        ] 
       }),
     ).resolves.toEqual('success response');
   });
@@ -123,13 +153,13 @@ describe('QConnectClient', () => {
 
     await expect(
       client.searchSessions({
-        assistantId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
+        assistantId: assistantId,
         searchExpression: {
           filters: [
             {
-              operator: 'equals',
-              field: 'name',
-              value: '249bbb30-aede-42a8-be85-d8483c317686',
+              operator: FilterOperator.EQUALS,
+              field: FilterField.NAME,
+              value: sessionId,
             },
           ],
         },
@@ -142,9 +172,26 @@ describe('QConnectClient', () => {
 
     await expect(
       client.getContact({
-        awsAccountId: '85be2a14-94d7-41f2-835e-85368acb55df',
-        instanceId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
-        contactId: '249bbb30-aede-42a8-be85-d8483c317686',
+        awsAccountId: awsAccountId,
+        instanceId: instanceId,
+        contactId: contactId,
+      }),
+    ).resolves.toEqual('success response');
+  });
+
+  it('should return a response promise when calling putFeedback', async () => {
+    PutFeedback.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
+
+    await expect(
+      client.putFeedback({
+        assistantId: assistantId,
+        targetId: targetId,
+        targetType: TargetType.RECOMMENDATION,
+        contentFeedback: {
+          generativeContentFeedbackData: {
+            relevance: Relevance.HELPFUL,
+          },
+        },
       }),
     ).resolves.toEqual('success response');
   });

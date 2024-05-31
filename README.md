@@ -1,17 +1,18 @@
-# amazon-q-connectjs
+#amazon-q-connectjs
 
 Amazon Q in Connect, an LLM-enhanced evolution of Amazon Connect Wisdom. The Amazon Q Connect JavaScript library (QConnectJS) gives you the power to build your own Amazon Q Connect widget.
 
 The library uses an Amazon Connect authentication token to make API calls to Amazon Q Connect and supports all Amazon Q Connect `Agent Assistant` functionality. For example, you can manually query knowledge documents, get knowledge content, or start generating automated suggestions.
 
 QConnectJS supports the following APIs:
-* [QueryAssistant](#QueryAssistant)
-* [GetContact](#GetContact)
-* [GetRecommendations](#GetRecommendations)
-* [NotifyRecommendationsReceived](#NotifyRecommendationsReceived)
-* [GetContent](#GetContent)
-* [SearchSessions](#SearchSessions)
-* [ListIntegrationAssociations](#ListIntegrationAssociations)
+* [QueryAssistant](#queryassistant)
+* [GetContact](#getcontact)
+* [GetRecommendations](#getrecommendations)
+* [NotifyRecommendationsReceived](#notifyrecommendationsreceived)
+* [GetContent](#getcontent)
+* [SearchSessions](#searchsessions)
+* [ListIntegrationAssociations](#listintegrationassociations)
+* [PutFeedback](#putfeedback)
 
 
 Note that this library must be used in conjunction with [amazon-connect-streams](https://github.com/amazon-connect/amazon-connect-streams).
@@ -109,7 +110,7 @@ Initializing the QConnectJS client is the fist step to verify that you have ever
             }
           }
         );
-  
+
         // Initialize QConnectJS client with either "QConnectClient" or "Client"
         const qConnectClient = new connect.qconnectjs.QConnectClient({
           instanceUrl,
@@ -119,7 +120,7 @@ Initializing the QConnectJS client is the fist step to verify that you have ever
           instanceUrl: instanceUrl,                                        // REQUIRED
           endpoint: "https://my-instance-domain.awsapps.com/connect/api",  // optional, defaults to '<instanceUrl>'
           callSource: "agent-app",                                         // optional, defaults to 'agent-app'
-          serviceId: 'AmazonQConnect',                                     // optional, defaults to 'AmazonQConnect'
+          serviceId: 'AmazonQConnect',                                             // optional, defaults to 'AmazonQConnect'
           maxAttempts: 3,                                                  // optional, defaults to 3
           logger: {},                                                      // optional, if provided overrides default logger
           headers: {},                                                     // optional, if provided overrides request headers
@@ -260,12 +261,14 @@ Performs a manual search against the specified assistant. To retrieve recommenda
 
 * `assistantId`: The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `queryText`: The text to search for.
+* `sessionId`: The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `maxResults`: The maximum number of results to return per page.
+* `queryCondition`: The information about how to query content.
 * `nextToken`: The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 
 #### A few things to note:
 
-* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
 
 ### Response Syntax
 
@@ -273,39 +276,44 @@ If the action is successful, the service sends back an HTTP 200 response.
 
 ```json
 {
-  "nextToken": "string",
-  "results": [
-    {
-      "document": {
-        "contentReference": {
-          "contentArn": "string",
-          "contentId": "string",
-          "knowledgeBaseArn": "string",
-          "knowledgeBaseId": "string"
-        },
-        "excerpt": {
-          "highlights": [
-            {
-              "beginOffsetInclusive": "number",
-              "endOffsetExclusive": "number"
+   "nextToken": "string",
+   "results": [
+      {
+         "data": {
+            "details": { ... },
+            "reference": { ... }
+         },
+         "document": {
+            "contentReference": {
+               "contentArn": "string",
+               "contentId": "string",
+               "knowledgeBaseArn": "string",
+               "knowledgeBaseId": "string"
+            },
+            "excerpt": {
+               "highlights": [
+                  {
+                     "beginOffsetInclusive": number,
+                     "endOffsetExclusive": number
+                  }
+               ],
+               "text": "string"
+            },
+            "title": {
+               "highlights": [
+                  {
+                     "beginOffsetInclusive": number,
+                     "endOffsetExclusive": number
+                  }
+               ],
+               "text": "string"
             }
-          ],
-          "text": "string"
-        },
-        "title": {
-          "highlights": [
-            {
-              "beginOffsetInclusive": "number",
-              "endOffsetExclusive": "number"
-            }
-          ],
-          "text": "string"
-        }
-      },
-      "relevanceScore": "number",
-      "resultId": "string"
-    }
-  ]
+         },
+         "relevanceScore": number,
+         "resultId": "string",
+         "type": "string"
+      }
+   ]
 }
 ```
 
@@ -316,6 +324,16 @@ const queryAssistantCommand = new QueryAssistant({
   assistantId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
   maxResults: 10,
   queryText: 'cancel order',
+  sessionId: '249bbb30-aede-42a8-be85-d8483c317686',
+  queryCondition: [
+    {
+      single: {
+        field: QueryConditionFieldName.RESULT_TYPE,
+        comparator: QueryConditionComparisonOperator.EQUALS,
+        value: QueryResultType.GENERATIVE_ANSWER,
+      }
+    }
+  ]
 });
 
 try {
@@ -338,7 +356,7 @@ Retrieves contact details, including the Amazon Q Connect `session ARN`, for a s
 
 #### A few things to note:
 
-* One of the request parameters of the `GetContact` API is the Amazon Connect `contactId`. The StreamsJS Contact API provides event subscription methods and action methods which can be called on behalf of a Contact and used to retrieve the Amazon Connect `contactId`. See [StreamsJS Integration](#StreamsJS-Integration) below for more information.
+* One of the request parameters of the `GetContact` API is the Amazon Connect `contactId`. The StreamsJS Contact API provides event subscription methods and action methods which can be called on behalf of a Contact and used to retrieve the Amazon Connect `contactId`. See [StreamsJS Integration](#streamsjs-integration) below for more information.
 
 ### Response Syntax
 
@@ -401,47 +419,61 @@ Retrieves recommendations for the specified session. To avoid retrieving the sam
 
 #### A few things to note:
 
-* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
-* The `session ARN` can be retrieved by used the `GetContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [GetContact](#GetContact) for more information.
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
+* The `session ARN` can be retrieved by used the `GetContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [GetContact](#getcontact) for more information.
 * To avoid retrieving the same recommendations on subsequent calls, the `NotifyRecommendationsReceived` API should be called after each response. See [NotifyRecommendationsReceived]() for more information.
 
 ### Response Syntax
 
 ```json
 {
-  "recommendations": [
-    {
-      "document": {
-        "contentReference": {
-          "contentArn": "string",
-          "contentId": "string",
-          "knowledgeBaseArn": "string",
-          "knowledgeBaseId": "string"
-        },
-        "excerpt": {
-          "highlights": [
-            {
-              "beginOffsetInclusive": "number",
-              "endOffsetExclusive": "number"
+   "recommendations": [
+      {
+         "data": {
+            "details": { ... },
+            "reference": { ... }
+         },
+         "document": {
+            "contentReference": {
+               "contentArn": "string",
+               "contentId": "string",
+               "knowledgeBaseArn": "string",
+               "knowledgeBaseId": "string"
+            },
+            "excerpt": {
+               "highlights": [
+                  {
+                     "beginOffsetInclusive": number,
+                     "endOffsetExclusive": number
+                  }
+               ],
+               "text": "string"
+            },
+            "title": {
+               "highlights": [
+                  {
+                     "beginOffsetInclusive": number,
+                     "endOffsetExclusive": number
+                  }
+               ],
+               "text": "string"
             }
-          ],
-          "text": "string"
-        },
-        "title": {
-          "highlights": [
-            {
-              "beginOffsetInclusive": "number",
-              "endOffsetExclusive": "number"
-            }
-          ],
-          "text": "string"
-        }
-      },
-      "recommendationId": "string",
-      "relevanceLevel": "string",
-      "relevanceScore": "number"
-    }
-  ]
+         },
+         "recommendationId": "string",
+         "relevanceLevel": "string",
+         "relevanceScore": number,
+         "type": "string"
+      }
+   ],
+   "triggers": [
+      {
+         "data": { ... },
+         "id": "string",
+         "recommendationIds": [ "string" ],
+         "source": "string",
+         "type": "string"
+      }
+   ]
 }
 ```
 
@@ -475,8 +507,8 @@ Removes the specified recommendations from the specified assistant's queue of ne
 
 #### A few things to note:
 
-* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
-* The `session ARN` can be retrieved by used the `GetContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [GetContact](#GetContact) for more information.
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
+* The `session ARN` can be retrieved by used the `GetContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [GetContact](#getcontact) for more information.
 
 ### Response Syntax
 
@@ -522,7 +554,7 @@ Retrieves content, including a pre-signed URL to download the content. The `cont
 
 #### A few things to note:
 
-* The `contentId` and `knowledgeBaseId` can be found by using either the `QueryAssistant` or `GetRecommendations` APIs to retrieve knowledge documents. Each of the documents from either response will include a `contentReference`. See [QueryAssistant](#QueryAssistant) and [GetRecommendations]() for more information.
+* The `contentId` and `knowledgeBaseId` can be found by using either the `QueryAssistant` or `GetRecommendations` APIs to retrieve knowledge documents. Each of the documents from either response will include a `contentReference`. See [QueryAssistant](#queryassistant) and [GetRecommendations](#getrecommendations) for more information.
 
 ### Sample Query
 
@@ -553,7 +585,7 @@ Searches for sessions. For more information check out the [SearchSessions](https
 
 #### A few things to note:
 
-* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#ListIntegrationAssociations) for more information.
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
 
 ### Response Syntax
 
@@ -607,7 +639,7 @@ Retrieves Connect integrations, including assistant and knowledge base integrati
 * `nextToken`: The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 
 #### A few things to note:
-* One of the request parameters of the `ListIntegrationAssociations` API is the Amazon Connect `instanceId`. The StreamsJS Agent API provides event subscription methods and action methods which can be called on behalf of the agent and used to retrieve the Amazon Connect `instanceId`. See [StreamsJS Integration](#StreamsJS-Integration) below for more information.
+* One of the request parameters of the `ListIntegrationAssociations` API is the Amazon Connect `instanceId`. The StreamsJS Agent API provides event subscription methods and action methods which can be called on behalf of the agent and used to retrieve the Amazon Connect `instanceId`. See [StreamsJS Integration](#streamsjs-integration) below for more information.
 
 ### Response Syntax
 
@@ -632,17 +664,52 @@ If the action is successful, the service sends back an HTTP 200 response.
 }
 ```
 
+## PutFeedback
+
+Provides feedback against the specified assistant for the specified target. This API only supports generative targets. For more information check out the [PutFeedback](https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_PutFeedback.html) API reference.
+
+### URI Request Parameters
+
+* `assistantId`: The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `contentFeedback`: The information about the feedback provided.
+* `targetId`: The identifier of the feedback target. It could be either a resultId from manual search or recommendationId from recommendation.
+* `targetType`: The type of the feedback target.
+
+#### A few things to note:
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
+* The `targetId` can be retrieved from the response of `QueryAssistant` or `GetRecommendations` APIs provided by QConnectJS. In `QueryAssistant`, the `targetId` is the `resultId`, while in `GetRecommendations`, the `targetId` is equals to `recommendationId`. See [QueryAssistant](#queryassistant) and [GetRecommendations](#getrecommendations) for more information.
+
+### Response Syntax
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+
+```json
+{
+   "assistantArn": "string",
+   "assistantId": "string",
+   "contentFeedback": { ... },
+   "targetId": "string",
+   "targetType": "string"
+}
+```
+
 ### Sample Query
 
 ```ts
-const listIntegrationAssociationsCommand = new ListIntegrationAssociations({
-  InstanceId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
-  IntegrationType: 'WISDOM_ASSISTANT',
-  MaxResults: 10,
+const putfeedbackCommand = new PutFeedback({
+  assistantId: 'b5b0e4af-026e-4472-9371-d171a9fdf75a',
+  targetId: '4EA10D8D-0769-4E94-8B08-DFED196F33CD',
+  targetType: TargetType.RECOMMENDATION,
+  contentFeedback: {
+    generativeContentFeedbackData: {
+      relevance: Relevance.HELPFUL,
+    },
+  },
 });
 
 try {
-  const response = await qConnectClient.call(listIntegrationAssociations);
+  const response = await qConnectClient.call(putfeedbackCommand);
     // process response.
 } catch (error) {
   // error handling.

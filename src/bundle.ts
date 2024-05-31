@@ -8,11 +8,12 @@ import {
   GetRecommendations,
   NotifyRecommendationsReceived,
   GetContact,
+  PutFeedback,
 } from './index';
 
 (() => {
   const connect = (global as any).connect || {};
-  const qconnectjs = connect.qconnectjs || {};
+  const qconnectjs = connect.QConnectJS || {};
   connect.qconnectjs = qconnectjs;
   (global as any).connect = connect;
 
@@ -27,5 +28,6 @@ import {
     GetRecommendations,
     NotifyRecommendationsReceived,
     GetContact,
+    PutFeedback,
   }
 })();

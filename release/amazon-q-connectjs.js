@@ -21,7 +21,7 @@ __webpack_unused_export__ = ({ value: true });
 const index_1 = __webpack_require__(607);
 (() => {
     const connect = __webpack_require__.g.connect || {};
-    const qconnectjs = connect.qconnectjs || {};
+    const qconnectjs = connect.QConnectJS || {};
     connect.qconnectjs = qconnectjs;
     __webpack_require__.g.connect = connect;
     qconnectjs.Client = index_1.Client;
@@ -35,6 +35,7 @@ const index_1 = __webpack_require__(607);
         GetRecommendations: index_1.GetRecommendations,
         NotifyRecommendationsReceived: index_1.NotifyRecommendationsReceived,
         GetContact: index_1.GetContact,
+        PutFeedback: index_1.PutFeedback,
     };
 })();
 
@@ -282,6 +283,7 @@ tslib_1.__exportStar(__webpack_require__(359), exports);
 tslib_1.__exportStar(__webpack_require__(314), exports);
 tslib_1.__exportStar(__webpack_require__(801), exports);
 tslib_1.__exportStar(__webpack_require__(93), exports);
+tslib_1.__exportStar(__webpack_require__(446), exports);
 
 
 /***/ }),
@@ -354,6 +356,46 @@ class NotifyRecommendationsReceived extends command_1.Command {
     }
 }
 exports.NotifyRecommendationsReceived = NotifyRecommendationsReceived;
+
+
+/***/ }),
+
+/***/ 446:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PutFeedback = void 0;
+const command_1 = __webpack_require__(849);
+const clientMethods_1 = __webpack_require__(294);
+class PutFeedback extends command_1.Command {
+    constructor(clientInput) {
+        super();
+        this.clientInput = clientInput;
+        this.clientMethod = clientMethods_1.ClientMethods.PutFeedback;
+    }
+    resolveRequestHandler(configuration, options) {
+        const { requestHandler } = configuration;
+        return () => requestHandler.handle(this.serialize(configuration), options || {});
+    }
+    serialize(configuration) {
+        const { assistantId, targetId, targetType, contentFeedback } = this.clientInput;
+        if ((assistantId === undefined) || !assistantId.length) {
+            throw new Error('Invalid assistantId.');
+        }
+        if ((targetId === undefined) || !targetId.length) {
+            throw new Error('Invalid targetId.');
+        }
+        if (targetType === undefined) {
+            throw new Error('Invalid targetType.');
+        }
+        if (contentFeedback === undefined) {
+            throw new Error('Invalid contentFeedback.');
+        }
+        return super.serialize(configuration);
+    }
+}
+exports.PutFeedback = PutFeedback;
 
 
 /***/ }),
@@ -615,6 +657,7 @@ const tslib_1 = __webpack_require__(582);
 tslib_1.__exportStar(__webpack_require__(934), exports);
 tslib_1.__exportStar(__webpack_require__(891), exports);
 tslib_1.__exportStar(__webpack_require__(885), exports);
+tslib_1.__exportStar(__webpack_require__(780), exports);
 
 
 /***/ }),
@@ -661,6 +704,10 @@ class QConnectClient extends client_1.Client {
     }
     getContact(args, options) {
         const command = new commands_1.GetContact(args);
+        return this.call(command, options);
+    }
+    putFeedback(args, options) {
+        const command = new commands_1.PutFeedback(args);
         return this.call(command, options);
     }
 }
@@ -714,6 +761,7 @@ var ClientMethods;
     ClientMethods["QueryAssistant"] = "queryAssistant";
     ClientMethods["SearchSessions"] = "searchSessions";
     ClientMethods["GetContact"] = "getContact";
+    ClientMethods["PutFeedback"] = "putFeedback";
 })(ClientMethods = exports.ClientMethods || (exports.ClientMethods = {}));
 var QConnectMethods;
 (function (QConnectMethods) {
@@ -722,6 +770,7 @@ var QConnectMethods;
     QConnectMethods["NotifyRecommendationsReceived"] = "notifyRecommendationsReceived";
     QConnectMethods["QueryAssistant"] = "queryAssistant";
     QConnectMethods["SearchSessions"] = "searchSessions";
+    QConnectMethods["PutFeedback"] = "putFeedback";
 })(QConnectMethods = exports.QConnectMethods || (exports.QConnectMethods = {}));
 var AgentAppMethods;
 (function (AgentAppMethods) {
@@ -755,7 +804,95 @@ exports.Commands = {
     queryAssistant: commands_1.QueryAssistant,
     searchSessions: commands_1.SearchSessions,
     getContact: commands_1.GetContact,
+    putFeedback: commands_1.PutFeedback,
 };
+
+
+/***/ }),
+
+/***/ 780:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Relevance = exports.TargetType = exports.QueryResultType = exports.SourceContentType = exports.QueryConditionComparisonOperator = exports.QueryConditionFieldName = exports.RecommendationType = exports.RecommendationSourceType = exports.RecommendationTriggerType = exports.IntegrationTypes = exports.RelevanceLevel = exports.FilterOperator = exports.FilterField = exports.ContentStatus = void 0;
+var ContentStatus;
+(function (ContentStatus) {
+    ContentStatus["ACTIVE"] = "ACTIVE";
+    ContentStatus["CREATE_FAILED"] = "CREATE_FAILED";
+    ContentStatus["CREATE_IN_PROGRESS"] = "CREATE_IN_PROGRESS";
+    ContentStatus["DELETED"] = "DELETED";
+    ContentStatus["DELETE_FAILED"] = "DELETE_FAILED";
+    ContentStatus["DELETE_IN_PROGRESS"] = "DELETE_IN_PROGRESS";
+    ContentStatus["UPDATE_FAILED"] = "UPDATE_FAILED";
+})(ContentStatus = exports.ContentStatus || (exports.ContentStatus = {}));
+var FilterField;
+(function (FilterField) {
+    FilterField["NAME"] = "NAME";
+})(FilterField = exports.FilterField || (exports.FilterField = {}));
+var FilterOperator;
+(function (FilterOperator) {
+    FilterOperator["EQUALS"] = "EQUALS";
+})(FilterOperator = exports.FilterOperator || (exports.FilterOperator = {}));
+var RelevanceLevel;
+(function (RelevanceLevel) {
+    RelevanceLevel["HIGH"] = "HIGH";
+    RelevanceLevel["LOW"] = "LOW";
+    RelevanceLevel["MEDIUM"] = "MEDIUM";
+})(RelevanceLevel = exports.RelevanceLevel || (exports.RelevanceLevel = {}));
+var IntegrationTypes;
+(function (IntegrationTypes) {
+    IntegrationTypes["EVENT"] = "EVENT";
+    IntegrationTypes["VOICE_ID"] = "VOICE_ID";
+    IntegrationTypes["PINPOINT_APP"] = "PINPOINT_APP";
+    IntegrationTypes["WISDOM_ASSISTANT"] = "WISDOM_ASSISTANT";
+    IntegrationTypes["WISDOM_KNOWLEDGE_BASE"] = "WISDOM_KNOWLEDGE_BASE";
+})(IntegrationTypes = exports.IntegrationTypes || (exports.IntegrationTypes = {}));
+var RecommendationTriggerType;
+(function (RecommendationTriggerType) {
+    RecommendationTriggerType["QUERY"] = "QUERY";
+    RecommendationTriggerType["GENERATIVE"] = "GENERATIVE";
+})(RecommendationTriggerType = exports.RecommendationTriggerType || (exports.RecommendationTriggerType = {}));
+var RecommendationSourceType;
+(function (RecommendationSourceType) {
+    RecommendationSourceType["ISSUE_DETECTION"] = "ISSUE_DETECTION";
+    RecommendationSourceType["RULE_EVALUATION"] = "RULE_EVALUATION";
+    RecommendationSourceType["OTHER"] = "OTHER";
+})(RecommendationSourceType = exports.RecommendationSourceType || (exports.RecommendationSourceType = {}));
+var RecommendationType;
+(function (RecommendationType) {
+    RecommendationType["KNOWLEDGE_CONTENT"] = "KNOWLEDGE_CONTENT";
+    RecommendationType["GENERATIVE_RESPONSE"] = "GENERATIVE_RESPONSE";
+    RecommendationType["GENERATIVE_ANSWER"] = "GENERATIVE_ANSWER";
+})(RecommendationType = exports.RecommendationType || (exports.RecommendationType = {}));
+var QueryConditionFieldName;
+(function (QueryConditionFieldName) {
+    QueryConditionFieldName["RESULT_TYPE"] = "RESULT_TYPE";
+})(QueryConditionFieldName = exports.QueryConditionFieldName || (exports.QueryConditionFieldName = {}));
+var QueryConditionComparisonOperator;
+(function (QueryConditionComparisonOperator) {
+    QueryConditionComparisonOperator["EQUALS"] = "EQUALS";
+})(QueryConditionComparisonOperator = exports.QueryConditionComparisonOperator || (exports.QueryConditionComparisonOperator = {}));
+var SourceContentType;
+(function (SourceContentType) {
+    SourceContentType["KNOWLEDGE_CONTENT"] = "KNOWLEDGE_CONTENT";
+})(SourceContentType = exports.SourceContentType || (exports.SourceContentType = {}));
+var QueryResultType;
+(function (QueryResultType) {
+    QueryResultType["KNOWLEDGE_CONTENT"] = "KNOWLEDGE_CONTENT";
+    QueryResultType["GENERATIVE_RESPONSE"] = "GENERATIVE_RESPONSE";
+    QueryResultType["GENERATIVE_ANSWER"] = "GENERATIVE_ANSWER";
+})(QueryResultType = exports.QueryResultType || (exports.QueryResultType = {}));
+var TargetType;
+(function (TargetType) {
+    TargetType["RECOMMENDATION"] = "RECOMMENDATION";
+    TargetType["RESULT"] = "RESULT";
+})(TargetType = exports.TargetType || (exports.TargetType = {}));
+var Relevance;
+(function (Relevance) {
+    Relevance["HELPFUL"] = "HELPFUL";
+    Relevance["NOT_HELPFUL"] = "NOT_HELPFUL";
+})(Relevance = exports.Relevance || (exports.Relevance = {}));
 
 
 /***/ }),

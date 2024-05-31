@@ -13,6 +13,7 @@ import {
   QueryAssistant, QueryAssistantInput, QueryAssistantOutput,
   SearchSessions, SearchSessionsInput, SearchSessionsOutput,
   GetContact, GetContactInput, GetContactOutput,
+  PutFeedback, PutFeedbackInput, PutFeedbackOutput,
 } from './commands';
 import { RequestHandler } from './types/requestHandler';
 import { HttpResponse, HttpHandlerOptions } from './types/http';
@@ -25,7 +26,8 @@ export type ServiceInputTypes =
   | NotifyRecommendationsReceivedInput
   | QueryAssistantInput
   | SearchSessionsInput
-  | GetContactInput;
+  | GetContactInput
+  | PutFeedbackInput;
 
 export type ServiceOutputTypes =
   | GetAuthorizedWidgetsForUserOutput
@@ -35,7 +37,8 @@ export type ServiceOutputTypes =
   | NotifyRecommendationsReceivedOutput
   | QueryAssistantOutput
   | SearchSessionsOutput
-  | GetContactOutput;
+  | GetContactOutput
+  | PutFeedbackOutput;
 
 /*
  * The configuration interface of the QConnectClient class constructor that sets the instance url and other options.
@@ -158,6 +161,14 @@ export class QConnectClient extends Client<
     options?: HttpHandlerOptions,
   ): Promise<HttpResponse<GetContactOutput>> {
     const command = new GetContact(args);
+    return this.call(command, options);
+  }
+
+  public putFeedback(
+    args: PutFeedbackInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<PutFeedbackOutput>> {
+    const command = new PutFeedback(args);
     return this.call(command, options);
   }
 }
