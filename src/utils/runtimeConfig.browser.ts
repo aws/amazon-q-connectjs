@@ -6,7 +6,11 @@
 import { getRuntimeConfig as getSharedRuntimeConfig } from './runtimeConfig.shared';
 import { ClientConfiguration } from '../client';
 import { FetchHttpHandler } from '../fetchHttpHandler';
+import { SDKHandler } from '../sdkHandler';
 import { getDefaultHeaders } from './getDefaultHeaders';
+import { CallSources } from '../types/callSources';
+import { RequestHandler } from '../types/requestHandler';
+import { HttpHandlerOptions } from '../types/http';
 
 /*
  * The default value for how many HTTP requests should be made for a
@@ -22,6 +26,8 @@ export const getRuntimeConfig = (config: ClientConfiguration) => {
     ...config,
     headers: config.headers ?? getDefaultHeaders(sharedRuntimeConfig),
     maxAttempts: config.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
-    requestHandler: config.requestHandler ?? new FetchHttpHandler(),
+    requestHandler: config.requestHandler ?? (sharedRuntimeConfig.callSource === CallSources.PublicApiProxy
+      ? new SDKHandler()
+      : new FetchHttpHandler()) as RequestHandler<any, any, HttpHandlerOptions>,
   }
 }

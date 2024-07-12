@@ -8,4 +8,5 @@
  */
 export enum CallSources {
   AgentApp = 'agent-app',
+  PublicApiProxy = 'public-api-proxy',
 }

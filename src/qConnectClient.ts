@@ -5,9 +5,12 @@
 
 import { Client, ClientConfiguration, ClientResolvedConfig } from './client';
 import {
+  DescribeContact, DescribeContactInput, DescribeContactOutput,
+  DescribeContactFlow, DescribeContactFlowInput, DescribeContactFlowOutput,
   GetAuthorizedWidgetsForUser, GetAuthorizedWidgetsForUserInput, GetAuthorizedWidgetsForUserOutput,
   GetContent, GetContentInput, GetContentOutput,
   GetRecommendations, GetRecommendationsInput, GetRecommendationsOutput,
+  ListContentAssociations, ListContentAssociationsInput, ListContentAssociationsOutput,
   ListIntegrationAssociations, ListIntegrationAssociationsInput, ListIntegrationAssociationsOutput,
   NotifyRecommendationsReceived, NotifyRecommendationsReceivedInput, NotifyRecommendationsReceivedOutput,
   QueryAssistant, QueryAssistantInput, QueryAssistantOutput,
@@ -19,9 +22,12 @@ import { RequestHandler } from './types/requestHandler';
 import { HttpResponse, HttpHandlerOptions } from './types/http';
 
 export type ServiceInputTypes =
+  | DescribeContactInput
+  | DescribeContactFlowInput
   | GetAuthorizedWidgetsForUserInput
   | GetContentInput
   | GetRecommendationsInput
+  | ListContentAssociationsInput
   | ListIntegrationAssociationsInput
   | NotifyRecommendationsReceivedInput
   | QueryAssistantInput
@@ -30,9 +36,12 @@ export type ServiceInputTypes =
   | PutFeedbackInput;
 
 export type ServiceOutputTypes =
+  | DescribeContactOutput
+  | DescribeContactFlowOutput
   | GetAuthorizedWidgetsForUserOutput
   | GetContentOutput
   | GetRecommendationsOutput
+  | ListContentAssociationsOutput
   | ListIntegrationAssociationsOutput
   | NotifyRecommendationsReceivedOutput
   | QueryAssistantOutput
@@ -73,6 +82,28 @@ export class QConnectClient extends Client<
   }
 
   /*
+   * Describes the specified contact.
+   */
+  public describeContact(
+    args: DescribeContactInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<DescribeContactOutput>> {
+    const command = new DescribeContact(args);
+    return this.call(command, options);
+  }
+
+  /*
+   * Describes the specified contact flow.
+   */
+  public describeContactFlow(
+    args: DescribeContactFlowInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<DescribeContactFlowOutput>> {
+    const command = new DescribeContactFlow(args);
+    return this.call(command, options);
+  }
+
+  /*
    * Retrieves authorized widgets settings for Connect instance ID.
    */
   public getAuthorizedWidgetsForUser(
@@ -80,6 +111,17 @@ export class QConnectClient extends Client<
     options?: HttpHandlerOptions,
   ): Promise<HttpResponse<GetAuthorizedWidgetsForUserOutput>> {
     const command = new GetAuthorizedWidgetsForUser(args);
+    return this.call(command, options);
+  }
+
+  /*
+   * Gets details about the specified contact.
+   */
+  public getContact(
+    args: GetContactInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<GetContactOutput>> {
+    const command = new GetContact(args);
     return this.call(command, options);
   }
 
@@ -110,6 +152,20 @@ export class QConnectClient extends Client<
   }
 
   /*
+   * Lists the content associations.
+   * For more information about content associations--what they are and when they are used--see
+   * Integrate Amazon Q in Connect with step-by-step guides in the Amazon Connect Administrator Guide.
+   * https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html
+   */
+  public listContentAssociations(
+    args: ListContentAssociationsInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<ListContentAssociationsOutput>> {
+    const command = new ListContentAssociations(args);
+    return this.call(command, options);
+  }
+
+  /*
    * Retrieves Connect integrations, including assistant and knowledge base integrations.
    */
   public listIntegrationAssociations(
@@ -134,6 +190,17 @@ export class QConnectClient extends Client<
   }
 
   /*
+   * Add feedback for an anomalous metric.
+   */
+  public putFeedback(
+    args: PutFeedbackInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<PutFeedbackOutput>> {
+    const command = new PutFeedback(args);
+    return this.call(command, options);
+  }
+
+  /*
    * Performs a manual search against the specified assistant.
    * To retrieve recommendations for an assistant, use GetRecommendations.
    */
@@ -153,22 +220,6 @@ export class QConnectClient extends Client<
     options?: HttpHandlerOptions,
   ): Promise<HttpResponse<SearchSessionsOutput>> {
     const command = new SearchSessions(args);
-    return this.call(command, options);
-  }
-
-  public getContact(
-    args: GetContactInput,
-    options?: HttpHandlerOptions,
-  ): Promise<HttpResponse<GetContactOutput>> {
-    const command = new GetContact(args);
-    return this.call(command, options);
-  }
-
-  public putFeedback(
-    args: PutFeedbackInput,
-    options?: HttpHandlerOptions,
-  ): Promise<HttpResponse<PutFeedbackOutput>> {
-    const command = new PutFeedback(args);
     return this.call(command, options);
   }
 }

@@ -3,41 +3,41 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { QueryAssistant } from './queryAssistant';
+import { ListContentAssociations } from './listContentAssociations';
 import * as clientMiddlware from '../utils/buildClientMiddleware';
 import { getRuntimeConfig } from '../utils/runtimeConfig.browser';
 import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 
-describe('QueryAssistant', () => {
-  let command: QueryAssistant;
+describe('ListContentAssociations', () => {
+  let command: ListContentAssociations;
 
   const config = getRuntimeConfig({
     instanceUrl: 'https://example.com',
   });
-  const assistantId = '85be2a14-94d7-41f2-835e-85368acb55df';
-  const queryText = 'order';
+  const contentId = '85be2a14-94d7-41f2-835e-85368acb55df';
+  const knowledgeBaseId = 'b5b0e4af-026e-4472-9371-d171a9fdf75a';
 
   const mockBuildClientRequestMiddlware = jest.spyOn(clientMiddlware, 'buildClientRequestMiddleware');
 
   it('should properly construct the command from the inputs provided', () => {
-    command = new QueryAssistant({
-      assistantId,
-      queryText
+    command = new ListContentAssociations({
+      knowledgeBaseId,
+      contentId,
     });
 
     expect(command.vendorCode).toEqual(VendorCodes.Wisdom);
-    expect(command.clientMethod).toEqual(ClientMethods.QueryAssistant);
+    expect(command.clientMethod).toEqual(ClientMethods.ListContentAssociations);
     expect(command.clientInput).toEqual({
-      assistantId,
-      queryText,
+      knowledgeBaseId,
+      contentId,
     });
   });
 
-  it('should construct an HTTP request when calling serializeRequest', () => {
-    command = new QueryAssistant({
-      assistantId,
-      queryText
+  it('should consturct an HTTP request when calling serializeRequest', () => {
+    command = new ListContentAssociations({
+      knowledgeBaseId,
+      contentId,
     });
 
     expect(command.serializeRequest(config)).toEqual(
@@ -46,35 +46,44 @@ describe('QueryAssistant', () => {
           'x-access-section': 'WISDOM',
           'x-amazon-call-source': 'agent-app',
           'x-amz-access-section': 'Wisdom',
-          'x-amz-target': 'AgentAppService.WisdomV2.queryAssistant',
+          'x-amz-target': 'AgentAppService.WisdomV2.listContentAssociations',
           'x-amz-vendor': 'wisdom',
         }),
         body: JSON.stringify({
-          assistantId,
-          queryText
+          knowledgeBaseId,
+          contentId,
         }),
       }),
     );
   });
 
   it('should validate inputs when calling serializeRequest', () => {
-    command = new QueryAssistant({} as any);
+    command = new ListContentAssociations({} as any);
 
-    expect(() => command.serializeRequest({} as any)).toThrow('Invalid assistantId.');
+    expect(() => command.serializeRequest({} as any)).toThrow('Invalid contentId.');
 
-    command = new QueryAssistant({
-      assistantId: '',
+    command = new ListContentAssociations({
+      contentId: '',
     } as any);
 
-    expect(() => command.serializeRequest({} as any)).toThrow('Invalid assistantId.');
+    expect(() => command.serializeRequest({} as any)).toThrow('Invalid contentId.');
 
-    command = new QueryAssistant({
-      assistantId,
+    command = new ListContentAssociations({
+      contentId,
     } as any);
+
+    expect(() => command.serializeRequest({} as any)).toThrow('Invalid knowledgeBaseId.');
+
+    command = new ListContentAssociations({
+      contentId,
+      knowledgeBaseId: '',
+    });
+
+    expect(() => command.serializeRequest({} as any)).toThrow('Invalid knowledgeBaseId.');
   });
 
   it('should call buildClientMiddlware when calling serializeCommand', () => {
-    command = new QueryAssistant({} as any);
+    command = new ListContentAssociations({} as any);
 
     expect(mockBuildClientRequestMiddlware).not.toHaveBeenCalled();
 

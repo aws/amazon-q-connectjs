@@ -13,6 +13,7 @@ const BASE_HEADERS = {
 export const getDefaultHeaders = ({ callSource, serviceId }: any): HttpHeaders => {
   return {
     ...BASE_HEADERS,
+    'x-access-section': serviceId.toUpperCase(),
     'x-amazon-call-source': callSource,
     'x-amz-access-section': serviceId,
   };
