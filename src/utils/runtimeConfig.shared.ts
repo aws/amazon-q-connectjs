@@ -13,7 +13,7 @@ import { generateEndpoint } from '../utils/appConfig';
 export const getRuntimeConfig = (config: ClientConfiguration) => {
   return {
     logger: config?.logger ?? ({} as Logger),
-    serviceId: config?.serviceId ?? ServiceIds.AmazonQConnect,
+    serviceId: config?.serviceId ?? ServiceIds.Wisdom,
     callSource: config?.callSource ?? CallSources.AgentApp,
     instanceUrl: config?.instanceUrl ?? getBaseUrl(),
     endpoint: config?.endpoint || generateEndpoint(config?.instanceUrl || getBaseUrl()),

@@ -4,27 +4,24 @@
  */
 
 import { MessageChannel } from 'worker_threads';
+import {
+  FilterOperator, FilterField, QueryConditionFieldName, QueryConditionComparisonOperator,
+  QueryResultType, Relevance, TargetType,
+} from '@aws-sdk/client-qconnect';
 
 import { QConnectClient } from './qConnectClient';
+import { DescribeContact } from './commands/describeContact';
+import { DescribeContactFlow } from './commands/describeContactFlow';
 import { GetAuthorizedWidgetsForUser } from './commands/getAuthorizedWidgetsForUser';
+import { GetContact } from './commands/getContact';
 import { GetContent } from './commands/getContent';
 import { GetRecommendations } from './commands/getRecommendations';
+import { ListContentAssociations } from './commands/listContentAssociations';
 import { ListIntegrationAssociations } from './commands/listIntegrationAssociations';
 import { NotifyRecommendationsReceived } from './commands/notifyRecommendationsReceived';
+import { PutFeedback } from './commands/putFeedback';
 import { QueryAssistant } from './commands/queryAssistant';
 import { SearchSessions } from './commands/searchSessions';
-import { GetContact } from './commands/getContact';
-import { PutFeedback } from './commands/putFeedback';
-import {
-  FilterOperator,
-  FilterField,
-  QueryConditionFieldName,
-  QueryConditionComparisonOperator,
-  QueryResultType,
-  Relevance,
-  TargetType,
-} from './types/models';
-
 
 describe('QConnectClient', () => {
   let client: QConnectClient;
@@ -32,6 +29,7 @@ describe('QConnectClient', () => {
   const awsAccountId = '85be2a14-94d7-41f2-835e-85368acb55df';
   const assistantId = 'b5b0e4af-026e-4472-9371-d171a9fdf75a';
   const contactId = 'E6B381BD-83B5-47C7-AB48-6170607E13BB';
+  const contactFlowId = '66c87b19-f867-45bc-923f-da04abf2a8f0';
   const contentId =  'c6ca58b9-b046-4664-ba63-da17f51fc332';
   const instanceId = '6BF7FA0A-35A4-48F6-8260-D2939B4D6D1D';
   const knowledgeBaseId = 'f9b5fa90-b3ce-45c9-9967-582c87074864';
@@ -73,6 +71,28 @@ describe('QConnectClient', () => {
     expect(client.config.endpoint).toEqual('https://foo.my.connect.aws/agent-app/api');
   });
 
+  it('should return a response promise when calling describeContact', async () => {
+    DescribeContact.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
+
+    await expect(
+      client.describeContact({
+        InstanceId: instanceId,
+        ContactId: contactId,
+      }),
+    ).resolves.toEqual('success response');
+  });
+
+  it('should return a response promise when calling describeContactFlow', async () => {
+    DescribeContactFlow.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
+
+    await expect(
+      client.describeContactFlow({
+        InstanceId: instanceId,
+        ContactFlowId: contactFlowId,
+      }),
+    ).resolves.toEqual('success response');
+  });
+
   it('should return a response promise when calling getAuthorizedWidgetsForUser', async () => {
     GetAuthorizedWidgetsForUser.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
 
@@ -81,6 +101,17 @@ describe('QConnectClient', () => {
     ).resolves.toEqual('success response');
   });
 
+  it('should return a response promise when calling getContact', async () => {
+    GetContact.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
+
+    await expect(
+      client.getContact({
+        awsAccountId: awsAccountId,
+        instanceId: instanceId,
+        contactId: contactId,
+      }),
+    ).resolves.toEqual('success response');
+  });
 
   it('should return a response promise when calling getContent', async () => {
     GetContent.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
@@ -100,6 +131,17 @@ describe('QConnectClient', () => {
       client.getRecommendations({
         assistantId: assistantId,
         sessionId: sessionId,
+      }),
+    ).resolves.toEqual('success response');
+  });
+
+  it('should return a response promise when calling listContentAssociations', async () => {
+    ListContentAssociations.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
+
+    await expect(
+      client.listContentAssociations({
+        contentId: contentId,
+        knowledgeBaseId: knowledgeBaseId,
       }),
     ).resolves.toEqual('success response');
   });
@@ -141,9 +183,9 @@ describe('QConnectClient', () => {
               field: QueryConditionFieldName.RESULT_TYPE,
               comparator: QueryConditionComparisonOperator.EQUALS,
               value: QueryResultType.GENERATIVE_ANSWER,
-            }
-          }
-        ] 
+            },
+          },
+        ],
       }),
     ).resolves.toEqual('success response');
   });
@@ -163,18 +205,6 @@ describe('QConnectClient', () => {
             },
           ],
         },
-      }),
-    ).resolves.toEqual('success response');
-  });
-
-  it('should return a response promise when calling getContact', async () => {
-    GetContact.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
-
-    await expect(
-      client.getContact({
-        awsAccountId: awsAccountId,
-        instanceId: instanceId,
-        contactId: contactId,
       }),
     ).resolves.toEqual('success response');
   });

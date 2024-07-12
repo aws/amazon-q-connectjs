@@ -92,23 +92,25 @@ export class Client<
       this.config.frameWindow = iframe;
     } else {
       try {
-        let container = document.querySelector('q-connect-container');
+        (window as any)?.connect?.core.onInitialized(() => {
+          let container = document.querySelector('q-connect-container');
 
-        if (!container) {
-          container = document.createElement('div');
-          container.id = 'q-connect-container';
-          document.body.appendChild(container);
-        }
-
-        (window as any)?.connect?.agentApp.initApp(
-          ServiceIds.AmazonQConnect,
-          'q-connect-container',
-          `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`,
-          {
-            style: 'display: none',
+          if (!container) {
+            container = document.createElement('div');
+            container.id = 'q-connect-container';
+            document.body.appendChild(container);
           }
-        );
-        this.config.frameWindow = document.getElementById(ServiceIds.AmazonQConnect) as HTMLIFrameElement;
+
+          (window as any)?.connect?.agentApp.initApp(
+            ServiceIds.AmazonQConnect,
+            'q-connect-container',
+            `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`,
+            {
+              style: 'display: none',
+            }
+          );
+          this.config.frameWindow = document.getElementById(ServiceIds.AmazonQConnect) as HTMLIFrameElement;
+        });
       } catch (e) {
         console.error('There was an error initializing Amazon Q Connect');
       }

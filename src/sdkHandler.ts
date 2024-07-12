@@ -3,18 +3,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { ConnectClient as ConnectSDKClient } from '@aws-sdk/client-connect';
+import { QConnectClient as QConnectSDKClient } from '@aws-sdk/client-qconnect';
+
 import { QConnectClientResolvedConfig } from './qConnectClient';
 import { HttpRequestOptions } from './httpRequest';
 import { fetchWithChannel, subscribeToChannel } from './utils/communicationProxy';
 import { parseAmzTarget } from './utils/buildAmzTarget';
-import { HttpResponse, HttpHeaders, HttpHandlerOptions } from './types/http';
+import { buildClientResponseMiddleware } from './utils/buildClientMiddleware';
+import { getBaseCredentials } from './utils/getBaseCredentials';
+import { HttpResponse, HttpHandlerOptions } from './types/http';
 import { RequestHandler } from './types/requestHandler';
 import { Commands } from './types/command';
+import { VendorCodes } from './types/vendorCodes';
 
 /*
- * Represents the http options that can be passed to a browser http client.
+ * Represents the http options that can be passed to a browser sdk client.
  */
- export interface FetchHttpHandlerOptions {
+ export interface SDKHandlerOptions {
   /*
    * The number of milliseconds a request can take before being automatically
    * terminated.
@@ -22,11 +28,17 @@ import { Commands } from './types/command';
   requestTimeout?: number;
 }
 
-export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, HttpResponse<any>, HttpHandlerOptions> {
+export class SDKHandler implements RequestHandler<HttpRequestOptions, HttpResponse<any>, HttpHandlerOptions> {
   private runtimeConfig?: QConnectClientResolvedConfig;
-  private config?: FetchHttpHandlerOptions;
 
-  constructor(config?: FetchHttpHandlerOptions) {
+  private config?: SDKHandlerOptions;
+
+  private sdkClients?: {
+    [VendorCodes.Connect]: ConnectSDKClient,
+    [VendorCodes.Wisdom]: QConnectSDKClient,
+  }
+
+  constructor(config?: SDKHandlerOptions) {
     this.config = config ?? {};
 
     subscribeToChannel(this.channelRequestHandler.bind(this));
@@ -34,56 +46,36 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
 
   setRuntimeConfig(config: QConnectClientResolvedConfig) {
     this.runtimeConfig = config;
+
+    this.initializeClients();
+  }
+
+  initializeClients() {
+    const endpoint = `${this.runtimeConfig?.endpoint}/api-proxy`;
+
+    this.sdkClients = {
+      [VendorCodes.Connect]: new ConnectSDKClient({
+        region: 'us-west-2',
+        endpoint: `${endpoint}/${VendorCodes.Connect}`,
+        credentials: getBaseCredentials(),
+      }),
+      [VendorCodes.Wisdom]: new QConnectSDKClient({
+        region: 'us-west-2',
+        endpoint: `${endpoint}/${VendorCodes.Wisdom}`,
+        credentials: getBaseCredentials(),
+      }),
+    }
   }
 
   async responseHandler(response: any): Promise<HttpResponse<any>> {
-    const { status, statusText, ok, headers, body } = response;
-    const fetchHeaders: any = headers;
-    const transformedHeaders: HttpHeaders = {};
-
-    if (fetchHeaders.entries) {
-      for (const pair of <Array<string[]>>fetchHeaders.entries()) {
-        transformedHeaders[pair[0]] = pair[1];
-      }
-    }
-
-    const hasReadableStream = body !== undefined;
-
-    // Return the response with buffered body
-    if (!hasReadableStream) {
-      return response.blob()
-        .then(() => {
-          return {
-            status,
-            statusText,
-            ok,
-            headers: transformedHeaders,
-            body: response.json(),
-          };
-        });
-    }
-
-    const reader = body.getReader();
-    let res = new Uint8Array(0);
-    let isDone = false;
-
-    while (!isDone) {
-      const { done, value } = await reader.read();
-      if (value) {
-        const prior = res;
-        res = new Uint8Array(prior.length + value.length);
-        res.set(prior);
-        res.set(value, prior.length);
-      }
-      isDone = done;
-    }
+    const { statusCode, reason, headers, body } = response;
 
     return {
-      status,
-      statusText,
-      ok,
-      headers: transformedHeaders,
-      body: JSON.parse(new TextDecoder('utf8').decode(res)),
+      status: statusCode,
+      statusText: reason,
+      ok: reason === 'OK',
+      headers,
+      body,
     };
   }
 
@@ -108,6 +100,7 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
 
       return this.handle({
         request: clientCommand.serializeRequest(config),
+        command: clientCommand.serializeCommand(config),
       });
     } catch (e: any) {
       console.error(`Something went wrong during request: ${e?.message}`);
@@ -115,30 +108,61 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
     }
   }
 
-  async fetchRequestHandler(url: string, options: RequestInit): Promise<HttpResponse<any>> {
+  async sdkRequestHandler(command: any, options: RequestInit): Promise<HttpResponse<any>> {
     try {
-      const response = await fetch(url, options);
-      return this.responseHandler(response);
+      const { headers } = options;
+
+      // Source the x-amz-vendor from the incoming headers
+      const amzVendor = (headers as any)?.['x-amz-vendor'] as VendorCodes;
+
+      // Source the SDK client from the client method
+      const client = (this.sdkClients as any)?.[amzVendor];
+
+      // Source client response middleware
+      let httpResponse: any;
+      const [middleware, ops] = buildClientResponseMiddleware(
+        (response: any) => {
+          httpResponse = response;
+        },
+      );
+
+      command?.middlewareStack.add(middleware, ops);
+
+      const deserializedResponse = await client?.send(command, options);
+
+      return this.responseHandler({
+        ...httpResponse,
+        body: deserializedResponse,
+      });
     } catch (e: any) {
-      console.error(`Something went wrong during request: ${e?.message}`);
+      console.error(`Something went wrong during request handling: ${e?.message}`);
       return Promise.reject(e);
     }
   }
 
-  async fetchRequest(url: string, options: RequestInit, frameWindow?: HTMLIFrameElement): Promise<HttpResponse<any>> {
+  async sdkRequest({
+    command,
+    options,
+  }: {
+    command: any,
+    options: RequestInit,
+  }): Promise<HttpResponse<any>> {
     try {
-      if (frameWindow) {
+      if (this.runtimeConfig?.frameWindow) {
         const response = await fetchWithChannel(
-          (frameWindow.contentWindow as Window),
-          frameWindow.src,
-          { url, options },
+          (this.runtimeConfig.frameWindow.contentWindow as Window),
+          this.runtimeConfig.frameWindow.src,
+          {
+            url: this.runtimeConfig.endpoint,
+            options,
+          },
         );
         return Promise.resolve(response);
       } else {
-        return this.fetchRequestHandler(url, options);
+        return this.sdkRequestHandler(command, options);
       }
     } catch (e: any) {
-      console.error(`Something went wrong during request: ${e?.message}`);
+      console.error(`Something went wrong during SDK request: ${e?.message}, ${e?.$response}`);
       return Promise.reject(e);
     }
   }
@@ -169,9 +193,11 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
 
   handle({
     request,
+    command,
     options,
   }: {
     request: HttpRequestOptions,
+    command?: any,
     options?: HttpHandlerOptions,
   }): Promise<HttpResponse<any>> {
     const { abortSignal } = options || {};
@@ -184,8 +210,7 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
       return Promise.reject(abortError);
     }
 
-    const { protocol, hostname, port, path, method, headers, body, frameWindow } = request;
-    const url = `${protocol}//${hostname}${port ? `:${port}` : ''}${path}`;
+    const { method, headers, body, frameWindow } = request;
 
     const requestOptions: RequestInit = {
       method,
@@ -196,7 +221,7 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
     };
 
     return Promise.race([
-      this.fetchRequest(url, requestOptions, frameWindow),
+      this.sdkRequest({ command, options: requestOptions }),
       this.requestTimeout(requestTimeout),
       this.abortRequest(abortSignal),
     ]);

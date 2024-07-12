@@ -10,8 +10,13 @@ export interface RequestHandler<RequestType, ResponseType, HandlerOptions> {
     config: QConnectClientResolvedConfig,
   ) => void;
 
-  handle: (
+  handle: ({
+    request,
+    command,
+    options,
+  }: {
     request: RequestType,
-    HandlerOptions?: HandlerOptions,
-  ) => Promise<ResponseType>;
+    command?: any,
+    options?: HandlerOptions,
+  }) => Promise<ResponseType>;
 }

@@ -3,27 +3,35 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import {
+  GetContentCommand, GetContentCommandInput, GetContentCommandOutput
+} from '@aws-sdk/client-qconnect';
+
 import { Command } from './command';
 import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
-import { GetContentRequest, GetContentResponse } from '../types/models';
+import { buildClientRequestMiddleware } from '../utils/buildClientMiddleware';
+import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
 
-export interface GetContentInput extends GetContentRequest {}
+export interface GetContentInput extends GetContentCommandInput {}
 
-export interface GetContentOutput extends GetContentResponse {}
+export interface GetContentOutput extends GetContentCommandOutput {}
 
 export class GetContent extends Command<
   GetContentInput,
   GetContentOutput,
   QConnectClientResolvedConfig
 > {
+  readonly vendorCode: VendorCodes;
+
   readonly clientMethod: ClientMethods;
 
   constructor(readonly clientInput: GetContentInput) {
     super();
+    this.vendorCode = VendorCodes.Wisdom;
     this.clientMethod = ClientMethods.GetContent;
   }
 
@@ -32,10 +40,14 @@ export class GetContent extends Command<
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<GetContentOutput>> {
     const { requestHandler } = configuration;
-    return () => requestHandler.handle(this.serialize(configuration), options || {});
+    return () => requestHandler.handle({
+      request: this.serializeRequest(configuration),
+      command: this.serializeCommand(configuration),
+      options: options || {},
+    });
   }
 
-  serialize(configuration: QConnectClientResolvedConfig): HttpRequest {
+  serializeRequest(configuration: QConnectClientResolvedConfig): HttpRequest {
     const { contentId, knowledgeBaseId } = this.clientInput;
 
     if ((contentId === undefined) || !contentId.length) {
@@ -46,6 +58,16 @@ export class GetContent extends Command<
       throw new Error('Invalid knowledgeBaseId.');
     }
 
-    return super.serialize(configuration);
+    return super.serializeRequest(configuration);
+  }
+
+  serializeCommand(configuration: QConnectClientResolvedConfig): GetContentCommand {
+    const command = new GetContentCommand(this.clientInput);
+
+    const [middleware, opt] = buildClientRequestMiddleware<GetContentInput, GetContentOutput>(configuration.headers);
+
+    command.middlewareStack.add(middleware, opt);
+
+    return command;
   }
 }
