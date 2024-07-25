@@ -255,7 +255,9 @@ qConnectClient.getRecommendations({
 
 ## QueryAssistant
 
-Performs a manual search against the specified assistant. To retrieve recommendations for an assistant, use GetRecommendations. For more information check out the [QueryAssistant](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_QueryAssistant.html) API reference.
+Performs a manual search against the specified assistant or generates an answer addressing an intent obtained from a `GetRecommendations` call against the specified session (see [Using QueryAssistant to Generate an Answer for an Intent Recommendation Returned by GetRecommendations](#using-queryassistant-to-generate-an-answer-for-an-intent-recommendation-returned-by-getrecommendations) for details).
+
+For more information check out the [QueryAssistant](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_QueryAssistant.html) API reference.
 
 ### URI Request Parameters
 
@@ -408,7 +410,7 @@ try {
 
 ## GetRecommendations
 
-Retrieves recommendations for the specified session. To avoid retrieving the same recommendations in subsequent calls, use NotifyRecommendationsReceived. This API supports long-polling behavior with the `waitTimeSeconds` parameter. Short poll is the default behavior and only returns recommendations already available. To perform a manual query against an assistant, use the QueryAssistant API. For more information check out the [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html) API reference.
+Retrieves recommendations (e.g. detected intents) for the specified session. To avoid retrieving the same recommendations in subsequent calls, use NotifyRecommendationsReceived. This API supports long-polling behavior with the `waitTimeSeconds` parameter. Short poll is the default behavior and only returns recommendations already available. For more information check out the [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html) API reference.
 
 ### URI Request Parameters
 
@@ -421,7 +423,8 @@ Retrieves recommendations for the specified session. To avoid retrieving the sam
 
 * The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
 * The `session ARN` can be retrieved by used the `GetContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [GetContact](#getcontact) for more information.
-* To avoid retrieving the same recommendations on subsequent calls, the `NotifyRecommendationsReceived` API should be called after each response. See [NotifyRecommendationsReceived]() for more information.
+* To avoid retrieving the same recommendations on subsequent calls, the `NotifyRecommendationsReceived` API should be called after each response. See [NotifyRecommendationsReceived](#notifyrecommendationsreceived) for more information.
+* GetRecommendations will return detected customer intents, and you can use QueryAssistant to generate an answer for the intent. See [Using QueryAssistant to Generate an Answer for an Intent Recommendation Returned by GetRecommendations](#using-queryassistant-to-generate-an-answer-for-an-intent-recommendation-returned-by-getrecommendations) for instructions.
 
 ### Response Syntax
 
@@ -494,6 +497,99 @@ try {
   // error handling.
 }
 ```
+
+### Using QueryAssistant to Generate an Answer for an Intent Recommendation Returned by GetRecommendations
+
+GetRecommendations will return the customer's intent detected during the session. You can choose whether to have QiC generate an answer that addresses the intent.
+
+For example, you may receive the following response from the GetRecommendations API during the session. Note below the parts of the response marked by `RECOMMENDATION_ID`, `INTENT_ID`, and `INTENT_TEXT`.
+```json
+{
+    "recommendations": [
+        {
+            "recommendationId": "7b0bdc22-0a77-4d7a-ac77-070d729f8040", # RECOMMENDATION_ID
+            "data": {
+                "reference": {
+                    "generativeReference": {
+                        "modelId": "",
+                        "generationId": ""
+                    }
+                },
+                "details": {
+                    "generativeData": {
+                        "completion": "",
+                        "references": [],
+                        "rankingData": {
+                            "relevanceScore": 1,
+                            "relevanceLevel": "LOW"
+                        }
+                    }
+                }
+            },
+            "relevanceScore": -1,
+            "type": "GENERATIVE_ANSWER"
+        }
+    ],
+    "triggers": [
+        {
+            "id": "6c0165b4-fb3c-47c0-a1a7-a89bae69ac58", # INTENT_ID
+            "type": "GENERATIVE",
+            "source": "ISSUE_DETECTION",
+            "data": {
+                "query": {
+                    "text": "To cancel a reservation" # INTENT_TEXT
+                }
+            },
+            "recommendationIds": [
+                "7b0bdc22-0a77-4d7a-ac77-070d729f8040"
+            ]
+        }
+    ]
+}
+```
+Above, QiC has detected an intent `"To cancel a reservation"`. To note, make sure to call NotifyRecommendationsReceived, passing in the `RECOMMENDATION_ID`, to avoid this intent from appearing in subsequent GetRecommendations calls.
+
+To have QiC generate an answer that addresses this intent, perform the following.
+
+1. Identify the `INTENT_ID`, in this case `"6c0165b4-fb3c-47c0-a1a7-a89bae69ac58"`.
+2. Construct a string in the following format: `"#intentrecommendation:<INTENT_ID>"`, in this case `"#intentrecommendation:6c0165b4-fb3c-47c0-a1a7-a89bae69ac58"`.
+3. Make a QueryAssistant request, passing the string into the `queryText` parameter, making sure to include the `sessionId` of the session in the request:
+```json
+{
+    "assistantId": "7ff27380-cd89-4d28-9e1c-e566988edf18",
+    "queryText": "#intentrecommendation:6c0165b4-fb3c-47c0-a1a7-a89bae69ac58",
+    "maxResults": 1,
+    "queryCondition": [
+        {
+            "single": {
+                "field": "RESULT_TYPE",
+                "comparator": "EQUALS",
+                "value": "GENERATIVE_ANSWER"
+            }
+        }
+    ],
+    "sessionId": "3ce2171b-654b-47d9-b918-9902e3ec821f"
+}
+```
+
+4. The QueryAssistant response will contain an answer that addresses the intent:
+```json
+{
+    "results": [
+        {
+            "resultId": "4d41745b-48a9-42fd-8d04-3b6c2cb16adb",
+            "data": {
+                    ....  # Answer addressing the intent
+                }
+            },
+            "type": "GENERATIVE_ANSWER",
+            "relevanceScore": -1
+        }
+    ]
+}
+```
+
+We recommend making the QueryAssistant call only when the agent is sure that they would like an answer addressing the intent. E.g. when you receive an intent via the GetRecommendations API, you may want to display to the agent a clickable button containing the intent text, and make the QueryAssistant call only when the agent clicks on the button.
 
 ## NotifyRecommendationsReceived
 
@@ -672,12 +768,12 @@ Provides feedback against the specified assistant for the specified target. This
 
 * `assistantId`: The identifier of the Amazon Q Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `contentFeedback`: The information about the feedback provided.
-* `targetId`: The identifier of the feedback target. It could be either a resultId from manual search or recommendationId from recommendation.
+* `targetId`: The identifier of the feedback target. It could be a resultId from a QueryAssistant call.
 * `targetType`: The type of the feedback target.
 
 #### A few things to note:
 * The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
-* The `targetId` can be retrieved from the response of `QueryAssistant` or `GetRecommendations` APIs provided by QConnectJS. In `QueryAssistant`, the `targetId` is the `resultId`, while in `GetRecommendations`, the `targetId` is equals to `recommendationId`. See [QueryAssistant](#queryassistant) and [GetRecommendations](#getrecommendations) for more information.
+* The `targetId` can be retrieved from the response of the `QueryAssistant` API provided by QConnectJS. In `QueryAssistant`, the `targetId` is the `resultId`. See [QueryAssistant](#queryassistant) for more information.
 
 ### Response Syntax
 
