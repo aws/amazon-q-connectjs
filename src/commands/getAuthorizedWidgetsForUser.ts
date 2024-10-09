@@ -6,11 +6,15 @@
 import { Command } from './command';
 import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
+import { FetchHttpHandler } from '../fetchHttpHandler';
 import { GetAuthorizedWidgetsForUserRequest, GetAuthorizedWidgetsForUserResponse } from '../types/models';
+import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
 import { ServiceIds } from '../types/serviceIds';
+
+export interface GetAuthorizedWidgetsForUserCommand {}
 
 export interface GetAuthorizedWidgetsForUserInput extends GetAuthorizedWidgetsForUserRequest {}
 
@@ -21,10 +25,13 @@ export class GetAuthorizedWidgetsForUser extends Command<
   GetAuthorizedWidgetsForUserOutput,
   QConnectClientResolvedConfig
 > {
+  readonly vendorCode: VendorCodes;
+
   readonly clientMethod: ClientMethods;
 
   constructor(readonly clientInput: GetAuthorizedWidgetsForUserInput) {
     super();
+    this.vendorCode = VendorCodes.Connect;
     this.clientMethod = ClientMethods.GetAuthorizedWidgetsForUser;
   }
 
@@ -32,14 +39,27 @@ export class GetAuthorizedWidgetsForUser extends Command<
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<GetAuthorizedWidgetsForUserOutput>> {
-    const { requestHandler } = configuration;
-    return () => requestHandler.handle(this.serialize(configuration), options || {});
+    let { requestHandler } = configuration;
+
+    // Override RequestHandler on internal APIs
+    // Public API proxy requires public vendor code.
+    requestHandler = new FetchHttpHandler();
+
+    return () => requestHandler.handle({
+      request: this.serializeRequest(configuration),
+      command: this.serializeCommand(configuration),
+      options: options || {},
+    });
   }
 
-  serialize(configuration: QConnectClientResolvedConfig): HttpRequest {
-    return super.serialize({
+  serializeRequest(configuration: QConnectClientResolvedConfig): HttpRequest {
+    return super.serializeRequest({
       ...configuration,
       serviceId: ServiceIds.AgentApp,
     });
+  }
+
+  serializeCommand(_configuration: QConnectClientResolvedConfig): GetAuthorizedWidgetsForUserCommand {
+    return null as unknown as GetAuthorizedWidgetsForUserCommand;
   }
 }

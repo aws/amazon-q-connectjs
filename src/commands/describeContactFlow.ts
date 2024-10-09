@@ -4,7 +4,7 @@
  */
 
 import {
-  ListIntegrationAssociationsCommand, ListIntegrationAssociationsCommandInput, ListIntegrationAssociationsCommandOutput,
+  DescribeContactFlowCommand, DescribeContactFlowCommandInput, DescribeContactFlowCommandOutput,
 } from '@aws-sdk/client-connect';
 
 import { Command } from './command';
@@ -17,29 +17,29 @@ import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
 import { ServiceIds } from '../types/serviceIds';
 
-export interface ListIntegrationAssociationsInput extends ListIntegrationAssociationsCommandInput {}
+export interface DescribeContactFlowInput extends DescribeContactFlowCommandInput {}
 
-export interface ListIntegrationAssociationsOutput extends ListIntegrationAssociationsCommandOutput {}
+export interface DescribeContactFlowOutput extends DescribeContactFlowCommandOutput {}
 
-export class ListIntegrationAssociations extends Command<
-  ListIntegrationAssociationsInput,
-  ListIntegrationAssociationsOutput,
+export class DescribeContactFlow extends Command<
+  DescribeContactFlowCommandInput,
+  DescribeContactFlowCommandOutput,
   QConnectClientResolvedConfig
 > {
   readonly vendorCode: VendorCodes;
 
   readonly clientMethod: ClientMethods;
 
-  constructor(readonly clientInput: ListIntegrationAssociationsInput) {
+  constructor(readonly clientInput: DescribeContactFlowCommandInput) {
     super();
     this.vendorCode = VendorCodes.Connect;
-    this.clientMethod = ClientMethods.ListIntegrationAssociations;
+    this.clientMethod = ClientMethods.DescribeContactFlow;
   }
 
   resolveRequestHandler(
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
-  ): InvokeFunction<HttpResponse<ListIntegrationAssociationsOutput>> {
+  ): InvokeFunction<HttpResponse<DescribeContactFlowCommandOutput>> {
     const { requestHandler } = configuration;
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
@@ -49,10 +49,14 @@ export class ListIntegrationAssociations extends Command<
   }
 
   serializeRequest(configuration: QConnectClientResolvedConfig): HttpRequest {
-    const { InstanceId } = this.clientInput;
+    const { InstanceId, ContactFlowId } = this.clientInput;
 
     if ((InstanceId === undefined) || !InstanceId.length) {
       throw new Error('Invalid InstanceId.');
+    }
+
+    if ((ContactFlowId === undefined) || !ContactFlowId.length) {
+      throw new Error('Invalid ContactFlowId.');
     }
 
     return super.serializeRequest({
@@ -61,10 +65,10 @@ export class ListIntegrationAssociations extends Command<
     });
   }
 
-  serializeCommand(configuration: QConnectClientResolvedConfig): ListIntegrationAssociationsCommand {
-    const command = new ListIntegrationAssociationsCommand(this.clientInput);
+  serializeCommand(configuration: QConnectClientResolvedConfig): DescribeContactFlowCommand {
+    const command = new DescribeContactFlowCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<ListIntegrationAssociationsInput, ListIntegrationAssociationsOutput>(configuration.headers);
+    const [middleware, opt] = buildClientRequestMiddleware<DescribeContactFlowInput, DescribeContactFlowOutput>(configuration.headers);
 
     command.middlewareStack.add(middleware, opt);
 

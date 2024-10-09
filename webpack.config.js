@@ -30,7 +30,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.ts'],
+    extensions: ['.ts', '.js'],
   },
   optimization: {
     minimize: true,

@@ -8,6 +8,7 @@
  */
 export enum WidgetServices {
   AmazonQConnect = 'WisdomV2',
+  Wisdom = 'WisdomV2',
   AgentApp = 'AgentApp',
   Acs = 'Acs',
   Lcms = 'Lcms'

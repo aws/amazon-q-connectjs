@@ -8,6 +8,7 @@
  */
 export enum ServiceIds {
   AmazonQConnect = 'AmazonQConnect',
+  Wisdom = 'Wisdom',
   AgentApp = 'AgentApp',
   Acs = 'Acs',
   Lcms = 'Lcms',

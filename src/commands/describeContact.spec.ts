@@ -3,37 +3,41 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { ListIntegrationAssociations } from './listIntegrationAssociations';
+import { DescribeContact } from './describeContact';
 import * as clientMiddlware from '../utils/buildClientMiddleware';
 import { getRuntimeConfig } from '../utils/runtimeConfig.browser';
 import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 
-describe('ListIntegrationAssociations', () => {
-  let command: ListIntegrationAssociations;
+describe('DescribeContact', () => {
+  let command: DescribeContact;
 
   const config = getRuntimeConfig({
     instanceUrl: 'https://example.com',
   });
   const instanceId = '85be2a14-94d7-41f2-835e-85368acb55df';
+  const contactId = '66c87b19-f867-45bc-923f-da04abf2a8f0';
 
   const mockBuildClientRequestMiddlware = jest.spyOn(clientMiddlware, 'buildClientRequestMiddleware');
 
   it('should properly construct the command from the inputs provided', () => {
-    command = new ListIntegrationAssociations({
+    command = new DescribeContact({
       InstanceId: instanceId,
+      ContactId: contactId,
     });
 
     expect(command.vendorCode).toEqual(VendorCodes.Connect);
-    expect(command.clientMethod).toEqual(ClientMethods.ListIntegrationAssociations);
+    expect(command.clientMethod).toEqual(ClientMethods.DescribeContact);
     expect(command.clientInput).toEqual({
       InstanceId: instanceId,
+      ContactId: contactId,
     });
   });
 
-  it('should construct an HTTP request when calling serializeRequest', () => {
-    command = new ListIntegrationAssociations({
+  it('should consturct an HTTP request when calling serializeRequest', () => {
+    command = new DescribeContact({
       InstanceId: instanceId,
+      ContactId: contactId,
     });
 
     expect(command.serializeRequest(config)).toEqual(
@@ -42,30 +46,31 @@ describe('ListIntegrationAssociations', () => {
           'x-access-section': 'WISDOM',
           'x-amazon-call-source': 'agent-app',
           'x-amz-access-section': 'Wisdom',
-          'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations',
+          'x-amz-target': 'AgentAppService.Acs.describeContact',
           'x-amz-vendor': 'connect',
         }),
         body: JSON.stringify({
           InstanceId: instanceId,
+          ContactId: contactId,
         }),
       }),
     );
   });
 
   it('should validate inputs when calling serializeRequest', () => {
-    command = new ListIntegrationAssociations({} as any);
+    command = new DescribeContact({} as any);
 
     expect(() => command.serializeRequest({} as any)).toThrow('Invalid InstanceId.');
 
-    command = new ListIntegrationAssociations({
+    command = new DescribeContact({
       InstanceId: '',
     } as any);
 
     expect(() => command.serializeRequest({} as any)).toThrow('Invalid InstanceId.');
   });
 
-  it('should call buildClientMiddlware when calling serializeCommand', () => {
-    command = new ListIntegrationAssociations({} as any);
+  it('should call buildClientRequestMiddlware when calling serializeCommand', () => {
+    command = new DescribeContact({} as any);
 
     expect(mockBuildClientRequestMiddlware).not.toHaveBeenCalled();
 

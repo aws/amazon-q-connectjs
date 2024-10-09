@@ -9,6 +9,8 @@ import { getRuntimeConfig } from './utils/runtimeConfig.shared';
 import { QConnectClientResolvedConfig } from './qConnectClient';
 
 describe('FetchHttpHandler', () => {
+  console.error = jest.fn();
+
   let mockRequest = new HttpRequest({
     headers: {},
     hostname: 'foo.amazonaws.com',
@@ -59,26 +61,35 @@ describe('FetchHttpHandler', () => {
     global.MessageChannel = mockMessageChannel;
   });
 
-  it ('should make requests using fetch if no frame window provided', async () => {
-    const response = await fetchHttpHandler.handle({} as any, {});
+  it('should make requests using fetch if no frame window provided', async () => {
+    const response = await fetchHttpHandler.handle({
+      request: {} as any,
+      options: {}
+    });
 
     expect(mockFetch.mock.calls.length).toEqual(1);
     expect(response.body).toEqual(mockResponse.json());
   });
 
-  it ('should make requests using message channel if frame window provided', () => {
+  it('should make requests using message channel if frame window provided', () => {
     fetchHttpHandler.handle({
-      frameWindow: {
-        contentWindow: global,
-        src: 'https://foo.amazonaws.com/wisdom-v2',
-      },
-    } as any, {});
+      request: {
+        frameWindow: {
+          contentWindow: global,
+          src: 'https://foo.amazonaws.com/wisdom-v2',
+        },
+      } as any,
+      options: {},
+    });
 
     expect(mockMessageChannel.mock.calls.length).toEqual(1);
   });
 
   it('should properly construct the url', async () => {
-    await fetchHttpHandler.handle(mockRequest, {});
+    await fetchHttpHandler.handle({
+      request: mockRequest,
+      options: {},
+    });
 
     expect(mockFetch.mock.calls.length).toEqual(1);
     expect(mockFetch.mock.calls[0][0]).toEqual('https://foo.amazonaws.com/test/?example=param');
@@ -86,7 +97,10 @@ describe('FetchHttpHandler', () => {
     mockRequest = new HttpRequest({
       port: 4000,
     });
-    await fetchHttpHandler.handle(mockRequest, {});
+    await fetchHttpHandler.handle({
+      request: mockRequest,
+      options: {},
+    });
 
     expect(mockFetch.mock.calls.length).toEqual(2);
     expect(mockFetch.mock.calls[1][0]).toEqual('https://localhost:4000/agent-app/api');
@@ -94,30 +108,30 @@ describe('FetchHttpHandler', () => {
 
   it('should not make requests if already aborted', async () => {
     await expect(
-      fetchHttpHandler.handle(
-        {} as any,
-        {
+      fetchHttpHandler.handle({
+        request: {} as any,
+        options: {
           abortSignal: {
             aborted: true,
             onabort: null,
           } as any,
-        }
-      ),
+        },
+      }),
     ).rejects.toHaveProperty('name', 'AbortError');
 
     expect(mockFetch.mock.calls.length).toBe(0);
   });
 
   it('should pass an abortSignal if supported', async () => {
-    await fetchHttpHandler.handle(
-      {} as any,
-      {
+    await fetchHttpHandler.handle({
+      request: {} as any,
+      options: {
         abortSignal: {
           aborted: false,
           onabort: null,
         } as any,
       },
-    );
+    });
 
     expect(mockFetch.mock.calls.length).toBe(1);
     expect(mockFetch.mock.calls[0][1]).toHaveProperty('signal');
@@ -130,7 +144,10 @@ describe('FetchHttpHandler', () => {
 
     const requestTimeoutMock = jest.spyOn(fetchHttpHandler, 'requestTimeout');
 
-    await fetchHttpHandler.handle({} as any, {});
+    await fetchHttpHandler.handle({
+      request: {} as any,
+      options: {},
+    });
 
     expect(mockFetch.mock.calls.length).toBe(1);
     expect(requestTimeoutMock.mock.calls[0][0]).toBe(500);
@@ -144,7 +161,13 @@ describe('FetchHttpHandler', () => {
       requestTimeout: 5,
     });
 
-    await expect(fetchHttpHandler.handle({} as any, {})).rejects.toHaveProperty('name', 'TimeoutError');
+    expect(async () => {
+      await fetchHttpHandler.handle({
+        request: {} as any,
+        options: {},
+      });
+    }).rejects.toHaveProperty('name', 'TimeoutError');
+
     expect(mockFetch.mock.calls.length).toBe(1);
   });
 
@@ -155,7 +178,9 @@ describe('FetchHttpHandler', () => {
       },
     };
 
-    await expect(fetchHttpHandler.channelRequestHandler('', requestOptions)).rejects.toThrowError('Unsupported service prefix.');
+    expect(async () => {
+      await fetchHttpHandler.channelRequestHandler('', requestOptions);
+    }).rejects.toThrow('Unsupported service prefix.');
   });
 
   it('should throw an unsupported service error if the incoming MessageChannel request x-amz-target is invalid', async () => {
@@ -165,7 +190,9 @@ describe('FetchHttpHandler', () => {
       },
     };
 
-    await expect(fetchHttpHandler.channelRequestHandler('', requestOptions)).rejects.toThrowError('Unsupported service.');
+    expect(async () => {
+      await fetchHttpHandler.channelRequestHandler('', requestOptions);
+    }).rejects.toThrow('Unsupported service.');
   });
 
   it('should throw an unsupported client method error if the incoming MessageChannel request x-amz-target is invalid', async () => {
@@ -175,7 +202,9 @@ describe('FetchHttpHandler', () => {
       },
     };
 
-    await expect(fetchHttpHandler.channelRequestHandler('', requestOptions)).rejects.toThrowError('Unsupported client method.');
+    expect(async () => {
+      await fetchHttpHandler.channelRequestHandler('', requestOptions);
+    }).rejects.toThrow('Unsupported client method.');
   });
 
   it('should throw an invalid user input error if the incoming MessageChannel request body is invalid', async () => {
@@ -187,7 +216,9 @@ describe('FetchHttpHandler', () => {
       body: JSON.stringify({}),
     };
 
-    await expect(fetchHttpHandler.channelRequestHandler(requestUrl, requestOptions)).rejects.toThrowError('Invalid InstanceId.');
+    expect(async () => {
+      await fetchHttpHandler.channelRequestHandler(requestUrl, requestOptions);
+    }).rejects.toThrow('Invalid InstanceId.');
 
     requestOptions = {
       headers: {
@@ -198,7 +229,9 @@ describe('FetchHttpHandler', () => {
       }),
     };
 
-    await expect(fetchHttpHandler.channelRequestHandler(requestUrl, requestOptions)).rejects.toThrowError('Invalid awsAccountId.');
+    expect(async () => {
+      await fetchHttpHandler.channelRequestHandler(requestUrl, requestOptions);
+    }).rejects.toThrow('Invalid awsAccountId.');
   });
 
   it('should reconstruct the url even if the incoming MessageChannel request body is valid', async () => {
@@ -219,7 +252,8 @@ describe('FetchHttpHandler', () => {
       {
         method: 'POST',
         headers: {
-          'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations'
+          'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations',
+          'x-amz-vendor': 'connect',
         },
         body: JSON.stringify({
           InstanceId: '1234567890',

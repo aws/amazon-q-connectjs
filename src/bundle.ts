@@ -1,14 +1,19 @@
 import {
   Client, QConnectClient,
+  FetchHttpHandler,
+  SDKHandler,
+  DescribeContact,
+  DescribeContactFlow,
   GetAuthorizedWidgetsForUser,
-  ListIntegrationAssociations,
-  SearchSessions,
-  QueryAssistant,
+  GetContact,
   GetContent,
   GetRecommendations,
+  ListContentAssociations,
+  ListIntegrationAssociations,
   NotifyRecommendationsReceived,
-  GetContact,
   PutFeedback,
+  QueryAssistant,
+  SearchSessions,
 } from './index';
 
 (() => {
@@ -19,15 +24,20 @@ import {
 
   qconnectjs.Client = Client;
   qconnectjs.QConnectClient = QConnectClient;
+  qconnectjs.FetchHttpHandler = FetchHttpHandler;
+  qconnectjs.SDKHandler = SDKHandler;
   qconnectjs.commands = {
+    DescribeContact,
+    DescribeContactFlow,
     GetAuthorizedWidgetsForUser,
-    ListIntegrationAssociations,
-    SearchSessions,
-    QueryAssistant,
+    GetContact,
     GetContent,
     GetRecommendations,
+    ListContentAssociations,
+    ListIntegrationAssociations,
     NotifyRecommendationsReceived,
-    GetContact,
     PutFeedback,
+    QueryAssistant,
+    SearchSessions,
   }
 })();

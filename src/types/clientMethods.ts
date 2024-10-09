@@ -7,9 +7,12 @@
  * Represents the ClientMethods that can be called by the QConnectClient.
  */
 export enum ClientMethods {
+  DescribeContact = 'describeContact',
+  DescribeContactFlow = 'describeContactFlow',
   GetAuthorizedWidgetsForUser = 'getAuthorizedWidgetsForUser',
   GetContent = 'getContent',
   GetRecommendations = 'getRecommendations',
+  ListContentAssociations = 'listContentAssociations',
   ListIntegrationAssociations = 'listIntegrationAssociations',
   NotifyRecommendationsReceived = 'notifyRecommendationsReceived',
   QueryAssistant = 'queryAssistant',
@@ -21,6 +24,7 @@ export enum ClientMethods {
 export enum QConnectMethods {
   GetContent = 'getContent',
   GetRecommendations = 'getRecommendations',
+  ListContentAssociations = 'listContentAssociations',
   NotifyRecommendationsReceived = 'notifyRecommendationsReceived',
   QueryAssistant = 'queryAssistant',
   SearchSessions = 'searchSessions',
@@ -32,6 +36,8 @@ export enum AgentAppMethods {
 }
 
 export enum AcsMethods {
+  DescribeContact = 'describeContact',
+  DescribeContactFlow = 'describeContactFlow',
   ListIntegrationAssociations = 'listIntegrationAssociations',
 }
 

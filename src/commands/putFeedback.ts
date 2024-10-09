@@ -3,27 +3,35 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import {
+  PutFeedbackCommand, PutFeedbackCommandInput, PutFeedbackCommandOutput,
+} from '@aws-sdk/client-qconnect';
+
 import { Command } from './command';
 import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
-import { PutFeedbackRequest, PutFeedbackResponse } from '../types/models';
+import { buildClientRequestMiddleware } from '../utils/buildClientMiddleware';
+import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
 
-export interface PutFeedbackInput extends PutFeedbackRequest {}
+export interface PutFeedbackInput extends PutFeedbackCommandInput {}
 
-export interface PutFeedbackOutput extends PutFeedbackResponse {}
+export interface PutFeedbackOutput extends PutFeedbackCommandOutput {}
 
 export class PutFeedback extends Command<
   PutFeedbackInput,
   PutFeedbackOutput,
   QConnectClientResolvedConfig
 > {
+  readonly vendorCode: VendorCodes;
+
   readonly clientMethod: ClientMethods;
 
   constructor(readonly clientInput: PutFeedbackInput) {
     super();
+    this.vendorCode = VendorCodes.Wisdom;
     this.clientMethod = ClientMethods.PutFeedback;
   }
 
@@ -32,10 +40,14 @@ export class PutFeedback extends Command<
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<PutFeedbackOutput>> {
     const { requestHandler } = configuration;
-    return () => requestHandler.handle(this.serialize(configuration), options || {});
+    return () => requestHandler.handle({
+      request: this.serializeRequest(configuration),
+      command: this.serializeCommand(configuration),
+      options: options || {},
+    });
   }
 
-  serialize(configuration: QConnectClientResolvedConfig): HttpRequest {
+  serializeRequest(configuration: QConnectClientResolvedConfig): HttpRequest {
     const { assistantId, targetId, targetType, contentFeedback } = this.clientInput;
 
     if ((assistantId === undefined) || !assistantId.length) {
@@ -54,6 +66,16 @@ export class PutFeedback extends Command<
       throw new Error('Invalid contentFeedback.');
     }
 
-    return super.serialize(configuration);
+    return super.serializeRequest(configuration);
+  }
+
+  serializeCommand(configuration: QConnectClientResolvedConfig): PutFeedbackCommand {
+    const command = new PutFeedbackCommand(this.clientInput);
+
+    const [middleware, opt] = buildClientRequestMiddleware<PutFeedbackInput, PutFeedbackOutput>(configuration.headers);
+
+    command.middlewareStack.add(middleware, opt);
+
+    return command;
   }
 }

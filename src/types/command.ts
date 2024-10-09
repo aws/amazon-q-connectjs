@@ -6,9 +6,12 @@
 import { ClientMethods } from './clientMethods';
 import { HttpResponse } from '../types/http';
 import {
+  DescribeContact,
+  DescribeContactFlow,
   GetAuthorizedWidgetsForUser,
   GetContent,
   GetRecommendations,
+  ListContentAssociations,
   ListIntegrationAssociations,
   NotifyRecommendationsReceived,
   QueryAssistant,
@@ -40,9 +43,12 @@ export interface Command<
 }
 
 export const Commands = {
+  describeContact: DescribeContact,
+  describeContactFlow: DescribeContactFlow,
   getAuthorizedWidgetsForUser: GetAuthorizedWidgetsForUser,
   getContent: GetContent,
   getRecommendations: GetRecommendations,
+  listContentAssociations: ListContentAssociations,
   listIntegrationAssociations: ListIntegrationAssociations,
   notifyRecommendationsReceived: NotifyRecommendationsReceived,
   queryAssistant: QueryAssistant,

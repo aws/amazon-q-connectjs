@@ -3,27 +3,35 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import {
+  SearchSessionsCommand, SearchSessionsCommandInput, SearchSessionsCommandOutput,
+} from '@aws-sdk/client-qconnect';
+
 import { Command } from './command';
 import { QConnectClientResolvedConfig } from '../qConnectClient';
 import { HttpRequest } from '../httpRequest';
-import { SearchSessionsRequest, SearchSessionsResponse } from '../types/models';
+import { buildClientRequestMiddleware } from '../utils/buildClientMiddleware';
+import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
 
-export interface SearchSessionsInput extends SearchSessionsRequest {}
+export interface SearchSessionsInput extends SearchSessionsCommandInput {}
 
-export interface SearchSessionsOutput extends SearchSessionsResponse {}
+export interface SearchSessionsOutput extends SearchSessionsCommandOutput {}
 
 export class SearchSessions extends Command<
   SearchSessionsInput,
   SearchSessionsOutput,
   QConnectClientResolvedConfig
 > {
+  readonly vendorCode: VendorCodes;
+
   readonly clientMethod: ClientMethods;
 
   constructor(readonly clientInput: SearchSessionsInput) {
     super();
+    this.vendorCode = VendorCodes.Wisdom;
     this.clientMethod = ClientMethods.SearchSessions;
   }
 
@@ -32,10 +40,14 @@ export class SearchSessions extends Command<
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<SearchSessionsOutput>> {
     const { requestHandler } = configuration;
-    return () => requestHandler.handle(this.serialize(configuration), options || {});
+    return () => requestHandler.handle({
+      request: this.serializeRequest(configuration),
+      command: this.serializeCommand(configuration),
+      options: options || {},
+    });
   }
 
-  serialize(configuration: QConnectClientResolvedConfig): HttpRequest {
+  serializeRequest(configuration: QConnectClientResolvedConfig): HttpRequest {
     const { assistantId, searchExpression } = this.clientInput;
 
     if ((assistantId === undefined) || !assistantId.length) {
@@ -46,6 +58,16 @@ export class SearchSessions extends Command<
       throw new Error('Invalid searchExpression.');
     }
 
-    return super.serialize(configuration);
+    return super.serializeRequest(configuration);
+  }
+
+  serializeCommand(configuration: QConnectClientResolvedConfig): SearchSessionsCommand {
+    const command = new SearchSessionsCommand(this.clientInput);
+
+    const [middleware, opt] = buildClientRequestMiddleware<SearchSessionsInput, SearchSessionsOutput>(configuration.headers);
+
+    command.middlewareStack.add(middleware, opt);
+
+    return command;
   }
 }

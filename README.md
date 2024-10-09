@@ -7,9 +7,11 @@ Amazon Q in Connect automatically detects customer intent during calls and chats
 The library uses an Amazon Connect authentication token to make API calls to Amazon Q in Connect and supports all Amazon Q in Connect `Agent Assistant` functionality. For example, in addition to receiving automatic recommendations, you can also query Amazon Q directly using natural language or keywords to answer customer requests.
 
 QConnectJS supports the following APIs:
+* [DescribeContactFlow](#describecontactflow)
 * [GetContact](#getcontact)
 * [GetContent](#getcontent)
 * [GetRecommendations](#getrecommendations)
+* [ListContentAssociations](#listcontentassociations)
 * [ListIntegrationAssociations](#listintegrationassociations)
 * [NotifyRecommendationsReceived](#notifyrecommendationsreceived)
 * [PutFeedback](#putfeedback)
@@ -242,6 +244,57 @@ qConnectClient.getRecommendations({
 
 # APIs
 
+## DescribeContactFlow
+
+Describes the specified flow, including the associated step-by-step guide.
+
+### URI Request Parameters
+
+* `ContactFlowId`: The identifier of the flow. You can find the ContactFlowId of the associated Step-by-step Guide when calling ListContentAssociations.
+* `InstanceId`: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+
+#### A few things to note:
+
+* One of the request parameters of the `DescribeContactFlow` API is the Amazon Connect `contactFlowId`. The `contactFlowId` of the associated step-by-step guide when calling [ListContentAssociations](#listcontentassociations). For more details see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html).
+
+### Response Syntax
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```json
+{
+  "ContactFlow": {
+    "Arn": "string",
+    "Content": "string",
+    "Description": "string",
+    "Id": "string",
+    "Name": "string",
+    "State": "string",
+    "Status": "string",
+    "Tags": {
+      "string" : "string"
+    },
+    "Type": "string"
+  }
+}
+```
+
+### Sample Query
+
+```ts
+const describeContactFlowCommand = new DescribeContactFlow({
+  ContactFlowId: <contactFlowId>,
+  InstanceId: <instanceId>,
+});
+
+try {
+  const response = await qConnectClient.call(describeContactFlowCommand);
+    // process response.
+} catch (error) {
+  // error handling.
+}
+```
+
 ## GetContact
 
 Retrieves contact details, including the Amazon Q in Connect `sessionArn`, for a specified contact.
@@ -448,6 +501,61 @@ const getRecommendationsCommand = new GetRecommendations({
 
 try {
   const response = await qConnectClient.call(getRecommendationsCommand);
+    // process response.
+} catch (error) {
+  // error handling.
+}
+```
+
+## ListContentAssociations
+
+Lists the content associations. For more information about content associations--what they are and when they are used--see [Integrate Amazon Q in Connect with step-by-step guides](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html) in the Amazon Connect admin guide.
+
+### URI Request Parameters
+
+* `contentId`: The identifier of the Amazon Q in Connect content. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `knowledgeBaseId`: The identifier of the Amazon Q in Connect knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `MaxResults`: The maximum number of results to return per page.
+* `nextToken`: The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+
+#### A few things to note:
+
+* The `contentId` and `knowledgeBaseId` can be found by using the `QueryAssistant` API and referencing the `data` field of the results. Each results `data` will include a `contentReference`. See [QueryAssistant](#queryassistant) for more information.
+* The `contactFlowId` representative of the step-by-step guide can be retrieved by parsing the response for a content association of type `AMAZON_CONNECT_GUIDE` and parsing the `associationData` of the content association for the `flowId`.
+
+### Response Syntax
+
+```json
+{
+  "contentAssociationSummaries": [
+    {
+      "associationData": { ... },
+      "associationType": "string",
+      "contentArn": "string",
+      "contentAssociationArn": "string",
+      "contentAssociationId": "string",
+      "contentId": "string",
+      "knowledgeBaseArn": "string",
+      "knowledgeBaseId": "string",
+      "tags": {
+        "string" : "string"
+      }
+    }
+  ],
+  "nextToken": "string"
+}
+```
+
+### Sample Query
+
+```ts
+const listContentAssociationsCommand = new ListContentAssociations({
+  contentId: <contentId>,
+  knowledgeBaseId: <knowledgeBaseId>,
+});
+
+try {
+  const response = await qConnectClient.call(listContentAssociationsCommand);
     // process response.
 } catch (error) {
   // error handling.

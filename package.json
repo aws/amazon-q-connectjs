@@ -1,7 +1,7 @@
 {
   "name": "amazon-q-connectjs",
   "description": "Amazon Q Connect JavaScript Client",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "scripts": {
     "bundle": "webpack",
     "build:all": "npm run build:cjs && npm run build:es && npm run build:types",
@@ -22,6 +22,9 @@
   "module": "./dist/es/index.js",
   "sideEffects": false,
   "dependencies": {
+    "@aws-sdk/client-connect": "^3.374.0",
+    "@aws-sdk/client-qconnect": "^3.374.0",
+    "@aws-sdk/types": "^3.609.0",
     "js-logger": "^1.6.1",
     "tslib": "^2.4.1"
   },

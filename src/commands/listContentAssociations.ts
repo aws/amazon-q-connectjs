@@ -4,7 +4,7 @@
  */
 
 import {
-  QueryAssistantCommand, QueryAssistantCommandInput, QueryAssistantCommandOutput,
+  ListContentAssociationsCommand, ListContentAssociationsCommandInput, ListContentAssociationsCommandOutput
 } from '@aws-sdk/client-qconnect';
 
 import { Command } from './command';
@@ -16,51 +16,55 @@ import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
 
-export interface QueryAssistantInput extends QueryAssistantCommandInput {}
+export interface ListContentAssociationsInput extends ListContentAssociationsCommandInput {}
 
-export interface QueryAssistantOutput extends QueryAssistantCommandOutput {}
+export interface ListContentAssociationsOutput extends ListContentAssociationsCommandOutput {}
 
-export class QueryAssistant extends Command<
-  QueryAssistantInput,
-  QueryAssistantOutput,
+export class ListContentAssociations extends Command<
+  ListContentAssociationsInput,
+  ListContentAssociationsOutput,
   QConnectClientResolvedConfig
 > {
   readonly vendorCode: VendorCodes;
 
   readonly clientMethod: ClientMethods;
 
-  constructor(readonly clientInput: QueryAssistantInput) {
+  constructor(readonly clientInput: ListContentAssociationsInput) {
     super();
     this.vendorCode = VendorCodes.Wisdom;
-    this.clientMethod = ClientMethods.QueryAssistant;
+    this.clientMethod = ClientMethods.ListContentAssociations;
   }
 
   resolveRequestHandler(
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
-  ): InvokeFunction<HttpResponse<QueryAssistantOutput>> {
+  ): InvokeFunction<HttpResponse<ListContentAssociationsOutput>> {
     const { requestHandler } = configuration;
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
-      options: options || {}
+      options: options || {},
     });
   }
 
   serializeRequest(configuration: QConnectClientResolvedConfig): HttpRequest {
-    const { assistantId } = this.clientInput;
+    const { contentId, knowledgeBaseId } = this.clientInput;
 
-    if ((assistantId === undefined) || !assistantId.length) {
-      throw new Error('Invalid assistantId.');
+    if ((contentId === undefined) || !contentId.length) {
+      throw new Error('Invalid contentId.');
+    }
+
+    if ((knowledgeBaseId === undefined) || !knowledgeBaseId.length) {
+      throw new Error('Invalid knowledgeBaseId.');
     }
 
     return super.serializeRequest(configuration);
   }
 
-  serializeCommand(configuration: QConnectClientResolvedConfig): QueryAssistantCommand {
-    const command = new QueryAssistantCommand(this.clientInput);
+  serializeCommand(configuration: QConnectClientResolvedConfig): ListContentAssociationsCommand {
+    const command = new ListContentAssociationsCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<QueryAssistantInput, QueryAssistantOutput>(configuration.headers);
+    const [middleware, opt] = buildClientRequestMiddleware<ListContentAssociationsInput, ListContentAssociationsOutput>(configuration.headers);
 
     command.middlewareStack.add(middleware, opt);
 
