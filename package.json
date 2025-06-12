@@ -1,7 +1,7 @@
 {
   "name": "amazon-q-connectjs",
   "description": "Amazon Q Connect JavaScript Client",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "scripts": {
     "bundle": "webpack",
     "build:all": "npm run build:cjs && npm run build:es && npm run build:types",
