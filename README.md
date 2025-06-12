@@ -417,23 +417,29 @@ try {
 
 ## GetRecommendations
 
-Retrieves recommendations (e.g. detected intents) for the specified session. To avoid retrieving the same recommendations in subsequent calls, use [NotifyRecommendationsReceived](#notifyrecommendationsreceived). This API supports long-polling behavior with the `waitTimeSeconds` parameter. Short poll is the default behavior and only returns recommendations already available. For more information check out the [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html) API reference. To perform a manual query against an assistant, use [QueryAssistant](#queryassistant).
+The GetRecommendations API serves two distinct purposes:
 
-### URI Request Parameters
+1. **Automatic Recommendations retrieval**: Retrieves recommendations (e.g. detected intents) for the specified session. To avoid retrieving the same recommendations in subsequent calls, use [NotifyRecommendationsReceived](#notifyrecommendationsreceived). This API supports long-polling behavior with the `waitTimeSeconds` parameter. Short poll is the default behavior and only returns recommendations already available. For more information check out the [GetRecommendations](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html) API reference. To perform a manual query against an assistant, use [QueryAssistant](#queryassistant).
+
+2. **Chunked Response Retrieval**: Retrieves additional chunks of large generative responses after an initial QueryAssistant call, as detailed in the [Chunking Support section](#getrecommendations-chunking-support) below.
+
+
+### URI Request Parameters for Intent Detection and Automatic Recommendations
 
 * `assistantId`: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `maxResults`: The maximum number of results to return per page.
 * `sessionId`: The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
 * `waitTimeSeconds`: The duration (in seconds) for which the call waits for a recommendation to be made available before returning. If a recommendation is available, the call returns sooner than WaitTimeSeconds. If no messages are available and the wait time expires, the call returns successfully with an empty list.
 
-#### A few things to note:
+#### A few things to note for Intent Detection and Automatic Recommendations:
 
 * The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q in Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
 * The `session ARN` can be retrieved by used the `GetContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [GetContact](#getcontact) for more information.
 * To avoid retrieving the same recommendations on subsequent calls, the `NotifyRecommendationsReceived` API should be called after each response. See [NotifyRecommendationsReceived](#notifyrecommendationsreceived) for more information.
 * GetRecommendations will return recommendations, e.g. detected customer intents, and you can use [QueryAssistant](#queryassistant) to generate an answer for the intent. See [Using QueryAssistant to Generate an Answer for an Intent Recommendation Returned by GetRecommendations](#using-queryassistant-to-generate-an-answer-for-an-intent-recommendation-returned-by-getrecommendations) for instructions.
 
-### Response Syntax
+### Response Syntax for GetRecommendations for Intents
+[For GetRecommendations for Chunks, see the Chunking Support section](#getrecommendations-chunking-support)
 
 ```json
 {
@@ -489,7 +495,8 @@ Retrieves recommendations (e.g. detected intents) for the specified session. To 
 }
 ```
 
-### Sample Query
+### Sample Query for GetRecommendations for Intents
+[For GetRecommendations for Chunks,  see the Chunking Support section](#getrecommendations-chunking-support)
 
 ```ts
 const getRecommendationsCommand = new GetRecommendations({
@@ -506,6 +513,236 @@ try {
   // error handling.
 }
 ```
+
+### GetRecommendations Chunking Support
+
+`GetRecommendations` supports chunking specifically for retrieving subsequent chunks of generative content after an initial `QueryAssistant` call for retrieving search responses  through Manual Search or Intent Search.
+
+#### URI Request Parameters for Chunked Response Retrieval
+* `assistantId`: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `sessionId`: The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+
+* `nextChunkToken`: The token for the next set of chunks. Use the value returned in the previous response in the next request to retrieve the next set of chunks. The initial token comes from a QueryAssistant response, when using `GENERATIVE_ANSWER_CHUNK` or `INTENT_ANSWER_CHUNK` result types. See [QueryAssistant Chunking Support](#queryassistant-chunking-support) for more details.
+
+#### Cross-API Interaction for Chunking 
+
+To receive `QueryAssistant` response in chunks:
+1. Make an initial call to `QueryAssistant` with a chunking result type (GENERATIVE_ANSWER_CHUNK or INTENT_ANSWER_CHUNK)
+2. Process the first chunk from the `QueryAssistant` response
+3. Use `GetRecommendations` with the `nextChunkToken` from the `QueryAssistant` response to retrieve subsequent chunks until `nextChunkToken` is null or not returned in `GetRecommendations` response. 
+
+```ts
+// Example code for cross-API interaction
+```
+
+#### Sample Query for Chunking
+
+```ts
+// This example demonstrates how to use GetRecommendations to retrieve subsequent chunks
+// after an initial QueryAssistant call has provided the first chunk and nextChunkToken
+
+export const processChunkedResponse = async () => {
+  const interval = setInterval(async () => {
+    try {
+      try {
+        const queryAssistantCommand = new QueryAssistant({
+          assistantId: '<assistantId>',
+          sessionId: '<sessionId>',
+          queryInputData: {
+            queryTextInputData: {
+              text: "How do I reset my password?",
+            },
+          },
+          queryCondition: [{
+            single: {
+              field: QueryConditionFieldName.RESULT_TYPE,
+              comparator: QueryConditionComparisonOperator.EQUALS,
+              value: "GENERATIVE_ANSWER_CHUNK"
+            }
+          }]
+        });
+        
+        let fullResponse = '';
+        // Get the initial chunk from QueryAssistant
+        let currentResponse;
+        try {
+          currentResponse = await qConnectClient.call(queryAssistantCommand);
+        } catch (error) {
+          console.error('Error making QueryAssistant call:', error);
+          return;
+        }
+        
+        console.log('Response [QueryAssistant Chunking Initial]:', currentResponse);
+        
+        if (currentResponse.status !== 200 || !currentResponse.body?.results?.length) {
+          console.log('No results from initial QueryAssistant call');
+          return;
+        }
+        
+        // Process the first chunk from QueryAssistant
+        const firstChunk = currentResponse.body.results[0].data.details.generativeChunkData;
+        
+        // Process completion text from first chunk
+        fullResponse += firstChunk.completion || '';
+        
+        // Process references if available in first chunk
+        if (firstChunk.references && firstChunk.references.length > 0) {
+          // Handle references to knowledge sources
+          const sources = firstChunk.references.map((ref: any) => {
+            const contentRef = ref.reference.contentReference;
+            const sourceData = ref.details.sourceContentData;
+            return {
+              title: sourceData?.textData?.title?.text || 'Unknown Source',
+              excerpt: sourceData?.textData?.excerpt?.text || '',
+              contentId: contentRef.contentId,
+              knowledgeBaseId: contentRef.knowledgeBaseId
+            };
+          });
+          console.log('Sources for first chunk:', sources);
+        }
+        
+        let nextChunkToken = firstChunk.nextChunkToken;
+        
+        // Fetch subsequent chunks using GetRecommendations
+        while (nextChunkToken) {
+          const getRecommendationsCommand = new GetRecommendations({
+            assistantId: '<assistantId>',
+            sessionId: '<sessionId>',
+            nextChunkToken: nextChunkToken
+          });
+          
+          const recommendationResponse = await qConnectClient.call(getRecommendationsCommand);
+          if (recommendationResponse.status !== 200) break;
+          
+          // Process all chunks from GetRecommendations (one call can retrieve multiple chunks)
+          if (recommendationResponse.body?.recommendations && recommendationResponse.body.recommendations.length > 0) {
+            // Loop through all recommendations in the response
+            for (const recommendation of recommendationResponse.body.recommendations) {
+              const chunkData = recommendation.data.details.generativeChunkData;
+              
+              // Process completion text
+              fullResponse += chunkData.completion || '';
+              
+              // Process references if available
+              if (chunkData.references && chunkData.references.length > 0) {
+                // Handle references to knowledge sources
+                const sources = chunkData.references.map((ref: any) => {
+                  const contentRef = ref.reference.contentReference;
+                  const sourceData = ref.details.sourceContentData;
+                  return {
+                    title: sourceData?.textData?.title?.text || 'Unknown Source',
+                    excerpt: sourceData?.textData?.excerpt?.text || '',
+                    contentId: contentRef.contentId,
+                    knowledgeBaseId: contentRef.knowledgeBaseId
+                  };
+                });
+                console.log(`Sources for chunk ${recommendation.recommendationId}:`, sources);
+              }
+              
+              // Update nextChunkToken from the last recommendation
+              nextChunkToken = chunkData.nextChunkToken;
+            }
+          } else {
+            break;
+          }
+        }
+        
+        console.log('Complete response:', fullResponse);
+        clearInterval(interval);
+      } catch (error) {
+        console.error('Error processing chunks:', error);
+      }
+    } catch (e) {
+      console.error('Something went wrong in processChunkedResponse', e);
+    }
+  }, requestInterval);
+};
+
+// Usage
+await processChunkedResponse();
+```
+
+**Note:** When using chunked responses, each chunk will contain a portion of the complete recommendations. The nextChunkToken will be present if there are more chunks to retrieve.
+
+
+#### Response Syntax for chunking
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```json
+{
+  "recommendations": [
+    {
+      "recommendationId": "string",
+      "relevanceLevel": "string",
+      "relevanceScore": number,
+      "type": "string",
+      "data": {
+        "details": {
+          "contentData": { ... },
+          "generativeData": { ... },
+          "intentDetectedData": { ... },
+          "sourceContentData": { ... },
+          "generativeChunkData": {
+            "completion": "string",
+            "references": [
+              {
+                "reference": {
+                  "contentReference": { ... },
+                  "generativeReference": { ... }
+                },
+                "details": { ... }
+              }
+            ],
+            "nextChunkToken": "string"
+          }
+        },
+        "reference": { ... }
+      },
+      "document": {
+        "contentReference": {
+          "contentArn": "string",
+          "contentId": "string",
+          "knowledgeBaseArn": "string",
+          "knowledgeBaseId": "string",
+          "referenceType": "string",
+          "sourceURL": "string"
+        },
+        "excerpt": {
+          "highlights": [
+            {
+              "beginOffsetInclusive": number,
+              "endOffsetExclusive": number
+            }
+          ],
+          "text": "string"
+        },
+        "title": {
+          "highlights": [
+            {
+              "beginOffsetInclusive": number,
+              "endOffsetExclusive": number
+            }
+          ],
+          "text": "string"
+        }
+      }
+    }
+  ],
+  "triggers": [
+    {
+      "data": { ... },
+      "id": "string",
+      "recommendationIds": [ "string" ],
+      "source": "string",
+      "type": "string"
+    }
+  ],
+  "nextChunkToken": "string"
+}
+```
+Note: When chunking is enabled, the response may include a nextChunkToken at the root level. This token should be used in subsequent GetRecommendations calls to retrieve the next chunk of recommendations. For generative recommendations, each recommendation may also include a generativeChunkData object within the details field. The completion field in generativeChunkData contains the chunk of the generative response. The last chunk will have a null or missing nextChunkToken.
+
 
 ## ListContentAssociations
 
@@ -731,13 +968,15 @@ Performs a manual search against the specified assistant. To retrieve recommenda
 * `maxResults`: The maximum number of results to return per page.
 * `nextToken`: The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 
+* QueryAssistant supports chunked responses, which you can control by specifying the appropriate `RESULT_TYPE` in the `queryCondition` field of QueryAssistant request. For more details, see [Chunking Support](#queryassistant-chunking-support)
 #### A few things to note:
 
 * The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q in Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
 * The `queryInputData` can be used to specify input data for either a manual search query or an intent.
 * The [QueryAssistant](#queryassistant) API can be used to generate an answer addressing an intent obtained from a `GetRecommendations` call against the specified session (see [Using QueryAssistant to Generate an Answer for an Intent Recommendation Returned by GetRecommendations](#using-queryassistant-to-generate-an-answer-for-an-intent-recommendation-returned-by-getrecommendations) for details).
 
-### Response Syntax
+### Response Syntax for Non-Chunking
+[For chunking support see the Chunking Support section](#queryassistant-chunking-support)
 
 If the action is successful, the service sends back an HTTP 200 response.
 
@@ -786,7 +1025,8 @@ If the action is successful, the service sends back an HTTP 200 response.
 }
 ```
 
-### Sample Query
+### Sample Query for Non-Chunking
+[For chunking support see the Chunking Support section](#queryassistant-chunking-support)
 
 ```ts
 const queryAssistantCommand = new QueryAssistant({
@@ -812,6 +1052,102 @@ try {
   // error handling.
 }
 ```
+
+
+### QueryAssistant Chunking Support
+
+`QueryAssistant` initiates the chunking process for large generative responses. When using chunking:
+1. The initial chunk is retrieved using QueryAssistant with a chunking result type
+2. Subsequent chunks (if exists) are retrieved using `GetRecommendations` with the `nextChunkToken` from the `QueryAssistant` response
+
+#### Available Result Types for Chunking
+- `GENERATIVE_ANSWER_CHUNK`: For chunked generative responses
+- `INTENT_ANSWER_CHUNK`: For chunked intent responses
+
+#### Cross-API Interaction for Chunking 
+
+The chunking pattern involves both QueryAssistant and GetRecommendations APIs working together:
+1. Make an initial call to `QueryAssistant` with a chunking result type
+2. Process the first chunk from the QueryAssistant response
+3. Use GetRecommendations (not `QueryAssistant`) with the nextChunkToken to retrieve all subsequent chunks
+
+// For a complete code example of the chunking process, see the Sample Query for Chunking 
+// in the GetRecommendations Chunking Support section above.
+Note: When using chunked responses, each chunk contains a portion of the complete response in the completion field. The presence of a nextChunkToken indicates there are more chunks to retrieve. The final chunk will have a null or missing nextChunkToken.
+
+
+    
+#### Response Syntax for Chunking 
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```json
+{
+  "nextToken": "string",
+  "results": [
+    {
+      "data": {
+        "details": {
+          "contentData": { ... },
+          "generativeData": { ... },
+          "intentDetectedData": { ... },
+          "sourceContentData": { ... },
+          "generativeChunkData": {
+            "completion": "string",
+            "references": [
+              {
+                "reference": {
+                  "contentReference": { ... },
+                  "generativeReference": { ... }
+                },
+                "details": { ... }
+              }
+            ],
+            "nextChunkToken": "string"
+          }
+        },
+        "reference": { ... }
+      },
+      "document": {
+        "contentReference": {
+          "contentArn": "string",
+          "contentId": "string",
+          "knowledgeBaseArn": "string",
+          "knowledgeBaseId": "string",
+          "referenceType": "string",
+          "sourceURL": "string"
+        },
+        "excerpt": {
+          "highlights": [
+            {
+              "beginOffsetInclusive": number,
+              "endOffsetExclusive": number
+            }
+          ],
+          "text": "string"
+        },
+        "title": {
+          "highlights": [
+            {
+              "beginOffsetInclusive": number,
+              "endOffsetExclusive": number
+            }
+          ],
+          "text": "string"
+        }
+      },
+      "relevanceScore": number,
+      "resultId": "string",
+      "type": "string"
+    }
+  ]
+}
+```    
+
+    
+Note: When chunking is enabled (by using GENERATIVE_ANSWER_CHUNK or INTENT_ANSWER_CHUNK as the RESULT_TYPE), the response will include the generativeChunkData object within the details field. The completion field contains the chunk of the response, and nextChunkToken is present if there are more chunks to retrieve. The last chunk will have a null or missing nextChunkToken.
+
+
 
 ### Using QueryAssistant to Generate an Answer for an Intent Recommendation Returned by GetRecommendations
 
