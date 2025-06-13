@@ -576,7 +576,7 @@ var Sha256 = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 6924:
+/***/ 4701:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -609,6 +609,7 @@ __webpack_require__.d(__webpack_exports__, {
   AssociateTrafficDistributionGroupUserCommand: () => (/* reexport */ AssociateTrafficDistributionGroupUserCommand),
   AssociateUserProficienciesCommand: () => (/* reexport */ AssociateUserProficienciesCommand),
   AttachedFileInvalidRequestExceptionReason: () => (/* reexport */ AttachedFileInvalidRequestExceptionReason),
+  AttachedFileServiceQuotaExceededExceptionReason: () => (/* reexport */ AttachedFileServiceQuotaExceededExceptionReason),
   AttendeeFilterSensitiveLog: () => (/* reexport */ AttendeeFilterSensitiveLog),
   BatchAssociateAnalyticsDataSetCommand: () => (/* reexport */ BatchAssociateAnalyticsDataSetCommand),
   BatchDisassociateAnalyticsDataSetCommand: () => (/* reexport */ BatchDisassociateAnalyticsDataSetCommand),
@@ -621,6 +622,7 @@ __webpack_require__.d(__webpack_exports__, {
   ClaimPhoneNumberCommand: () => (/* reexport */ ClaimPhoneNumberCommand),
   Comparison: () => (/* reexport */ Comparison),
   CompleteAttachedFileUploadCommand: () => (/* reexport */ CompleteAttachedFileUploadCommand),
+  ConditionalOperationFailedException: () => (/* reexport */ ConditionalOperationFailedException),
   ConflictException: () => (/* reexport */ ConflictException),
   Connect: () => (/* reexport */ Connect),
   ConnectClient: () => (/* reexport */ ConnectClient),
@@ -636,12 +638,19 @@ __webpack_require__.d(__webpack_exports__, {
   ContactFlowType: () => (/* reexport */ ContactFlowType),
   ContactInitiationMethod: () => (/* reexport */ ContactInitiationMethod),
   ContactNotFoundException: () => (/* reexport */ ContactNotFoundException),
+  ContactRecordingType: () => (/* reexport */ ContactRecordingType),
   ContactState: () => (/* reexport */ ContactState),
   CreateAgentStatusCommand: () => (/* reexport */ CreateAgentStatusCommand),
+  CreateContactCommand: () => (/* reexport */ CreateContactCommand),
   CreateContactFlowCommand: () => (/* reexport */ CreateContactFlowCommand),
   CreateContactFlowModuleCommand: () => (/* reexport */ CreateContactFlowModuleCommand),
+  CreateContactFlowVersionCommand: () => (/* reexport */ CreateContactFlowVersionCommand),
+  CreateContactRequestFilterSensitiveLog: () => (/* reexport */ CreateContactRequestFilterSensitiveLog),
+  CreateEmailAddressCommand: () => (/* reexport */ CreateEmailAddressCommand),
+  CreateEmailAddressRequestFilterSensitiveLog: () => (/* reexport */ CreateEmailAddressRequestFilterSensitiveLog),
   CreateEvaluationFormCommand: () => (/* reexport */ CreateEvaluationFormCommand),
   CreateHoursOfOperationCommand: () => (/* reexport */ CreateHoursOfOperationCommand),
+  CreateHoursOfOperationOverrideCommand: () => (/* reexport */ CreateHoursOfOperationOverrideCommand),
   CreateInstanceCommand: () => (/* reexport */ CreateInstanceCommand),
   CreateInstanceRequestFilterSensitiveLog: () => (/* reexport */ CreateInstanceRequestFilterSensitiveLog),
   CreateIntegrationAssociationCommand: () => (/* reexport */ CreateIntegrationAssociationCommand),
@@ -649,6 +658,7 @@ __webpack_require__.d(__webpack_exports__, {
   CreatePersistentContactAssociationCommand: () => (/* reexport */ CreatePersistentContactAssociationCommand),
   CreatePredefinedAttributeCommand: () => (/* reexport */ CreatePredefinedAttributeCommand),
   CreatePromptCommand: () => (/* reexport */ CreatePromptCommand),
+  CreatePushNotificationRegistrationCommand: () => (/* reexport */ CreatePushNotificationRegistrationCommand),
   CreateQueueCommand: () => (/* reexport */ CreateQueueCommand),
   CreateQuickConnectCommand: () => (/* reexport */ CreateQuickConnectCommand),
   CreateRoutingProfileCommand: () => (/* reexport */ CreateRoutingProfileCommand),
@@ -669,17 +679,22 @@ __webpack_require__.d(__webpack_exports__, {
   CreatedByInfo: () => (/* reexport */ CreatedByInfo),
   CredentialsFilterSensitiveLog: () => (/* reexport */ CredentialsFilterSensitiveLog),
   CurrentMetricName: () => (/* reexport */ CurrentMetricName),
+  DateComparisonType: () => (/* reexport */ DateComparisonType),
   DeactivateEvaluationFormCommand: () => (/* reexport */ DeactivateEvaluationFormCommand),
   DeleteAttachedFileCommand: () => (/* reexport */ DeleteAttachedFileCommand),
   DeleteContactEvaluationCommand: () => (/* reexport */ DeleteContactEvaluationCommand),
   DeleteContactFlowCommand: () => (/* reexport */ DeleteContactFlowCommand),
   DeleteContactFlowModuleCommand: () => (/* reexport */ DeleteContactFlowModuleCommand),
+  DeleteContactFlowVersionCommand: () => (/* reexport */ DeleteContactFlowVersionCommand),
+  DeleteEmailAddressCommand: () => (/* reexport */ DeleteEmailAddressCommand),
   DeleteEvaluationFormCommand: () => (/* reexport */ DeleteEvaluationFormCommand),
   DeleteHoursOfOperationCommand: () => (/* reexport */ DeleteHoursOfOperationCommand),
+  DeleteHoursOfOperationOverrideCommand: () => (/* reexport */ DeleteHoursOfOperationOverrideCommand),
   DeleteInstanceCommand: () => (/* reexport */ DeleteInstanceCommand),
   DeleteIntegrationAssociationCommand: () => (/* reexport */ DeleteIntegrationAssociationCommand),
   DeletePredefinedAttributeCommand: () => (/* reexport */ DeletePredefinedAttributeCommand),
   DeletePromptCommand: () => (/* reexport */ DeletePromptCommand),
+  DeletePushNotificationRegistrationCommand: () => (/* reexport */ DeletePushNotificationRegistrationCommand),
   DeleteQueueCommand: () => (/* reexport */ DeleteQueueCommand),
   DeleteQuickConnectCommand: () => (/* reexport */ DeleteQuickConnectCommand),
   DeleteRoutingProfileCommand: () => (/* reexport */ DeleteRoutingProfileCommand),
@@ -700,8 +715,11 @@ __webpack_require__.d(__webpack_exports__, {
   DescribeContactFlowCommand: () => (/* reexport */ DescribeContactFlowCommand),
   DescribeContactFlowModuleCommand: () => (/* reexport */ DescribeContactFlowModuleCommand),
   DescribeContactResponseFilterSensitiveLog: () => (/* reexport */ DescribeContactResponseFilterSensitiveLog),
+  DescribeEmailAddressCommand: () => (/* reexport */ DescribeEmailAddressCommand),
+  DescribeEmailAddressResponseFilterSensitiveLog: () => (/* reexport */ DescribeEmailAddressResponseFilterSensitiveLog),
   DescribeEvaluationFormCommand: () => (/* reexport */ DescribeEvaluationFormCommand),
   DescribeHoursOfOperationCommand: () => (/* reexport */ DescribeHoursOfOperationCommand),
+  DescribeHoursOfOperationOverrideCommand: () => (/* reexport */ DescribeHoursOfOperationOverrideCommand),
   DescribeInstanceAttributeCommand: () => (/* reexport */ DescribeInstanceAttributeCommand),
   DescribeInstanceCommand: () => (/* reexport */ DescribeInstanceCommand),
   DescribeInstanceResponseFilterSensitiveLog: () => (/* reexport */ DescribeInstanceResponseFilterSensitiveLog),
@@ -723,6 +741,7 @@ __webpack_require__.d(__webpack_exports__, {
   DescribeViewResponseFilterSensitiveLog: () => (/* reexport */ DescribeViewResponseFilterSensitiveLog),
   DescribeVocabularyCommand: () => (/* reexport */ DescribeVocabularyCommand),
   DestinationNotAllowedException: () => (/* reexport */ DestinationNotAllowedException),
+  DeviceType: () => (/* reexport */ DeviceType),
   DirectoryType: () => (/* reexport */ DirectoryType),
   DisassociateAnalyticsDataSetCommand: () => (/* reexport */ DisassociateAnalyticsDataSetCommand),
   DisassociateApprovedOriginCommand: () => (/* reexport */ DisassociateApprovedOriginCommand),
@@ -739,6 +758,9 @@ __webpack_require__.d(__webpack_exports__, {
   DisassociateUserProficienciesCommand: () => (/* reexport */ DisassociateUserProficienciesCommand),
   DismissUserContactCommand: () => (/* reexport */ DismissUserContactCommand),
   DuplicateResourceException: () => (/* reexport */ DuplicateResourceException),
+  EmailAddressInfoFilterSensitiveLog: () => (/* reexport */ EmailAddressInfoFilterSensitiveLog),
+  EmailAddressMetadataFilterSensitiveLog: () => (/* reexport */ EmailAddressMetadataFilterSensitiveLog),
+  EmailHeaderType: () => (/* reexport */ EmailHeaderType),
   EncryptionType: () => (/* reexport */ EncryptionType),
   EndpointType: () => (/* reexport */ EndpointType),
   EvaluationAnswerData: () => (/* reexport */ EvaluationAnswerData),
@@ -761,6 +783,7 @@ __webpack_require__.d(__webpack_exports__, {
   GetContactAttributesCommand: () => (/* reexport */ GetContactAttributesCommand),
   GetCurrentMetricDataCommand: () => (/* reexport */ GetCurrentMetricDataCommand),
   GetCurrentUserDataCommand: () => (/* reexport */ GetCurrentUserDataCommand),
+  GetEffectiveHoursOfOperationsCommand: () => (/* reexport */ GetEffectiveHoursOfOperationsCommand),
   GetFederationTokenCommand: () => (/* reexport */ GetFederationTokenCommand),
   GetFederationTokenResponseFilterSensitiveLog: () => (/* reexport */ GetFederationTokenResponseFilterSensitiveLog),
   GetFlowAssociationCommand: () => (/* reexport */ GetFlowAssociationCommand),
@@ -775,6 +798,11 @@ __webpack_require__.d(__webpack_exports__, {
   HoursOfOperationDays: () => (/* reexport */ HoursOfOperationDays),
   IdempotencyException: () => (/* reexport */ IdempotencyException),
   ImportPhoneNumberCommand: () => (/* reexport */ ImportPhoneNumberCommand),
+  InboundAdditionalRecipientsFilterSensitiveLog: () => (/* reexport */ InboundAdditionalRecipientsFilterSensitiveLog),
+  InboundEmailContentFilterSensitiveLog: () => (/* reexport */ InboundEmailContentFilterSensitiveLog),
+  InboundMessageSourceType: () => (/* reexport */ InboundMessageSourceType),
+  InboundRawMessageFilterSensitiveLog: () => (/* reexport */ InboundRawMessageFilterSensitiveLog),
+  InitiateAs: () => (/* reexport */ InitiateAs),
   InstanceAttributeType: () => (/* reexport */ InstanceAttributeType),
   InstanceFilterSensitiveLog: () => (/* reexport */ InstanceFilterSensitiveLog),
   InstanceReplicationStatus: () => (/* reexport */ InstanceReplicationStatus),
@@ -789,15 +817,19 @@ __webpack_require__.d(__webpack_exports__, {
   InvalidParameterException: () => (/* reexport */ InvalidParameterException),
   InvalidRequestException: () => (/* reexport */ InvalidRequestException),
   InvalidRequestExceptionReason: () => (/* reexport */ InvalidRequestExceptionReason),
+  IvrRecordingTrack: () => (/* reexport */ IvrRecordingTrack),
   LexVersion: () => (/* reexport */ LexVersion),
   LimitExceededException: () => (/* reexport */ LimitExceededException),
   ListAgentStatusesCommand: () => (/* reexport */ ListAgentStatusesCommand),
   ListAnalyticsDataAssociationsCommand: () => (/* reexport */ ListAnalyticsDataAssociationsCommand),
+  ListAnalyticsDataLakeDataSetsCommand: () => (/* reexport */ ListAnalyticsDataLakeDataSetsCommand),
   ListApprovedOriginsCommand: () => (/* reexport */ ListApprovedOriginsCommand),
+  ListAssociatedContactsCommand: () => (/* reexport */ ListAssociatedContactsCommand),
   ListAuthenticationProfilesCommand: () => (/* reexport */ ListAuthenticationProfilesCommand),
   ListBotsCommand: () => (/* reexport */ ListBotsCommand),
   ListContactEvaluationsCommand: () => (/* reexport */ ListContactEvaluationsCommand),
   ListContactFlowModulesCommand: () => (/* reexport */ ListContactFlowModulesCommand),
+  ListContactFlowVersionsCommand: () => (/* reexport */ ListContactFlowVersionsCommand),
   ListContactFlowsCommand: () => (/* reexport */ ListContactFlowsCommand),
   ListContactReferencesCommand: () => (/* reexport */ ListContactReferencesCommand),
   ListDefaultVocabulariesCommand: () => (/* reexport */ ListDefaultVocabulariesCommand),
@@ -805,6 +837,7 @@ __webpack_require__.d(__webpack_exports__, {
   ListEvaluationFormsCommand: () => (/* reexport */ ListEvaluationFormsCommand),
   ListFlowAssociationResourceType: () => (/* reexport */ ListFlowAssociationResourceType),
   ListFlowAssociationsCommand: () => (/* reexport */ ListFlowAssociationsCommand),
+  ListHoursOfOperationOverridesCommand: () => (/* reexport */ ListHoursOfOperationOverridesCommand),
   ListHoursOfOperationsCommand: () => (/* reexport */ ListHoursOfOperationsCommand),
   ListInstanceAttributesCommand: () => (/* reexport */ ListInstanceAttributesCommand),
   ListInstanceStorageConfigsCommand: () => (/* reexport */ ListInstanceStorageConfigsCommand),
@@ -841,6 +874,7 @@ __webpack_require__.d(__webpack_exports__, {
   ListViewsCommand: () => (/* reexport */ ListViewsCommand),
   ListViewsResponseFilterSensitiveLog: () => (/* reexport */ ListViewsResponseFilterSensitiveLog),
   MaximumResultReturnedException: () => (/* reexport */ MaximumResultReturnedException),
+  MediaStreamType: () => (/* reexport */ MediaStreamType),
   MeetingFeatureStatus: () => (/* reexport */ MeetingFeatureStatus),
   MonitorCapability: () => (/* reexport */ MonitorCapability),
   MonitorContactCommand: () => (/* reexport */ MonitorContactCommand),
@@ -848,12 +882,19 @@ __webpack_require__.d(__webpack_exports__, {
   NotificationDeliveryType: () => (/* reexport */ NotificationDeliveryType),
   NumberComparisonType: () => (/* reexport */ NumberComparisonType),
   NumericQuestionPropertyAutomationLabel: () => (/* reexport */ NumericQuestionPropertyAutomationLabel),
+  OutboundAdditionalRecipientsFilterSensitiveLog: () => (/* reexport */ OutboundAdditionalRecipientsFilterSensitiveLog),
   OutboundContactNotPermittedException: () => (/* reexport */ OutboundContactNotPermittedException),
+  OutboundEmailContentFilterSensitiveLog: () => (/* reexport */ OutboundEmailContentFilterSensitiveLog),
+  OutboundMessageSourceType: () => (/* reexport */ OutboundMessageSourceType),
+  OutboundRawMessageFilterSensitiveLog: () => (/* reexport */ OutboundRawMessageFilterSensitiveLog),
   OutputTypeNotFoundException: () => (/* reexport */ OutputTypeNotFoundException),
+  OverrideDays: () => (/* reexport */ OverrideDays),
   ParticipantRole: () => (/* reexport */ ParticipantRole),
+  ParticipantState: () => (/* reexport */ ParticipantState),
   ParticipantTimerAction: () => (/* reexport */ ParticipantTimerAction),
   ParticipantTimerType: () => (/* reexport */ ParticipantTimerType),
   ParticipantTimerValue: () => (/* reexport */ ParticipantTimerValue),
+  ParticipantType: () => (/* reexport */ ParticipantType),
   PauseContactCommand: () => (/* reexport */ PauseContactCommand),
   PhoneNumberCountryCode: () => (/* reexport */ PhoneNumberCountryCode),
   PhoneNumberType: () => (/* reexport */ PhoneNumberType),
@@ -875,6 +916,7 @@ __webpack_require__.d(__webpack_exports__, {
   RealTimeContactAnalysisSupportedChannel: () => (/* reexport */ RealTimeContactAnalysisSupportedChannel),
   RealTimeContactAnalysisTimeData: () => (/* reexport */ RealTimeContactAnalysisTimeData),
   RealtimeContactAnalysisSegment: () => (/* reexport */ RealtimeContactAnalysisSegment),
+  RecordingStatus: () => (/* reexport */ RecordingStatus),
   ReferenceStatus: () => (/* reexport */ ReferenceStatus),
   ReferenceSummary: () => (/* reexport */ ReferenceSummary),
   ReferenceType: () => (/* reexport */ ReferenceType),
@@ -891,6 +933,7 @@ __webpack_require__.d(__webpack_exports__, {
   ResumeContactRecordingCommand: () => (/* reexport */ ResumeContactRecordingCommand),
   RoutingCriteriaStepStatus: () => (/* reexport */ RoutingCriteriaStepStatus),
   RulePublishStatus: () => (/* reexport */ RulePublishStatus),
+  ScreenShareCapability: () => (/* reexport */ ScreenShareCapability),
   SearchAgentStatusesCommand: () => (/* reexport */ SearchAgentStatusesCommand),
   SearchAvailablePhoneNumbersCommand: () => (/* reexport */ SearchAvailablePhoneNumbersCommand),
   SearchContactFlowModulesCommand: () => (/* reexport */ SearchContactFlowModulesCommand),
@@ -900,6 +943,9 @@ __webpack_require__.d(__webpack_exports__, {
   SearchContactsRequestFilterSensitiveLog: () => (/* reexport */ SearchContactsRequestFilterSensitiveLog),
   SearchContactsTimeRangeType: () => (/* reexport */ SearchContactsTimeRangeType),
   SearchCriteriaFilterSensitiveLog: () => (/* reexport */ SearchCriteriaFilterSensitiveLog),
+  SearchEmailAddressesCommand: () => (/* reexport */ SearchEmailAddressesCommand),
+  SearchEmailAddressesResponseFilterSensitiveLog: () => (/* reexport */ SearchEmailAddressesResponseFilterSensitiveLog),
+  SearchHoursOfOperationOverridesCommand: () => (/* reexport */ SearchHoursOfOperationOverridesCommand),
   SearchHoursOfOperationsCommand: () => (/* reexport */ SearchHoursOfOperationsCommand),
   SearchPredefinedAttributesCommand: () => (/* reexport */ SearchPredefinedAttributesCommand),
   SearchPromptsCommand: () => (/* reexport */ SearchPromptsCommand),
@@ -915,26 +961,40 @@ __webpack_require__.d(__webpack_exports__, {
   SearchableContactAttributesCriteriaFilterSensitiveLog: () => (/* reexport */ SearchableContactAttributesCriteriaFilterSensitiveLog),
   SearchableContactAttributesFilterSensitiveLog: () => (/* reexport */ SearchableContactAttributesFilterSensitiveLog),
   SearchableQueueType: () => (/* reexport */ SearchableQueueType),
+  SearchableSegmentAttributesCriteriaFilterSensitiveLog: () => (/* reexport */ SearchableSegmentAttributesCriteriaFilterSensitiveLog),
+  SearchableSegmentAttributesFilterSensitiveLog: () => (/* reexport */ SearchableSegmentAttributesFilterSensitiveLog),
   SendChatIntegrationEventCommand: () => (/* reexport */ SendChatIntegrationEventCommand),
+  SendOutboundEmailCommand: () => (/* reexport */ SendOutboundEmailCommand),
+  SendOutboundEmailRequestFilterSensitiveLog: () => (/* reexport */ SendOutboundEmailRequestFilterSensitiveLog),
   ServiceQuotaExceededException: () => (/* reexport */ ServiceQuotaExceededException),
+  ServiceQuotaExceededExceptionReason: () => (/* reexport */ ServiceQuotaExceededExceptionReason),
   SingleSelectQuestionRuleCategoryAutomationCondition: () => (/* reexport */ SingleSelectQuestionRuleCategoryAutomationCondition),
+  SlaAssignmentType: () => (/* reexport */ SlaAssignmentType),
+  SlaType: () => (/* reexport */ SlaType),
   SortOrder: () => (/* reexport */ SortOrder),
   SortableFieldName: () => (/* reexport */ SortableFieldName),
   SourceType: () => (/* reexport */ SourceType),
   StartAttachedFileUploadCommand: () => (/* reexport */ StartAttachedFileUploadCommand),
   StartChatContactCommand: () => (/* reexport */ StartChatContactCommand),
+  StartChatContactRequestFilterSensitiveLog: () => (/* reexport */ StartChatContactRequestFilterSensitiveLog),
   StartContactEvaluationCommand: () => (/* reexport */ StartContactEvaluationCommand),
   StartContactRecordingCommand: () => (/* reexport */ StartContactRecordingCommand),
   StartContactStreamingCommand: () => (/* reexport */ StartContactStreamingCommand),
+  StartEmailContactCommand: () => (/* reexport */ StartEmailContactCommand),
+  StartEmailContactRequestFilterSensitiveLog: () => (/* reexport */ StartEmailContactRequestFilterSensitiveLog),
   StartOutboundChatContactCommand: () => (/* reexport */ StartOutboundChatContactCommand),
+  StartOutboundEmailContactCommand: () => (/* reexport */ StartOutboundEmailContactCommand),
+  StartOutboundEmailContactRequestFilterSensitiveLog: () => (/* reexport */ StartOutboundEmailContactRequestFilterSensitiveLog),
   StartOutboundVoiceContactCommand: () => (/* reexport */ StartOutboundVoiceContactCommand),
   StartOutboundVoiceContactRequestFilterSensitiveLog: () => (/* reexport */ StartOutboundVoiceContactRequestFilterSensitiveLog),
+  StartScreenSharingCommand: () => (/* reexport */ StartScreenSharingCommand),
   StartTaskContactCommand: () => (/* reexport */ StartTaskContactCommand),
   StartTaskContactRequestFilterSensitiveLog: () => (/* reexport */ StartTaskContactRequestFilterSensitiveLog),
   StartWebRTCContactCommand: () => (/* reexport */ StartWebRTCContactCommand),
   StartWebRTCContactRequestFilterSensitiveLog: () => (/* reexport */ StartWebRTCContactRequestFilterSensitiveLog),
   StartWebRTCContactResponseFilterSensitiveLog: () => (/* reexport */ StartWebRTCContactResponseFilterSensitiveLog),
   Statistic: () => (/* reexport */ Statistic),
+  Status: () => (/* reexport */ Status),
   StopContactCommand: () => (/* reexport */ StopContactCommand),
   StopContactRecordingCommand: () => (/* reexport */ StopContactRecordingCommand),
   StopContactStreamingCommand: () => (/* reexport */ StopContactStreamingCommand),
@@ -971,10 +1031,15 @@ __webpack_require__.d(__webpack_exports__, {
   UpdateContactRequestFilterSensitiveLog: () => (/* reexport */ UpdateContactRequestFilterSensitiveLog),
   UpdateContactRoutingDataCommand: () => (/* reexport */ UpdateContactRoutingDataCommand),
   UpdateContactScheduleCommand: () => (/* reexport */ UpdateContactScheduleCommand),
+  UpdateEmailAddressMetadataCommand: () => (/* reexport */ UpdateEmailAddressMetadataCommand),
+  UpdateEmailAddressMetadataRequestFilterSensitiveLog: () => (/* reexport */ UpdateEmailAddressMetadataRequestFilterSensitiveLog),
   UpdateEvaluationFormCommand: () => (/* reexport */ UpdateEvaluationFormCommand),
   UpdateHoursOfOperationCommand: () => (/* reexport */ UpdateHoursOfOperationCommand),
+  UpdateHoursOfOperationOverrideCommand: () => (/* reexport */ UpdateHoursOfOperationOverrideCommand),
   UpdateInstanceAttributeCommand: () => (/* reexport */ UpdateInstanceAttributeCommand),
   UpdateInstanceStorageConfigCommand: () => (/* reexport */ UpdateInstanceStorageConfigCommand),
+  UpdateParticipantAuthenticationCommand: () => (/* reexport */ UpdateParticipantAuthenticationCommand),
+  UpdateParticipantAuthenticationRequestFilterSensitiveLog: () => (/* reexport */ UpdateParticipantAuthenticationRequestFilterSensitiveLog),
   UpdateParticipantRoleConfigChannelInfo: () => (/* reexport */ UpdateParticipantRoleConfigChannelInfo),
   UpdateParticipantRoleConfigCommand: () => (/* reexport */ UpdateParticipantRoleConfigCommand),
   UpdatePhoneNumberCommand: () => (/* reexport */ UpdatePhoneNumberCommand),
@@ -985,6 +1050,7 @@ __webpack_require__.d(__webpack_exports__, {
   UpdateQueueMaxContactsCommand: () => (/* reexport */ UpdateQueueMaxContactsCommand),
   UpdateQueueNameCommand: () => (/* reexport */ UpdateQueueNameCommand),
   UpdateQueueOutboundCallerConfigCommand: () => (/* reexport */ UpdateQueueOutboundCallerConfigCommand),
+  UpdateQueueOutboundEmailConfigCommand: () => (/* reexport */ UpdateQueueOutboundEmailConfigCommand),
   UpdateQueueStatusCommand: () => (/* reexport */ UpdateQueueStatusCommand),
   UpdateQuickConnectConfigCommand: () => (/* reexport */ UpdateQuickConnectConfigCommand),
   UpdateQuickConnectNameCommand: () => (/* reexport */ UpdateQuickConnectNameCommand),
@@ -1039,12 +1105,14 @@ __webpack_require__.d(__webpack_exports__, {
   paginateListBots: () => (/* reexport */ paginateListBots),
   paginateListContactEvaluations: () => (/* reexport */ paginateListContactEvaluations),
   paginateListContactFlowModules: () => (/* reexport */ paginateListContactFlowModules),
+  paginateListContactFlowVersions: () => (/* reexport */ paginateListContactFlowVersions),
   paginateListContactFlows: () => (/* reexport */ paginateListContactFlows),
   paginateListContactReferences: () => (/* reexport */ paginateListContactReferences),
   paginateListDefaultVocabularies: () => (/* reexport */ paginateListDefaultVocabularies),
   paginateListEvaluationFormVersions: () => (/* reexport */ paginateListEvaluationFormVersions),
   paginateListEvaluationForms: () => (/* reexport */ paginateListEvaluationForms),
   paginateListFlowAssociations: () => (/* reexport */ paginateListFlowAssociations),
+  paginateListHoursOfOperationOverrides: () => (/* reexport */ paginateListHoursOfOperationOverrides),
   paginateListHoursOfOperations: () => (/* reexport */ paginateListHoursOfOperations),
   paginateListInstanceAttributes: () => (/* reexport */ paginateListInstanceAttributes),
   paginateListInstanceStorageConfigs: () => (/* reexport */ paginateListInstanceStorageConfigs),
@@ -1081,6 +1149,7 @@ __webpack_require__.d(__webpack_exports__, {
   paginateSearchContactFlowModules: () => (/* reexport */ paginateSearchContactFlowModules),
   paginateSearchContactFlows: () => (/* reexport */ paginateSearchContactFlows),
   paginateSearchContacts: () => (/* reexport */ paginateSearchContacts),
+  paginateSearchHoursOfOperationOverrides: () => (/* reexport */ paginateSearchHoursOfOperationOverrides),
   paginateSearchHoursOfOperations: () => (/* reexport */ paginateSearchHoursOfOperations),
   paginateSearchPredefinedAttributes: () => (/* reexport */ paginateSearchPredefinedAttributes),
   paginateSearchPrompts: () => (/* reexport */ paginateSearchPrompts),
@@ -1104,18 +1173,18 @@ var middleware_recursion_detection_dist_es = __webpack_require__(8377);
 var middleware_user_agent_dist_es = __webpack_require__(6961);
 // EXTERNAL MODULE: ./node_modules/@smithy/config-resolver/dist-es/index.js + 13 modules
 var config_resolver_dist_es = __webpack_require__(1487);
-// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/index.js + 17 modules
-var core_dist_es = __webpack_require__(2516);
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/index.js + 19 modules
+var core_dist_es = __webpack_require__(9142);
 // EXTERNAL MODULE: ./node_modules/@smithy/middleware-content-length/dist-es/index.js
 var middleware_content_length_dist_es = __webpack_require__(649);
 // EXTERNAL MODULE: ./node_modules/@smithy/middleware-endpoint/dist-es/index.js + 8 modules
 var middleware_endpoint_dist_es = __webpack_require__(7012);
 // EXTERNAL MODULE: ./node_modules/@smithy/middleware-retry/dist-es/index.js + 10 modules
 var middleware_retry_dist_es = __webpack_require__(6232);
-// EXTERNAL MODULE: ./node_modules/@smithy/smithy-client/dist-es/index.js + 27 modules
-var smithy_client_dist_es = __webpack_require__(5342);
-// EXTERNAL MODULE: ./node_modules/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4Config.js + 15 modules
-var resolveAwsSdkSigV4Config = __webpack_require__(8088);
+// EXTERNAL MODULE: ./node_modules/@smithy/smithy-client/dist-es/index.js + 20 modules
+var smithy_client_dist_es = __webpack_require__(6980);
+// EXTERNAL MODULE: ./node_modules/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4Config.js + 17 modules
+var resolveAwsSdkSigV4Config = __webpack_require__(9538);
 // EXTERNAL MODULE: ./node_modules/@smithy/util-middleware/dist-es/index.js + 2 modules
 var util_middleware_dist_es = __webpack_require__(7135);
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/auth/httpAuthSchemeProvider.js
@@ -1156,19 +1225,18 @@ const defaultConnectHttpAuthSchemeProvider = (authParameters) => {
 };
 const resolveHttpAuthSchemeConfig = (config) => {
     const config_0 = (0,resolveAwsSdkSigV4Config/* resolveAwsSdkSigV4Config */.h)(config);
-    return {
-        ...config_0,
-    };
+    return Object.assign(config_0, {
+        authSchemePreference: (0,util_middleware_dist_es/* normalizeProvider */.t)(config.authSchemePreference ?? []),
+    });
 };
 
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/endpoint/EndpointParameters.js
 const resolveClientEndpointParameters = (options) => {
-    return {
-        ...options,
+    return Object.assign(options, {
         useDualstackEndpoint: options.useDualstackEndpoint ?? false,
         useFipsEndpoint: options.useFipsEndpoint ?? false,
         defaultSigningName: "connect",
-    };
+    });
 };
 const commonParams = {
     UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -1178,13 +1246,13 @@ const commonParams = {
 };
 
 ;// ./node_modules/@aws-sdk/client-connect/package.json
-const package_namespaceObject = {"rE":"3.667.0"};
+const package_namespaceObject = {"rE":"3.828.0"};
 // EXTERNAL MODULE: ./node_modules/@aws-crypto/sha256-browser/build/module/index.js + 13 modules
 var build_module = __webpack_require__(7272);
 // EXTERNAL MODULE: ./node_modules/@aws-sdk/util-user-agent-browser/dist-es/index.js
 var util_user_agent_browser_dist_es = __webpack_require__(9391);
-// EXTERNAL MODULE: ./node_modules/@smithy/fetch-http-handler/dist-es/index.js + 4 modules
-var fetch_http_handler_dist_es = __webpack_require__(3957);
+// EXTERNAL MODULE: ./node_modules/@smithy/fetch-http-handler/dist-es/index.js + 5 modules
+var fetch_http_handler_dist_es = __webpack_require__(9389);
 // EXTERNAL MODULE: ./node_modules/@smithy/invalid-dependency/dist-es/invalidProvider.js
 var invalidProvider = __webpack_require__(2423);
 // EXTERNAL MODULE: ./node_modules/@smithy/util-body-length-browser/dist-es/index.js + 1 modules
@@ -1285,7 +1353,7 @@ const runtimeConfig_browser_getRuntimeConfig = (config) => {
         bodyLengthChecker: config?.bodyLengthChecker ?? util_body_length_browser_dist_es/* calculateBodyLength */.n,
         credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_) => () => Promise.reject(new Error("Credential is missing"))),
         defaultUserAgentProvider: config?.defaultUserAgentProvider ??
-            (0,util_user_agent_browser_dist_es/* defaultUserAgent */.m)({ serviceId: clientSharedValues.serviceId, clientVersion: package_namespaceObject.rE }),
+            (0,util_user_agent_browser_dist_es/* createDefaultUserAgentProvider */.p)({ serviceId: clientSharedValues.serviceId, clientVersion: package_namespaceObject.rE }),
         maxAttempts: config?.maxAttempts ?? util_retry_dist_es/* DEFAULT_MAX_ATTEMPTS */.Gz,
         region: config?.region ?? (0,invalidProvider/* invalidProvider */.B)("Region is missing"),
         requestHandler: fetch_http_handler_dist_es/* FetchHttpHandler */.NC.create(config?.requestHandler ?? defaultConfigProvider),
@@ -1346,22 +1414,10 @@ const resolveHttpAuthRuntimeConfig = (config) => {
 
 
 
-const asPartial = (t) => t;
 const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
-    const extensionConfiguration = {
-        ...asPartial((0,region_config_resolver_dist_es/* getAwsRegionExtensionConfiguration */.Rq)(runtimeConfig)),
-        ...asPartial((0,smithy_client_dist_es/* getDefaultExtensionConfiguration */.xA)(runtimeConfig)),
-        ...asPartial((0,protocol_http_dist_es/* getHttpHandlerExtensionConfiguration */.eS)(runtimeConfig)),
-        ...asPartial(getHttpAuthExtensionConfiguration(runtimeConfig)),
-    };
+    const extensionConfiguration = Object.assign((0,region_config_resolver_dist_es/* getAwsRegionExtensionConfiguration */.Rq)(runtimeConfig), (0,smithy_client_dist_es/* getDefaultExtensionConfiguration */.xA)(runtimeConfig), (0,protocol_http_dist_es/* getHttpHandlerExtensionConfiguration */.eS)(runtimeConfig), getHttpAuthExtensionConfiguration(runtimeConfig));
     extensions.forEach((extension) => extension.configure(extensionConfiguration));
-    return {
-        ...runtimeConfig,
-        ...(0,region_config_resolver_dist_es/* resolveAwsRegionExtensionConfiguration */.$3)(extensionConfiguration),
-        ...(0,smithy_client_dist_es/* resolveDefaultRuntimeConfig */.uv)(extensionConfiguration),
-        ...(0,protocol_http_dist_es/* resolveHttpHandlerRuntimeConfig */.jt)(extensionConfiguration),
-        ...resolveHttpAuthRuntimeConfig(extensionConfiguration),
-    };
+    return Object.assign(runtimeConfig, (0,region_config_resolver_dist_es/* resolveAwsRegionExtensionConfiguration */.$3)(extensionConfiguration), (0,smithy_client_dist_es/* resolveDefaultRuntimeConfig */.uv)(extensionConfiguration), (0,protocol_http_dist_es/* resolveHttpHandlerRuntimeConfig */.jt)(extensionConfiguration), resolveHttpAuthRuntimeConfig(extensionConfiguration));
 };
 
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/ConnectClient.js
@@ -1381,8 +1437,11 @@ const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
 
 
 class ConnectClient extends smithy_client_dist_es/* Client */.Kj {
+    config;
     constructor(...[configuration]) {
         const _config_0 = runtimeConfig_browser_getRuntimeConfig(configuration || {});
+        super(_config_0);
+        this.initConfig = _config_0;
         const _config_1 = resolveClientEndpointParameters(_config_0);
         const _config_2 = (0,middleware_user_agent_dist_es/* resolveUserAgentConfig */.Dc)(_config_1);
         const _config_3 = (0,middleware_retry_dist_es/* resolveRetryConfig */.$z)(_config_2);
@@ -1391,7 +1450,6 @@ class ConnectClient extends smithy_client_dist_es/* Client */.Kj {
         const _config_6 = (0,middleware_endpoint_dist_es/* resolveEndpointConfig */.Co)(_config_5);
         const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
         const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-        super(_config_8);
         this.config = _config_8;
         this.middlewareStack.use((0,middleware_user_agent_dist_es/* getUserAgentPlugin */.sM)(this.config));
         this.middlewareStack.use((0,middleware_retry_dist_es/* getRetryPlugin */.ey)(this.config));
@@ -1434,20 +1492,22 @@ class ConnectServiceException extends smithy_client_dist_es/* ServiceException *
 
 
 class AccessDeniedException extends ConnectServiceException {
+    name = "AccessDeniedException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "AccessDeniedException",
             $fault: "client",
             ...opts,
         });
-        this.name = "AccessDeniedException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, AccessDeniedException.prototype);
         this.Message = opts.Message;
     }
 }
 const ActionType = {
     ASSIGN_CONTACT_CATEGORY: "ASSIGN_CONTACT_CATEGORY",
+    ASSIGN_SLA: "ASSIGN_SLA",
     CREATE_CASE: "CREATE_CASE",
     CREATE_TASK: "CREATE_TASK",
     END_ASSOCIATED_TASKS: "END_ASSOCIATED_TASKS",
@@ -1457,66 +1517,71 @@ const ActionType = {
     UPDATE_CASE: "UPDATE_CASE",
 };
 class InternalServiceException extends ConnectServiceException {
+    name = "InternalServiceException";
+    $fault = "server";
+    Message;
     constructor(opts) {
         super({
             name: "InternalServiceException",
             $fault: "server",
             ...opts,
         });
-        this.name = "InternalServiceException";
-        this.$fault = "server";
         Object.setPrototypeOf(this, InternalServiceException.prototype);
         this.Message = opts.Message;
     }
 }
 class InvalidParameterException extends ConnectServiceException {
+    name = "InvalidParameterException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "InvalidParameterException",
             $fault: "client",
             ...opts,
         });
-        this.name = "InvalidParameterException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, InvalidParameterException.prototype);
         this.Message = opts.Message;
     }
 }
 class ResourceConflictException extends ConnectServiceException {
+    name = "ResourceConflictException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "ResourceConflictException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ResourceConflictException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ResourceConflictException.prototype);
         this.Message = opts.Message;
     }
 }
 class ResourceNotFoundException extends ConnectServiceException {
+    name = "ResourceNotFoundException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "ResourceNotFoundException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ResourceNotFoundException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
         this.Message = opts.Message;
     }
 }
 class ThrottlingException extends ConnectServiceException {
+    name = "ThrottlingException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "ThrottlingException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ThrottlingException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ThrottlingException.prototype);
         this.Message = opts.Message;
     }
@@ -1538,22 +1603,35 @@ const ContactState = {
 };
 const Channel = {
     CHAT: "CHAT",
+    EMAIL: "EMAIL",
     TASK: "TASK",
     VOICE: "VOICE",
 };
 const ContactInitiationMethod = {
+    AGENT_REPLY: "AGENT_REPLY",
     API: "API",
     CALLBACK: "CALLBACK",
     DISCONNECT: "DISCONNECT",
     EXTERNAL_OUTBOUND: "EXTERNAL_OUTBOUND",
+    FLOW: "FLOW",
     INBOUND: "INBOUND",
     MONITOR: "MONITOR",
     OUTBOUND: "OUTBOUND",
     QUEUE_TRANSFER: "QUEUE_TRANSFER",
     TRANSFER: "TRANSFER",
+    WEBRTC_API: "WEBRTC_API",
+};
+const ScreenShareCapability = {
+    SEND: "SEND",
 };
 const VideoCapability = {
     SEND: "SEND",
+};
+const ParticipantState = {
+    CONNECTED: "CONNECTED",
+    DISCONNECTED: "DISCONNECTED",
+    INITIAL: "INITIAL",
+    MISSED: "MISSED",
 };
 const AgentStatusState = {
     DISABLED: "DISABLED",
@@ -1587,41 +1665,59 @@ var InvalidRequestExceptionReason;
     };
 })(InvalidRequestExceptionReason || (InvalidRequestExceptionReason = {}));
 class InvalidRequestException extends ConnectServiceException {
+    name = "InvalidRequestException";
+    $fault = "client";
+    Message;
+    Reason;
     constructor(opts) {
         super({
             name: "InvalidRequestException",
             $fault: "client",
             ...opts,
         });
-        this.name = "InvalidRequestException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, InvalidRequestException.prototype);
         this.Message = opts.Message;
         this.Reason = opts.Reason;
     }
 }
+const AttachedFileServiceQuotaExceededExceptionReason = {
+    TOTAL_FILE_COUNT_EXCEEDED: "TOTAL_FILE_COUNT_EXCEEDED",
+    TOTAL_FILE_SIZE_EXCEEDED: "TOTAL_FILE_SIZE_EXCEEDED",
+};
+var ServiceQuotaExceededExceptionReason;
+(function (ServiceQuotaExceededExceptionReason) {
+    ServiceQuotaExceededExceptionReason.visit = (value, visitor) => {
+        if (value.AttachedFileServiceQuotaExceededExceptionReason !== undefined)
+            return visitor.AttachedFileServiceQuotaExceededExceptionReason(value.AttachedFileServiceQuotaExceededExceptionReason);
+        return visitor._(value.$unknown[0], value.$unknown[1]);
+    };
+})(ServiceQuotaExceededExceptionReason || (ServiceQuotaExceededExceptionReason = {}));
 class ServiceQuotaExceededException extends ConnectServiceException {
+    name = "ServiceQuotaExceededException";
+    $fault = "client";
+    Message;
+    Reason;
     constructor(opts) {
         super({
             name: "ServiceQuotaExceededException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ServiceQuotaExceededException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
         this.Message = opts.Message;
+        this.Reason = opts.Reason;
     }
 }
 class LimitExceededException extends ConnectServiceException {
+    name = "LimitExceededException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "LimitExceededException",
             $fault: "client",
             ...opts,
         });
-        this.name = "LimitExceededException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, LimitExceededException.prototype);
         this.Message = opts.Message;
     }
@@ -1662,7 +1758,11 @@ const VocabularyLanguageCode = {
     ZH_CN: "zh-CN",
 };
 const FlowAssociationResourceType = {
+    ANALYTICS_CONNECTOR: "ANALYTICS_CONNECTOR",
+    INBOUND_EMAIL: "INBOUND_EMAIL",
+    OUTBOUND_EMAIL: "OUTBOUND_EMAIL",
     SMS_PHONE_NUMBER: "SMS_PHONE_NUMBER",
+    WHATSAPP_MESSAGING_PHONE_NUMBER: "WHATSAPP_MESSAGING_PHONE_NUMBER",
 };
 const InstanceStorageResourceType = {
     AGENT_EVENTS: "AGENT_EVENTS",
@@ -1671,6 +1771,7 @@ const InstanceStorageResourceType = {
     CHAT_TRANSCRIPTS: "CHAT_TRANSCRIPTS",
     CONTACT_EVALUATIONS: "CONTACT_EVALUATIONS",
     CONTACT_TRACE_RECORDS: "CONTACT_TRACE_RECORDS",
+    EMAIL_MESSAGES: "EMAIL_MESSAGES",
     MEDIA_STREAMS: "MEDIA_STREAMS",
     REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS",
     REAL_TIME_CONTACT_ANALYSIS_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
@@ -1705,13 +1806,19 @@ const FileStatusType = {
 };
 const FileUseCaseType = {
     ATTACHMENT: "ATTACHMENT",
+    EMAIL_MESSAGE: "EMAIL_MESSAGE",
 };
 const ListFlowAssociationResourceType = {
+    ANALYTICS_CONNECTOR: "ANALYTICS_CONNECTOR",
+    INBOUND_EMAIL: "INBOUND_EMAIL",
+    OUTBOUND_EMAIL: "OUTBOUND_EMAIL",
     VOICE_PHONE_NUMBER: "VOICE_PHONE_NUMBER",
+    WHATSAPP_MESSAGING_PHONE_NUMBER: "WHATSAPP_MESSAGING_PHONE_NUMBER",
 };
 const EndpointType = {
     CONNECT_PHONENUMBER_ARN: "CONNECT_PHONENUMBER_ARN",
     CONTACT_FLOW: "CONTACT_FLOW",
+    EMAIL_ADDRESS: "EMAIL_ADDRESS",
     TELEPHONE_NUMBER: "TELEPHONE_NUMBER",
     VOIP: "VOIP",
 };
@@ -1728,31 +1835,68 @@ const FailureReasonCode = {
     REQUEST_THROTTLED: "REQUEST_THROTTLED",
 };
 class IdempotencyException extends ConnectServiceException {
+    name = "IdempotencyException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "IdempotencyException",
             $fault: "client",
             ...opts,
         });
-        this.name = "IdempotencyException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, IdempotencyException.prototype);
         this.Message = opts.Message;
     }
 }
 class DuplicateResourceException extends ConnectServiceException {
+    name = "DuplicateResourceException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "DuplicateResourceException",
             $fault: "client",
             ...opts,
         });
-        this.name = "DuplicateResourceException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, DuplicateResourceException.prototype);
         this.Message = opts.Message;
     }
 }
+class ConflictException extends ConnectServiceException {
+    name = "ConflictException";
+    $fault = "client";
+    Message;
+    constructor(opts) {
+        super({
+            name: "ConflictException",
+            $fault: "client",
+            ...opts,
+        });
+        Object.setPrototypeOf(this, ConflictException.prototype);
+        this.Message = opts.Message;
+    }
+}
+const InitiateAs = {
+    CONNECTED_TO_USER: "CONNECTED_TO_USER",
+};
+const ReferenceStatus = {
+    APPROVED: "APPROVED",
+    AVAILABLE: "AVAILABLE",
+    DELETED: "DELETED",
+    FAILED: "FAILED",
+    PROCESSING: "PROCESSING",
+    REJECTED: "REJECTED",
+};
+const ReferenceType = {
+    ATTACHMENT: "ATTACHMENT",
+    CONTACT_ANALYSIS: "CONTACT_ANALYSIS",
+    DATE: "DATE",
+    EMAIL: "EMAIL",
+    EMAIL_MESSAGE: "EMAIL_MESSAGE",
+    NUMBER: "NUMBER",
+    STRING: "STRING",
+    URL: "URL",
+};
 const ContactFlowStatus = {
     PUBLISHED: "PUBLISHED",
     SAVED: "SAVED",
@@ -1761,6 +1905,7 @@ const ContactFlowType = {
     AGENT_HOLD: "AGENT_HOLD",
     AGENT_TRANSFER: "AGENT_TRANSFER",
     AGENT_WHISPER: "AGENT_WHISPER",
+    CAMPAIGN: "CAMPAIGN",
     CONTACT_FLOW: "CONTACT_FLOW",
     CUSTOMER_HOLD: "CUSTOMER_HOLD",
     CUSTOMER_QUEUE: "CUSTOMER_QUEUE",
@@ -1769,27 +1914,29 @@ const ContactFlowType = {
     QUEUE_TRANSFER: "QUEUE_TRANSFER",
 };
 class InvalidContactFlowException extends ConnectServiceException {
+    name = "InvalidContactFlowException";
+    $fault = "client";
+    problems;
     constructor(opts) {
         super({
             name: "InvalidContactFlowException",
             $fault: "client",
             ...opts,
         });
-        this.name = "InvalidContactFlowException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, InvalidContactFlowException.prototype);
         this.problems = opts.problems;
     }
 }
 class InvalidContactFlowModuleException extends ConnectServiceException {
+    name = "InvalidContactFlowModuleException";
+    $fault = "client";
+    Problems;
     constructor(opts) {
         super({
             name: "InvalidContactFlowModuleException",
             $fault: "client",
             ...opts,
         });
-        this.name = "InvalidContactFlowModuleException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, InvalidContactFlowModuleException.prototype);
         this.Problems = opts.Problems;
     }
@@ -1860,17 +2007,31 @@ const HoursOfOperationDays = {
     TUESDAY: "TUESDAY",
     WEDNESDAY: "WEDNESDAY",
 };
+const OverrideDays = {
+    FRIDAY: "FRIDAY",
+    MONDAY: "MONDAY",
+    SATURDAY: "SATURDAY",
+    SUNDAY: "SUNDAY",
+    THURSDAY: "THURSDAY",
+    TUESDAY: "TUESDAY",
+    WEDNESDAY: "WEDNESDAY",
+};
 const DirectoryType = {
     CONNECT_MANAGED: "CONNECT_MANAGED",
     EXISTING_DIRECTORY: "EXISTING_DIRECTORY",
     SAML: "SAML",
 };
 const IntegrationType = {
+    ANALYTICS_CONNECTOR: "ANALYTICS_CONNECTOR",
     APPLICATION: "APPLICATION",
+    CALL_TRANSFER_CONNECTOR: "CALL_TRANSFER_CONNECTOR",
     CASES_DOMAIN: "CASES_DOMAIN",
+    COGNITO_USER_POOL: "COGNITO_USER_POOL",
     EVENT: "EVENT",
     FILE_SCANNER: "FILE_SCANNER",
     PINPOINT_APP: "PINPOINT_APP",
+    Q_MESSAGE_TEMPLATES: "Q_MESSAGE_TEMPLATES",
+    SES_IDENTITY: "SES_IDENTITY",
     VOICE_ID: "VOICE_ID",
     WISDOM_ASSISTANT: "WISDOM_ASSISTANT",
     WISDOM_KNOWLEDGE_BASE: "WISDOM_KNOWLEDGE_BASE",
@@ -1900,6 +2061,11 @@ var PredefinedAttributeValues;
         return visitor._(value.$unknown[0], value.$unknown[1]);
     };
 })(PredefinedAttributeValues || (PredefinedAttributeValues = {}));
+const DeviceType = {
+    APNS: "APNS",
+    APNS_SANDBOX: "APNS_SANDBOX",
+    GCM: "GCM",
+};
 const QuickConnectType = {
     PHONE_NUMBER: "PHONE_NUMBER",
     QUEUE: "QUEUE",
@@ -1909,19 +2075,17 @@ const BehaviorType = {
     ROUTE_ANY_CHANNEL: "ROUTE_ANY_CHANNEL",
     ROUTE_CURRENT_CHANNEL_ONLY: "ROUTE_CURRENT_CHANNEL_ONLY",
 };
+const SlaType = {
+    CASE_FIELD: "CaseField",
+};
+const SlaAssignmentType = {
+    CASES: "CASES",
+};
 const NotificationContentType = {
     PLAIN_TEXT: "PLAIN_TEXT",
 };
 const NotificationDeliveryType = {
     EMAIL: "EMAIL",
-};
-const ReferenceType = {
-    ATTACHMENT: "ATTACHMENT",
-    DATE: "DATE",
-    EMAIL: "EMAIL",
-    NUMBER: "NUMBER",
-    STRING: "STRING",
-    URL: "URL",
 };
 const RulePublishStatus = {
     DRAFT: "DRAFT",
@@ -1937,6 +2101,7 @@ const EventSourceName = {
     OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
     OnRealTimeChatAnalysisAvailable: "OnRealTimeChatAnalysisAvailable",
     OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
+    OnSlaBreach: "OnSlaBreach",
     OnZendeskTicketCreate: "OnZendeskTicketCreate",
     OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",
 };
@@ -1945,10 +2110,12 @@ const TaskTemplateFieldType = {
     DATE_TIME: "DATE_TIME",
     DESCRIPTION: "DESCRIPTION",
     EMAIL: "EMAIL",
+    EXPIRY_DURATION: "EXPIRY_DURATION",
     NAME: "NAME",
     NUMBER: "NUMBER",
     QUICK_CONNECT: "QUICK_CONNECT",
     SCHEDULED_TIME: "SCHEDULED_TIME",
+    SELF_ASSIGN: "SELF_ASSIGN",
     SINGLE_SELECT: "SINGLE_SELECT",
     TEXT: "TEXT",
     TEXT_AREA: "TEXT_AREA",
@@ -1967,28 +2134,31 @@ const PropertyValidationExceptionReason = {
     UNIQUE_CONSTRAINT_VIOLATED: "UNIQUE_CONSTRAINT_VIOLATED",
 };
 class PropertyValidationException extends ConnectServiceException {
+    name = "PropertyValidationException";
+    $fault = "client";
+    Message;
+    PropertyList;
     constructor(opts) {
         super({
             name: "PropertyValidationException",
             $fault: "client",
             ...opts,
         });
-        this.name = "PropertyValidationException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, PropertyValidationException.prototype);
         this.Message = opts.Message;
         this.PropertyList = opts.PropertyList;
     }
 }
 class ResourceNotReadyException extends ConnectServiceException {
+    name = "ResourceNotReadyException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "ResourceNotReadyException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ResourceNotReadyException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ResourceNotReadyException.prototype);
         this.Message = opts.Message;
     }
@@ -2020,14 +2190,17 @@ const ResourceType = {
     USER: "USER",
 };
 class ResourceInUseException extends ConnectServiceException {
+    name = "ResourceInUseException";
+    $fault = "client";
+    Message;
+    ResourceType;
+    ResourceId;
     constructor(opts) {
         super({
             name: "ResourceInUseException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ResourceInUseException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ResourceInUseException.prototype);
         this.Message = opts.Message;
         this.ResourceType = opts.ResourceType;
@@ -2035,14 +2208,15 @@ class ResourceInUseException extends ConnectServiceException {
     }
 }
 class TooManyRequestsException extends ConnectServiceException {
+    name = "TooManyRequestsException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "TooManyRequestsException",
             $fault: "client",
             ...opts,
         });
-        this.name = "TooManyRequestsException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, TooManyRequestsException.prototype);
         this.Message = opts.Message;
     }
@@ -2053,22 +2227,12 @@ const VocabularyState = {
     CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
     DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
 };
-const AnsweringMachineDetectionStatus = {
-    AMD_ERROR: "AMD_ERROR",
-    AMD_NOT_APPLICABLE: "AMD_NOT_APPLICABLE",
-    AMD_UNANSWERED: "AMD_UNANSWERED",
-    AMD_UNRESOLVED: "AMD_UNRESOLVED",
-    ANSWERED: "ANSWERED",
-    ERROR: "ERROR",
-    FAX_MACHINE_DETECTED: "FAX_MACHINE_DETECTED",
-    HUMAN_ANSWERED: "HUMAN_ANSWERED",
-    SIT_TONE_BUSY: "SIT_TONE_BUSY",
-    SIT_TONE_DETECTED: "SIT_TONE_DETECTED",
-    SIT_TONE_INVALID_NUMBER: "SIT_TONE_INVALID_NUMBER",
-    UNDETECTED: "UNDETECTED",
-    VOICEMAIL_BEEP: "VOICEMAIL_BEEP",
-    VOICEMAIL_NO_BEEP: "VOICEMAIL_NO_BEEP",
-};
+const CreateEmailAddressRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.EmailAddress && { EmailAddress: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.DisplayName && { DisplayName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
 const CreateInstanceRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.InstanceAlias && { InstanceAlias: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
@@ -2117,6 +2281,42 @@ const CreateViewVersionResponseFilterSensitiveLog = (obj) => ({
 
 
 
+const AnsweringMachineDetectionStatus = {
+    AMD_ERROR: "AMD_ERROR",
+    AMD_NOT_APPLICABLE: "AMD_NOT_APPLICABLE",
+    AMD_UNANSWERED: "AMD_UNANSWERED",
+    AMD_UNRESOLVED: "AMD_UNRESOLVED",
+    ANSWERED: "ANSWERED",
+    ERROR: "ERROR",
+    FAX_MACHINE_DETECTED: "FAX_MACHINE_DETECTED",
+    HUMAN_ANSWERED: "HUMAN_ANSWERED",
+    SIT_TONE_BUSY: "SIT_TONE_BUSY",
+    SIT_TONE_DETECTED: "SIT_TONE_DETECTED",
+    SIT_TONE_INVALID_NUMBER: "SIT_TONE_INVALID_NUMBER",
+    UNDETECTED: "UNDETECTED",
+    VOICEMAIL_BEEP: "VOICEMAIL_BEEP",
+    VOICEMAIL_NO_BEEP: "VOICEMAIL_NO_BEEP",
+};
+const Status = {
+    COMPLETE: "COMPLETE",
+    DELETED: "DELETED",
+    IN_PROGRESS: "IN_PROGRESS",
+};
+const MediaStreamType = {
+    AUDIO: "AUDIO",
+    VIDEO: "VIDEO",
+};
+const ParticipantType = {
+    AGENT: "AGENT",
+    ALL: "ALL",
+    CUSTOMER: "CUSTOMER",
+    MANAGER: "MANAGER",
+    THIRDPARTY: "THIRDPARTY",
+};
+const RecordingStatus = {
+    AVAILABLE: "AVAILABLE",
+    DELETED: "DELETED",
+};
 const RoutingCriteriaStepStatus = {
     ACTIVE: "ACTIVE",
     EXPIRED: "EXPIRED",
@@ -2140,14 +2340,15 @@ const EvaluationStatus = {
     SUBMITTED: "SUBMITTED",
 };
 class ContactFlowNotPublishedException extends ConnectServiceException {
+    name = "ContactFlowNotPublishedException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "ContactFlowNotPublishedException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ContactFlowNotPublishedException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ContactFlowNotPublishedException.prototype);
         this.Message = opts.Message;
     }
@@ -2190,6 +2391,7 @@ const InstanceAttributeType = {
     ENHANCED_CONTACT_MONITORING: "ENHANCED_CONTACT_MONITORING",
     HIGH_VOLUME_OUTBOUND: "HIGH_VOLUME_OUTBOUND",
     INBOUND_CALLS: "INBOUND_CALLS",
+    MULTI_PARTY_CHAT_CONFERENCE: "MULTI_PARTY_CHAT_CONFERENCE",
     MULTI_PARTY_CONFERENCE: "MULTI_PARTY_CONFERENCE",
     OUTBOUND_CALLS: "OUTBOUND_CALLS",
     USE_CUSTOM_TTS_VOICES: "USE_CUSTOM_TTS_VOICES",
@@ -2490,14 +2692,15 @@ const SortOrder = {
     DESCENDING: "DESCENDING",
 };
 class UserNotFoundException extends ConnectServiceException {
+    name = "UserNotFoundException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "UserNotFoundException",
             $fault: "client",
             ...opts,
         });
-        this.name = "UserNotFoundException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, UserNotFoundException.prototype);
         this.Message = opts.Message;
     }
@@ -2549,10 +2752,6 @@ const LexVersion = {
     V1: "V1",
     V2: "V2",
 };
-const ReferenceStatus = {
-    APPROVED: "APPROVED",
-    REJECTED: "REJECTED",
-};
 var ReferenceSummary;
 (function (ReferenceSummary) {
     ReferenceSummary.visit = (value, visitor) => {
@@ -2560,6 +2759,8 @@ var ReferenceSummary;
             return visitor.Url(value.Url);
         if (value.Attachment !== undefined)
             return visitor.Attachment(value.Attachment);
+        if (value.EmailMessage !== undefined)
+            return visitor.EmailMessage(value.EmailMessage);
         if (value.String !== undefined)
             return visitor.String(value.String);
         if (value.Number !== undefined)
@@ -2571,6 +2772,55 @@ var ReferenceSummary;
         return visitor._(value.$unknown[0], value.$unknown[1]);
     };
 })(ReferenceSummary || (ReferenceSummary = {}));
+const DescribeEmailAddressResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.EmailAddress && { EmailAddress: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.DisplayName && { DisplayName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const InstanceFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.InstanceAlias && { InstanceAlias: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const DescribeInstanceResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Instance && { Instance: InstanceFilterSensitiveLog(obj.Instance) }),
+});
+const UserFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
+});
+const DescribeUserResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.User && { User: UserFilterSensitiveLog(obj.User) }),
+});
+const DescribeViewResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
+});
+const CredentialsFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.AccessToken && { AccessToken: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.RefreshToken && { RefreshToken: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const GetFederationTokenResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Credentials && { Credentials: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const InstanceSummaryFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.InstanceAlias && { InstanceAlias: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const ListInstancesResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.InstanceSummaryList && {
+        InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummaryFilterSensitiveLog(item)),
+    }),
+});
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/models/models_2.js
+
+
 const QueueType = {
     AGENT: "AGENT",
     STANDARD: "STANDARD",
@@ -2644,75 +2894,24 @@ const RealTimeContactAnalysisStatus = {
     IN_PROGRESS: "IN_PROGRESS",
 };
 class OutputTypeNotFoundException extends ConnectServiceException {
+    name = "OutputTypeNotFoundException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "OutputTypeNotFoundException",
             $fault: "client",
             ...opts,
         });
-        this.name = "OutputTypeNotFoundException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, OutputTypeNotFoundException.prototype);
         this.Message = opts.Message;
     }
 }
-const InstanceFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.InstanceAlias && { InstanceAlias: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
-});
-const DescribeInstanceResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.Instance && { Instance: InstanceFilterSensitiveLog(obj.Instance) }),
-});
-const UserFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
-});
-const DescribeUserResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.User && { User: UserFilterSensitiveLog(obj.User) }),
-});
-const DescribeViewResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-const CredentialsFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.AccessToken && { AccessToken: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
-    ...(obj.RefreshToken && { RefreshToken: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
-});
-const GetFederationTokenResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.Credentials && { Credentials: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
-});
-const InstanceSummaryFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.InstanceAlias && { InstanceAlias: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
-});
-const ListInstancesResponseFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.InstanceSummaryList && {
-        InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummaryFilterSensitiveLog(item)),
-    }),
-});
-
-;// ./node_modules/@aws-sdk/client-connect/dist-es/models/models_2.js
-
-
-
-class ConflictException extends ConnectServiceException {
-    constructor(opts) {
-        super({
-            name: "ConflictException",
-            $fault: "client",
-            ...opts,
-        });
-        this.name = "ConflictException";
-        this.$fault = "client";
-        Object.setPrototypeOf(this, ConflictException.prototype);
-        this.Message = opts.Message;
-    }
-}
+const ContactRecordingType = {
+    AGENT: "AGENT",
+    IVR: "IVR",
+    SCREEN: "SCREEN",
+};
 const SearchContactsMatchType = {
     MATCH_ALL: "MATCH_ALL",
     MATCH_ANY: "MATCH_ANY",
@@ -2731,18 +2930,26 @@ const SearchContactsTimeRangeType = {
     INITIATION_TIMESTAMP: "INITIATION_TIMESTAMP",
     SCHEDULED_TIMESTAMP: "SCHEDULED_TIMESTAMP",
 };
+const DateComparisonType = {
+    EQUAL_TO: "EQUAL_TO",
+    GREATER_THAN: "GREATER_THAN",
+    GREATER_THAN_OR_EQUAL_TO: "GREATER_THAN_OR_EQUAL_TO",
+    LESS_THAN: "LESS_THAN",
+    LESS_THAN_OR_EQUAL_TO: "LESS_THAN_OR_EQUAL_TO",
+};
 const SearchableQueueType = {
     STANDARD: "STANDARD",
 };
 class MaximumResultReturnedException extends ConnectServiceException {
+    name = "MaximumResultReturnedException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "MaximumResultReturnedException",
             $fault: "client",
             ...opts,
         });
-        this.name = "MaximumResultReturnedException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, MaximumResultReturnedException.prototype);
         this.Message = opts.Message;
     }
@@ -2768,55 +2975,89 @@ const ChatEventType = {
     EVENT: "EVENT",
     MESSAGE: "MESSAGE",
 };
+const OutboundMessageSourceType = {
+    RAW: "RAW",
+    TEMPLATE: "TEMPLATE",
+};
+const TrafficType = {
+    CAMPAIGN: "CAMPAIGN",
+    GENERAL: "GENERAL",
+};
+const IvrRecordingTrack = {
+    ALL: "ALL",
+};
 const VoiceRecordingTrack = {
     ALL: "ALL",
     FROM_AGENT: "FROM_AGENT",
     TO_AGENT: "TO_AGENT",
 };
+const InboundMessageSourceType = {
+    RAW: "RAW",
+};
+const EmailHeaderType = {
+    IN_REPLY_TO: "IN_REPLY_TO",
+    MESSAGE_ID: "MESSAGE_ID",
+    REFERENCES: "REFERENCES",
+    X_SES_SPAM_VERDICT: "X_SES_SPAM_VERDICT",
+    X_SES_VIRUS_VERDICT: "X_SES_VIRUS_VERDICT",
+};
 class DestinationNotAllowedException extends ConnectServiceException {
+    name = "DestinationNotAllowedException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "DestinationNotAllowedException",
             $fault: "client",
             ...opts,
         });
-        this.name = "DestinationNotAllowedException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, DestinationNotAllowedException.prototype);
         this.Message = opts.Message;
     }
 }
 class OutboundContactNotPermittedException extends ConnectServiceException {
+    name = "OutboundContactNotPermittedException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "OutboundContactNotPermittedException",
             $fault: "client",
             ...opts,
         });
-        this.name = "OutboundContactNotPermittedException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, OutboundContactNotPermittedException.prototype);
         this.Message = opts.Message;
     }
 }
-const TrafficType = {
-    CAMPAIGN: "CAMPAIGN",
-    GENERAL: "GENERAL",
-};
 const MeetingFeatureStatus = {
     AVAILABLE: "AVAILABLE",
     UNAVAILABLE: "UNAVAILABLE",
 };
 class ContactNotFoundException extends ConnectServiceException {
+    name = "ContactNotFoundException";
+    $fault = "client";
+    Message;
     constructor(opts) {
         super({
             name: "ContactNotFoundException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ContactNotFoundException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ContactNotFoundException.prototype);
+        this.Message = opts.Message;
+    }
+}
+class ConditionalOperationFailedException extends ConnectServiceException {
+    name = "ConditionalOperationFailedException";
+    $fault = "client";
+    Message;
+    constructor(opts) {
+        super({
+            name: "ConditionalOperationFailedException",
+            $fault: "client",
+            ...opts,
+        });
+        Object.setPrototypeOf(this, ConditionalOperationFailedException.prototype);
         this.Message = opts.Message;
     }
 }
@@ -2849,16 +3090,6 @@ var UpdateParticipantRoleConfigChannelInfo;
         return visitor._(value.$unknown[0], value.$unknown[1]);
     };
 })(UpdateParticipantRoleConfigChannelInfo || (UpdateParticipantRoleConfigChannelInfo = {}));
-var EvaluationFormItem;
-(function (EvaluationFormItem) {
-    EvaluationFormItem.visit = (value, visitor) => {
-        if (value.Section !== undefined)
-            return visitor.Section(value.Section);
-        if (value.Question !== undefined)
-            return visitor.Question(value.Question);
-        return visitor._(value.$unknown[0], value.$unknown[1]);
-    };
-})(EvaluationFormItem || (EvaluationFormItem = {}));
 const ViewSummaryFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
@@ -2906,16 +3137,42 @@ const SearchableContactAttributesFilterSensitiveLog = (obj) => ({
         Criteria: obj.Criteria.map((item) => SearchableContactAttributesCriteriaFilterSensitiveLog(item)),
     }),
 });
+const SearchableSegmentAttributesCriteriaFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Key && { Key: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Values && { Values: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const SearchableSegmentAttributesFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Criteria && {
+        Criteria: obj.Criteria.map((item) => SearchableSegmentAttributesCriteriaFilterSensitiveLog(item)),
+    }),
+});
 const SearchCriteriaFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.ContactAnalysis && { ContactAnalysis: ContactAnalysisFilterSensitiveLog(obj.ContactAnalysis) }),
     ...(obj.SearchableContactAttributes && {
         SearchableContactAttributes: SearchableContactAttributesFilterSensitiveLog(obj.SearchableContactAttributes),
     }),
+    ...(obj.SearchableSegmentAttributes && {
+        SearchableSegmentAttributes: SearchableSegmentAttributesFilterSensitiveLog(obj.SearchableSegmentAttributes),
+    }),
 });
 const SearchContactsRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.SearchCriteria && { SearchCriteria: SearchCriteriaFilterSensitiveLog(obj.SearchCriteria) }),
+});
+const EmailAddressMetadataFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.EmailAddress && { EmailAddress: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.DisplayName && { DisplayName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const SearchEmailAddressesResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.EmailAddresses && {
+        EmailAddresses: obj.EmailAddresses.map((item) => EmailAddressMetadataFilterSensitiveLog(item)),
+    }),
 });
 const UserIdentityInfoLiteFilterSensitiveLog = (obj) => ({
     ...obj,
@@ -2930,12 +3187,63 @@ const SearchUsersResponseFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.Users && { Users: obj.Users.map((item) => UserSearchSummaryFilterSensitiveLog(item)) }),
 });
-const StartOutboundVoiceContactRequestFilterSensitiveLog = (obj) => ({
+const EmailAddressInfoFilterSensitiveLog = (obj) => ({
     ...obj,
-    ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
-    ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.EmailAddress && { EmailAddress: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.DisplayName && { DisplayName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
 });
-const StartTaskContactRequestFilterSensitiveLog = (obj) => ({
+const OutboundAdditionalRecipientsFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.CcEmailAddresses && {
+        CcEmailAddresses: obj.CcEmailAddresses.map((item) => EmailAddressInfoFilterSensitiveLog(item)),
+    }),
+});
+const OutboundRawMessageFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Subject && { Subject: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Body && { Body: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const OutboundEmailContentFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.RawMessage && { RawMessage: OutboundRawMessageFilterSensitiveLog(obj.RawMessage) }),
+});
+const SendOutboundEmailRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.FromEmailAddress && { FromEmailAddress: EmailAddressInfoFilterSensitiveLog(obj.FromEmailAddress) }),
+    ...(obj.DestinationEmailAddress && {
+        DestinationEmailAddress: EmailAddressInfoFilterSensitiveLog(obj.DestinationEmailAddress),
+    }),
+    ...(obj.AdditionalRecipients && {
+        AdditionalRecipients: OutboundAdditionalRecipientsFilterSensitiveLog(obj.AdditionalRecipients),
+    }),
+    ...(obj.EmailMessage && { EmailMessage: OutboundEmailContentFilterSensitiveLog(obj.EmailMessage) }),
+});
+const InboundAdditionalRecipientsFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.ToAddresses && { ToAddresses: obj.ToAddresses.map((item) => EmailAddressInfoFilterSensitiveLog(item)) }),
+    ...(obj.CcAddresses && { CcAddresses: obj.CcAddresses.map((item) => EmailAddressInfoFilterSensitiveLog(item)) }),
+});
+const InboundRawMessageFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Subject && { Subject: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Body && { Body: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const InboundEmailContentFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.RawMessage && { RawMessage: InboundRawMessageFilterSensitiveLog(obj.RawMessage) }),
+});
+const StartOutboundEmailContactRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.FromEmailAddress && { FromEmailAddress: EmailAddressInfoFilterSensitiveLog(obj.FromEmailAddress) }),
+    ...(obj.DestinationEmailAddress && {
+        DestinationEmailAddress: EmailAddressInfoFilterSensitiveLog(obj.DestinationEmailAddress),
+    }),
+    ...(obj.AdditionalRecipients && {
+        AdditionalRecipients: OutboundAdditionalRecipientsFilterSensitiveLog(obj.AdditionalRecipients),
+    }),
+    ...(obj.EmailMessage && { EmailMessage: OutboundEmailContentFilterSensitiveLog(obj.EmailMessage) }),
+});
+const StartOutboundVoiceContactRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
     ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
@@ -2956,11 +3264,32 @@ const StartWebRTCContactResponseFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.ConnectionData && { ConnectionData: ConnectionDataFilterSensitiveLog(obj.ConnectionData) }),
 });
-const UpdateContactRequestFilterSensitiveLog = (obj) => ({
+const UpdateEmailAddressMetadataRequestFilterSensitiveLog = (obj) => ({
     ...obj,
-    ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
     ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.DisplayName && { DisplayName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
 });
+const UpdateParticipantAuthenticationRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Code && { Code: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Error && { Error: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.ErrorDescription && { ErrorDescription: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/models/models_3.js
+
+
+
+var EvaluationFormItem;
+(function (EvaluationFormItem) {
+    EvaluationFormItem.visit = (value, visitor) => {
+        if (value.Section !== undefined)
+            return visitor.Section(value.Section);
+        if (value.Question !== undefined)
+            return visitor.Question(value.Question);
+        return visitor._(value.$unknown[0], value.$unknown[1]);
+    };
+})(EvaluationFormItem || (EvaluationFormItem = {}));
 const UpdateUserIdentityInfoRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.IdentityInfo && { IdentityInfo: UserIdentityInfoFilterSensitiveLog(obj.IdentityInfo) }),
@@ -2977,6 +3306,37 @@ const UpdateViewMetadataRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
 });
+const CreateContactRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const StartChatContactRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.CustomerId && { CustomerId: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const StartEmailContactRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.FromEmailAddress && { FromEmailAddress: EmailAddressInfoFilterSensitiveLog(obj.FromEmailAddress) }),
+    ...(obj.DestinationEmailAddress && { DestinationEmailAddress: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.EmailMessage && { EmailMessage: InboundEmailContentFilterSensitiveLog(obj.EmailMessage) }),
+    ...(obj.AdditionalRecipients && {
+        AdditionalRecipients: InboundAdditionalRecipientsFilterSensitiveLog(obj.AdditionalRecipients),
+    }),
+    ...(obj.Attachments && { Attachments: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const StartTaskContactRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const UpdateContactRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.Description && { Description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
 const ContactFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.Name && { Name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
@@ -2988,6 +3348,7 @@ const DescribeContactResponseFilterSensitiveLog = (obj) => ({
 });
 
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/protocols/Aws_restJson1.js
+
 
 
 
@@ -3035,6 +3396,7 @@ const se_AssociateApprovedOriginCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         Origin: [],
     }));
     b.m("PUT").h(headers).b(body);
@@ -3049,6 +3411,7 @@ const se_AssociateBotCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         LexBot: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         LexV2Bot: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
@@ -3095,6 +3458,7 @@ const se_AssociateInstanceStorageConfigCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         ResourceType: [],
         StorageConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
@@ -3110,6 +3474,7 @@ const se_AssociateLambdaFunctionCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         FunctionArn: [],
     }));
     b.m("PUT").h(headers).b(body);
@@ -3124,6 +3489,7 @@ const se_AssociateLexBotCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         LexBot: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
     b.m("PUT").h(headers).b(body);
@@ -3183,6 +3549,7 @@ const se_AssociateSecurityKeyCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         Key: [],
     }));
     b.m("PUT").h(headers).b(body);
@@ -3344,6 +3711,32 @@ const se_CreateAgentStatusCommand = async (input, context) => {
     b.m("PUT").h(headers).b(body);
     return b.build();
 };
+const se_CreateContactCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/contact/create-contact");
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        Attributes: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        Channel: [],
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        Description: [],
+        ExpiryDurationInMinutes: [],
+        InitiateAs: [],
+        InitiationMethod: [],
+        InstanceId: [],
+        Name: [],
+        PreviousContactId: [],
+        References: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        RelatedContactId: [],
+        SegmentAttributes: (_) => se_SegmentAttributes(_, context),
+        UserInfo: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("PUT").h(headers).b(body);
+    return b.build();
+};
 const se_CreateContactFlowCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -3376,6 +3769,43 @@ const se_CreateContactFlowModuleCommand = async (input, context) => {
         Content: [],
         Description: [],
         Name: [],
+        Tags: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("PUT").h(headers).b(body);
+    return b.build();
+};
+const se_CreateContactFlowVersionCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/contact-flows/{InstanceId}/{ContactFlowId}/version");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("ContactFlowId", () => input.ContactFlowId, "{ContactFlowId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ContactFlowVersion: [],
+        Description: [],
+        FlowContentSha256: [],
+        LastModifiedRegion: [],
+        LastModifiedTime: (_) => _.getTime() / 1_000,
+    }));
+    b.m("PUT").h(headers).b(body);
+    return b.build();
+};
+const se_CreateEmailAddressCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/email-addresses/{InstanceId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [],
+        Description: [],
+        DisplayName: [],
+        EmailAddress: [],
         Tags: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
     b.m("PUT").h(headers).b(body);
@@ -3417,6 +3847,25 @@ const se_CreateHoursOfOperationCommand = async (input, context) => {
     b.m("PUT").h(headers).b(body);
     return b.build();
 };
+const se_CreateHoursOfOperationOverrideCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("HoursOfOperationId", () => input.HoursOfOperationId, "{HoursOfOperationId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        Config: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        Description: [],
+        EffectiveFrom: [],
+        EffectiveTill: [],
+        Name: [],
+    }));
+    b.m("PUT").h(headers).b(body);
+    return b.build();
+};
 const se_CreateInstanceCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -3425,7 +3874,7 @@ const se_CreateInstanceCommand = async (input, context) => {
     b.bp("/instance");
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
-        ClientToken: [],
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         DirectoryId: [],
         IdentityManagementType: [],
         InboundCallsEnabled: [],
@@ -3520,6 +3969,24 @@ const se_CreatePromptCommand = async (input, context) => {
     b.m("PUT").h(headers).b(body);
     return b.build();
 };
+const se_CreatePushNotificationRegistrationCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/push-notification/{InstanceId}/registrations");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        ContactConfiguration: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        DeviceToken: [],
+        DeviceType: [],
+        PinpointAppArn: [],
+    }));
+    b.m("PUT").h(headers).b(body);
+    return b.build();
+};
 const se_CreateQueueCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -3534,6 +4001,7 @@ const se_CreateQueueCommand = async (input, context) => {
         MaxContacts: [],
         Name: [],
         OutboundCallerConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        OutboundEmailConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         QuickConnectIds: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         Tags: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
@@ -3634,6 +4102,7 @@ const se_CreateTaskTemplateCommand = async (input, context) => {
         Description: [],
         Fields: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         Name: [],
+        SelfAssignFlowId: [],
         Status: [],
     }));
     b.m("PUT").h(headers).b(body);
@@ -3821,6 +4290,27 @@ const se_DeleteContactFlowModuleCommand = async (input, context) => {
     b.m("DELETE").h(headers).b(body);
     return b.build();
 };
+const se_DeleteContactFlowVersionCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/contact-flows/{InstanceId}/{ContactFlowId}/version/{ContactFlowVersion}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("ContactFlowId", () => input.ContactFlowId, "{ContactFlowId}", false);
+    b.p("ContactFlowVersion", () => input.ContactFlowVersion.toString(), "{ContactFlowVersion}", false);
+    let body;
+    b.m("DELETE").h(headers).b(body);
+    return b.build();
+};
+const se_DeleteEmailAddressCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/email-addresses/{InstanceId}/{EmailAddressId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("EmailAddressId", () => input.EmailAddressId, "{EmailAddressId}", false);
+    let body;
+    b.m("DELETE").h(headers).b(body);
+    return b.build();
+};
 const se_DeleteEvaluationFormCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
@@ -3844,13 +4334,27 @@ const se_DeleteHoursOfOperationCommand = async (input, context) => {
     b.m("DELETE").h(headers).b(body);
     return b.build();
 };
+const se_DeleteHoursOfOperationOverrideCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides/{HoursOfOperationOverrideId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("HoursOfOperationId", () => input.HoursOfOperationId, "{HoursOfOperationId}", false);
+    b.p("HoursOfOperationOverrideId", () => input.HoursOfOperationOverrideId, "{HoursOfOperationOverrideId}", false);
+    let body;
+    b.m("DELETE").h(headers).b(body);
+    return b.build();
+};
 const se_DeleteInstanceCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
     b.bp("/instance/{InstanceId}");
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_cT]: [, input[_CT] ?? (0,v4/* default */.A)()],
+    });
     let body;
-    b.m("DELETE").h(headers).b(body);
+    b.m("DELETE").h(headers).q(query).b(body);
     return b.build();
 };
 const se_DeleteIntegrationAssociationCommand = async (input, context) => {
@@ -3881,6 +4385,19 @@ const se_DeletePromptCommand = async (input, context) => {
     b.p("PromptId", () => input.PromptId, "{PromptId}", false);
     let body;
     b.m("DELETE").h(headers).b(body);
+    return b.build();
+};
+const se_DeletePushNotificationRegistrationCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/push-notification/{InstanceId}/registrations/{RegistrationId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("RegistrationId", () => input.RegistrationId, "{RegistrationId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_cI]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_CI], `ContactId`)],
+    });
+    let body;
+    b.m("DELETE").h(headers).q(query).b(body);
     return b.build();
 };
 const se_DeleteQueueCommand = async (input, context) => {
@@ -4074,6 +4591,16 @@ const se_DescribeContactFlowModuleCommand = async (input, context) => {
     b.m("GET").h(headers).b(body);
     return b.build();
 };
+const se_DescribeEmailAddressCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/email-addresses/{InstanceId}/{EmailAddressId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("EmailAddressId", () => input.EmailAddressId, "{EmailAddressId}", false);
+    let body;
+    b.m("GET").h(headers).b(body);
+    return b.build();
+};
 const se_DescribeEvaluationFormCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
@@ -4093,6 +4620,17 @@ const se_DescribeHoursOfOperationCommand = async (input, context) => {
     b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}");
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     b.p("HoursOfOperationId", () => input.HoursOfOperationId, "{HoursOfOperationId}", false);
+    let body;
+    b.m("GET").h(headers).b(body);
+    return b.build();
+};
+const se_DescribeHoursOfOperationOverrideCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides/{HoursOfOperationOverrideId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("HoursOfOperationId", () => input.HoursOfOperationId, "{HoursOfOperationId}", false);
+    b.p("HoursOfOperationOverrideId", () => input.HoursOfOperationOverrideId, "{HoursOfOperationOverrideId}", false);
     let body;
     b.m("GET").h(headers).b(body);
     return b.build();
@@ -4288,6 +4826,7 @@ const se_DisassociateApprovedOriginCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     const query = (0,smithy_client_dist_es/* map */.Tj)({
         [_o]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_O], `Origin`)],
+        [_cT]: [, input[_CT] ?? (0,v4/* default */.A)()],
     });
     let body;
     b.m("DELETE").h(headers).q(query).b(body);
@@ -4302,6 +4841,7 @@ const se_DisassociateBotCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         LexBot: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         LexV2Bot: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
@@ -4327,6 +4867,7 @@ const se_DisassociateInstanceStorageConfigCommand = async (input, context) => {
     b.p("AssociationId", () => input.AssociationId, "{AssociationId}", false);
     const query = (0,smithy_client_dist_es/* map */.Tj)({
         [_rT]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_RT], `ResourceType`)],
+        [_cT]: [, input[_CT] ?? (0,v4/* default */.A)()],
     });
     let body;
     b.m("DELETE").h(headers).q(query).b(body);
@@ -4339,6 +4880,7 @@ const se_DisassociateLambdaFunctionCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     const query = (0,smithy_client_dist_es/* map */.Tj)({
         [_fA]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_FA], `FunctionArn`)],
+        [_cT]: [, input[_CT] ?? (0,v4/* default */.A)()],
     });
     let body;
     b.m("DELETE").h(headers).q(query).b(body);
@@ -4352,6 +4894,7 @@ const se_DisassociateLexBotCommand = async (input, context) => {
     const query = (0,smithy_client_dist_es/* map */.Tj)({
         [_bN]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_BN], `BotName`)],
         [_lR]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_LR], `LexRegion`)],
+        [_cT]: [, input[_CT] ?? (0,v4/* default */.A)()],
     });
     let body;
     b.m("DELETE").h(headers).q(query).b(body);
@@ -4405,8 +4948,11 @@ const se_DisassociateSecurityKeyCommand = async (input, context) => {
     b.bp("/instance/{InstanceId}/security-key/{AssociationId}");
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     b.p("AssociationId", () => input.AssociationId, "{AssociationId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_cT]: [, input[_CT] ?? (0,v4/* default */.A)()],
+    });
     let body;
-    b.m("DELETE").h(headers).b(body);
+    b.m("DELETE").h(headers).q(query).b(body);
     return b.build();
 };
 const se_DisassociateTrafficDistributionGroupUserCommand = async (input, context) => {
@@ -4511,6 +5057,20 @@ const se_GetCurrentUserDataCommand = async (input, context) => {
     b.m("POST").h(headers).b(body);
     return b.build();
 };
+const se_GetEffectiveHoursOfOperationsCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/effective-hours-of-operations/{InstanceId}/{HoursOfOperationId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("HoursOfOperationId", () => input.HoursOfOperationId, "{HoursOfOperationId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_fD]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_FD], `FromDate`)],
+        [_tD]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_TD], `ToDate`)],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
 const se_GetFederationTokenCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
@@ -4540,13 +5100,13 @@ const se_GetMetricDataCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
-        EndTime: (_) => _.getTime() / 1000,
+        EndTime: (_) => _.getTime() / 1_000,
         Filters: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         Groupings: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         HistoricalMetrics: (_) => se_HistoricalMetrics(_, context),
         MaxResults: [],
         NextToken: [],
-        StartTime: (_) => _.getTime() / 1000,
+        StartTime: (_) => _.getTime() / 1_000,
     }));
     b.m("POST").h(headers).b(body);
     return b.build();
@@ -4559,7 +5119,7 @@ const se_GetMetricDataV2Command = async (input, context) => {
     b.bp("/metrics/data");
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
-        EndTime: (_) => _.getTime() / 1000,
+        EndTime: (_) => _.getTime() / 1_000,
         Filters: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         Groupings: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         Interval: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
@@ -4567,7 +5127,7 @@ const se_GetMetricDataV2Command = async (input, context) => {
         Metrics: (_) => se_MetricsV2(_, context),
         NextToken: [],
         ResourceArn: [],
-        StartTime: (_) => _.getTime() / 1000,
+        StartTime: (_) => _.getTime() / 1_000,
     }));
     b.m("POST").h(headers).b(body);
     return b.build();
@@ -4649,6 +5209,19 @@ const se_ListAnalyticsDataAssociationsCommand = async (input, context) => {
     b.m("GET").h(headers).q(query).b(body);
     return b.build();
 };
+const se_ListAnalyticsDataLakeDataSetsCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/analytics-data/instance/{InstanceId}/datasets");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_nT]: [, input[_NT]],
+        [_mR]: [() => input.MaxResults !== void 0, () => input[_MR].toString()],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
 const se_ListApprovedOriginsCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
@@ -4657,6 +5230,20 @@ const se_ListApprovedOriginsCommand = async (input, context) => {
     const query = (0,smithy_client_dist_es/* map */.Tj)({
         [_nT]: [, input[_NT]],
         [_mR]: [() => input.MaxResults !== void 0, () => input[_MR].toString()],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
+const se_ListAssociatedContactsCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/contact/associated/{InstanceId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_cI]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_CI], `ContactId`)],
+        [_mR]: [() => input.MaxResults !== void 0, () => input[_MR].toString()],
+        [_nT]: [, input[_NT]],
     });
     let body;
     b.m("GET").h(headers).q(query).b(body);
@@ -4730,6 +5317,20 @@ const se_ListContactFlowsCommand = async (input, context) => {
     b.m("GET").h(headers).q(query).b(body);
     return b.build();
 };
+const se_ListContactFlowVersionsCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/contact-flows/{InstanceId}/{ContactFlowId}/versions");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("ContactFlowId", () => input.ContactFlowId, "{ContactFlowId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_nT]: [, input[_NT]],
+        [_mR]: [() => input.MaxResults !== void 0, () => input[_MR].toString()],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
 const se_ListContactReferencesCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
@@ -4794,6 +5395,20 @@ const se_ListFlowAssociationsCommand = async (input, context) => {
     b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
     const query = (0,smithy_client_dist_es/* map */.Tj)({
         [_RT]: [, input[_RT]],
+        [_nT]: [, input[_NT]],
+        [_mR]: [() => input.MaxResults !== void 0, () => input[_MR].toString()],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
+const se_ListHoursOfOperationOverridesCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("HoursOfOperationId", () => input.HoursOfOperationId, "{HoursOfOperationId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
         [_nT]: [, input[_NT]],
         [_mR]: [() => input.MaxResults !== void 0, () => input[_MR].toString()],
     });
@@ -5341,6 +5956,7 @@ const se_ResumeContactRecordingCommand = async (input, context) => {
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
         ContactId: [],
+        ContactRecordingType: [],
         InitialContactId: [],
         InstanceId: [],
     }));
@@ -5431,6 +6047,40 @@ const se_SearchContactsCommand = async (input, context) => {
         SearchCriteria: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         Sort: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         TimeRange: (_) => se_SearchContactsTimeRange(_, context),
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
+const se_SearchEmailAddressesCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/search-email-addresses");
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        InstanceId: [],
+        MaxResults: [],
+        NextToken: [],
+        SearchCriteria: (_) => se_EmailAddressSearchCriteria(_, context),
+        SearchFilter: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
+const se_SearchHoursOfOperationOverridesCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/search-hours-of-operation-overrides");
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        InstanceId: [],
+        MaxResults: [],
+        NextToken: [],
+        SearchCriteria: (_) => se_HoursOfOperationOverrideSearchCriteria(_, context),
+        SearchFilter: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
     b.m("POST").h(headers).b(body);
     return b.build();
@@ -5639,6 +6289,26 @@ const se_SendChatIntegrationEventCommand = async (input, context) => {
     b.m("POST").h(headers).b(body);
     return b.build();
 };
+const se_SendOutboundEmailCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/instance/{InstanceId}/outbound-email");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        AdditionalRecipients: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        DestinationEmailAddress: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        EmailMessage: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        FromEmailAddress: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        SourceCampaign: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        TrafficType: [],
+    }));
+    b.m("PUT").h(headers).b(body);
+    return b.build();
+};
 const se_StartAttachedFileUploadCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -5674,12 +6344,13 @@ const se_StartChatContactCommand = async (input, context) => {
         ChatDurationInMinutes: [],
         ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         ContactFlowId: [],
+        CustomerId: [],
         InitialMessage: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         InstanceId: [],
         ParticipantDetails: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         PersistentChat: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         RelatedContactId: [],
-        SegmentAttributes: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        SegmentAttributes: (_) => se_SegmentAttributes(_, context),
         SupportedMessagingContentTypes: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
     b.m("PUT").h(headers).b(body);
@@ -5733,6 +6404,32 @@ const se_StartContactStreamingCommand = async (input, context) => {
     b.m("POST").h(headers).b(body);
     return b.build();
 };
+const se_StartEmailContactCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/contact/email");
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        AdditionalRecipients: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        Attachments: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        Attributes: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        ContactFlowId: [],
+        Description: [],
+        DestinationEmailAddress: [],
+        EmailMessage: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        FromEmailAddress: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        InstanceId: [],
+        Name: [],
+        References: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        RelatedContactId: [],
+        SegmentAttributes: (_) => se_SegmentAttributes(_, context),
+    }));
+    b.m("PUT").h(headers).b(body);
+    return b.build();
+};
 const se_StartOutboundChatContactCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -5750,9 +6447,28 @@ const se_StartOutboundChatContactCommand = async (input, context) => {
         InstanceId: [],
         ParticipantDetails: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         RelatedContactId: [],
-        SegmentAttributes: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        SegmentAttributes: (_) => se_SegmentAttributes(_, context),
         SourceEndpoint: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         SupportedMessagingContentTypes: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("PUT").h(headers).b(body);
+    return b.build();
+};
+const se_StartOutboundEmailContactCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/contact/outbound-email");
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        AdditionalRecipients: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        ContactId: [],
+        DestinationEmailAddress: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        EmailMessage: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        FromEmailAddress: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        InstanceId: [],
     }));
     b.m("PUT").h(headers).b(body);
     return b.build();
@@ -5783,6 +6499,21 @@ const se_StartOutboundVoiceContactCommand = async (input, context) => {
     b.m("PUT").h(headers).b(body);
     return b.build();
 };
+const se_StartScreenSharingCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/contact/screen-sharing");
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        ContactId: [],
+        InstanceId: [],
+    }));
+    b.m("PUT").h(headers).b(body);
+    return b.build();
+};
 const se_StartTaskContactCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -5801,7 +6532,8 @@ const se_StartTaskContactCommand = async (input, context) => {
         QuickConnectId: [],
         References: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         RelatedContactId: [],
-        ScheduledTime: (_) => _.getTime() / 1000,
+        ScheduledTime: (_) => _.getTime() / 1_000,
+        SegmentAttributes: (_) => se_SegmentAttributes(_, context),
         TaskTemplateId: [],
     }));
     b.m("PUT").h(headers).b(body);
@@ -5852,6 +6584,7 @@ const se_StopContactRecordingCommand = async (input, context) => {
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
         ContactId: [],
+        ContactRecordingType: [],
         InitialContactId: [],
         InstanceId: [],
     }));
@@ -5898,6 +6631,7 @@ const se_SuspendContactRecordingCommand = async (input, context) => {
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
         ContactId: [],
+        ContactRecordingType: [],
         InitialContactId: [],
         InstanceId: [],
     }));
@@ -6024,9 +6758,14 @@ const se_UpdateContactCommand = async (input, context) => {
     b.p("ContactId", () => input.ContactId, "{ContactId}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        CustomerEndpoint: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         Description: [],
         Name: [],
+        QueueInfo: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         References: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        SegmentAttributes: (_) => se_SegmentAttributes(_, context),
+        SystemEndpoint: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        UserInfo: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
     b.m("POST").h(headers).b(body);
     return b.build();
@@ -6169,7 +6908,24 @@ const se_UpdateContactScheduleCommand = async (input, context) => {
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
         ContactId: [],
         InstanceId: [],
-        ScheduledTime: (_) => _.getTime() / 1000,
+        ScheduledTime: (_) => _.getTime() / 1_000,
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
+const se_UpdateEmailAddressMetadataCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/email-addresses/{InstanceId}/{EmailAddressId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("EmailAddressId", () => input.EmailAddressId, "{EmailAddressId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [],
+        Description: [],
+        DisplayName: [],
     }));
     b.m("POST").h(headers).b(body);
     return b.build();
@@ -6213,6 +6969,26 @@ const se_UpdateHoursOfOperationCommand = async (input, context) => {
     b.m("POST").h(headers).b(body);
     return b.build();
 };
+const se_UpdateHoursOfOperationOverrideCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}/overrides/{HoursOfOperationOverrideId}");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("HoursOfOperationId", () => input.HoursOfOperationId, "{HoursOfOperationId}", false);
+    b.p("HoursOfOperationOverrideId", () => input.HoursOfOperationOverrideId, "{HoursOfOperationOverrideId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        Config: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        Description: [],
+        EffectiveFrom: [],
+        EffectiveTill: [],
+        Name: [],
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
 const se_UpdateInstanceAttributeCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -6223,6 +6999,7 @@ const se_UpdateInstanceAttributeCommand = async (input, context) => {
     b.p("AttributeType", () => input.AttributeType, "{AttributeType}", false);
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         Value: [],
     }));
     b.m("POST").h(headers).b(body);
@@ -6241,9 +7018,27 @@ const se_UpdateInstanceStorageConfigCommand = async (input, context) => {
     });
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        ClientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
         StorageConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
     b.m("POST").h(headers).q(query).b(body);
+    return b.build();
+};
+const se_UpdateParticipantAuthenticationCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/contact/update-participant-authentication");
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        Code: [],
+        Error: [],
+        ErrorDescription: [],
+        InstanceId: [],
+        State: [],
+    }));
+    b.m("POST").h(headers).b(body);
     return b.build();
 };
 const se_UpdateParticipantRoleConfigCommand = async (input, context) => {
@@ -6381,6 +7176,21 @@ const se_UpdateQueueOutboundCallerConfigCommand = async (input, context) => {
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
         OutboundCallerConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
+const se_UpdateQueueOutboundEmailConfigCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/queues/{InstanceId}/{QueueId}/outbound-email-config");
+    b.p("InstanceId", () => input.InstanceId, "{InstanceId}", false);
+    b.p("QueueId", () => input.QueueId, "{QueueId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        OutboundEmailConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
     b.m("POST").h(headers).b(body);
     return b.build();
@@ -6562,6 +7372,7 @@ const se_UpdateTaskTemplateCommand = async (input, context) => {
         Description: [],
         Fields: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
         Name: [],
+        SelfAssignFlowId: [],
         Status: [],
     }));
     b.m("POST").h(headers).b(body);
@@ -7019,6 +7830,21 @@ const de_CreateAgentStatusCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_CreateContactCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        ContactArn: smithy_client_dist_es/* expectString */.lK,
+        ContactId: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_CreateContactFlowCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -7030,6 +7856,7 @@ const de_CreateContactFlowCommand = async (output, context) => {
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         ContactFlowArn: smithy_client_dist_es/* expectString */.lK,
         ContactFlowId: smithy_client_dist_es/* expectString */.lK,
+        FlowContentSha256: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
     return contents;
@@ -7045,6 +7872,36 @@ const de_CreateContactFlowModuleCommand = async (output, context) => {
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         Arn: smithy_client_dist_es/* expectString */.lK,
         Id: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_CreateContactFlowVersionCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        ContactFlowArn: smithy_client_dist_es/* expectString */.lK,
+        Version: smithy_client_dist_es/* expectLong */.Yy,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_CreateEmailAddressCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        EmailAddressArn: smithy_client_dist_es/* expectString */.lK,
+        EmailAddressId: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
     return contents;
@@ -7075,6 +7932,20 @@ const de_CreateHoursOfOperationCommand = async (output, context) => {
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         HoursOfOperationArn: smithy_client_dist_es/* expectString */.lK,
         HoursOfOperationId: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_CreateHoursOfOperationOverrideCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        HoursOfOperationOverrideId: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
     return contents;
@@ -7159,6 +8030,20 @@ const de_CreatePromptCommand = async (output, context) => {
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         PromptARN: smithy_client_dist_es/* expectString */.lK,
         PromptId: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_CreatePushNotificationRegistrationCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        RegistrationId: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
     return contents;
@@ -7413,6 +8298,26 @@ const de_DeleteContactFlowModuleCommand = async (output, context) => {
     await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
     return contents;
 };
+const de_DeleteContactFlowVersionCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
+const de_DeleteEmailAddressCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
 const de_DeleteEvaluationFormCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -7424,6 +8329,16 @@ const de_DeleteEvaluationFormCommand = async (output, context) => {
     return contents;
 };
 const de_DeleteHoursOfOperationCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
+const de_DeleteHoursOfOperationOverrideCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
     }
@@ -7464,6 +8379,16 @@ const de_DeletePredefinedAttributeCommand = async (output, context) => {
     return contents;
 };
 const de_DeletePromptCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
+const de_DeletePushNotificationRegistrationCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
     }
@@ -7675,7 +8600,7 @@ const de_DescribeContactFlowCommand = async (output, context) => {
     });
     const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
-        ContactFlow: smithy_client_dist_es/* _json */.Ss,
+        ContactFlow: (_) => de_ContactFlow(_, context),
     });
     Object.assign(contents, doc);
     return contents;
@@ -7690,6 +8615,27 @@ const de_DescribeContactFlowModuleCommand = async (output, context) => {
     const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         ContactFlowModule: smithy_client_dist_es/* _json */.Ss,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_DescribeEmailAddressCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        CreateTimestamp: smithy_client_dist_es/* expectString */.lK,
+        Description: smithy_client_dist_es/* expectString */.lK,
+        DisplayName: smithy_client_dist_es/* expectString */.lK,
+        EmailAddress: smithy_client_dist_es/* expectString */.lK,
+        EmailAddressArn: smithy_client_dist_es/* expectString */.lK,
+        EmailAddressId: smithy_client_dist_es/* expectString */.lK,
+        ModifiedTimestamp: smithy_client_dist_es/* expectString */.lK,
+        Tags: smithy_client_dist_es/* _json */.Ss,
     });
     Object.assign(contents, doc);
     return contents;
@@ -7718,6 +8664,20 @@ const de_DescribeHoursOfOperationCommand = async (output, context) => {
     const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         HoursOfOperation: (_) => de_HoursOfOperation(_, context),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_DescribeHoursOfOperationOverrideCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        HoursOfOperationOverride: smithy_client_dist_es/* _json */.Ss,
     });
     Object.assign(contents, doc);
     return contents;
@@ -8172,6 +9132,21 @@ const de_GetCurrentUserDataCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_GetEffectiveHoursOfOperationsCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        EffectiveHoursOfOperationList: smithy_client_dist_es/* _json */.Ss,
+        TimeZone: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_GetFederationTokenCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -8271,6 +9246,7 @@ const de_GetTaskTemplateCommand = async (output, context) => {
         InstanceId: smithy_client_dist_es/* expectString */.lK,
         LastModifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
         Name: smithy_client_dist_es/* expectString */.lK,
+        SelfAssignFlowId: smithy_client_dist_es/* expectString */.lK,
         Status: smithy_client_dist_es/* expectString */.lK,
         Tags: smithy_client_dist_es/* _json */.Ss,
     });
@@ -8340,6 +9316,21 @@ const de_ListAnalyticsDataAssociationsCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_ListAnalyticsDataLakeDataSetsCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        NextToken: smithy_client_dist_es/* expectString */.lK,
+        Results: smithy_client_dist_es/* _json */.Ss,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_ListApprovedOriginsCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -8351,6 +9342,21 @@ const de_ListApprovedOriginsCommand = async (output, context) => {
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         NextToken: smithy_client_dist_es/* expectString */.lK,
         Origins: smithy_client_dist_es/* _json */.Ss,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_ListAssociatedContactsCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        ContactSummaryList: (_) => de_AssociatedContactSummaryList(_, context),
+        NextToken: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
     return contents;
@@ -8430,6 +9436,21 @@ const de_ListContactFlowsCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_ListContactFlowVersionsCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        ContactFlowVersionSummaryList: smithy_client_dist_es/* _json */.Ss,
+        NextToken: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_ListContactReferencesCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -8500,6 +9521,23 @@ const de_ListFlowAssociationsCommand = async (output, context) => {
     const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         FlowAssociationSummaryList: smithy_client_dist_es/* _json */.Ss,
+        NextToken: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_ListHoursOfOperationOverridesCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        HoursOfOperationOverrideList: smithy_client_dist_es/* _json */.Ss,
+        LastModifiedRegion: smithy_client_dist_es/* expectString */.lK,
+        LastModifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
         NextToken: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
@@ -9133,7 +10171,7 @@ const de_SearchContactFlowsCommand = async (output, context) => {
     const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         ApproximateTotalCount: smithy_client_dist_es/* expectLong */.Yy,
-        ContactFlows: smithy_client_dist_es/* _json */.Ss,
+        ContactFlows: (_) => de_ContactFlowSearchSummaryList(_, context),
         NextToken: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
@@ -9151,6 +10189,38 @@ const de_SearchContactsCommand = async (output, context) => {
         Contacts: (_) => de_Contacts(_, context),
         NextToken: smithy_client_dist_es/* expectString */.lK,
         TotalCount: smithy_client_dist_es/* expectLong */.Yy,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_SearchEmailAddressesCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        ApproximateTotalCount: smithy_client_dist_es/* expectLong */.Yy,
+        EmailAddresses: smithy_client_dist_es/* _json */.Ss,
+        NextToken: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_SearchHoursOfOperationOverridesCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        ApproximateTotalCount: smithy_client_dist_es/* expectLong */.Yy,
+        HoursOfOperationOverrides: smithy_client_dist_es/* _json */.Ss,
+        NextToken: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
     return contents;
@@ -9344,6 +10414,16 @@ const de_SendChatIntegrationEventCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_SendOutboundEmailCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
 const de_StartAttachedFileUploadCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -9419,7 +10499,35 @@ const de_StartContactStreamingCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_StartEmailContactCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        ContactId: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_StartOutboundChatContactCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        ContactId: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_StartOutboundEmailContactCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
     }
@@ -9445,6 +10553,16 @@ const de_StartOutboundVoiceContactCommand = async (output, context) => {
         ContactId: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
+    return contents;
+};
+const de_StartScreenSharingCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
     return contents;
 };
 const de_StartTaskContactCommand = async (output, context) => {
@@ -9713,6 +10831,21 @@ const de_UpdateContactScheduleCommand = async (output, context) => {
     await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
     return contents;
 };
+const de_UpdateEmailAddressMetadataCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        EmailAddressArn: smithy_client_dist_es/* expectString */.lK,
+        EmailAddressId: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_UpdateEvaluationFormCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -9739,6 +10872,16 @@ const de_UpdateHoursOfOperationCommand = async (output, context) => {
     await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
     return contents;
 };
+const de_UpdateHoursOfOperationOverrideCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
 const de_UpdateInstanceAttributeCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -9750,6 +10893,16 @@ const de_UpdateInstanceAttributeCommand = async (output, context) => {
     return contents;
 };
 const de_UpdateInstanceStorageConfigCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
+const de_UpdateParticipantAuthenticationCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
     }
@@ -9850,6 +11003,16 @@ const de_UpdateQueueNameCommand = async (output, context) => {
     return contents;
 };
 const de_UpdateQueueOutboundCallerConfigCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
+const de_UpdateQueueOutboundEmailConfigCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
     }
@@ -9979,6 +11142,7 @@ const de_UpdateTaskTemplateCommand = async (output, context) => {
         InstanceId: smithy_client_dist_es/* expectString */.lK,
         LastModifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
         Name: smithy_client_dist_es/* expectString */.lK,
+        SelfAssignFlowId: smithy_client_dist_es/* expectString */.lK,
         Status: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
@@ -10138,6 +11302,9 @@ const de_CommandError = async (output, context) => {
         case "DuplicateResourceException":
         case "com.amazonaws.connect#DuplicateResourceException":
             throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
+        case "ConflictException":
+        case "com.amazonaws.connect#ConflictException":
+            throw await de_ConflictExceptionRes(parsedOutput, context);
         case "InvalidContactFlowException":
         case "com.amazonaws.connect#InvalidContactFlowException":
             throw await de_InvalidContactFlowExceptionRes(parsedOutput, context);
@@ -10165,9 +11332,6 @@ const de_CommandError = async (output, context) => {
         case "OutputTypeNotFoundException":
         case "com.amazonaws.connect#OutputTypeNotFoundException":
             throw await de_OutputTypeNotFoundExceptionRes(parsedOutput, context);
-        case "ConflictException":
-        case "com.amazonaws.connect#ConflictException":
-            throw await de_ConflictExceptionRes(parsedOutput, context);
         case "MaximumResultReturnedException":
         case "com.amazonaws.connect#MaximumResultReturnedException":
             throw await de_MaximumResultReturnedExceptionRes(parsedOutput, context);
@@ -10180,6 +11344,9 @@ const de_CommandError = async (output, context) => {
         case "ContactNotFoundException":
         case "com.amazonaws.connect#ContactNotFoundException":
             throw await de_ContactNotFoundExceptionRes(parsedOutput, context);
+        case "ConditionalOperationFailedException":
+        case "com.amazonaws.connect#ConditionalOperationFailedException":
+            throw await de_ConditionalOperationFailedExceptionRes(parsedOutput, context);
         default:
             const parsedBody = parsedOutput.body;
             return throwDefaultError({
@@ -10198,6 +11365,19 @@ const de_AccessDeniedExceptionRes = async (parsedOutput, context) => {
     });
     Object.assign(contents, doc);
     const exception = new AccessDeniedException({
+        $metadata: deserializeMetadata(parsedOutput),
+        ...contents,
+    });
+    return (0,smithy_client_dist_es/* decorateServiceException */.Mw)(exception, parsedOutput.body);
+};
+const de_ConditionalOperationFailedExceptionRes = async (parsedOutput, context) => {
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({});
+    const data = parsedOutput.body;
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        Message: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    const exception = new ConditionalOperationFailedException({
         $metadata: deserializeMetadata(parsedOutput),
         ...contents,
     });
@@ -10472,6 +11652,7 @@ const de_ServiceQuotaExceededExceptionRes = async (parsedOutput, context) => {
     const data = parsedOutput.body;
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         Message: smithy_client_dist_es/* expectString */.lK,
+        Reason: (_) => (0,smithy_client_dist_es/* _json */.Ss)((0,awsExpectUnion/* awsExpectUnion */.M)(_)),
     });
     Object.assign(contents, doc);
     const exception = new ServiceQuotaExceededException({
@@ -10533,13 +11714,29 @@ const se_AgentStatusSearchCriteria = (input, context) => {
         StringCondition: smithy_client_dist_es/* _json */.Ss,
     });
 };
+const se_AssignSlaActionDefinition = (input, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(input, {
+        CaseSlaConfiguration: (_) => se_CaseSlaConfiguration(_, context),
+        SlaAssignmentType: [],
+    });
+};
 const se_AttributeCondition = (input, context) => {
     return (0,smithy_client_dist_es/* take */.s)(input, {
         ComparisonOperator: [],
         MatchCriteria: smithy_client_dist_es/* _json */.Ss,
         Name: [],
         ProficiencyLevel: smithy_client_dist_es/* serializeFloat */.VA,
+        Range: (_) => se_Range(_, context),
         Value: [],
+    });
+};
+const se_CaseSlaConfiguration = (input, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(input, {
+        FieldId: [],
+        Name: [],
+        TargetFieldValues: (_) => se_SlaFieldValueUnionList(_, context),
+        TargetSlaMinutes: [],
+        Type: [],
     });
 };
 const se_ContactFlowModuleSearchConditionList = (input, context) => {
@@ -10553,6 +11750,8 @@ const se_ContactFlowModuleSearchCriteria = (input, context) => {
     return (0,smithy_client_dist_es/* take */.s)(input, {
         AndConditions: (_) => se_ContactFlowModuleSearchConditionList(_, context),
         OrConditions: (_) => se_ContactFlowModuleSearchConditionList(_, context),
+        StateCondition: [],
+        StatusCondition: [],
         StringCondition: smithy_client_dist_es/* _json */.Ss,
     });
 };
@@ -10579,12 +11778,26 @@ const se_CreateCaseActionDefinition = (input, context) => {
         TemplateId: [],
     });
 };
+const se_EmailAddressSearchConditionList = (input, context) => {
+    return input
+        .filter((e) => e != null)
+        .map((entry) => {
+        return se_EmailAddressSearchCriteria(entry, context);
+    });
+};
+const se_EmailAddressSearchCriteria = (input, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(input, {
+        AndConditions: (_) => se_EmailAddressSearchConditionList(_, context),
+        OrConditions: (_) => se_EmailAddressSearchConditionList(_, context),
+        StringCondition: smithy_client_dist_es/* _json */.Ss,
+    });
+};
 const se_EvaluationAnswerData = (input, context) => {
     return EvaluationAnswerData.visit(input, {
         NotApplicable: (value) => ({ NotApplicable: value }),
         NumericValue: (value) => ({ NumericValue: (0,smithy_client_dist_es/* serializeFloat */.VA)(value) }),
         StringValue: (value) => ({ StringValue: value }),
-        _: (name, value) => ({ name: value }),
+        _: (name, value) => ({ [name]: value }),
     });
 };
 const se_EvaluationAnswerInput = (input, context) => {
@@ -10605,7 +11818,7 @@ const se_EvaluationFormItem = (input, context) => {
     return EvaluationFormItem.visit(input, {
         Question: (value) => ({ Question: se_EvaluationFormQuestion(value, context) }),
         Section: (value) => ({ Section: se_EvaluationFormSection(value, context) }),
-        _: (name, value) => ({ name: value }),
+        _: (name, value) => ({ [name]: value }),
     });
 };
 const se_EvaluationFormItemsList = (input, context) => {
@@ -10639,6 +11852,7 @@ const se_Expression = (input, context) => {
     return (0,smithy_client_dist_es/* take */.s)(input, {
         AndExpression: (_) => se_Expressions(_, context),
         AttributeCondition: (_) => se_AttributeCondition(_, context),
+        NotAttributeCondition: (_) => se_AttributeCondition(_, context),
         OrExpression: (_) => se_Expressions(_, context),
     });
 };
@@ -10683,6 +11897,21 @@ const se_HistoricalMetrics = (input, context) => {
         .filter((e) => e != null)
         .map((entry) => {
         return se_HistoricalMetric(entry, context);
+    });
+};
+const se_HoursOfOperationOverrideSearchConditionList = (input, context) => {
+    return input
+        .filter((e) => e != null)
+        .map((entry) => {
+        return se_HoursOfOperationOverrideSearchCriteria(entry, context);
+    });
+};
+const se_HoursOfOperationOverrideSearchCriteria = (input, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(input, {
+        AndConditions: (_) => se_HoursOfOperationOverrideSearchConditionList(_, context),
+        DateCondition: smithy_client_dist_es/* _json */.Ss,
+        OrConditions: (_) => se_HoursOfOperationOverrideSearchConditionList(_, context),
+        StringCondition: smithy_client_dist_es/* _json */.Ss,
     });
 };
 const se_HoursOfOperationSearchConditionList = (input, context) => {
@@ -10770,6 +11999,12 @@ const se_QuickConnectSearchCriteria = (input, context) => {
         StringCondition: smithy_client_dist_es/* _json */.Ss,
     });
 };
+const se_Range = (input, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(input, {
+        MaxProficiencyLevel: smithy_client_dist_es/* serializeFloat */.VA,
+        MinProficiencyLevel: smithy_client_dist_es/* serializeFloat */.VA,
+    });
+};
 const se_RoutingCriteriaInput = (input, context) => {
     return (0,smithy_client_dist_es/* take */.s)(input, {
         Steps: (_) => se_RoutingCriteriaInputSteps(_, context),
@@ -10806,6 +12041,7 @@ const se_RuleAction = (input, context) => {
     return (0,smithy_client_dist_es/* take */.s)(input, {
         ActionType: [],
         AssignContactCategoryAction: smithy_client_dist_es/* _json */.Ss,
+        AssignSlaAction: (_) => se_AssignSlaActionDefinition(_, context),
         CreateCaseAction: (_) => se_CreateCaseActionDefinition(_, context),
         EndAssociatedTasksAction: smithy_client_dist_es/* _json */.Ss,
         EventBridgeAction: smithy_client_dist_es/* _json */.Ss,
@@ -10824,8 +12060,8 @@ const se_RuleActions = (input, context) => {
 };
 const se_SearchContactsTimeRange = (input, context) => {
     return (0,smithy_client_dist_es/* take */.s)(input, {
-        EndTime: (_) => _.getTime() / 1000,
-        StartTime: (_) => _.getTime() / 1000,
+        EndTime: (_) => _.getTime() / 1_000,
+        StartTime: (_) => _.getTime() / 1_000,
         Type: [],
     });
 };
@@ -10841,6 +12077,38 @@ const se_SecurityProfileSearchCriteria = (input, context) => {
         AndConditions: (_) => se_SecurityProfileSearchConditionList(_, context),
         OrConditions: (_) => se_SecurityProfileSearchConditionList(_, context),
         StringCondition: smithy_client_dist_es/* _json */.Ss,
+    });
+};
+const se_SegmentAttributes = (input, context) => {
+    return Object.entries(input).reduce((acc, [key, value]) => {
+        if (value === null) {
+            return acc;
+        }
+        acc[key] = se_SegmentAttributeValue(value, context);
+        return acc;
+    }, {});
+};
+const se_SegmentAttributeValue = (input, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(input, {
+        ValueInteger: [],
+        ValueMap: (_) => se_SegmentAttributeValueMap(_, context),
+        ValueString: [],
+    });
+};
+const se_SegmentAttributeValueMap = (input, context) => {
+    return Object.entries(input).reduce((acc, [key, value]) => {
+        if (value === null) {
+            return acc;
+        }
+        acc[key] = se_SegmentAttributeValue(value, context);
+        return acc;
+    }, {});
+};
+const se_SlaFieldValueUnionList = (input, context) => {
+    return input
+        .filter((e) => e != null)
+        .map((entry) => {
+        return se_FieldValueUnion(entry, context);
     });
 };
 const se_Threshold = (input, context) => {
@@ -10932,12 +12200,17 @@ const de_AgentContactReferenceList = (output, context) => {
 };
 const de_AgentInfo = (output, context) => {
     return (0,smithy_client_dist_es/* take */.s)(output, {
+        AfterContactWorkDuration: smithy_client_dist_es/* expectInt32 */.ET,
+        AfterContactWorkEndTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        AfterContactWorkStartTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        AgentInitiatedHoldDuration: smithy_client_dist_es/* expectInt32 */.ET,
         AgentPauseDurationInSeconds: smithy_client_dist_es/* expectInt32 */.ET,
         Capabilities: smithy_client_dist_es/* _json */.Ss,
         ConnectedToAgentTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
         DeviceInfo: smithy_client_dist_es/* _json */.Ss,
         HierarchyGroups: smithy_client_dist_es/* _json */.Ss,
         Id: smithy_client_dist_es/* expectString */.lK,
+        StateTransitions: (_) => de_StateTransitions(_, context),
     });
 };
 const de_AgentQualityMetrics = (output, context) => {
@@ -10992,12 +12265,40 @@ const de_AgentStatusSummaryList = (output, context) => {
     });
     return retVal;
 };
+const de_AssignSlaActionDefinition = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        CaseSlaConfiguration: (_) => de_CaseSlaConfiguration(_, context),
+        SlaAssignmentType: smithy_client_dist_es/* expectString */.lK,
+    });
+};
+const de_AssociatedContactSummary = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        Channel: smithy_client_dist_es/* expectString */.lK,
+        ContactArn: smithy_client_dist_es/* expectString */.lK,
+        ContactId: smithy_client_dist_es/* expectString */.lK,
+        DisconnectTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        InitialContactId: smithy_client_dist_es/* expectString */.lK,
+        InitiationMethod: smithy_client_dist_es/* expectString */.lK,
+        InitiationTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        PreviousContactId: smithy_client_dist_es/* expectString */.lK,
+        RelatedContactId: smithy_client_dist_es/* expectString */.lK,
+    });
+};
+const de_AssociatedContactSummaryList = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_AssociatedContactSummary(entry, context);
+    });
+    return retVal;
+};
 const de_AttributeCondition = (output, context) => {
     return (0,smithy_client_dist_es/* take */.s)(output, {
         ComparisonOperator: smithy_client_dist_es/* expectString */.lK,
         MatchCriteria: smithy_client_dist_es/* _json */.Ss,
         Name: smithy_client_dist_es/* expectString */.lK,
         ProficiencyLevel: smithy_client_dist_es/* limitedParseFloat32 */.Zx,
+        Range: (_) => de_Range(_, context),
         Value: smithy_client_dist_es/* expectString */.lK,
     });
 };
@@ -11041,18 +12342,35 @@ const de_AuthenticationProfileSummaryList = (output, context) => {
     });
     return retVal;
 };
+const de_CaseSlaConfiguration = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        FieldId: smithy_client_dist_es/* expectString */.lK,
+        Name: smithy_client_dist_es/* expectString */.lK,
+        TargetFieldValues: (_) => de_SlaFieldValueUnionList(_, context),
+        TargetSlaMinutes: smithy_client_dist_es/* expectLong */.Yy,
+        Type: smithy_client_dist_es/* expectString */.lK,
+    });
+};
 const de_Contact = (output, context) => {
     return (0,smithy_client_dist_es/* take */.s)(output, {
+        AdditionalEmailRecipients: smithy_client_dist_es/* _json */.Ss,
         AgentInfo: (_) => de_AgentInfo(_, context),
         AnsweringMachineDetectionStatus: smithy_client_dist_es/* expectString */.lK,
         Arn: smithy_client_dist_es/* expectString */.lK,
+        Attributes: smithy_client_dist_es/* _json */.Ss,
         Campaign: smithy_client_dist_es/* _json */.Ss,
         Channel: smithy_client_dist_es/* expectString */.lK,
         ConnectedToSystemTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        ContactAssociationId: smithy_client_dist_es/* expectString */.lK,
+        ContactDetails: smithy_client_dist_es/* _json */.Ss,
+        ContactEvaluations: (_) => de_ContactEvaluations(_, context),
         Customer: smithy_client_dist_es/* _json */.Ss,
+        CustomerEndpoint: smithy_client_dist_es/* _json */.Ss,
+        CustomerId: smithy_client_dist_es/* expectString */.lK,
         CustomerVoiceActivity: (_) => de_CustomerVoiceActivity(_, context),
         Description: smithy_client_dist_es/* expectString */.lK,
         DisconnectDetails: smithy_client_dist_es/* _json */.Ss,
+        DisconnectReason: smithy_client_dist_es/* expectString */.lK,
         DisconnectTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
         Id: smithy_client_dist_es/* expectString */.lK,
         InitialContactId: smithy_client_dist_es/* expectString */.lK,
@@ -11067,15 +12385,63 @@ const de_Contact = (output, context) => {
         QueueInfo: (_) => de_QueueInfo(_, context),
         QueuePriority: smithy_client_dist_es/* expectLong */.Yy,
         QueueTimeAdjustmentSeconds: smithy_client_dist_es/* expectInt32 */.ET,
+        Recordings: (_) => de_Recordings(_, context),
         RelatedContactId: smithy_client_dist_es/* expectString */.lK,
         RoutingCriteria: (_) => de_RoutingCriteria(_, context),
         ScheduledTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
-        SegmentAttributes: smithy_client_dist_es/* _json */.Ss,
+        SegmentAttributes: (_) => de_SegmentAttributes(_, context),
+        SystemEndpoint: smithy_client_dist_es/* _json */.Ss,
         Tags: smithy_client_dist_es/* _json */.Ss,
         TotalPauseCount: smithy_client_dist_es/* expectInt32 */.ET,
         TotalPauseDurationInSeconds: smithy_client_dist_es/* expectInt32 */.ET,
         WisdomInfo: smithy_client_dist_es/* _json */.Ss,
     });
+};
+const de_ContactEvaluation = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        DeleteTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        EndTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        EvaluationArn: smithy_client_dist_es/* expectString */.lK,
+        ExportLocation: smithy_client_dist_es/* expectString */.lK,
+        FormId: smithy_client_dist_es/* expectString */.lK,
+        StartTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        Status: smithy_client_dist_es/* expectString */.lK,
+    });
+};
+const de_ContactEvaluations = (output, context) => {
+    return Object.entries(output).reduce((acc, [key, value]) => {
+        if (value === null) {
+            return acc;
+        }
+        acc[key] = de_ContactEvaluation(value, context);
+        return acc;
+    }, {});
+};
+const de_ContactFlow = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        Arn: smithy_client_dist_es/* expectString */.lK,
+        Content: smithy_client_dist_es/* expectString */.lK,
+        Description: smithy_client_dist_es/* expectString */.lK,
+        FlowContentSha256: smithy_client_dist_es/* expectString */.lK,
+        Id: smithy_client_dist_es/* expectString */.lK,
+        LastModifiedRegion: smithy_client_dist_es/* expectString */.lK,
+        LastModifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        Name: smithy_client_dist_es/* expectString */.lK,
+        State: smithy_client_dist_es/* expectString */.lK,
+        Status: smithy_client_dist_es/* expectString */.lK,
+        Tags: smithy_client_dist_es/* _json */.Ss,
+        Type: smithy_client_dist_es/* expectString */.lK,
+        Version: smithy_client_dist_es/* expectLong */.Yy,
+        VersionDescription: smithy_client_dist_es/* expectString */.lK,
+    });
+};
+const de_ContactFlowSearchSummaryList = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_ContactFlow(entry, context);
+    });
+    return retVal;
 };
 const de_Contacts = (output, context) => {
     const retVal = (output || [])
@@ -11098,6 +12464,7 @@ const de_ContactSearchSummary = (output, context) => {
         PreviousContactId: smithy_client_dist_es/* expectString */.lK,
         QueueInfo: (_) => de_ContactSearchSummaryQueueInfo(_, context),
         ScheduledTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        SegmentAttributes: smithy_client_dist_es/* _json */.Ss,
     });
 };
 const de_ContactSearchSummaryAgentInfo = (output, context) => {
@@ -11375,6 +12742,7 @@ const de_Expression = (output, context) => {
     return (0,smithy_client_dist_es/* take */.s)(output, {
         AndExpression: (_) => de_Expressions(_, context),
         AttributeCondition: (_) => de_AttributeCondition(_, context),
+        NotAttributeCondition: (_) => de_AttributeCondition(_, context),
         OrExpression: (_) => de_Expressions(_, context),
     });
 };
@@ -11701,6 +13069,7 @@ const de_Queue = (output, context) => {
         MaxContacts: smithy_client_dist_es/* expectInt32 */.ET,
         Name: smithy_client_dist_es/* expectString */.lK,
         OutboundCallerConfig: smithy_client_dist_es/* _json */.Ss,
+        OutboundEmailConfig: smithy_client_dist_es/* _json */.Ss,
         QueueArn: smithy_client_dist_es/* expectString */.lK,
         QueueId: smithy_client_dist_es/* expectString */.lK,
         Status: smithy_client_dist_es/* expectString */.lK,
@@ -11776,6 +13145,12 @@ const de_QuickConnectSummaryList = (output, context) => {
         return de_QuickConnectSummary(entry, context);
     });
     return retVal;
+};
+const de_Range = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        MaxProficiencyLevel: smithy_client_dist_es/* limitedParseFloat32 */.Zx,
+        MinProficiencyLevel: smithy_client_dist_es/* limitedParseFloat32 */.Zx,
+    });
 };
 const de_RealtimeContactAnalysisSegment = (output, context) => {
     if (output.Attachments != null) {
@@ -11859,6 +13234,28 @@ const de_RealTimeContactAnalysisTimeData = (output, context) => {
     }
     return { $unknown: Object.entries(output)[0] };
 };
+const de_RecordingInfo = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        DeletionReason: smithy_client_dist_es/* expectString */.lK,
+        FragmentStartNumber: smithy_client_dist_es/* expectString */.lK,
+        FragmentStopNumber: smithy_client_dist_es/* expectString */.lK,
+        Location: smithy_client_dist_es/* expectString */.lK,
+        MediaStreamType: smithy_client_dist_es/* expectString */.lK,
+        ParticipantType: smithy_client_dist_es/* expectString */.lK,
+        StartTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        Status: smithy_client_dist_es/* expectString */.lK,
+        StopTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        StorageType: smithy_client_dist_es/* expectString */.lK,
+    });
+};
+const de_Recordings = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_RecordingInfo(entry, context);
+    });
+    return retVal;
+};
 const de_RoutingCriteria = (output, context) => {
     return (0,smithy_client_dist_es/* take */.s)(output, {
         ActivationTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
@@ -11929,6 +13326,7 @@ const de_RuleAction = (output, context) => {
     return (0,smithy_client_dist_es/* take */.s)(output, {
         ActionType: smithy_client_dist_es/* expectString */.lK,
         AssignContactCategoryAction: smithy_client_dist_es/* _json */.Ss,
+        AssignSlaAction: (_) => de_AssignSlaActionDefinition(_, context),
         CreateCaseAction: (_) => de_CreateCaseActionDefinition(_, context),
         EndAssociatedTasksAction: smithy_client_dist_es/* _json */.Ss,
         EventBridgeAction: smithy_client_dist_es/* _json */.Ss,
@@ -12011,6 +13409,54 @@ const de_SecurityProfileSummaryList = (output, context) => {
         .filter((e) => e != null)
         .map((entry) => {
         return de_SecurityProfileSummary(entry, context);
+    });
+    return retVal;
+};
+const de_SegmentAttributes = (output, context) => {
+    return Object.entries(output).reduce((acc, [key, value]) => {
+        if (value === null) {
+            return acc;
+        }
+        acc[key] = de_SegmentAttributeValue(value, context);
+        return acc;
+    }, {});
+};
+const de_SegmentAttributeValue = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        ValueInteger: smithy_client_dist_es/* expectInt32 */.ET,
+        ValueMap: (_) => de_SegmentAttributeValueMap(_, context),
+        ValueString: smithy_client_dist_es/* expectString */.lK,
+    });
+};
+const de_SegmentAttributeValueMap = (output, context) => {
+    return Object.entries(output).reduce((acc, [key, value]) => {
+        if (value === null) {
+            return acc;
+        }
+        acc[key] = de_SegmentAttributeValue(value, context);
+        return acc;
+    }, {});
+};
+const de_SlaFieldValueUnionList = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_FieldValueUnion(entry, context);
+    });
+    return retVal;
+};
+const de_StateTransition = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        State: smithy_client_dist_es/* expectString */.lK,
+        StateEndTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        StateStartTimestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+    });
+};
+const de_StateTransitions = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_StateTransition(entry, context);
     });
     return retVal;
 };
@@ -12217,6 +13663,7 @@ const _DSI = "DataSetId";
 const _EFV = "EvaluationFormVersion";
 const _ESN = "EventSourceName";
 const _FA = "FunctionArn";
+const _FD = "FromDate";
 const _IA = "IntegrationArn";
 const _II = "InstanceId";
 const _IT = "IntegrationType";
@@ -12236,6 +13683,7 @@ const _RTe = "ReferenceTypes";
 const _S = "Status";
 const _SV = "SnapshotVersion";
 const _T = "Type";
+const _TD = "ToDate";
 const _TK = "TagKeys";
 const _UEIS = "UrlExpiryInSeconds";
 const _UI = "UserId";
@@ -12246,6 +13694,7 @@ const _cI = "contactId";
 const _cT = "clientToken";
 const _eSN = "eventSourceName";
 const _fA = "functionArn";
+const _fD = "fromDate";
 const _iA = "integrationArn";
 const _iI = "instanceId";
 const _iT = "integrationType";
@@ -12265,6 +13714,7 @@ const _s = "state";
 const _sV = "snapshotVersion";
 const _st = "status";
 const _t = "type";
+const _tD = "toDate";
 const _tK = "tagKeys";
 const _uEIS = "urlExpiryInSeconds";
 const _v = "version";
@@ -12821,6 +14271,31 @@ class CreateAgentStatusCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/CreateContactCommand.js
+
+
+
+
+
+
+
+class CreateContactCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "CreateContact", {})
+    .n("ConnectClient", "CreateContactCommand")
+    .f(CreateContactRequestFilterSensitiveLog, void 0)
+    .ser(se_CreateContactCommand)
+    .de(de_CreateContactCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/CreateContactFlowCommand.js
 
 
@@ -12869,6 +14344,55 @@ class CreateContactFlowModuleCommand extends smithy_client_dist_es/* Command */.
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/CreateContactFlowVersionCommand.js
+
+
+
+
+
+
+class CreateContactFlowVersionCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "CreateContactFlowVersion", {})
+    .n("ConnectClient", "CreateContactFlowVersionCommand")
+    .f(void 0, void 0)
+    .ser(se_CreateContactFlowVersionCommand)
+    .de(de_CreateContactFlowVersionCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/CreateEmailAddressCommand.js
+
+
+
+
+
+
+
+class CreateEmailAddressCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "CreateEmailAddress", {})
+    .n("ConnectClient", "CreateEmailAddressCommand")
+    .f(CreateEmailAddressRequestFilterSensitiveLog, void 0)
+    .ser(se_CreateEmailAddressCommand)
+    .de(de_CreateEmailAddressCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/CreateEvaluationFormCommand.js
 
 
@@ -12914,6 +14438,30 @@ class CreateHoursOfOperationCommand extends smithy_client_dist_es/* Command */.u
     .f(void 0, void 0)
     .ser(se_CreateHoursOfOperationCommand)
     .de(de_CreateHoursOfOperationCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/CreateHoursOfOperationOverrideCommand.js
+
+
+
+
+
+
+class CreateHoursOfOperationOverrideCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "CreateHoursOfOperationOverride", {})
+    .n("ConnectClient", "CreateHoursOfOperationOverrideCommand")
+    .f(void 0, void 0)
+    .ser(se_CreateHoursOfOperationOverrideCommand)
+    .de(de_CreateHoursOfOperationOverrideCommand)
     .build() {
 }
 
@@ -13059,6 +14607,30 @@ class CreatePromptCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_CreatePromptCommand)
     .de(de_CreatePromptCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/CreatePushNotificationRegistrationCommand.js
+
+
+
+
+
+
+class CreatePushNotificationRegistrationCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "CreatePushNotificationRegistration", {})
+    .n("ConnectClient", "CreatePushNotificationRegistrationCommand")
+    .f(void 0, void 0)
+    .ser(se_CreatePushNotificationRegistrationCommand)
+    .de(de_CreatePushNotificationRegistrationCommand)
     .build() {
 }
 
@@ -13497,6 +15069,54 @@ class DeleteContactFlowModuleCommand extends smithy_client_dist_es/* Command */.
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/DeleteContactFlowVersionCommand.js
+
+
+
+
+
+
+class DeleteContactFlowVersionCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "DeleteContactFlowVersion", {})
+    .n("ConnectClient", "DeleteContactFlowVersionCommand")
+    .f(void 0, void 0)
+    .ser(se_DeleteContactFlowVersionCommand)
+    .de(de_DeleteContactFlowVersionCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/DeleteEmailAddressCommand.js
+
+
+
+
+
+
+class DeleteEmailAddressCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "DeleteEmailAddress", {})
+    .n("ConnectClient", "DeleteEmailAddressCommand")
+    .f(void 0, void 0)
+    .ser(se_DeleteEmailAddressCommand)
+    .de(de_DeleteEmailAddressCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/DeleteEvaluationFormCommand.js
 
 
@@ -13542,6 +15162,30 @@ class DeleteHoursOfOperationCommand extends smithy_client_dist_es/* Command */.u
     .f(void 0, void 0)
     .ser(se_DeleteHoursOfOperationCommand)
     .de(de_DeleteHoursOfOperationCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/DeleteHoursOfOperationOverrideCommand.js
+
+
+
+
+
+
+class DeleteHoursOfOperationOverrideCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "DeleteHoursOfOperationOverride", {})
+    .n("ConnectClient", "DeleteHoursOfOperationOverrideCommand")
+    .f(void 0, void 0)
+    .ser(se_DeleteHoursOfOperationOverrideCommand)
+    .de(de_DeleteHoursOfOperationOverrideCommand)
     .build() {
 }
 
@@ -13638,6 +15282,30 @@ class DeletePromptCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_DeletePromptCommand)
     .de(de_DeletePromptCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/DeletePushNotificationRegistrationCommand.js
+
+
+
+
+
+
+class DeletePushNotificationRegistrationCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "DeletePushNotificationRegistration", {})
+    .n("ConnectClient", "DeletePushNotificationRegistrationCommand")
+    .f(void 0, void 0)
+    .ser(se_DeletePushNotificationRegistrationCommand)
+    .de(de_DeletePushNotificationRegistrationCommand)
     .build() {
 }
 
@@ -14098,6 +15766,31 @@ class DescribeContactFlowModuleCommand extends smithy_client_dist_es/* Command *
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/DescribeEmailAddressCommand.js
+
+
+
+
+
+
+
+class DescribeEmailAddressCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "DescribeEmailAddress", {})
+    .n("ConnectClient", "DescribeEmailAddressCommand")
+    .f(void 0, DescribeEmailAddressResponseFilterSensitiveLog)
+    .ser(se_DescribeEmailAddressCommand)
+    .de(de_DescribeEmailAddressCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/DescribeEvaluationFormCommand.js
 
 
@@ -14143,6 +15836,30 @@ class DescribeHoursOfOperationCommand extends smithy_client_dist_es/* Command */
     .f(void 0, void 0)
     .ser(se_DescribeHoursOfOperationCommand)
     .de(de_DescribeHoursOfOperationCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/DescribeHoursOfOperationOverrideCommand.js
+
+
+
+
+
+
+class DescribeHoursOfOperationOverrideCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "DescribeHoursOfOperationOverride", {})
+    .n("ConnectClient", "DescribeHoursOfOperationOverrideCommand")
+    .f(void 0, void 0)
+    .ser(se_DescribeHoursOfOperationOverrideCommand)
+    .de(de_DescribeHoursOfOperationOverrideCommand)
     .build() {
 }
 
@@ -14989,6 +16706,30 @@ class GetCurrentUserDataCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/GetEffectiveHoursOfOperationsCommand.js
+
+
+
+
+
+
+class GetEffectiveHoursOfOperationsCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "GetEffectiveHoursOfOperations", {})
+    .n("ConnectClient", "GetEffectiveHoursOfOperationsCommand")
+    .f(void 0, void 0)
+    .ser(se_GetEffectiveHoursOfOperationsCommand)
+    .de(de_GetEffectiveHoursOfOperationsCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/GetFederationTokenCommand.js
 
 
@@ -15230,6 +16971,30 @@ class ListAnalyticsDataAssociationsCommand extends smithy_client_dist_es/* Comma
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/ListAnalyticsDataLakeDataSetsCommand.js
+
+
+
+
+
+
+class ListAnalyticsDataLakeDataSetsCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "ListAnalyticsDataLakeDataSets", {})
+    .n("ConnectClient", "ListAnalyticsDataLakeDataSetsCommand")
+    .f(void 0, void 0)
+    .ser(se_ListAnalyticsDataLakeDataSetsCommand)
+    .de(de_ListAnalyticsDataLakeDataSetsCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/ListApprovedOriginsCommand.js
 
 
@@ -15251,6 +17016,30 @@ class ListApprovedOriginsCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_ListApprovedOriginsCommand)
     .de(de_ListApprovedOriginsCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/ListAssociatedContactsCommand.js
+
+
+
+
+
+
+class ListAssociatedContactsCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "ListAssociatedContacts", {})
+    .n("ConnectClient", "ListAssociatedContactsCommand")
+    .f(void 0, void 0)
+    .ser(se_ListAssociatedContactsCommand)
+    .de(de_ListAssociatedContactsCommand)
     .build() {
 }
 
@@ -15374,6 +17163,30 @@ class ListContactFlowsCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/ListContactFlowVersionsCommand.js
+
+
+
+
+
+
+class ListContactFlowVersionsCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "ListContactFlowVersions", {})
+    .n("ConnectClient", "ListContactFlowVersionsCommand")
+    .f(void 0, void 0)
+    .ser(se_ListContactFlowVersionsCommand)
+    .de(de_ListContactFlowVersionsCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/ListContactReferencesCommand.js
 
 
@@ -15491,6 +17304,30 @@ class ListFlowAssociationsCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_ListFlowAssociationsCommand)
     .de(de_ListFlowAssociationsCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/ListHoursOfOperationOverridesCommand.js
+
+
+
+
+
+
+class ListHoursOfOperationOverridesCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "ListHoursOfOperationOverrides", {})
+    .n("ConnectClient", "ListHoursOfOperationOverridesCommand")
+    .f(void 0, void 0)
+    .ser(se_ListHoursOfOperationOverridesCommand)
+    .de(de_ListHoursOfOperationOverridesCommand)
     .build() {
 }
 
@@ -16555,6 +18392,55 @@ class SearchContactsCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/SearchEmailAddressesCommand.js
+
+
+
+
+
+
+
+class SearchEmailAddressesCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "SearchEmailAddresses", {})
+    .n("ConnectClient", "SearchEmailAddressesCommand")
+    .f(void 0, SearchEmailAddressesResponseFilterSensitiveLog)
+    .ser(se_SearchEmailAddressesCommand)
+    .de(de_SearchEmailAddressesCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/SearchHoursOfOperationOverridesCommand.js
+
+
+
+
+
+
+class SearchHoursOfOperationOverridesCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "SearchHoursOfOperationOverrides", {})
+    .n("ConnectClient", "SearchHoursOfOperationOverridesCommand")
+    .f(void 0, void 0)
+    .ser(se_SearchHoursOfOperationOverridesCommand)
+    .de(de_SearchHoursOfOperationOverridesCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/SearchHoursOfOperationsCommand.js
 
 
@@ -16844,6 +18730,31 @@ class SendChatIntegrationEventCommand extends smithy_client_dist_es/* Command */
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/SendOutboundEmailCommand.js
+
+
+
+
+
+
+
+class SendOutboundEmailCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "SendOutboundEmail", {})
+    .n("ConnectClient", "SendOutboundEmailCommand")
+    .f(SendOutboundEmailRequestFilterSensitiveLog, void 0)
+    .ser(se_SendOutboundEmailCommand)
+    .de(de_SendOutboundEmailCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/StartAttachedFileUploadCommand.js
 
 
@@ -16875,6 +18786,7 @@ class StartAttachedFileUploadCommand extends smithy_client_dist_es/* Command */.
 
 
 
+
 class StartChatContactCommand extends smithy_client_dist_es/* Command */.uB
     .classBuilder()
     .ep(commonParams)
@@ -16886,7 +18798,7 @@ class StartChatContactCommand extends smithy_client_dist_es/* Command */.uB
 })
     .s("AmazonConnectService", "StartChatContact", {})
     .n("ConnectClient", "StartChatContactCommand")
-    .f(void 0, void 0)
+    .f(StartChatContactRequestFilterSensitiveLog, void 0)
     .ser(se_StartChatContactCommand)
     .de(de_StartChatContactCommand)
     .build() {
@@ -16964,6 +18876,31 @@ class StartContactStreamingCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/StartEmailContactCommand.js
+
+
+
+
+
+
+
+class StartEmailContactCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "StartEmailContact", {})
+    .n("ConnectClient", "StartEmailContactCommand")
+    .f(StartEmailContactRequestFilterSensitiveLog, void 0)
+    .ser(se_StartEmailContactCommand)
+    .de(de_StartEmailContactCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/StartOutboundChatContactCommand.js
 
 
@@ -16985,6 +18922,31 @@ class StartOutboundChatContactCommand extends smithy_client_dist_es/* Command */
     .f(void 0, void 0)
     .ser(se_StartOutboundChatContactCommand)
     .de(de_StartOutboundChatContactCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/StartOutboundEmailContactCommand.js
+
+
+
+
+
+
+
+class StartOutboundEmailContactCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "StartOutboundEmailContact", {})
+    .n("ConnectClient", "StartOutboundEmailContactCommand")
+    .f(StartOutboundEmailContactRequestFilterSensitiveLog, void 0)
+    .ser(se_StartOutboundEmailContactCommand)
+    .de(de_StartOutboundEmailContactCommand)
     .build() {
 }
 
@@ -17010,6 +18972,30 @@ class StartOutboundVoiceContactCommand extends smithy_client_dist_es/* Command *
     .f(StartOutboundVoiceContactRequestFilterSensitiveLog, void 0)
     .ser(se_StartOutboundVoiceContactCommand)
     .de(de_StartOutboundVoiceContactCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/StartScreenSharingCommand.js
+
+
+
+
+
+
+class StartScreenSharingCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "StartScreenSharing", {})
+    .n("ConnectClient", "StartScreenSharingCommand")
+    .f(void 0, void 0)
+    .ser(se_StartScreenSharingCommand)
+    .de(de_StartScreenSharingCommand)
     .build() {
 }
 
@@ -17592,6 +19578,31 @@ class UpdateContactScheduleCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/UpdateEmailAddressMetadataCommand.js
+
+
+
+
+
+
+
+class UpdateEmailAddressMetadataCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "UpdateEmailAddressMetadata", {})
+    .n("ConnectClient", "UpdateEmailAddressMetadataCommand")
+    .f(UpdateEmailAddressMetadataRequestFilterSensitiveLog, void 0)
+    .ser(se_UpdateEmailAddressMetadataCommand)
+    .de(de_UpdateEmailAddressMetadataCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/UpdateEvaluationFormCommand.js
 
 
@@ -17640,6 +19651,30 @@ class UpdateHoursOfOperationCommand extends smithy_client_dist_es/* Command */.u
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/UpdateHoursOfOperationOverrideCommand.js
+
+
+
+
+
+
+class UpdateHoursOfOperationOverrideCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "UpdateHoursOfOperationOverride", {})
+    .n("ConnectClient", "UpdateHoursOfOperationOverrideCommand")
+    .f(void 0, void 0)
+    .ser(se_UpdateHoursOfOperationOverrideCommand)
+    .de(de_UpdateHoursOfOperationOverrideCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/UpdateInstanceAttributeCommand.js
 
 
@@ -17685,6 +19720,31 @@ class UpdateInstanceStorageConfigCommand extends smithy_client_dist_es/* Command
     .f(void 0, void 0)
     .ser(se_UpdateInstanceStorageConfigCommand)
     .de(de_UpdateInstanceStorageConfigCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/UpdateParticipantAuthenticationCommand.js
+
+
+
+
+
+
+
+class UpdateParticipantAuthenticationCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "UpdateParticipantAuthentication", {})
+    .n("ConnectClient", "UpdateParticipantAuthenticationCommand")
+    .f(UpdateParticipantAuthenticationRequestFilterSensitiveLog, void 0)
+    .ser(se_UpdateParticipantAuthenticationCommand)
+    .de(de_UpdateParticipantAuthenticationCommand)
     .build() {
 }
 
@@ -17901,6 +19961,30 @@ class UpdateQueueOutboundCallerConfigCommand extends smithy_client_dist_es/* Com
     .f(void 0, void 0)
     .ser(se_UpdateQueueOutboundCallerConfigCommand)
     .de(de_UpdateQueueOutboundCallerConfigCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/UpdateQueueOutboundEmailConfigCommand.js
+
+
+
+
+
+
+class UpdateQueueOutboundEmailConfigCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("AmazonConnectService", "UpdateQueueOutboundEmailConfig", {})
+    .n("ConnectClient", "UpdateQueueOutboundEmailConfigCommand")
+    .f(void 0, void 0)
+    .ser(se_UpdateQueueOutboundEmailConfigCommand)
+    .de(de_UpdateQueueOutboundEmailConfigCommand)
     .build() {
 }
 
@@ -18694,6 +20778,32 @@ class UpdateViewMetadataCommand extends smithy_client_dist_es/* Command */.uB
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const commands = {
     ActivateEvaluationFormCommand: ActivateEvaluationFormCommand,
     AssociateAnalyticsDataSetCommand: AssociateAnalyticsDataSetCommand,
@@ -18718,16 +20828,21 @@ const commands = {
     ClaimPhoneNumberCommand: ClaimPhoneNumberCommand,
     CompleteAttachedFileUploadCommand: CompleteAttachedFileUploadCommand,
     CreateAgentStatusCommand: CreateAgentStatusCommand,
+    CreateContactCommand: CreateContactCommand,
     CreateContactFlowCommand: CreateContactFlowCommand,
     CreateContactFlowModuleCommand: CreateContactFlowModuleCommand,
+    CreateContactFlowVersionCommand: CreateContactFlowVersionCommand,
+    CreateEmailAddressCommand: CreateEmailAddressCommand,
     CreateEvaluationFormCommand: CreateEvaluationFormCommand,
     CreateHoursOfOperationCommand: CreateHoursOfOperationCommand,
+    CreateHoursOfOperationOverrideCommand: CreateHoursOfOperationOverrideCommand,
     CreateInstanceCommand: CreateInstanceCommand,
     CreateIntegrationAssociationCommand: CreateIntegrationAssociationCommand,
     CreateParticipantCommand: CreateParticipantCommand,
     CreatePersistentContactAssociationCommand: CreatePersistentContactAssociationCommand,
     CreatePredefinedAttributeCommand: CreatePredefinedAttributeCommand,
     CreatePromptCommand: CreatePromptCommand,
+    CreatePushNotificationRegistrationCommand: CreatePushNotificationRegistrationCommand,
     CreateQueueCommand: CreateQueueCommand,
     CreateQuickConnectCommand: CreateQuickConnectCommand,
     CreateRoutingProfileCommand: CreateRoutingProfileCommand,
@@ -18746,12 +20861,16 @@ const commands = {
     DeleteContactEvaluationCommand: DeleteContactEvaluationCommand,
     DeleteContactFlowCommand: DeleteContactFlowCommand,
     DeleteContactFlowModuleCommand: DeleteContactFlowModuleCommand,
+    DeleteContactFlowVersionCommand: DeleteContactFlowVersionCommand,
+    DeleteEmailAddressCommand: DeleteEmailAddressCommand,
     DeleteEvaluationFormCommand: DeleteEvaluationFormCommand,
     DeleteHoursOfOperationCommand: DeleteHoursOfOperationCommand,
+    DeleteHoursOfOperationOverrideCommand: DeleteHoursOfOperationOverrideCommand,
     DeleteInstanceCommand: DeleteInstanceCommand,
     DeleteIntegrationAssociationCommand: DeleteIntegrationAssociationCommand,
     DeletePredefinedAttributeCommand: DeletePredefinedAttributeCommand,
     DeletePromptCommand: DeletePromptCommand,
+    DeletePushNotificationRegistrationCommand: DeletePushNotificationRegistrationCommand,
     DeleteQueueCommand: DeleteQueueCommand,
     DeleteQuickConnectCommand: DeleteQuickConnectCommand,
     DeleteRoutingProfileCommand: DeleteRoutingProfileCommand,
@@ -18771,8 +20890,10 @@ const commands = {
     DescribeContactEvaluationCommand: DescribeContactEvaluationCommand,
     DescribeContactFlowCommand: DescribeContactFlowCommand,
     DescribeContactFlowModuleCommand: DescribeContactFlowModuleCommand,
+    DescribeEmailAddressCommand: DescribeEmailAddressCommand,
     DescribeEvaluationFormCommand: DescribeEvaluationFormCommand,
     DescribeHoursOfOperationCommand: DescribeHoursOfOperationCommand,
+    DescribeHoursOfOperationOverrideCommand: DescribeHoursOfOperationOverrideCommand,
     DescribeInstanceCommand: DescribeInstanceCommand,
     DescribeInstanceAttributeCommand: DescribeInstanceAttributeCommand,
     DescribeInstanceStorageConfigCommand: DescribeInstanceStorageConfigCommand,
@@ -18808,6 +20929,7 @@ const commands = {
     GetContactAttributesCommand: GetContactAttributesCommand,
     GetCurrentMetricDataCommand: GetCurrentMetricDataCommand,
     GetCurrentUserDataCommand: GetCurrentUserDataCommand,
+    GetEffectiveHoursOfOperationsCommand: GetEffectiveHoursOfOperationsCommand,
     GetFederationTokenCommand: GetFederationTokenCommand,
     GetFlowAssociationCommand: GetFlowAssociationCommand,
     GetMetricDataCommand: GetMetricDataCommand,
@@ -18818,17 +20940,21 @@ const commands = {
     ImportPhoneNumberCommand: ImportPhoneNumberCommand,
     ListAgentStatusesCommand: ListAgentStatusesCommand,
     ListAnalyticsDataAssociationsCommand: ListAnalyticsDataAssociationsCommand,
+    ListAnalyticsDataLakeDataSetsCommand: ListAnalyticsDataLakeDataSetsCommand,
     ListApprovedOriginsCommand: ListApprovedOriginsCommand,
+    ListAssociatedContactsCommand: ListAssociatedContactsCommand,
     ListAuthenticationProfilesCommand: ListAuthenticationProfilesCommand,
     ListBotsCommand: ListBotsCommand,
     ListContactEvaluationsCommand: ListContactEvaluationsCommand,
     ListContactFlowModulesCommand: ListContactFlowModulesCommand,
     ListContactFlowsCommand: ListContactFlowsCommand,
+    ListContactFlowVersionsCommand: ListContactFlowVersionsCommand,
     ListContactReferencesCommand: ListContactReferencesCommand,
     ListDefaultVocabulariesCommand: ListDefaultVocabulariesCommand,
     ListEvaluationFormsCommand: ListEvaluationFormsCommand,
     ListEvaluationFormVersionsCommand: ListEvaluationFormVersionsCommand,
     ListFlowAssociationsCommand: ListFlowAssociationsCommand,
+    ListHoursOfOperationOverridesCommand: ListHoursOfOperationOverridesCommand,
     ListHoursOfOperationsCommand: ListHoursOfOperationsCommand,
     ListInstanceAttributesCommand: ListInstanceAttributesCommand,
     ListInstancesCommand: ListInstancesCommand,
@@ -18873,6 +20999,8 @@ const commands = {
     SearchContactFlowModulesCommand: SearchContactFlowModulesCommand,
     SearchContactFlowsCommand: SearchContactFlowsCommand,
     SearchContactsCommand: SearchContactsCommand,
+    SearchEmailAddressesCommand: SearchEmailAddressesCommand,
+    SearchHoursOfOperationOverridesCommand: SearchHoursOfOperationOverridesCommand,
     SearchHoursOfOperationsCommand: SearchHoursOfOperationsCommand,
     SearchPredefinedAttributesCommand: SearchPredefinedAttributesCommand,
     SearchPromptsCommand: SearchPromptsCommand,
@@ -18885,13 +21013,17 @@ const commands = {
     SearchUsersCommand: SearchUsersCommand,
     SearchVocabulariesCommand: SearchVocabulariesCommand,
     SendChatIntegrationEventCommand: SendChatIntegrationEventCommand,
+    SendOutboundEmailCommand: SendOutboundEmailCommand,
     StartAttachedFileUploadCommand: StartAttachedFileUploadCommand,
     StartChatContactCommand: StartChatContactCommand,
     StartContactEvaluationCommand: StartContactEvaluationCommand,
     StartContactRecordingCommand: StartContactRecordingCommand,
     StartContactStreamingCommand: StartContactStreamingCommand,
+    StartEmailContactCommand: StartEmailContactCommand,
     StartOutboundChatContactCommand: StartOutboundChatContactCommand,
+    StartOutboundEmailContactCommand: StartOutboundEmailContactCommand,
     StartOutboundVoiceContactCommand: StartOutboundVoiceContactCommand,
+    StartScreenSharingCommand: StartScreenSharingCommand,
     StartTaskContactCommand: StartTaskContactCommand,
     StartWebRTCContactCommand: StartWebRTCContactCommand,
     StopContactCommand: StopContactCommand,
@@ -18916,10 +21048,13 @@ const commands = {
     UpdateContactFlowNameCommand: UpdateContactFlowNameCommand,
     UpdateContactRoutingDataCommand: UpdateContactRoutingDataCommand,
     UpdateContactScheduleCommand: UpdateContactScheduleCommand,
+    UpdateEmailAddressMetadataCommand: UpdateEmailAddressMetadataCommand,
     UpdateEvaluationFormCommand: UpdateEvaluationFormCommand,
     UpdateHoursOfOperationCommand: UpdateHoursOfOperationCommand,
+    UpdateHoursOfOperationOverrideCommand: UpdateHoursOfOperationOverrideCommand,
     UpdateInstanceAttributeCommand: UpdateInstanceAttributeCommand,
     UpdateInstanceStorageConfigCommand: UpdateInstanceStorageConfigCommand,
+    UpdateParticipantAuthenticationCommand: UpdateParticipantAuthenticationCommand,
     UpdateParticipantRoleConfigCommand: UpdateParticipantRoleConfigCommand,
     UpdatePhoneNumberCommand: UpdatePhoneNumberCommand,
     UpdatePhoneNumberMetadataCommand: UpdatePhoneNumberMetadataCommand,
@@ -18929,6 +21064,7 @@ const commands = {
     UpdateQueueMaxContactsCommand: UpdateQueueMaxContactsCommand,
     UpdateQueueNameCommand: UpdateQueueNameCommand,
     UpdateQueueOutboundCallerConfigCommand: UpdateQueueOutboundCallerConfigCommand,
+    UpdateQueueOutboundEmailConfigCommand: UpdateQueueOutboundEmailConfigCommand,
     UpdateQueueStatusCommand: UpdateQueueStatusCommand,
     UpdateQuickConnectConfigCommand: UpdateQuickConnectConfigCommand,
     UpdateQuickConnectNameCommand: UpdateQuickConnectNameCommand,
@@ -18957,6 +21093,32 @@ class Connect extends ConnectClient {
 (0,smithy_client_dist_es/* createAggregatedClient */.J1)(commands, Connect);
 
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/commands/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -19274,6 +21436,12 @@ const paginateListContactEvaluations = (0,core_dist_es/* createPaginator */.KU)(
 
 const paginateListContactFlowModules = (0,core_dist_es/* createPaginator */.KU)(ConnectClient, ListContactFlowModulesCommand, "NextToken", "NextToken", "MaxResults");
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/pagination/ListContactFlowVersionsPaginator.js
+
+
+
+const paginateListContactFlowVersions = (0,core_dist_es/* createPaginator */.KU)(ConnectClient, ListContactFlowVersionsCommand, "NextToken", "NextToken", "MaxResults");
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/pagination/ListContactFlowsPaginator.js
 
 
@@ -19309,6 +21477,12 @@ const paginateListEvaluationForms = (0,core_dist_es/* createPaginator */.KU)(Con
 
 
 const paginateListFlowAssociations = (0,core_dist_es/* createPaginator */.KU)(ConnectClient, ListFlowAssociationsCommand, "NextToken", "NextToken", "MaxResults");
+
+;// ./node_modules/@aws-sdk/client-connect/dist-es/pagination/ListHoursOfOperationOverridesPaginator.js
+
+
+
+const paginateListHoursOfOperationOverrides = (0,core_dist_es/* createPaginator */.KU)(ConnectClient, ListHoursOfOperationOverridesCommand, "NextToken", "NextToken", "MaxResults");
 
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/pagination/ListHoursOfOperationsPaginator.js
 
@@ -19526,6 +21700,12 @@ const paginateSearchContactFlows = (0,core_dist_es/* createPaginator */.KU)(Conn
 
 const paginateSearchContacts = (0,core_dist_es/* createPaginator */.KU)(ConnectClient, SearchContactsCommand, "NextToken", "NextToken", "MaxResults");
 
+;// ./node_modules/@aws-sdk/client-connect/dist-es/pagination/SearchHoursOfOperationOverridesPaginator.js
+
+
+
+const paginateSearchHoursOfOperationOverrides = (0,core_dist_es/* createPaginator */.KU)(ConnectClient, SearchHoursOfOperationOverridesCommand, "NextToken", "NextToken", "MaxResults");
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/pagination/SearchHoursOfOperationsPaginator.js
 
 
@@ -19658,7 +21838,11 @@ const paginateSearchVocabularies = (0,core_dist_es/* createPaginator */.KU)(Conn
 
 
 
+
+
+
 ;// ./node_modules/@aws-sdk/client-connect/dist-es/models/index.js
+
 
 
 
@@ -19674,7 +21858,7 @@ const paginateSearchVocabularies = (0,core_dist_es/* createPaginator */.KU)(Conn
 
 /***/ }),
 
-/***/ 252:
+/***/ 221:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -19687,6 +21871,14 @@ __webpack_require__.d(__webpack_exports__, {
   AIAgentAssociationConfigurationType: () => (/* reexport */ AIAgentAssociationConfigurationType),
   AIAgentConfiguration: () => (/* reexport */ AIAgentConfiguration),
   AIAgentType: () => (/* reexport */ AIAgentType),
+  AIGuardrailContentPolicyConfigFilterSensitiveLog: () => (/* reexport */ AIGuardrailContentPolicyConfigFilterSensitiveLog),
+  AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog: () => (/* reexport */ AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog),
+  AIGuardrailDataFilterSensitiveLog: () => (/* reexport */ AIGuardrailDataFilterSensitiveLog),
+  AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog: () => (/* reexport */ AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog),
+  AIGuardrailSummaryFilterSensitiveLog: () => (/* reexport */ AIGuardrailSummaryFilterSensitiveLog),
+  AIGuardrailTopicPolicyConfigFilterSensitiveLog: () => (/* reexport */ AIGuardrailTopicPolicyConfigFilterSensitiveLog),
+  AIGuardrailVersionSummaryFilterSensitiveLog: () => (/* reexport */ AIGuardrailVersionSummaryFilterSensitiveLog),
+  AIGuardrailWordPolicyConfigFilterSensitiveLog: () => (/* reexport */ AIGuardrailWordPolicyConfigFilterSensitiveLog),
   AIPromptAPIFormat: () => (/* reexport */ AIPromptAPIFormat),
   AIPromptDataFilterSensitiveLog: () => (/* reexport */ AIPromptDataFilterSensitiveLog),
   AIPromptTemplateConfiguration: () => (/* reexport */ AIPromptTemplateConfiguration),
@@ -19694,6 +21886,8 @@ __webpack_require__.d(__webpack_exports__, {
   AIPromptTemplateType: () => (/* reexport */ AIPromptTemplateType),
   AIPromptType: () => (/* reexport */ AIPromptType),
   AccessDeniedException: () => (/* reexport */ AccessDeniedException),
+  ActivateMessageTemplateCommand: () => (/* reexport */ ActivateMessageTemplateCommand),
+  AgentAttributesFilterSensitiveLog: () => (/* reexport */ AgentAttributesFilterSensitiveLog),
   AssistantAssociationInputData: () => (/* reexport */ AssistantAssociationInputData),
   AssistantAssociationOutputData: () => (/* reexport */ AssistantAssociationOutputData),
   AssistantCapabilityType: () => (/* reexport */ AssistantCapabilityType),
@@ -19701,6 +21895,7 @@ __webpack_require__.d(__webpack_exports__, {
   AssistantType: () => (/* reexport */ AssistantType),
   AssociationConfigurationData: () => (/* reexport */ AssociationConfigurationData),
   AssociationType: () => (/* reexport */ AssociationType),
+  ChannelSubtype: () => (/* reexport */ ChannelSubtype),
   ChunkingStrategy: () => (/* reexport */ ChunkingStrategy),
   Configuration: () => (/* reexport */ Configuration),
   ConflictException: () => (/* reexport */ ConflictException),
@@ -19708,10 +21903,19 @@ __webpack_require__.d(__webpack_exports__, {
   ContentAssociationType: () => (/* reexport */ ContentAssociationType),
   ContentDataDetailsFilterSensitiveLog: () => (/* reexport */ ContentDataDetailsFilterSensitiveLog),
   ContentDataFilterSensitiveLog: () => (/* reexport */ ContentDataFilterSensitiveLog),
+  ContentDisposition: () => (/* reexport */ ContentDisposition),
   ContentFeedbackData: () => (/* reexport */ ContentFeedbackData),
   ContentStatus: () => (/* reexport */ ContentStatus),
+  ConversationContextFilterSensitiveLog: () => (/* reexport */ ConversationContextFilterSensitiveLog),
+  ConversationStatus: () => (/* reexport */ ConversationStatus),
+  ConversationStatusReason: () => (/* reexport */ ConversationStatusReason),
   CreateAIAgentCommand: () => (/* reexport */ CreateAIAgentCommand),
   CreateAIAgentVersionCommand: () => (/* reexport */ CreateAIAgentVersionCommand),
+  CreateAIGuardrailCommand: () => (/* reexport */ CreateAIGuardrailCommand),
+  CreateAIGuardrailRequestFilterSensitiveLog: () => (/* reexport */ CreateAIGuardrailRequestFilterSensitiveLog),
+  CreateAIGuardrailResponseFilterSensitiveLog: () => (/* reexport */ CreateAIGuardrailResponseFilterSensitiveLog),
+  CreateAIGuardrailVersionCommand: () => (/* reexport */ CreateAIGuardrailVersionCommand),
+  CreateAIGuardrailVersionResponseFilterSensitiveLog: () => (/* reexport */ CreateAIGuardrailVersionResponseFilterSensitiveLog),
   CreateAIPromptCommand: () => (/* reexport */ CreateAIPromptCommand),
   CreateAIPromptRequestFilterSensitiveLog: () => (/* reexport */ CreateAIPromptRequestFilterSensitiveLog),
   CreateAIPromptResponseFilterSensitiveLog: () => (/* reexport */ CreateAIPromptResponseFilterSensitiveLog),
@@ -19725,16 +21929,28 @@ __webpack_require__.d(__webpack_exports__, {
   CreateKnowledgeBaseCommand: () => (/* reexport */ CreateKnowledgeBaseCommand),
   CreateKnowledgeBaseRequestFilterSensitiveLog: () => (/* reexport */ CreateKnowledgeBaseRequestFilterSensitiveLog),
   CreateKnowledgeBaseResponseFilterSensitiveLog: () => (/* reexport */ CreateKnowledgeBaseResponseFilterSensitiveLog),
+  CreateMessageTemplateAttachmentCommand: () => (/* reexport */ CreateMessageTemplateAttachmentCommand),
+  CreateMessageTemplateAttachmentRequestFilterSensitiveLog: () => (/* reexport */ CreateMessageTemplateAttachmentRequestFilterSensitiveLog),
+  CreateMessageTemplateAttachmentResponseFilterSensitiveLog: () => (/* reexport */ CreateMessageTemplateAttachmentResponseFilterSensitiveLog),
+  CreateMessageTemplateCommand: () => (/* reexport */ CreateMessageTemplateCommand),
+  CreateMessageTemplateRequestFilterSensitiveLog: () => (/* reexport */ CreateMessageTemplateRequestFilterSensitiveLog),
+  CreateMessageTemplateResponseFilterSensitiveLog: () => (/* reexport */ CreateMessageTemplateResponseFilterSensitiveLog),
+  CreateMessageTemplateVersionCommand: () => (/* reexport */ CreateMessageTemplateVersionCommand),
+  CreateMessageTemplateVersionResponseFilterSensitiveLog: () => (/* reexport */ CreateMessageTemplateVersionResponseFilterSensitiveLog),
   CreateQuickResponseCommand: () => (/* reexport */ CreateQuickResponseCommand),
   CreateQuickResponseRequestFilterSensitiveLog: () => (/* reexport */ CreateQuickResponseRequestFilterSensitiveLog),
   CreateQuickResponseResponseFilterSensitiveLog: () => (/* reexport */ CreateQuickResponseResponseFilterSensitiveLog),
   CreateSessionCommand: () => (/* reexport */ CreateSessionCommand),
+  CustomerProfileAttributesFilterSensitiveLog: () => (/* reexport */ CustomerProfileAttributesFilterSensitiveLog),
   DataDetails: () => (/* reexport */ DataDetails),
   DataDetailsFilterSensitiveLog: () => (/* reexport */ DataDetailsFilterSensitiveLog),
   DataReference: () => (/* reexport */ DataReference),
   DataSummaryFilterSensitiveLog: () => (/* reexport */ DataSummaryFilterSensitiveLog),
+  DeactivateMessageTemplateCommand: () => (/* reexport */ DeactivateMessageTemplateCommand),
   DeleteAIAgentCommand: () => (/* reexport */ DeleteAIAgentCommand),
   DeleteAIAgentVersionCommand: () => (/* reexport */ DeleteAIAgentVersionCommand),
+  DeleteAIGuardrailCommand: () => (/* reexport */ DeleteAIGuardrailCommand),
+  DeleteAIGuardrailVersionCommand: () => (/* reexport */ DeleteAIGuardrailVersionCommand),
   DeleteAIPromptCommand: () => (/* reexport */ DeleteAIPromptCommand),
   DeleteAIPromptVersionCommand: () => (/* reexport */ DeleteAIPromptVersionCommand),
   DeleteAssistantAssociationCommand: () => (/* reexport */ DeleteAssistantAssociationCommand),
@@ -19743,14 +21959,23 @@ __webpack_require__.d(__webpack_exports__, {
   DeleteContentCommand: () => (/* reexport */ DeleteContentCommand),
   DeleteImportJobCommand: () => (/* reexport */ DeleteImportJobCommand),
   DeleteKnowledgeBaseCommand: () => (/* reexport */ DeleteKnowledgeBaseCommand),
+  DeleteMessageTemplateAttachmentCommand: () => (/* reexport */ DeleteMessageTemplateAttachmentCommand),
+  DeleteMessageTemplateCommand: () => (/* reexport */ DeleteMessageTemplateCommand),
   DeleteQuickResponseCommand: () => (/* reexport */ DeleteQuickResponseCommand),
   DocumentFilterSensitiveLog: () => (/* reexport */ DocumentFilterSensitiveLog),
   DocumentTextFilterSensitiveLog: () => (/* reexport */ DocumentTextFilterSensitiveLog),
+  EmailHeaderFilterSensitiveLog: () => (/* reexport */ EmailHeaderFilterSensitiveLog),
+  EmailMessageTemplateContentBodyFilterSensitiveLog: () => (/* reexport */ EmailMessageTemplateContentBodyFilterSensitiveLog),
+  EmailMessageTemplateContentFilterSensitiveLog: () => (/* reexport */ EmailMessageTemplateContentFilterSensitiveLog),
+  ExtendedMessageTemplateDataFilterSensitiveLog: () => (/* reexport */ ExtendedMessageTemplateDataFilterSensitiveLog),
   ExternalSource: () => (/* reexport */ ExternalSource),
   FilterField: () => (/* reexport */ FilterField),
   FilterOperator: () => (/* reexport */ FilterOperator),
+  GenerativeChunkDataDetailsFilterSensitiveLog: () => (/* reexport */ GenerativeChunkDataDetailsFilterSensitiveLog),
   GenerativeDataDetailsFilterSensitiveLog: () => (/* reexport */ GenerativeDataDetailsFilterSensitiveLog),
   GetAIAgentCommand: () => (/* reexport */ GetAIAgentCommand),
+  GetAIGuardrailCommand: () => (/* reexport */ GetAIGuardrailCommand),
+  GetAIGuardrailResponseFilterSensitiveLog: () => (/* reexport */ GetAIGuardrailResponseFilterSensitiveLog),
   GetAIPromptCommand: () => (/* reexport */ GetAIPromptCommand),
   GetAIPromptResponseFilterSensitiveLog: () => (/* reexport */ GetAIPromptResponseFilterSensitiveLog),
   GetAssistantAssociationCommand: () => (/* reexport */ GetAssistantAssociationCommand),
@@ -19763,12 +21988,30 @@ __webpack_require__.d(__webpack_exports__, {
   GetImportJobResponseFilterSensitiveLog: () => (/* reexport */ GetImportJobResponseFilterSensitiveLog),
   GetKnowledgeBaseCommand: () => (/* reexport */ GetKnowledgeBaseCommand),
   GetKnowledgeBaseResponseFilterSensitiveLog: () => (/* reexport */ GetKnowledgeBaseResponseFilterSensitiveLog),
+  GetMessageTemplateCommand: () => (/* reexport */ GetMessageTemplateCommand),
+  GetMessageTemplateResponseFilterSensitiveLog: () => (/* reexport */ GetMessageTemplateResponseFilterSensitiveLog),
+  GetNextMessageCommand: () => (/* reexport */ GetNextMessageCommand),
+  GetNextMessageResponseFilterSensitiveLog: () => (/* reexport */ GetNextMessageResponseFilterSensitiveLog),
   GetQuickResponseCommand: () => (/* reexport */ GetQuickResponseCommand),
   GetQuickResponseResponseFilterSensitiveLog: () => (/* reexport */ GetQuickResponseResponseFilterSensitiveLog),
   GetRecommendationsCommand: () => (/* reexport */ GetRecommendationsCommand),
   GetRecommendationsResponseFilterSensitiveLog: () => (/* reexport */ GetRecommendationsResponseFilterSensitiveLog),
   GetSessionCommand: () => (/* reexport */ GetSessionCommand),
   GroupingConfigurationFilterSensitiveLog: () => (/* reexport */ GroupingConfigurationFilterSensitiveLog),
+  GuardrailContentFilterConfigFilterSensitiveLog: () => (/* reexport */ GuardrailContentFilterConfigFilterSensitiveLog),
+  GuardrailContentFilterType: () => (/* reexport */ GuardrailContentFilterType),
+  GuardrailContextualGroundingFilterConfigFilterSensitiveLog: () => (/* reexport */ GuardrailContextualGroundingFilterConfigFilterSensitiveLog),
+  GuardrailContextualGroundingFilterType: () => (/* reexport */ GuardrailContextualGroundingFilterType),
+  GuardrailFilterStrength: () => (/* reexport */ GuardrailFilterStrength),
+  GuardrailManagedWordsConfigFilterSensitiveLog: () => (/* reexport */ GuardrailManagedWordsConfigFilterSensitiveLog),
+  GuardrailManagedWordsType: () => (/* reexport */ GuardrailManagedWordsType),
+  GuardrailPiiEntityConfigFilterSensitiveLog: () => (/* reexport */ GuardrailPiiEntityConfigFilterSensitiveLog),
+  GuardrailPiiEntityType: () => (/* reexport */ GuardrailPiiEntityType),
+  GuardrailRegexConfigFilterSensitiveLog: () => (/* reexport */ GuardrailRegexConfigFilterSensitiveLog),
+  GuardrailSensitiveInformationAction: () => (/* reexport */ GuardrailSensitiveInformationAction),
+  GuardrailTopicConfigFilterSensitiveLog: () => (/* reexport */ GuardrailTopicConfigFilterSensitiveLog),
+  GuardrailTopicType: () => (/* reexport */ GuardrailTopicType),
+  GuardrailWordConfigFilterSensitiveLog: () => (/* reexport */ GuardrailWordConfigFilterSensitiveLog),
   ImportJobDataFilterSensitiveLog: () => (/* reexport */ ImportJobDataFilterSensitiveLog),
   ImportJobStatus: () => (/* reexport */ ImportJobStatus),
   ImportJobType: () => (/* reexport */ ImportJobType),
@@ -19780,6 +22023,10 @@ __webpack_require__.d(__webpack_exports__, {
   KnowledgeBaseType: () => (/* reexport */ KnowledgeBaseType),
   ListAIAgentVersionsCommand: () => (/* reexport */ ListAIAgentVersionsCommand),
   ListAIAgentsCommand: () => (/* reexport */ ListAIAgentsCommand),
+  ListAIGuardrailVersionsCommand: () => (/* reexport */ ListAIGuardrailVersionsCommand),
+  ListAIGuardrailVersionsResponseFilterSensitiveLog: () => (/* reexport */ ListAIGuardrailVersionsResponseFilterSensitiveLog),
+  ListAIGuardrailsCommand: () => (/* reexport */ ListAIGuardrailsCommand),
+  ListAIGuardrailsResponseFilterSensitiveLog: () => (/* reexport */ ListAIGuardrailsResponseFilterSensitiveLog),
   ListAIPromptVersionsCommand: () => (/* reexport */ ListAIPromptVersionsCommand),
   ListAIPromptsCommand: () => (/* reexport */ ListAIPromptsCommand),
   ListAssistantAssociationsCommand: () => (/* reexport */ ListAssistantAssociationsCommand),
@@ -19789,16 +22036,37 @@ __webpack_require__.d(__webpack_exports__, {
   ListImportJobsCommand: () => (/* reexport */ ListImportJobsCommand),
   ListKnowledgeBasesCommand: () => (/* reexport */ ListKnowledgeBasesCommand),
   ListKnowledgeBasesResponseFilterSensitiveLog: () => (/* reexport */ ListKnowledgeBasesResponseFilterSensitiveLog),
+  ListMessageTemplateVersionsCommand: () => (/* reexport */ ListMessageTemplateVersionsCommand),
+  ListMessageTemplatesCommand: () => (/* reexport */ ListMessageTemplatesCommand),
+  ListMessagesCommand: () => (/* reexport */ ListMessagesCommand),
+  ListMessagesResponseFilterSensitiveLog: () => (/* reexport */ ListMessagesResponseFilterSensitiveLog),
   ListQuickResponsesCommand: () => (/* reexport */ ListQuickResponsesCommand),
   ListQuickResponsesResponseFilterSensitiveLog: () => (/* reexport */ ListQuickResponsesResponseFilterSensitiveLog),
   ListTagsForResourceCommand: () => (/* reexport */ ListTagsForResourceCommand),
   ManagedSourceConfiguration: () => (/* reexport */ ManagedSourceConfiguration),
   ManagedSourceConfigurationFilterSensitiveLog: () => (/* reexport */ ManagedSourceConfigurationFilterSensitiveLog),
+  MessageData: () => (/* reexport */ MessageData),
+  MessageDataFilterSensitiveLog: () => (/* reexport */ MessageDataFilterSensitiveLog),
+  MessageInputFilterSensitiveLog: () => (/* reexport */ MessageInputFilterSensitiveLog),
+  MessageOutputFilterSensitiveLog: () => (/* reexport */ MessageOutputFilterSensitiveLog),
+  MessageTemplateAttachmentFilterSensitiveLog: () => (/* reexport */ MessageTemplateAttachmentFilterSensitiveLog),
+  MessageTemplateAttributeType: () => (/* reexport */ MessageTemplateAttributeType),
+  MessageTemplateAttributesFilterSensitiveLog: () => (/* reexport */ MessageTemplateAttributesFilterSensitiveLog),
+  MessageTemplateBodyContentProvider: () => (/* reexport */ MessageTemplateBodyContentProvider),
+  MessageTemplateBodyContentProviderFilterSensitiveLog: () => (/* reexport */ MessageTemplateBodyContentProviderFilterSensitiveLog),
+  MessageTemplateContentProvider: () => (/* reexport */ MessageTemplateContentProvider),
+  MessageTemplateContentProviderFilterSensitiveLog: () => (/* reexport */ MessageTemplateContentProviderFilterSensitiveLog),
+  MessageTemplateDataFilterSensitiveLog: () => (/* reexport */ MessageTemplateDataFilterSensitiveLog),
+  MessageTemplateFilterOperator: () => (/* reexport */ MessageTemplateFilterOperator),
+  MessageTemplateQueryOperator: () => (/* reexport */ MessageTemplateQueryOperator),
+  MessageTemplateSearchResultDataFilterSensitiveLog: () => (/* reexport */ MessageTemplateSearchResultDataFilterSensitiveLog),
+  MessageType: () => (/* reexport */ MessageType),
   NotifyRecommendationsReceivedCommand: () => (/* reexport */ NotifyRecommendationsReceivedCommand),
   OrCondition: () => (/* reexport */ OrCondition),
   Order: () => (/* reexport */ Order),
   Origin: () => (/* reexport */ Origin),
   ParsingStrategy: () => (/* reexport */ ParsingStrategy),
+  Participant: () => (/* reexport */ Participant),
   PreconditionFailedException: () => (/* reexport */ PreconditionFailedException),
   Priority: () => (/* reexport */ Priority),
   PutFeedbackCommand: () => (/* reexport */ PutFeedbackCommand),
@@ -19839,17 +22107,27 @@ __webpack_require__.d(__webpack_exports__, {
   RelevanceLevel: () => (/* reexport */ RelevanceLevel),
   RemoveAssistantAIAgentCommand: () => (/* reexport */ RemoveAssistantAIAgentCommand),
   RemoveKnowledgeBaseTemplateUriCommand: () => (/* reexport */ RemoveKnowledgeBaseTemplateUriCommand),
+  RenderMessageTemplateCommand: () => (/* reexport */ RenderMessageTemplateCommand),
+  RenderMessageTemplateRequestFilterSensitiveLog: () => (/* reexport */ RenderMessageTemplateRequestFilterSensitiveLog),
+  RenderMessageTemplateResponseFilterSensitiveLog: () => (/* reexport */ RenderMessageTemplateResponseFilterSensitiveLog),
   RequestTimeoutException: () => (/* reexport */ RequestTimeoutException),
   ResourceNotFoundException: () => (/* reexport */ ResourceNotFoundException),
   ResultDataFilterSensitiveLog: () => (/* reexport */ ResultDataFilterSensitiveLog),
   RuntimeSessionDataFilterSensitiveLog: () => (/* reexport */ RuntimeSessionDataFilterSensitiveLog),
   RuntimeSessionDataValue: () => (/* reexport */ RuntimeSessionDataValue),
   RuntimeSessionDataValueFilterSensitiveLog: () => (/* reexport */ RuntimeSessionDataValueFilterSensitiveLog),
+  SMSMessageTemplateContentBodyFilterSensitiveLog: () => (/* reexport */ SMSMessageTemplateContentBodyFilterSensitiveLog),
+  SMSMessageTemplateContentFilterSensitiveLog: () => (/* reexport */ SMSMessageTemplateContentFilterSensitiveLog),
   SearchContentCommand: () => (/* reexport */ SearchContentCommand),
+  SearchMessageTemplatesCommand: () => (/* reexport */ SearchMessageTemplatesCommand),
+  SearchMessageTemplatesResponseFilterSensitiveLog: () => (/* reexport */ SearchMessageTemplatesResponseFilterSensitiveLog),
   SearchQuickResponsesCommand: () => (/* reexport */ SearchQuickResponsesCommand),
   SearchQuickResponsesRequestFilterSensitiveLog: () => (/* reexport */ SearchQuickResponsesRequestFilterSensitiveLog),
   SearchQuickResponsesResponseFilterSensitiveLog: () => (/* reexport */ SearchQuickResponsesResponseFilterSensitiveLog),
   SearchSessionsCommand: () => (/* reexport */ SearchSessionsCommand),
+  SelfServiceConversationHistoryFilterSensitiveLog: () => (/* reexport */ SelfServiceConversationHistoryFilterSensitiveLog),
+  SendMessageCommand: () => (/* reexport */ SendMessageCommand),
+  SendMessageRequestFilterSensitiveLog: () => (/* reexport */ SendMessageRequestFilterSensitiveLog),
   ServiceQuotaExceededException: () => (/* reexport */ ServiceQuotaExceededException),
   SessionDataNamespace: () => (/* reexport */ SessionDataNamespace),
   SourceConfiguration: () => (/* reexport */ SourceConfiguration),
@@ -19862,15 +22140,21 @@ __webpack_require__.d(__webpack_exports__, {
   StartImportJobResponseFilterSensitiveLog: () => (/* reexport */ StartImportJobResponseFilterSensitiveLog),
   Status: () => (/* reexport */ Status),
   SyncStatus: () => (/* reexport */ SyncStatus),
+  SystemAttributesFilterSensitiveLog: () => (/* reexport */ SystemAttributesFilterSensitiveLog),
+  SystemEndpointAttributesFilterSensitiveLog: () => (/* reexport */ SystemEndpointAttributesFilterSensitiveLog),
   TagFilter: () => (/* reexport */ TagFilter),
   TagResourceCommand: () => (/* reexport */ TagResourceCommand),
   TargetType: () => (/* reexport */ TargetType),
   TextDataFilterSensitiveLog: () => (/* reexport */ TextDataFilterSensitiveLog),
   TextFullAIPromptEditTemplateConfigurationFilterSensitiveLog: () => (/* reexport */ TextFullAIPromptEditTemplateConfigurationFilterSensitiveLog),
+  TextMessageFilterSensitiveLog: () => (/* reexport */ TextMessageFilterSensitiveLog),
   ThrottlingException: () => (/* reexport */ ThrottlingException),
   TooManyTagsException: () => (/* reexport */ TooManyTagsException),
   UntagResourceCommand: () => (/* reexport */ UntagResourceCommand),
   UpdateAIAgentCommand: () => (/* reexport */ UpdateAIAgentCommand),
+  UpdateAIGuardrailCommand: () => (/* reexport */ UpdateAIGuardrailCommand),
+  UpdateAIGuardrailRequestFilterSensitiveLog: () => (/* reexport */ UpdateAIGuardrailRequestFilterSensitiveLog),
+  UpdateAIGuardrailResponseFilterSensitiveLog: () => (/* reexport */ UpdateAIGuardrailResponseFilterSensitiveLog),
   UpdateAIPromptCommand: () => (/* reexport */ UpdateAIPromptCommand),
   UpdateAIPromptRequestFilterSensitiveLog: () => (/* reexport */ UpdateAIPromptRequestFilterSensitiveLog),
   UpdateAIPromptResponseFilterSensitiveLog: () => (/* reexport */ UpdateAIPromptResponseFilterSensitiveLog),
@@ -19879,6 +22163,12 @@ __webpack_require__.d(__webpack_exports__, {
   UpdateContentResponseFilterSensitiveLog: () => (/* reexport */ UpdateContentResponseFilterSensitiveLog),
   UpdateKnowledgeBaseTemplateUriCommand: () => (/* reexport */ UpdateKnowledgeBaseTemplateUriCommand),
   UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog: () => (/* reexport */ UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog),
+  UpdateMessageTemplateCommand: () => (/* reexport */ UpdateMessageTemplateCommand),
+  UpdateMessageTemplateMetadataCommand: () => (/* reexport */ UpdateMessageTemplateMetadataCommand),
+  UpdateMessageTemplateMetadataRequestFilterSensitiveLog: () => (/* reexport */ UpdateMessageTemplateMetadataRequestFilterSensitiveLog),
+  UpdateMessageTemplateMetadataResponseFilterSensitiveLog: () => (/* reexport */ UpdateMessageTemplateMetadataResponseFilterSensitiveLog),
+  UpdateMessageTemplateRequestFilterSensitiveLog: () => (/* reexport */ UpdateMessageTemplateRequestFilterSensitiveLog),
+  UpdateMessageTemplateResponseFilterSensitiveLog: () => (/* reexport */ UpdateMessageTemplateResponseFilterSensitiveLog),
   UpdateQuickResponseCommand: () => (/* reexport */ UpdateQuickResponseCommand),
   UpdateQuickResponseRequestFilterSensitiveLog: () => (/* reexport */ UpdateQuickResponseRequestFilterSensitiveLog),
   UpdateQuickResponseResponseFilterSensitiveLog: () => (/* reexport */ UpdateQuickResponseResponseFilterSensitiveLog),
@@ -19893,6 +22183,8 @@ __webpack_require__.d(__webpack_exports__, {
   __Client: () => (/* reexport */ smithy_client_dist_es/* Client */.Kj),
   paginateListAIAgentVersions: () => (/* reexport */ paginateListAIAgentVersions),
   paginateListAIAgents: () => (/* reexport */ paginateListAIAgents),
+  paginateListAIGuardrailVersions: () => (/* reexport */ paginateListAIGuardrailVersions),
+  paginateListAIGuardrails: () => (/* reexport */ paginateListAIGuardrails),
   paginateListAIPromptVersions: () => (/* reexport */ paginateListAIPromptVersions),
   paginateListAIPrompts: () => (/* reexport */ paginateListAIPrompts),
   paginateListAssistantAssociations: () => (/* reexport */ paginateListAssistantAssociations),
@@ -19901,9 +22193,13 @@ __webpack_require__.d(__webpack_exports__, {
   paginateListContents: () => (/* reexport */ paginateListContents),
   paginateListImportJobs: () => (/* reexport */ paginateListImportJobs),
   paginateListKnowledgeBases: () => (/* reexport */ paginateListKnowledgeBases),
+  paginateListMessageTemplateVersions: () => (/* reexport */ paginateListMessageTemplateVersions),
+  paginateListMessageTemplates: () => (/* reexport */ paginateListMessageTemplates),
+  paginateListMessages: () => (/* reexport */ paginateListMessages),
   paginateListQuickResponses: () => (/* reexport */ paginateListQuickResponses),
   paginateQueryAssistant: () => (/* reexport */ paginateQueryAssistant),
   paginateSearchContent: () => (/* reexport */ paginateSearchContent),
+  paginateSearchMessageTemplates: () => (/* reexport */ paginateSearchMessageTemplates),
   paginateSearchQuickResponses: () => (/* reexport */ paginateSearchQuickResponses),
   paginateSearchSessions: () => (/* reexport */ paginateSearchSessions)
 });
@@ -19918,18 +22214,18 @@ var middleware_recursion_detection_dist_es = __webpack_require__(8377);
 var middleware_user_agent_dist_es = __webpack_require__(6961);
 // EXTERNAL MODULE: ./node_modules/@smithy/config-resolver/dist-es/index.js + 13 modules
 var config_resolver_dist_es = __webpack_require__(1487);
-// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/index.js + 17 modules
-var core_dist_es = __webpack_require__(2516);
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/index.js + 19 modules
+var core_dist_es = __webpack_require__(9142);
 // EXTERNAL MODULE: ./node_modules/@smithy/middleware-content-length/dist-es/index.js
 var middleware_content_length_dist_es = __webpack_require__(649);
 // EXTERNAL MODULE: ./node_modules/@smithy/middleware-endpoint/dist-es/index.js + 8 modules
 var middleware_endpoint_dist_es = __webpack_require__(7012);
 // EXTERNAL MODULE: ./node_modules/@smithy/middleware-retry/dist-es/index.js + 10 modules
 var middleware_retry_dist_es = __webpack_require__(6232);
-// EXTERNAL MODULE: ./node_modules/@smithy/smithy-client/dist-es/index.js + 27 modules
-var smithy_client_dist_es = __webpack_require__(5342);
-// EXTERNAL MODULE: ./node_modules/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4Config.js + 15 modules
-var resolveAwsSdkSigV4Config = __webpack_require__(8088);
+// EXTERNAL MODULE: ./node_modules/@smithy/smithy-client/dist-es/index.js + 20 modules
+var smithy_client_dist_es = __webpack_require__(6980);
+// EXTERNAL MODULE: ./node_modules/@aws-sdk/core/dist-es/submodules/httpAuthSchemes/aws_sdk/resolveAwsSdkSigV4Config.js + 17 modules
+var resolveAwsSdkSigV4Config = __webpack_require__(9538);
 // EXTERNAL MODULE: ./node_modules/@smithy/util-middleware/dist-es/index.js + 2 modules
 var util_middleware_dist_es = __webpack_require__(7135);
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/auth/httpAuthSchemeProvider.js
@@ -19970,19 +22266,18 @@ const defaultQConnectHttpAuthSchemeProvider = (authParameters) => {
 };
 const resolveHttpAuthSchemeConfig = (config) => {
     const config_0 = (0,resolveAwsSdkSigV4Config/* resolveAwsSdkSigV4Config */.h)(config);
-    return {
-        ...config_0,
-    };
+    return Object.assign(config_0, {
+        authSchemePreference: (0,util_middleware_dist_es/* normalizeProvider */.t)(config.authSchemePreference ?? []),
+    });
 };
 
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/endpoint/EndpointParameters.js
 const resolveClientEndpointParameters = (options) => {
-    return {
-        ...options,
+    return Object.assign(options, {
         useDualstackEndpoint: options.useDualstackEndpoint ?? false,
         useFipsEndpoint: options.useFipsEndpoint ?? false,
         defaultSigningName: "wisdom",
-    };
+    });
 };
 const commonParams = {
     UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
@@ -19992,13 +22287,13 @@ const commonParams = {
 };
 
 ;// ./node_modules/@aws-sdk/client-qconnect/package.json
-const package_namespaceObject = {"rE":"3.667.0"};
+const package_namespaceObject = {"rE":"3.828.0"};
 // EXTERNAL MODULE: ./node_modules/@aws-crypto/sha256-browser/build/module/index.js + 13 modules
 var build_module = __webpack_require__(7272);
 // EXTERNAL MODULE: ./node_modules/@aws-sdk/util-user-agent-browser/dist-es/index.js
 var util_user_agent_browser_dist_es = __webpack_require__(9391);
-// EXTERNAL MODULE: ./node_modules/@smithy/fetch-http-handler/dist-es/index.js + 4 modules
-var fetch_http_handler_dist_es = __webpack_require__(3957);
+// EXTERNAL MODULE: ./node_modules/@smithy/fetch-http-handler/dist-es/index.js + 5 modules
+var fetch_http_handler_dist_es = __webpack_require__(9389);
 // EXTERNAL MODULE: ./node_modules/@smithy/invalid-dependency/dist-es/invalidProvider.js
 var invalidProvider = __webpack_require__(2423);
 // EXTERNAL MODULE: ./node_modules/@smithy/util-body-length-browser/dist-es/index.js + 1 modules
@@ -20099,7 +22394,7 @@ const runtimeConfig_browser_getRuntimeConfig = (config) => {
         bodyLengthChecker: config?.bodyLengthChecker ?? util_body_length_browser_dist_es/* calculateBodyLength */.n,
         credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_) => () => Promise.reject(new Error("Credential is missing"))),
         defaultUserAgentProvider: config?.defaultUserAgentProvider ??
-            (0,util_user_agent_browser_dist_es/* defaultUserAgent */.m)({ serviceId: clientSharedValues.serviceId, clientVersion: package_namespaceObject.rE }),
+            (0,util_user_agent_browser_dist_es/* createDefaultUserAgentProvider */.p)({ serviceId: clientSharedValues.serviceId, clientVersion: package_namespaceObject.rE }),
         maxAttempts: config?.maxAttempts ?? util_retry_dist_es/* DEFAULT_MAX_ATTEMPTS */.Gz,
         region: config?.region ?? (0,invalidProvider/* invalidProvider */.B)("Region is missing"),
         requestHandler: fetch_http_handler_dist_es/* FetchHttpHandler */.NC.create(config?.requestHandler ?? defaultConfigProvider),
@@ -20160,22 +22455,10 @@ const resolveHttpAuthRuntimeConfig = (config) => {
 
 
 
-const asPartial = (t) => t;
 const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
-    const extensionConfiguration = {
-        ...asPartial((0,region_config_resolver_dist_es/* getAwsRegionExtensionConfiguration */.Rq)(runtimeConfig)),
-        ...asPartial((0,smithy_client_dist_es/* getDefaultExtensionConfiguration */.xA)(runtimeConfig)),
-        ...asPartial((0,protocol_http_dist_es/* getHttpHandlerExtensionConfiguration */.eS)(runtimeConfig)),
-        ...asPartial(getHttpAuthExtensionConfiguration(runtimeConfig)),
-    };
+    const extensionConfiguration = Object.assign((0,region_config_resolver_dist_es/* getAwsRegionExtensionConfiguration */.Rq)(runtimeConfig), (0,smithy_client_dist_es/* getDefaultExtensionConfiguration */.xA)(runtimeConfig), (0,protocol_http_dist_es/* getHttpHandlerExtensionConfiguration */.eS)(runtimeConfig), getHttpAuthExtensionConfiguration(runtimeConfig));
     extensions.forEach((extension) => extension.configure(extensionConfiguration));
-    return {
-        ...runtimeConfig,
-        ...(0,region_config_resolver_dist_es/* resolveAwsRegionExtensionConfiguration */.$3)(extensionConfiguration),
-        ...(0,smithy_client_dist_es/* resolveDefaultRuntimeConfig */.uv)(extensionConfiguration),
-        ...(0,protocol_http_dist_es/* resolveHttpHandlerRuntimeConfig */.jt)(extensionConfiguration),
-        ...resolveHttpAuthRuntimeConfig(extensionConfiguration),
-    };
+    return Object.assign(runtimeConfig, (0,region_config_resolver_dist_es/* resolveAwsRegionExtensionConfiguration */.$3)(extensionConfiguration), (0,smithy_client_dist_es/* resolveDefaultRuntimeConfig */.uv)(extensionConfiguration), (0,protocol_http_dist_es/* resolveHttpHandlerRuntimeConfig */.jt)(extensionConfiguration), resolveHttpAuthRuntimeConfig(extensionConfiguration));
 };
 
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/QConnectClient.js
@@ -20195,8 +22478,11 @@ const resolveRuntimeExtensions = (runtimeConfig, extensions) => {
 
 
 class QConnectClient extends smithy_client_dist_es/* Client */.Kj {
+    config;
     constructor(...[configuration]) {
         const _config_0 = runtimeConfig_browser_getRuntimeConfig(configuration || {});
+        super(_config_0);
+        this.initConfig = _config_0;
         const _config_1 = resolveClientEndpointParameters(_config_0);
         const _config_2 = (0,middleware_user_agent_dist_es/* resolveUserAgentConfig */.Dc)(_config_1);
         const _config_3 = (0,middleware_retry_dist_es/* resolveRetryConfig */.$z)(_config_2);
@@ -20205,7 +22491,6 @@ class QConnectClient extends smithy_client_dist_es/* Client */.Kj {
         const _config_6 = (0,middleware_endpoint_dist_es/* resolveEndpointConfig */.Co)(_config_5);
         const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
         const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-        super(_config_8);
         this.config = _config_8;
         this.middlewareStack.use((0,middleware_user_agent_dist_es/* getUserAgentPlugin */.sM)(this.config));
         this.middlewareStack.use((0,middleware_retry_dist_es/* getRetryPlugin */.ey)(this.config));
@@ -20248,27 +22533,66 @@ class QConnectServiceException extends smithy_client_dist_es/* ServiceException 
 
 
 class AccessDeniedException extends QConnectServiceException {
+    name = "AccessDeniedException";
+    $fault = "client";
     constructor(opts) {
         super({
             name: "AccessDeniedException",
             $fault: "client",
             ...opts,
         });
-        this.name = "AccessDeniedException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, AccessDeniedException.prototype);
     }
 }
 class ConflictException extends QConnectServiceException {
+    name = "ConflictException";
+    $fault = "client";
     constructor(opts) {
         super({
             name: "ConflictException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ConflictException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ConflictException.prototype);
+    }
+}
+class ResourceNotFoundException extends QConnectServiceException {
+    name = "ResourceNotFoundException";
+    $fault = "client";
+    resourceName;
+    constructor(opts) {
+        super({
+            name: "ResourceNotFoundException",
+            $fault: "client",
+            ...opts,
+        });
+        Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+        this.resourceName = opts.resourceName;
+    }
+}
+class ThrottlingException extends QConnectServiceException {
+    name = "ThrottlingException";
+    $fault = "client";
+    $retryable = {};
+    constructor(opts) {
+        super({
+            name: "ThrottlingException",
+            $fault: "client",
+            ...opts,
+        });
+        Object.setPrototypeOf(this, ThrottlingException.prototype);
+    }
+}
+class ValidationException extends QConnectServiceException {
+    name = "ValidationException";
+    $fault = "client";
+    constructor(opts) {
+        super({
+            name: "ValidationException",
+            $fault: "client",
+            ...opts,
+        });
+        Object.setPrototypeOf(this, ValidationException.prototype);
     }
 }
 var OrCondition;
@@ -20315,12 +22639,15 @@ var AIAgentConfiguration;
             return visitor.manualSearchAIAgentConfiguration(value.manualSearchAIAgentConfiguration);
         if (value.answerRecommendationAIAgentConfiguration !== undefined)
             return visitor.answerRecommendationAIAgentConfiguration(value.answerRecommendationAIAgentConfiguration);
+        if (value.selfServiceAIAgentConfiguration !== undefined)
+            return visitor.selfServiceAIAgentConfiguration(value.selfServiceAIAgentConfiguration);
         return visitor._(value.$unknown[0], value.$unknown[1]);
     };
 })(AIAgentConfiguration || (AIAgentConfiguration = {}));
 const AIAgentType = {
     ANSWER_RECOMMENDATION: "ANSWER_RECOMMENDATION",
     MANUAL_SEARCH: "MANUAL_SEARCH",
+    SELF_SERVICE: "SELF_SERVICE",
 };
 const VisibilityStatus = {
     PUBLISHED: "PUBLISHED",
@@ -20338,59 +22665,84 @@ const Status = {
     DELETE_FAILED: "DELETE_FAILED",
     DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
 };
-class ResourceNotFoundException extends QConnectServiceException {
-    constructor(opts) {
-        super({
-            name: "ResourceNotFoundException",
-            $fault: "client",
-            ...opts,
-        });
-        this.name = "ResourceNotFoundException";
-        this.$fault = "client";
-        Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-        this.resourceName = opts.resourceName;
-    }
-}
 class ServiceQuotaExceededException extends QConnectServiceException {
+    name = "ServiceQuotaExceededException";
+    $fault = "client";
     constructor(opts) {
         super({
             name: "ServiceQuotaExceededException",
             $fault: "client",
             ...opts,
         });
-        this.name = "ServiceQuotaExceededException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     }
 }
-class ThrottlingException extends QConnectServiceException {
-    constructor(opts) {
-        super({
-            name: "ThrottlingException",
-            $fault: "client",
-            ...opts,
-        });
-        this.name = "ThrottlingException";
-        this.$fault = "client";
-        this.$retryable = {};
-        Object.setPrototypeOf(this, ThrottlingException.prototype);
-    }
-}
-class ValidationException extends QConnectServiceException {
-    constructor(opts) {
-        super({
-            name: "ValidationException",
-            $fault: "client",
-            ...opts,
-        });
-        this.name = "ValidationException";
-        this.$fault = "client";
-        Object.setPrototypeOf(this, ValidationException.prototype);
-    }
-}
+const GuardrailFilterStrength = {
+    HIGH: "HIGH",
+    LOW: "LOW",
+    MEDIUM: "MEDIUM",
+    NONE: "NONE",
+};
+const GuardrailContentFilterType = {
+    HATE: "HATE",
+    INSULTS: "INSULTS",
+    MISCONDUCT: "MISCONDUCT",
+    PROMPT_ATTACK: "PROMPT_ATTACK",
+    SEXUAL: "SEXUAL",
+    VIOLENCE: "VIOLENCE",
+};
+const GuardrailContextualGroundingFilterType = {
+    GROUNDING: "GROUNDING",
+    RELEVANCE: "RELEVANCE",
+};
+const GuardrailSensitiveInformationAction = {
+    ANONYMIZE: "ANONYMIZE",
+    BLOCK: "BLOCK",
+};
+const GuardrailPiiEntityType = {
+    ADDRESS: "ADDRESS",
+    AGE: "AGE",
+    AWS_ACCESS_KEY: "AWS_ACCESS_KEY",
+    AWS_SECRET_KEY: "AWS_SECRET_KEY",
+    CA_HEALTH_NUMBER: "CA_HEALTH_NUMBER",
+    CA_SOCIAL_INSURANCE_NUMBER: "CA_SOCIAL_INSURANCE_NUMBER",
+    CREDIT_DEBIT_CARD_CVV: "CREDIT_DEBIT_CARD_CVV",
+    CREDIT_DEBIT_CARD_EXPIRY: "CREDIT_DEBIT_CARD_EXPIRY",
+    CREDIT_DEBIT_CARD_NUMBER: "CREDIT_DEBIT_CARD_NUMBER",
+    DRIVER_ID: "DRIVER_ID",
+    EMAIL: "EMAIL",
+    INTERNATIONAL_BANK_ACCOUNT_NUMBER: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+    IP_ADDRESS: "IP_ADDRESS",
+    LICENSE_PLATE: "LICENSE_PLATE",
+    MAC_ADDRESS: "MAC_ADDRESS",
+    NAME: "NAME",
+    PASSWORD: "PASSWORD",
+    PHONE: "PHONE",
+    PIN: "PIN",
+    SWIFT_CODE: "SWIFT_CODE",
+    UK_NATIONAL_HEALTH_SERVICE_NUMBER: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+    UK_NATIONAL_INSURANCE_NUMBER: "UK_NATIONAL_INSURANCE_NUMBER",
+    UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+    URL: "URL",
+    USERNAME: "USERNAME",
+    US_BANK_ACCOUNT_NUMBER: "US_BANK_ACCOUNT_NUMBER",
+    US_BANK_ROUTING_NUMBER: "US_BANK_ROUTING_NUMBER",
+    US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+    US_PASSPORT_NUMBER: "US_PASSPORT_NUMBER",
+    US_SOCIAL_SECURITY_NUMBER: "US_SOCIAL_SECURITY_NUMBER",
+    VEHICLE_IDENTIFICATION_NUMBER: "VEHICLE_IDENTIFICATION_NUMBER",
+};
+const GuardrailTopicType = {
+    DENY: "DENY",
+};
+const GuardrailManagedWordsType = {
+    PROFANITY: "PROFANITY",
+};
 const AIPromptAPIFormat = {
     ANTHROPIC_CLAUDE_MESSAGES: "ANTHROPIC_CLAUDE_MESSAGES",
     ANTHROPIC_CLAUDE_TEXT_COMPLETIONS: "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS",
+    MESSAGES: "MESSAGES",
+    TEXT_COMPLETIONS: "TEXT_COMPLETIONS",
 };
 var AIPromptTemplateConfiguration;
 (function (AIPromptTemplateConfiguration) {
@@ -20407,6 +22759,8 @@ const AIPromptType = {
     ANSWER_GENERATION: "ANSWER_GENERATION",
     INTENT_LABELING_GENERATION: "INTENT_LABELING_GENERATION",
     QUERY_REFORMULATION: "QUERY_REFORMULATION",
+    SELF_SERVICE_ANSWER_GENERATION: "SELF_SERVICE_ANSWER_GENERATION",
+    SELF_SERVICE_PRE_PROCESSING: "SELF_SERVICE_PRE_PROCESSING",
 };
 var AssistantAssociationInputData;
 (function (AssistantAssociationInputData) {
@@ -20465,9 +22819,13 @@ var DataReference;
     };
 })(DataReference || (DataReference = {}));
 const RecommendationType = {
+    BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
+    BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
     DETECTED_INTENT: "DETECTED_INTENT",
     GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
+    GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
     GENERATIVE_RESPONSE: "GENERATIVE_RESPONSE",
+    INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
     KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
 };
 var RecommendationTriggerData;
@@ -20528,20 +22886,24 @@ var QueryInputData;
     };
 })(QueryInputData || (QueryInputData = {}));
 const QueryResultType = {
+    BLOCKED_GENERATIVE_ANSWER_CHUNK: "BLOCKED_GENERATIVE_ANSWER_CHUNK",
+    BLOCKED_INTENT_ANSWER_CHUNK: "BLOCKED_INTENT_ANSWER_CHUNK",
     GENERATIVE_ANSWER: "GENERATIVE_ANSWER",
+    GENERATIVE_ANSWER_CHUNK: "GENERATIVE_ANSWER_CHUNK",
     INTENT_ANSWER: "INTENT_ANSWER",
+    INTENT_ANSWER_CHUNK: "INTENT_ANSWER_CHUNK",
     KNOWLEDGE_CONTENT: "KNOWLEDGE_CONTENT",
 };
 class RequestTimeoutException extends QConnectServiceException {
+    name = "RequestTimeoutException";
+    $fault = "client";
+    $retryable = {};
     constructor(opts) {
         super({
             name: "RequestTimeoutException",
             $fault: "client",
             ...opts,
         });
-        this.name = "RequestTimeoutException";
-        this.$fault = "client";
-        this.$retryable = {};
         Object.setPrototypeOf(this, RequestTimeoutException.prototype);
     }
 }
@@ -20559,8 +22921,38 @@ var RuntimeSessionDataValue;
         return visitor._(value.$unknown[0], value.$unknown[1]);
     };
 })(RuntimeSessionDataValue || (RuntimeSessionDataValue = {}));
+const ConversationStatusReason = {
+    FAILED: "FAILED",
+    REJECTED: "REJECTED",
+    SUCCESS: "SUCCESS",
+};
+const ConversationStatus = {
+    CLOSED: "CLOSED",
+    PROCESSING: "PROCESSING",
+    READY: "READY",
+};
+const Participant = {
+    AGENT: "AGENT",
+    BOT: "BOT",
+    CUSTOMER: "CUSTOMER",
+};
+var MessageData;
+(function (MessageData) {
+    MessageData.visit = (value, visitor) => {
+        if (value.text !== undefined)
+            return visitor.text(value.text);
+        return visitor._(value.$unknown[0], value.$unknown[1]);
+    };
+})(MessageData || (MessageData = {}));
+const MessageType = {
+    TEXT: "TEXT",
+};
 const SessionDataNamespace = {
     Custom: "Custom",
+};
+const ChannelSubtype = {
+    EMAIL: "EMAIL",
+    SMS: "SMS",
 };
 const ChunkingStrategy = {
     FIXED_SIZE: "FIXED_SIZE",
@@ -20597,17 +22989,20 @@ const ContentStatus = {
     UPDATE_FAILED: "UPDATE_FAILED",
 };
 class PreconditionFailedException extends QConnectServiceException {
+    name = "PreconditionFailedException";
+    $fault = "client";
     constructor(opts) {
         super({
             name: "PreconditionFailedException",
             $fault: "client",
             ...opts,
         });
-        this.name = "PreconditionFailedException";
-        this.$fault = "client";
         Object.setPrototypeOf(this, PreconditionFailedException.prototype);
     }
 }
+const ContentDisposition = {
+    ATTACHMENT: "ATTACHMENT",
+};
 const KnowledgeBaseType = {
     CUSTOM: "CUSTOM",
     EXTERNAL: "EXTERNAL",
@@ -20654,90 +23049,206 @@ const KnowledgeBaseStatus = {
     DELETE_FAILED: "DELETE_FAILED",
     DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
 };
-var QuickResponseDataProvider;
-(function (QuickResponseDataProvider) {
-    QuickResponseDataProvider.visit = (value, visitor) => {
+var MessageTemplateBodyContentProvider;
+(function (MessageTemplateBodyContentProvider) {
+    MessageTemplateBodyContentProvider.visit = (value, visitor) => {
         if (value.content !== undefined)
             return visitor.content(value.content);
         return visitor._(value.$unknown[0], value.$unknown[1]);
     };
-})(QuickResponseDataProvider || (QuickResponseDataProvider = {}));
-var QuickResponseContentProvider;
-(function (QuickResponseContentProvider) {
-    QuickResponseContentProvider.visit = (value, visitor) => {
-        if (value.content !== undefined)
-            return visitor.content(value.content);
+})(MessageTemplateBodyContentProvider || (MessageTemplateBodyContentProvider = {}));
+var MessageTemplateContentProvider;
+(function (MessageTemplateContentProvider) {
+    MessageTemplateContentProvider.visit = (value, visitor) => {
+        if (value.email !== undefined)
+            return visitor.email(value.email);
+        if (value.sms !== undefined)
+            return visitor.sms(value.sms);
         return visitor._(value.$unknown[0], value.$unknown[1]);
     };
-})(QuickResponseContentProvider || (QuickResponseContentProvider = {}));
-const QuickResponseStatus = {
-    CREATED: "CREATED",
-    CREATE_FAILED: "CREATE_FAILED",
-    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
-    DELETED: "DELETED",
-    DELETE_FAILED: "DELETE_FAILED",
-    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-    UPDATE_FAILED: "UPDATE_FAILED",
-    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+})(MessageTemplateContentProvider || (MessageTemplateContentProvider = {}));
+const MessageTemplateAttributeType = {
+    AGENT: "AGENT",
+    CUSTOM: "CUSTOM",
+    CUSTOMER_PROFILE: "CUSTOMER_PROFILE",
+    SYSTEM: "SYSTEM",
 };
-const ExternalSource = {
-    AMAZON_CONNECT: "AMAZON_CONNECT",
-};
-const ImportJobType = {
-    QUICK_RESPONSES: "QUICK_RESPONSES",
-};
-const ImportJobStatus = {
-    COMPLETE: "COMPLETE",
-    DELETED: "DELETED",
-    DELETE_FAILED: "DELETE_FAILED",
-    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
-    FAILED: "FAILED",
-    START_IN_PROGRESS: "START_IN_PROGRESS",
-};
-const QuickResponseFilterOperator = {
-    EQUALS: "EQUALS",
-    PREFIX: "PREFIX",
-};
-const Order = {
-    ASC: "ASC",
-    DESC: "DESC",
-};
-const QuickResponseQueryOperator = {
-    CONTAINS: "CONTAINS",
-    CONTAINS_AND_PREFIX: "CONTAINS_AND_PREFIX",
-};
-const Priority = {
-    HIGH: "HIGH",
-    LOW: "LOW",
-    MEDIUM: "MEDIUM",
-};
-class TooManyTagsException extends QConnectServiceException {
-    constructor(opts) {
-        super({
-            name: "TooManyTagsException",
-            $fault: "client",
-            ...opts,
-        });
-        this.name = "TooManyTagsException";
-        this.$fault = "client";
-        Object.setPrototypeOf(this, TooManyTagsException.prototype);
-        this.resourceName = opts.resourceName;
-    }
-}
-var DataDetails;
-(function (DataDetails) {
-    DataDetails.visit = (value, visitor) => {
-        if (value.contentData !== undefined)
-            return visitor.contentData(value.contentData);
-        if (value.generativeData !== undefined)
-            return visitor.generativeData(value.generativeData);
-        if (value.intentDetectedData !== undefined)
-            return visitor.intentDetectedData(value.intentDetectedData);
-        if (value.sourceContentData !== undefined)
-            return visitor.sourceContentData(value.sourceContentData);
-        return visitor._(value.$unknown[0], value.$unknown[1]);
-    };
-})(DataDetails || (DataDetails = {}));
+const AgentAttributesFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.firstName && { firstName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.lastName && { lastName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const GuardrailContentFilterConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.type && { type: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.inputStrength && { inputStrength: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.outputStrength && { outputStrength: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const AIGuardrailContentPolicyConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.filtersConfig && {
+        filtersConfig: obj.filtersConfig.map((item) => GuardrailContentFilterConfigFilterSensitiveLog(item)),
+    }),
+});
+const GuardrailContextualGroundingFilterConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.type && { type: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.threshold && { threshold: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.filtersConfig && {
+        filtersConfig: obj.filtersConfig.map((item) => GuardrailContextualGroundingFilterConfigFilterSensitiveLog(item)),
+    }),
+});
+const GuardrailPiiEntityConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.type && { type: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.action && { action: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const GuardrailRegexConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.name && { name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.description && { description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.pattern && { pattern: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.action && { action: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.piiEntitiesConfig && {
+        piiEntitiesConfig: obj.piiEntitiesConfig.map((item) => GuardrailPiiEntityConfigFilterSensitiveLog(item)),
+    }),
+    ...(obj.regexesConfig && {
+        regexesConfig: obj.regexesConfig.map((item) => GuardrailRegexConfigFilterSensitiveLog(item)),
+    }),
+});
+const GuardrailTopicConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.name && { name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.definition && { definition: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.examples && { examples: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.type && { type: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const AIGuardrailTopicPolicyConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.topicsConfig && {
+        topicsConfig: obj.topicsConfig.map((item) => GuardrailTopicConfigFilterSensitiveLog(item)),
+    }),
+});
+const GuardrailManagedWordsConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.type && { type: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const GuardrailWordConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.text && { text: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const AIGuardrailWordPolicyConfigFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.wordsConfig && { wordsConfig: obj.wordsConfig.map((item) => GuardrailWordConfigFilterSensitiveLog(item)) }),
+    ...(obj.managedWordListsConfig && {
+        managedWordListsConfig: obj.managedWordListsConfig.map((item) => GuardrailManagedWordsConfigFilterSensitiveLog(item)),
+    }),
+});
+const CreateAIGuardrailRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.blockedInputMessaging && { blockedInputMessaging: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.description && { description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.topicPolicyConfig && {
+        topicPolicyConfig: AIGuardrailTopicPolicyConfigFilterSensitiveLog(obj.topicPolicyConfig),
+    }),
+    ...(obj.contentPolicyConfig && {
+        contentPolicyConfig: AIGuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
+    }),
+    ...(obj.wordPolicyConfig && {
+        wordPolicyConfig: AIGuardrailWordPolicyConfigFilterSensitiveLog(obj.wordPolicyConfig),
+    }),
+    ...(obj.sensitiveInformationPolicyConfig && {
+        sensitiveInformationPolicyConfig: AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog(obj.sensitiveInformationPolicyConfig),
+    }),
+    ...(obj.contextualGroundingPolicyConfig && {
+        contextualGroundingPolicyConfig: AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog(obj.contextualGroundingPolicyConfig),
+    }),
+});
+const AIGuardrailDataFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.blockedInputMessaging && { blockedInputMessaging: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.description && { description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.topicPolicyConfig && {
+        topicPolicyConfig: AIGuardrailTopicPolicyConfigFilterSensitiveLog(obj.topicPolicyConfig),
+    }),
+    ...(obj.contentPolicyConfig && {
+        contentPolicyConfig: AIGuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
+    }),
+    ...(obj.wordPolicyConfig && {
+        wordPolicyConfig: AIGuardrailWordPolicyConfigFilterSensitiveLog(obj.wordPolicyConfig),
+    }),
+    ...(obj.sensitiveInformationPolicyConfig && {
+        sensitiveInformationPolicyConfig: AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog(obj.sensitiveInformationPolicyConfig),
+    }),
+    ...(obj.contextualGroundingPolicyConfig && {
+        contextualGroundingPolicyConfig: AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog(obj.contextualGroundingPolicyConfig),
+    }),
+});
+const CreateAIGuardrailResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.aiGuardrail && { aiGuardrail: AIGuardrailDataFilterSensitiveLog(obj.aiGuardrail) }),
+});
+const CreateAIGuardrailVersionResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.aiGuardrail && { aiGuardrail: AIGuardrailDataFilterSensitiveLog(obj.aiGuardrail) }),
+});
+const GetAIGuardrailResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.aiGuardrail && { aiGuardrail: AIGuardrailDataFilterSensitiveLog(obj.aiGuardrail) }),
+});
+const AIGuardrailSummaryFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.description && { description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const ListAIGuardrailsResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.aiGuardrailSummaries && {
+        aiGuardrailSummaries: obj.aiGuardrailSummaries.map((item) => AIGuardrailSummaryFilterSensitiveLog(item)),
+    }),
+});
+const AIGuardrailVersionSummaryFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.aiGuardrailSummary && { aiGuardrailSummary: AIGuardrailSummaryFilterSensitiveLog(obj.aiGuardrailSummary) }),
+});
+const ListAIGuardrailVersionsResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.aiGuardrailVersionSummaries && {
+        aiGuardrailVersionSummaries: obj.aiGuardrailVersionSummaries.map((item) => AIGuardrailVersionSummaryFilterSensitiveLog(item)),
+    }),
+});
+const UpdateAIGuardrailRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.blockedInputMessaging && { blockedInputMessaging: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.blockedOutputsMessaging && { blockedOutputsMessaging: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.description && { description: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.topicPolicyConfig && {
+        topicPolicyConfig: AIGuardrailTopicPolicyConfigFilterSensitiveLog(obj.topicPolicyConfig),
+    }),
+    ...(obj.contentPolicyConfig && {
+        contentPolicyConfig: AIGuardrailContentPolicyConfigFilterSensitiveLog(obj.contentPolicyConfig),
+    }),
+    ...(obj.wordPolicyConfig && {
+        wordPolicyConfig: AIGuardrailWordPolicyConfigFilterSensitiveLog(obj.wordPolicyConfig),
+    }),
+    ...(obj.sensitiveInformationPolicyConfig && {
+        sensitiveInformationPolicyConfig: AIGuardrailSensitiveInformationPolicyConfigFilterSensitiveLog(obj.sensitiveInformationPolicyConfig),
+    }),
+    ...(obj.contextualGroundingPolicyConfig && {
+        contextualGroundingPolicyConfig: AIGuardrailContextualGroundingPolicyConfigFilterSensitiveLog(obj.contextualGroundingPolicyConfig),
+    }),
+});
+const UpdateAIGuardrailResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.aiGuardrail && { aiGuardrail: AIGuardrailDataFilterSensitiveLog(obj.aiGuardrail) }),
+});
 const TextFullAIPromptEditTemplateConfigurationFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.text && { text: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
@@ -20853,6 +23364,53 @@ const RuntimeSessionDataFilterSensitiveLog = (obj) => ({
     ...(obj.key && { key: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
     ...(obj.value && { value: RuntimeSessionDataValueFilterSensitiveLog(obj.value) }),
 });
+const TextMessageFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.value && { value: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const MessageDataFilterSensitiveLog = (obj) => {
+    if (obj.text !== undefined)
+        return { text: TextMessageFilterSensitiveLog(obj.text) };
+    if (obj.$unknown !== undefined)
+        return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+const MessageOutputFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.value && { value: MessageDataFilterSensitiveLog(obj.value) }),
+});
+const GetNextMessageResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.response && { response: MessageOutputFilterSensitiveLog(obj.response) }),
+    ...(obj.conversationSessionData && {
+        conversationSessionData: obj.conversationSessionData.map((item) => RuntimeSessionDataFilterSensitiveLog(item)),
+    }),
+});
+const ListMessagesResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.messages && { messages: obj.messages.map((item) => MessageOutputFilterSensitiveLog(item)) }),
+});
+const SelfServiceConversationHistoryFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.inputTranscript && { inputTranscript: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.botResponse && { botResponse: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const ConversationContextFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.selfServiceConversationHistory && {
+        selfServiceConversationHistory: obj.selfServiceConversationHistory.map((item) => SelfServiceConversationHistoryFilterSensitiveLog(item)),
+    }),
+});
+const MessageInputFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.value && { value: MessageDataFilterSensitiveLog(obj.value) }),
+});
+const SendMessageRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.message && { message: MessageInputFilterSensitiveLog(obj.message) }),
+    ...(obj.conversationContext && {
+        conversationContext: ConversationContextFilterSensitiveLog(obj.conversationContext),
+    }),
+});
 const UpdateSessionDataRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.data && { data: obj.data.map((item) => RuntimeSessionDataFilterSensitiveLog(item)) }),
@@ -20912,17 +23470,289 @@ const CreateKnowledgeBaseResponseFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
 });
+const MessageTemplateBodyContentProviderFilterSensitiveLog = (obj) => {
+    if (obj.content !== undefined)
+        return { content: smithy_client_dist_es/* SENSITIVE_STRING */.$H };
+    if (obj.$unknown !== undefined)
+        return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+const EmailMessageTemplateContentBodyFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.plainText && { plainText: MessageTemplateBodyContentProviderFilterSensitiveLog(obj.plainText) }),
+    ...(obj.html && { html: MessageTemplateBodyContentProviderFilterSensitiveLog(obj.html) }),
+});
+const EmailHeaderFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.value && { value: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const EmailMessageTemplateContentFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.subject && { subject: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.body && { body: EmailMessageTemplateContentBodyFilterSensitiveLog(obj.body) }),
+    ...(obj.headers && { headers: obj.headers.map((item) => EmailHeaderFilterSensitiveLog(item)) }),
+});
+const SMSMessageTemplateContentBodyFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.plainText && { plainText: MessageTemplateBodyContentProviderFilterSensitiveLog(obj.plainText) }),
+});
+const SMSMessageTemplateContentFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.body && { body: SMSMessageTemplateContentBodyFilterSensitiveLog(obj.body) }),
+});
+const MessageTemplateContentProviderFilterSensitiveLog = (obj) => {
+    if (obj.email !== undefined)
+        return { email: EmailMessageTemplateContentFilterSensitiveLog(obj.email) };
+    if (obj.sms !== undefined)
+        return { sms: SMSMessageTemplateContentFilterSensitiveLog(obj.sms) };
+    if (obj.$unknown !== undefined)
+        return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+const CustomerProfileAttributesFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.profileId && { profileId: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.profileARN && { profileARN: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.firstName && { firstName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.middleName && { middleName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.lastName && { lastName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.accountNumber && { accountNumber: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.emailAddress && { emailAddress: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.phoneNumber && { phoneNumber: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.additionalInformation && { additionalInformation: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.partyType && { partyType: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.businessName && { businessName: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.birthDate && { birthDate: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.gender && { gender: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mobilePhoneNumber && { mobilePhoneNumber: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.homePhoneNumber && { homePhoneNumber: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.businessPhoneNumber && { businessPhoneNumber: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.businessEmailAddress && { businessEmailAddress: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.address1 && { address1: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.address2 && { address2: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.address3 && { address3: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.address4 && { address4: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.city && { city: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.county && { county: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.country && { country: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.postalCode && { postalCode: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.province && { province: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.state && { state: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingAddress1 && { shippingAddress1: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingAddress2 && { shippingAddress2: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingAddress3 && { shippingAddress3: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingAddress4 && { shippingAddress4: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingCity && { shippingCity: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingCounty && { shippingCounty: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingCountry && { shippingCountry: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingPostalCode && { shippingPostalCode: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingProvince && { shippingProvince: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.shippingState && { shippingState: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingAddress1 && { mailingAddress1: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingAddress2 && { mailingAddress2: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingAddress3 && { mailingAddress3: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingAddress4 && { mailingAddress4: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingCity && { mailingCity: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingCounty && { mailingCounty: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingCountry && { mailingCountry: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingPostalCode && { mailingPostalCode: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingProvince && { mailingProvince: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.mailingState && { mailingState: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingAddress1 && { billingAddress1: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingAddress2 && { billingAddress2: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingAddress3 && { billingAddress3: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingAddress4 && { billingAddress4: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingCity && { billingCity: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingCounty && { billingCounty: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingCountry && { billingCountry: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingPostalCode && { billingPostalCode: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingProvince && { billingProvince: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.billingState && { billingState: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.custom && { custom: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const SystemEndpointAttributesFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.address && { address: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const SystemAttributesFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.name && { name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.customerEndpoint && { customerEndpoint: SystemEndpointAttributesFilterSensitiveLog(obj.customerEndpoint) }),
+    ...(obj.systemEndpoint && { systemEndpoint: SystemEndpointAttributesFilterSensitiveLog(obj.systemEndpoint) }),
+});
+const MessageTemplateAttributesFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.systemAttributes && { systemAttributes: SystemAttributesFilterSensitiveLog(obj.systemAttributes) }),
+    ...(obj.agentAttributes && { agentAttributes: AgentAttributesFilterSensitiveLog(obj.agentAttributes) }),
+    ...(obj.customerProfileAttributes && {
+        customerProfileAttributes: CustomerProfileAttributesFilterSensitiveLog(obj.customerProfileAttributes),
+    }),
+    ...(obj.customAttributes && { customAttributes: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const GroupingConfigurationFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.criteria && { criteria: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.values && { values: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const CreateMessageTemplateRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+    ...(obj.defaultAttributes && {
+        defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+    }),
+    ...(obj.groupingConfiguration && {
+        groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+    }),
+});
+const MessageTemplateDataFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+    ...(obj.groupingConfiguration && {
+        groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+    }),
+    ...(obj.defaultAttributes && {
+        defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+    }),
+});
+const CreateMessageTemplateResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+const CreateMessageTemplateAttachmentRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.name && { name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.body && { body: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const MessageTemplateAttachmentFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.name && { name: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.url && { url: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+});
+const CreateMessageTemplateAttachmentResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.attachment && { attachment: MessageTemplateAttachmentFilterSensitiveLog(obj.attachment) }),
+});
+const ExtendedMessageTemplateDataFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+    ...(obj.groupingConfiguration && {
+        groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+    }),
+    ...(obj.defaultAttributes && {
+        defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+    }),
+    ...(obj.attachments && {
+        attachments: obj.attachments.map((item) => MessageTemplateAttachmentFilterSensitiveLog(item)),
+    }),
+});
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/models/models_1.js
+
+
+
+var QuickResponseDataProvider;
+(function (QuickResponseDataProvider) {
+    QuickResponseDataProvider.visit = (value, visitor) => {
+        if (value.content !== undefined)
+            return visitor.content(value.content);
+        return visitor._(value.$unknown[0], value.$unknown[1]);
+    };
+})(QuickResponseDataProvider || (QuickResponseDataProvider = {}));
+var QuickResponseContentProvider;
+(function (QuickResponseContentProvider) {
+    QuickResponseContentProvider.visit = (value, visitor) => {
+        if (value.content !== undefined)
+            return visitor.content(value.content);
+        return visitor._(value.$unknown[0], value.$unknown[1]);
+    };
+})(QuickResponseContentProvider || (QuickResponseContentProvider = {}));
+const QuickResponseStatus = {
+    CREATED: "CREATED",
+    CREATE_FAILED: "CREATE_FAILED",
+    CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+    DELETED: "DELETED",
+    DELETE_FAILED: "DELETE_FAILED",
+    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+    UPDATE_FAILED: "UPDATE_FAILED",
+    UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+};
+const ExternalSource = {
+    AMAZON_CONNECT: "AMAZON_CONNECT",
+};
+const ImportJobType = {
+    QUICK_RESPONSES: "QUICK_RESPONSES",
+};
+const ImportJobStatus = {
+    COMPLETE: "COMPLETE",
+    DELETED: "DELETED",
+    DELETE_FAILED: "DELETE_FAILED",
+    DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+    FAILED: "FAILED",
+    START_IN_PROGRESS: "START_IN_PROGRESS",
+};
+const MessageTemplateFilterOperator = {
+    EQUALS: "EQUALS",
+    PREFIX: "PREFIX",
+};
+const Order = {
+    ASC: "ASC",
+    DESC: "DESC",
+};
+const MessageTemplateQueryOperator = {
+    CONTAINS: "CONTAINS",
+    CONTAINS_AND_PREFIX: "CONTAINS_AND_PREFIX",
+};
+const Priority = {
+    HIGH: "HIGH",
+    LOW: "LOW",
+    MEDIUM: "MEDIUM",
+};
+const QuickResponseFilterOperator = {
+    EQUALS: "EQUALS",
+    PREFIX: "PREFIX",
+};
+const QuickResponseQueryOperator = {
+    CONTAINS: "CONTAINS",
+    CONTAINS_AND_PREFIX: "CONTAINS_AND_PREFIX",
+};
+class TooManyTagsException extends QConnectServiceException {
+    name = "TooManyTagsException";
+    $fault = "client";
+    resourceName;
+    constructor(opts) {
+        super({
+            name: "TooManyTagsException",
+            $fault: "client",
+            ...opts,
+        });
+        Object.setPrototypeOf(this, TooManyTagsException.prototype);
+        this.resourceName = opts.resourceName;
+    }
+}
+var DataDetails;
+(function (DataDetails) {
+    DataDetails.visit = (value, visitor) => {
+        if (value.contentData !== undefined)
+            return visitor.contentData(value.contentData);
+        if (value.generativeData !== undefined)
+            return visitor.generativeData(value.generativeData);
+        if (value.intentDetectedData !== undefined)
+            return visitor.intentDetectedData(value.intentDetectedData);
+        if (value.sourceContentData !== undefined)
+            return visitor.sourceContentData(value.sourceContentData);
+        if (value.generativeChunkData !== undefined)
+            return visitor.generativeChunkData(value.generativeChunkData);
+        return visitor._(value.$unknown[0], value.$unknown[1]);
+    };
+})(DataDetails || (DataDetails = {}));
+const CreateMessageTemplateVersionResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.messageTemplate && { messageTemplate: ExtendedMessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
 const QuickResponseDataProviderFilterSensitiveLog = (obj) => {
     if (obj.content !== undefined)
         return { content: smithy_client_dist_es/* SENSITIVE_STRING */.$H };
     if (obj.$unknown !== undefined)
         return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-const GroupingConfigurationFilterSensitiveLog = (obj) => ({
-    ...obj,
-    ...(obj.criteria && { criteria: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
-    ...(obj.values && { values: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
-});
 const CreateQuickResponseRequestFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.content && { content: QuickResponseDataProviderFilterSensitiveLog(obj.content) }),
@@ -20968,6 +23798,10 @@ const GetKnowledgeBaseResponseFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
 });
+const GetMessageTemplateResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.messageTemplate && { messageTemplate: ExtendedMessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
 const GetQuickResponseResponseFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
@@ -20983,6 +23817,39 @@ const ListKnowledgeBasesResponseFilterSensitiveLog = (obj) => ({
     ...(obj.knowledgeBaseSummaries && {
         knowledgeBaseSummaries: obj.knowledgeBaseSummaries.map((item) => KnowledgeBaseSummaryFilterSensitiveLog(item)),
     }),
+});
+const RenderMessageTemplateRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.attributes && { attributes: MessageTemplateAttributesFilterSensitiveLog(obj.attributes) }),
+});
+const RenderMessageTemplateResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+    ...(obj.attributesNotInterpolated && { attributesNotInterpolated: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.attachments && {
+        attachments: obj.attachments.map((item) => MessageTemplateAttachmentFilterSensitiveLog(item)),
+    }),
+});
+const UpdateMessageTemplateRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+    ...(obj.defaultAttributes && {
+        defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+    }),
+});
+const UpdateMessageTemplateResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+const UpdateMessageTemplateMetadataRequestFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.groupingConfiguration && {
+        groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+    }),
+});
+const UpdateMessageTemplateMetadataResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
 });
 const QuickResponseSummaryFilterSensitiveLog = (obj) => ({
     ...obj,
@@ -21005,6 +23872,16 @@ const UpdateQuickResponseRequestFilterSensitiveLog = (obj) => ({
 const UpdateQuickResponseResponseFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
+});
+const MessageTemplateSearchResultDataFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.groupingConfiguration && {
+        groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+    }),
+});
+const SearchMessageTemplatesResponseFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.results && { results: obj.results.map((item) => MessageTemplateSearchResultDataFilterSensitiveLog(item)) }),
 });
 const SearchQuickResponsesRequestFilterSensitiveLog = (obj) => ({
     ...obj,
@@ -21045,6 +23922,8 @@ const DataDetailsFilterSensitiveLog = (obj) => {
         return { intentDetectedData: IntentDetectedDataDetailsFilterSensitiveLog(obj.intentDetectedData) };
     if (obj.sourceContentData !== undefined)
         return { sourceContentData: SourceContentDataDetailsFilterSensitiveLog(obj.sourceContentData) };
+    if (obj.generativeChunkData !== undefined)
+        return { generativeChunkData: GenerativeChunkDataDetailsFilterSensitiveLog(obj.generativeChunkData) };
     if (obj.$unknown !== undefined)
         return { [obj.$unknown[0]]: "UNKNOWN" };
 };
@@ -21052,6 +23931,11 @@ const DataSummaryFilterSensitiveLog = (obj) => ({
     ...obj,
     ...(obj.reference && { reference: obj.reference }),
     ...(obj.details && { details: DataDetailsFilterSensitiveLog(obj.details) }),
+});
+const GenerativeChunkDataDetailsFilterSensitiveLog = (obj) => ({
+    ...obj,
+    ...(obj.completion && { completion: smithy_client_dist_es/* SENSITIVE_STRING */.$H }),
+    ...(obj.references && { references: obj.references.map((item) => DataSummaryFilterSensitiveLog(item)) }),
 });
 const GenerativeDataDetailsFilterSensitiveLog = (obj) => ({
     ...obj,
@@ -21087,6 +23971,22 @@ const QueryAssistantResponseFilterSensitiveLog = (obj) => ({
 
 
 
+
+const se_ActivateMessageTemplateCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/activate");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        versionNumber: [],
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
 const se_CreateAIAgentCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -21118,7 +24018,48 @@ const se_CreateAIAgentVersionCommand = async (input, context) => {
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
         clientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
-        modifiedTime: (_) => _.getTime() / 1000,
+        modifiedTime: (_) => _.getTime() / 1_000,
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
+const se_CreateAIGuardrailCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/assistants/{assistantId}/aiguardrails");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        blockedInputMessaging: [],
+        blockedOutputsMessaging: [],
+        clientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        contentPolicyConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        contextualGroundingPolicyConfig: (_) => se_AIGuardrailContextualGroundingPolicyConfig(_, context),
+        description: [],
+        name: [],
+        sensitiveInformationPolicyConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        tags: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        topicPolicyConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        visibilityStatus: [],
+        wordPolicyConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
+const se_CreateAIGuardrailVersionCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    b.p("aiGuardrailId", () => input.aiGuardrailId, "{aiGuardrailId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        clientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        modifiedTime: (_) => _.getTime() / 1_000,
     }));
     b.m("POST").h(headers).b(body);
     return b.build();
@@ -21157,7 +24098,7 @@ const se_CreateAIPromptVersionCommand = async (input, context) => {
     let body;
     body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
         clientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
-        modifiedTime: (_) => _.getTime() / 1000,
+        modifiedTime: (_) => _.getTime() / 1_000,
     }));
     b.m("POST").h(headers).b(body);
     return b.build();
@@ -21256,6 +24197,61 @@ const se_CreateKnowledgeBaseCommand = async (input, context) => {
     b.m("POST").h(headers).b(body);
     return b.build();
 };
+const se_CreateMessageTemplateCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        channelSubtype: [],
+        clientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        content: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        defaultAttributes: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        description: [],
+        groupingConfiguration: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        language: [],
+        name: [],
+        tags: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
+const se_CreateMessageTemplateAttachmentCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/attachments");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        body: [],
+        clientToken: [],
+        contentDisposition: [],
+        name: [],
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
+const se_CreateMessageTemplateVersionCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/versions");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        messageTemplateContentSha256: [],
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
 const se_CreateQuickResponseCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -21299,6 +24295,21 @@ const se_CreateSessionCommand = async (input, context) => {
     b.m("POST").h(headers).b(body);
     return b.build();
 };
+const se_DeactivateMessageTemplateCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/deactivate");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        versionNumber: [],
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
 const se_DeleteAIAgentCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
@@ -21315,6 +24326,27 @@ const se_DeleteAIAgentVersionCommand = async (input, context) => {
     b.bp("/assistants/{assistantId}/aiagents/{aiAgentId}/versions/{versionNumber}");
     b.p("assistantId", () => input.assistantId, "{assistantId}", false);
     b.p("aiAgentId", () => input.aiAgentId, "{aiAgentId}", false);
+    b.p("versionNumber", () => input.versionNumber.toString(), "{versionNumber}", false);
+    let body;
+    b.m("DELETE").h(headers).b(body);
+    return b.build();
+};
+const se_DeleteAIGuardrailCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    b.p("aiGuardrailId", () => input.aiGuardrailId, "{aiGuardrailId}", false);
+    let body;
+    b.m("DELETE").h(headers).b(body);
+    return b.build();
+};
+const se_DeleteAIGuardrailVersionCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions/{versionNumber}");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    b.p("aiGuardrailId", () => input.aiGuardrailId, "{aiGuardrailId}", false);
     b.p("versionNumber", () => input.versionNumber.toString(), "{versionNumber}", false);
     let body;
     b.m("DELETE").h(headers).b(body);
@@ -21400,6 +24432,27 @@ const se_DeleteKnowledgeBaseCommand = async (input, context) => {
     b.m("DELETE").h(headers).b(body);
     return b.build();
 };
+const se_DeleteMessageTemplateCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    let body;
+    b.m("DELETE").h(headers).b(body);
+    return b.build();
+};
+const se_DeleteMessageTemplateAttachmentCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/attachments/{attachmentId}");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    b.p("attachmentId", () => input.attachmentId, "{attachmentId}", false);
+    let body;
+    b.m("DELETE").h(headers).b(body);
+    return b.build();
+};
 const se_DeleteQuickResponseCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
@@ -21416,6 +24469,16 @@ const se_GetAIAgentCommand = async (input, context) => {
     b.bp("/assistants/{assistantId}/aiagents/{aiAgentId}");
     b.p("assistantId", () => input.assistantId, "{assistantId}", false);
     b.p("aiAgentId", () => input.aiAgentId, "{aiAgentId}", false);
+    let body;
+    b.m("GET").h(headers).b(body);
+    return b.build();
+};
+const se_GetAIGuardrailCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    b.p("aiGuardrailId", () => input.aiGuardrailId, "{aiGuardrailId}", false);
     let body;
     b.m("GET").h(headers).b(body);
     return b.build();
@@ -21499,6 +24562,29 @@ const se_GetKnowledgeBaseCommand = async (input, context) => {
     b.m("GET").h(headers).b(body);
     return b.build();
 };
+const se_GetMessageTemplateCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}");
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    let body;
+    b.m("GET").h(headers).b(body);
+    return b.build();
+};
+const se_GetNextMessageCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/assistants/{assistantId}/sessions/{sessionId}/messages/next");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    b.p("sessionId", () => input.sessionId, "{sessionId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_nMT]: [, (0,smithy_client_dist_es/* expectNonNull */.Y0)(input[_nMT], `nextMessageToken`)],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
 const se_GetQuickResponseCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
@@ -21518,6 +24604,7 @@ const se_GetRecommendationsCommand = async (input, context) => {
     const query = (0,smithy_client_dist_es/* map */.Tj)({
         [_mR]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
         [_wTS]: [() => input.waitTimeSeconds !== void 0, () => input[_wTS].toString()],
+        [_nCT]: [, input[_nCT]],
     });
     let body;
     b.m("GET").h(headers).q(query).b(body);
@@ -21557,6 +24644,33 @@ const se_ListAIAgentVersionsCommand = async (input, context) => {
         [_nT]: [, input[_nT]],
         [_mR]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
         [_o]: [, input[_o]],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
+const se_ListAIGuardrailsCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/assistants/{assistantId}/aiguardrails");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_nT]: [, input[_nT]],
+        [_mR]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
+const se_ListAIGuardrailVersionsCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}/versions");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    b.p("aiGuardrailId", () => input.aiGuardrailId, "{aiGuardrailId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_nT]: [, input[_nT]],
+        [_mR]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
     });
     let body;
     b.m("GET").h(headers).q(query).b(body);
@@ -21668,6 +24782,47 @@ const se_ListKnowledgeBasesCommand = async (input, context) => {
     b.m("GET").h(headers).q(query).b(body);
     return b.build();
 };
+const se_ListMessagesCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/assistants/{assistantId}/sessions/{sessionId}/messages");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    b.p("sessionId", () => input.sessionId, "{sessionId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_nT]: [, input[_nT]],
+        [_mR]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
+const se_ListMessageTemplatesCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_nT]: [, input[_nT]],
+        [_mR]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
+const se_ListMessageTemplateVersionsCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {};
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/versions");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_nT]: [, input[_nT]],
+        [_mR]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
+    });
+    let body;
+    b.m("GET").h(headers).q(query).b(body);
+    return b.build();
+};
 const se_ListQuickResponsesCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {};
@@ -21762,12 +24917,45 @@ const se_RemoveKnowledgeBaseTemplateUriCommand = async (input, context) => {
     b.m("DELETE").h(headers).b(body);
     return b.build();
 };
+const se_RenderMessageTemplateCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/render");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        attributes: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
 const se_SearchContentCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
         "content-type": "application/json",
     };
     b.bp("/knowledgeBases/{knowledgeBaseId}/search");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    const query = (0,smithy_client_dist_es/* map */.Tj)({
+        [_nT]: [, input[_nT]],
+        [_mR]: [() => input.maxResults !== void 0, () => input[_mR].toString()],
+    });
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        searchExpression: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("POST").h(headers).q(query).b(body);
+    return b.build();
+};
+const se_SearchMessageTemplatesCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/knowledgeBases/{knowledgeBaseId}/search/messageTemplates");
     b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
     const query = (0,smithy_client_dist_es/* map */.Tj)({
         [_nT]: [, input[_nT]],
@@ -21815,6 +25003,25 @@ const se_SearchSessionsCommand = async (input, context) => {
         searchExpression: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
     }));
     b.m("POST").h(headers).q(query).b(body);
+    return b.build();
+};
+const se_SendMessageCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/assistants/{assistantId}/sessions/{sessionId}/message");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    b.p("sessionId", () => input.sessionId, "{sessionId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        clientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        configuration: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        conversationContext: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        message: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        type: [],
+    }));
+    b.m("POST").h(headers).b(body);
     return b.build();
 };
 const se_StartContentUploadCommand = async (input, context) => {
@@ -21894,6 +25101,30 @@ const se_UpdateAIAgentCommand = async (input, context) => {
     b.m("POST").h(headers).b(body);
     return b.build();
 };
+const se_UpdateAIGuardrailCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/assistants/{assistantId}/aiguardrails/{aiGuardrailId}");
+    b.p("assistantId", () => input.assistantId, "{assistantId}", false);
+    b.p("aiGuardrailId", () => input.aiGuardrailId, "{aiGuardrailId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        blockedInputMessaging: [],
+        blockedOutputsMessaging: [],
+        clientToken: [true, (_) => _ ?? (0,v4/* default */.A)()],
+        contentPolicyConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        contextualGroundingPolicyConfig: (_) => se_AIGuardrailContextualGroundingPolicyConfig(_, context),
+        description: [],
+        sensitiveInformationPolicyConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        topicPolicyConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        visibilityStatus: [],
+        wordPolicyConfig: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
 const se_UpdateAIPromptCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -21961,6 +25192,40 @@ const se_UpdateKnowledgeBaseTemplateUriCommand = async (input, context) => {
     b.m("POST").h(headers).b(body);
     return b.build();
 };
+const se_UpdateMessageTemplateCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        content: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        defaultAttributes: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        language: [],
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
+const se_UpdateMessageTemplateMetadataCommand = async (input, context) => {
+    const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
+    const headers = {
+        "content-type": "application/json",
+    };
+    b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/metadata");
+    b.p("knowledgeBaseId", () => input.knowledgeBaseId, "{knowledgeBaseId}", false);
+    b.p("messageTemplateId", () => input.messageTemplateId, "{messageTemplateId}", false);
+    let body;
+    body = JSON.stringify((0,smithy_client_dist_es/* take */.s)(input, {
+        description: [],
+        groupingConfiguration: (_) => (0,smithy_client_dist_es/* _json */.Ss)(_),
+        name: [],
+    }));
+    b.m("POST").h(headers).b(body);
+    return b.build();
+};
 const se_UpdateQuickResponseCommand = async (input, context) => {
     const b = (0,core_dist_es/* requestBuilder */.lI)(input, context);
     const headers = {
@@ -22020,6 +25285,22 @@ const se_UpdateSessionDataCommand = async (input, context) => {
     b.m("PATCH").h(headers).b(body);
     return b.build();
 };
+const de_ActivateMessageTemplateCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messageTemplateArn: smithy_client_dist_es/* expectString */.lK,
+        messageTemplateId: smithy_client_dist_es/* expectString */.lK,
+        versionNumber: smithy_client_dist_es/* expectLong */.Yy,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_CreateAIAgentCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -22044,6 +25325,35 @@ const de_CreateAIAgentVersionCommand = async (output, context) => {
     const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         aiAgent: (_) => de_AIAgentData(_, context),
+        versionNumber: smithy_client_dist_es/* expectLong */.Yy,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_CreateAIGuardrailCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        aiGuardrail: (_) => de_AIGuardrailData(_, context),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_CreateAIGuardrailVersionCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        aiGuardrail: (_) => de_AIGuardrailData(_, context),
         versionNumber: smithy_client_dist_es/* expectLong */.Yy,
     });
     Object.assign(contents, doc);
@@ -22148,6 +25458,48 @@ const de_CreateKnowledgeBaseCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_CreateMessageTemplateCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messageTemplate: (_) => de_MessageTemplateData(_, context),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_CreateMessageTemplateAttachmentCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        attachment: (_) => de_MessageTemplateAttachment(_, context),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_CreateMessageTemplateVersionCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messageTemplate: (_) => de_ExtendedMessageTemplateData(_, context),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_CreateQuickResponseCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -22176,6 +25528,22 @@ const de_CreateSessionCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_DeactivateMessageTemplateCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messageTemplateArn: smithy_client_dist_es/* expectString */.lK,
+        messageTemplateId: smithy_client_dist_es/* expectString */.lK,
+        versionNumber: smithy_client_dist_es/* expectLong */.Yy,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_DeleteAIAgentCommand = async (output, context) => {
     if (output.statusCode !== 204 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -22188,6 +25556,26 @@ const de_DeleteAIAgentCommand = async (output, context) => {
 };
 const de_DeleteAIAgentVersionCommand = async (output, context) => {
     if (output.statusCode !== 204 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
+const de_DeleteAIGuardrailCommand = async (output, context) => {
+    if (output.statusCode !== 202 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
+const de_DeleteAIGuardrailVersionCommand = async (output, context) => {
+    if (output.statusCode !== 202 && output.statusCode >= 300) {
         return de_CommandError(output, context);
     }
     const contents = (0,smithy_client_dist_es/* map */.Tj)({
@@ -22276,6 +25664,26 @@ const de_DeleteKnowledgeBaseCommand = async (output, context) => {
     await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
     return contents;
 };
+const de_DeleteMessageTemplateCommand = async (output, context) => {
+    if (output.statusCode !== 204 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
+const de_DeleteMessageTemplateAttachmentCommand = async (output, context) => {
+    if (output.statusCode !== 204 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
+    return contents;
+};
 const de_DeleteQuickResponseCommand = async (output, context) => {
     if (output.statusCode !== 204 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -22296,6 +25704,21 @@ const de_GetAIAgentCommand = async (output, context) => {
     const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         aiAgent: (_) => de_AIAgentData(_, context),
+        versionNumber: smithy_client_dist_es/* expectLong */.Yy,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_GetAIGuardrailCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        aiGuardrail: (_) => de_AIGuardrailData(_, context),
         versionNumber: smithy_client_dist_es/* expectLong */.Yy,
     });
     Object.assign(contents, doc);
@@ -22414,6 +25837,39 @@ const de_GetKnowledgeBaseCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_GetMessageTemplateCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messageTemplate: (_) => de_ExtendedMessageTemplateData(_, context),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_GetNextMessageCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        conversationSessionData: smithy_client_dist_es/* _json */.Ss,
+        conversationState: smithy_client_dist_es/* _json */.Ss,
+        nextMessageToken: smithy_client_dist_es/* expectString */.lK,
+        requestMessageId: smithy_client_dist_es/* expectString */.lK,
+        response: (_) => de_MessageOutput(_, context),
+        type: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_GetQuickResponseCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -22482,6 +25938,36 @@ const de_ListAIAgentVersionsCommand = async (output, context) => {
     const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         aiAgentVersionSummaries: (_) => de_AIAgentVersionSummariesList(_, context),
+        nextToken: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_ListAIGuardrailsCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        aiGuardrailSummaries: (_) => de_AIGuardrailSummariesList(_, context),
+        nextToken: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_ListAIGuardrailVersionsCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        aiGuardrailVersionSummaries: (_) => de_AIGuardrailVersionSummariesList(_, context),
         nextToken: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
@@ -22607,6 +26093,51 @@ const de_ListKnowledgeBasesCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_ListMessagesCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messages: (_) => de_MessageList(_, context),
+        nextToken: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_ListMessageTemplatesCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messageTemplateSummaries: (_) => de_MessageTemplateSummaryList(_, context),
+        nextToken: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_ListMessageTemplateVersionsCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messageTemplateVersionSummaries: smithy_client_dist_es/* _json */.Ss,
+        nextToken: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_ListQuickResponsesCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -22704,6 +26235,22 @@ const de_RemoveKnowledgeBaseTemplateUriCommand = async (output, context) => {
     await (0,smithy_client_dist_es/* collectBody */.Px)(output.body, context);
     return contents;
 };
+const de_RenderMessageTemplateCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        attachments: (_) => de_MessageTemplateAttachmentList(_, context),
+        attributesNotInterpolated: smithy_client_dist_es/* _json */.Ss,
+        content: (_) => (0,smithy_client_dist_es/* _json */.Ss)((0,awsExpectUnion/* awsExpectUnion */.M)(_)),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_SearchContentCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -22715,6 +26262,21 @@ const de_SearchContentCommand = async (output, context) => {
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         contentSummaries: smithy_client_dist_es/* _json */.Ss,
         nextToken: smithy_client_dist_es/* expectString */.lK,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_SearchMessageTemplatesCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        nextToken: smithy_client_dist_es/* expectString */.lK,
+        results: (_) => de_MessageTemplateSearchResultsList(_, context),
     });
     Object.assign(contents, doc);
     return contents;
@@ -22745,6 +26307,22 @@ const de_SearchSessionsCommand = async (output, context) => {
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         nextToken: smithy_client_dist_es/* expectString */.lK,
         sessionSummaries: smithy_client_dist_es/* _json */.Ss,
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_SendMessageCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        configuration: smithy_client_dist_es/* _json */.Ss,
+        nextMessageToken: smithy_client_dist_es/* expectString */.lK,
+        requestMessageId: smithy_client_dist_es/* expectString */.lK,
     });
     Object.assign(contents, doc);
     return contents;
@@ -22814,6 +26392,20 @@ const de_UpdateAIAgentCommand = async (output, context) => {
     Object.assign(contents, doc);
     return contents;
 };
+const de_UpdateAIGuardrailCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        aiGuardrail: (_) => de_AIGuardrailData(_, context),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
 const de_UpdateAIPromptCommand = async (output, context) => {
     if (output.statusCode !== 200 && output.statusCode >= 300) {
         return de_CommandError(output, context);
@@ -22866,6 +26458,34 @@ const de_UpdateKnowledgeBaseTemplateUriCommand = async (output, context) => {
     const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
     const doc = (0,smithy_client_dist_es/* take */.s)(data, {
         knowledgeBase: (_) => de_KnowledgeBaseData(_, context),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_UpdateMessageTemplateCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messageTemplate: (_) => de_MessageTemplateData(_, context),
+    });
+    Object.assign(contents, doc);
+    return contents;
+};
+const de_UpdateMessageTemplateMetadataCommand = async (output, context) => {
+    if (output.statusCode !== 200 && output.statusCode >= 300) {
+        return de_CommandError(output, context);
+    }
+    const contents = (0,smithy_client_dist_es/* map */.Tj)({
+        $metadata: deserializeMetadata(output),
+    });
+    const data = (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* expectObject */.Xk)(await (0,parseJsonBody/* parseJsonBody */.Y2)(output.body, context)), "body");
+    const doc = (0,smithy_client_dist_es/* take */.s)(data, {
+        messageTemplate: (_) => de_MessageTemplateData(_, context),
     });
     Object.assign(contents, doc);
     return contents;
@@ -22931,15 +26551,15 @@ const de_CommandError = async (output, context) => {
         case "ResourceNotFoundException":
         case "com.amazonaws.qconnect#ResourceNotFoundException":
             throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-        case "ServiceQuotaExceededException":
-        case "com.amazonaws.qconnect#ServiceQuotaExceededException":
-            throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
         case "ThrottlingException":
         case "com.amazonaws.qconnect#ThrottlingException":
             throw await de_ThrottlingExceptionRes(parsedOutput, context);
         case "ValidationException":
         case "com.amazonaws.qconnect#ValidationException":
             throw await de_ValidationExceptionRes(parsedOutput, context);
+        case "ServiceQuotaExceededException":
+        case "com.amazonaws.qconnect#ServiceQuotaExceededException":
+            throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
         case "RequestTimeoutException":
         case "com.amazonaws.qconnect#RequestTimeoutException":
             throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
@@ -23082,7 +26702,26 @@ const se_AIAgentConfiguration = (input, context) => {
     return AIAgentConfiguration.visit(input, {
         answerRecommendationAIAgentConfiguration: (value) => ({ answerRecommendationAIAgentConfiguration: (0,smithy_client_dist_es/* _json */.Ss)(value) }),
         manualSearchAIAgentConfiguration: (value) => ({ manualSearchAIAgentConfiguration: (0,smithy_client_dist_es/* _json */.Ss)(value) }),
-        _: (name, value) => ({ name: value }),
+        selfServiceAIAgentConfiguration: (value) => ({ selfServiceAIAgentConfiguration: (0,smithy_client_dist_es/* _json */.Ss)(value) }),
+        _: (name, value) => ({ [name]: value }),
+    });
+};
+const se_AIGuardrailContextualGroundingPolicyConfig = (input, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(input, {
+        filtersConfig: (_) => se_GuardrailContextualGroundingFiltersConfig(_, context),
+    });
+};
+const se_GuardrailContextualGroundingFilterConfig = (input, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(input, {
+        threshold: smithy_client_dist_es/* serializeFloat */.VA,
+        type: [],
+    });
+};
+const se_GuardrailContextualGroundingFiltersConfig = (input, context) => {
+    return input
+        .filter((e) => e != null)
+        .map((entry) => {
+        return se_GuardrailContextualGroundingFilterConfig(entry, context);
     });
 };
 const de_AIAgentConfiguration = (output, context) => {
@@ -23094,6 +26733,11 @@ const de_AIAgentConfiguration = (output, context) => {
     if (output.manualSearchAIAgentConfiguration != null) {
         return {
             manualSearchAIAgentConfiguration: (0,smithy_client_dist_es/* _json */.Ss)(output.manualSearchAIAgentConfiguration),
+        };
+    }
+    if (output.selfServiceAIAgentConfiguration != null) {
+        return {
+            selfServiceAIAgentConfiguration: (0,smithy_client_dist_es/* _json */.Ss)(output.selfServiceAIAgentConfiguration),
         };
     }
     return { $unknown: Object.entries(output)[0] };
@@ -23151,6 +26795,68 @@ const de_AIAgentVersionSummariesList = (output, context) => {
 const de_AIAgentVersionSummary = (output, context) => {
     return (0,smithy_client_dist_es/* take */.s)(output, {
         aiAgentSummary: (_) => de_AIAgentSummary(_, context),
+        versionNumber: smithy_client_dist_es/* expectLong */.Yy,
+    });
+};
+const de_AIGuardrailContextualGroundingPolicyConfig = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        filtersConfig: (_) => de_GuardrailContextualGroundingFiltersConfig(_, context),
+    });
+};
+const de_AIGuardrailData = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        aiGuardrailArn: smithy_client_dist_es/* expectString */.lK,
+        aiGuardrailId: smithy_client_dist_es/* expectString */.lK,
+        assistantArn: smithy_client_dist_es/* expectString */.lK,
+        assistantId: smithy_client_dist_es/* expectString */.lK,
+        blockedInputMessaging: smithy_client_dist_es/* expectString */.lK,
+        blockedOutputsMessaging: smithy_client_dist_es/* expectString */.lK,
+        contentPolicyConfig: smithy_client_dist_es/* _json */.Ss,
+        contextualGroundingPolicyConfig: (_) => de_AIGuardrailContextualGroundingPolicyConfig(_, context),
+        description: smithy_client_dist_es/* expectString */.lK,
+        modifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        name: smithy_client_dist_es/* expectString */.lK,
+        sensitiveInformationPolicyConfig: smithy_client_dist_es/* _json */.Ss,
+        status: smithy_client_dist_es/* expectString */.lK,
+        tags: smithy_client_dist_es/* _json */.Ss,
+        topicPolicyConfig: smithy_client_dist_es/* _json */.Ss,
+        visibilityStatus: smithy_client_dist_es/* expectString */.lK,
+        wordPolicyConfig: smithy_client_dist_es/* _json */.Ss,
+    });
+};
+const de_AIGuardrailSummariesList = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_AIGuardrailSummary(entry, context);
+    });
+    return retVal;
+};
+const de_AIGuardrailSummary = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        aiGuardrailArn: smithy_client_dist_es/* expectString */.lK,
+        aiGuardrailId: smithy_client_dist_es/* expectString */.lK,
+        assistantArn: smithy_client_dist_es/* expectString */.lK,
+        assistantId: smithy_client_dist_es/* expectString */.lK,
+        description: smithy_client_dist_es/* expectString */.lK,
+        modifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        name: smithy_client_dist_es/* expectString */.lK,
+        status: smithy_client_dist_es/* expectString */.lK,
+        tags: smithy_client_dist_es/* _json */.Ss,
+        visibilityStatus: smithy_client_dist_es/* expectString */.lK,
+    });
+};
+const de_AIGuardrailVersionSummariesList = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_AIGuardrailVersionSummary(entry, context);
+    });
+    return retVal;
+};
+const de_AIGuardrailVersionSummary = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        aiGuardrailSummary: (_) => de_AIGuardrailSummary(_, context),
         versionNumber: smithy_client_dist_es/* expectLong */.Yy,
     });
 };
@@ -23245,6 +26951,11 @@ const de_DataDetails = (output, context) => {
             contentData: de_ContentDataDetails(output.contentData, context),
         };
     }
+    if (output.generativeChunkData != null) {
+        return {
+            generativeChunkData: de_GenerativeChunkDataDetails(output.generativeChunkData, context),
+        };
+    }
     if (output.generativeData != null) {
         return {
             generativeData: de_GenerativeDataDetails(output.generativeData, context),
@@ -23276,12 +26987,57 @@ const de_DataSummaryList = (output, context) => {
     });
     return retVal;
 };
+const de_ExtendedMessageTemplateData = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        attachments: (_) => de_MessageTemplateAttachmentList(_, context),
+        attributeTypes: smithy_client_dist_es/* _json */.Ss,
+        channelSubtype: smithy_client_dist_es/* expectString */.lK,
+        content: (_) => (0,smithy_client_dist_es/* _json */.Ss)((0,awsExpectUnion/* awsExpectUnion */.M)(_)),
+        createdTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+        defaultAttributes: smithy_client_dist_es/* _json */.Ss,
+        description: smithy_client_dist_es/* expectString */.lK,
+        groupingConfiguration: smithy_client_dist_es/* _json */.Ss,
+        isActive: smithy_client_dist_es/* expectBoolean */.ak,
+        knowledgeBaseArn: smithy_client_dist_es/* expectString */.lK,
+        knowledgeBaseId: smithy_client_dist_es/* expectString */.lK,
+        language: smithy_client_dist_es/* expectString */.lK,
+        lastModifiedBy: smithy_client_dist_es/* expectString */.lK,
+        lastModifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+        messageTemplateArn: smithy_client_dist_es/* expectString */.lK,
+        messageTemplateContentSha256: smithy_client_dist_es/* expectString */.lK,
+        messageTemplateId: smithy_client_dist_es/* expectString */.lK,
+        name: smithy_client_dist_es/* expectString */.lK,
+        tags: smithy_client_dist_es/* _json */.Ss,
+        versionNumber: smithy_client_dist_es/* expectLong */.Yy,
+    });
+};
+const de_GenerativeChunkDataDetails = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        completion: smithy_client_dist_es/* expectString */.lK,
+        nextChunkToken: smithy_client_dist_es/* expectString */.lK,
+        references: (_) => de_DataSummaryList(_, context),
+    });
+};
 const de_GenerativeDataDetails = (output, context) => {
     return (0,smithy_client_dist_es/* take */.s)(output, {
         completion: smithy_client_dist_es/* expectString */.lK,
         rankingData: (_) => de_RankingData(_, context),
         references: (_) => de_DataSummaryList(_, context),
     });
+};
+const de_GuardrailContextualGroundingFilterConfig = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        threshold: smithy_client_dist_es/* limitedParseDouble */.JW,
+        type: smithy_client_dist_es/* expectString */.lK,
+    });
+};
+const de_GuardrailContextualGroundingFiltersConfig = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_GuardrailContextualGroundingFilterConfig(entry, context);
+    });
+    return retVal;
 };
 const de_ImportJobData = (output, context) => {
     return (0,smithy_client_dist_es/* take */.s)(output, {
@@ -23339,6 +27095,112 @@ const de_KnowledgeBaseData = (output, context) => {
         tags: smithy_client_dist_es/* _json */.Ss,
         vectorIngestionConfiguration: smithy_client_dist_es/* _json */.Ss,
     });
+};
+const de_MessageList = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_MessageOutput(entry, context);
+    });
+    return retVal;
+};
+const de_MessageOutput = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        messageId: smithy_client_dist_es/* expectString */.lK,
+        participant: smithy_client_dist_es/* expectString */.lK,
+        timestamp: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseEpochTimestamp */.l3)((0,smithy_client_dist_es/* expectNumber */.r$)(_))),
+        value: (_) => (0,smithy_client_dist_es/* _json */.Ss)((0,awsExpectUnion/* awsExpectUnion */.M)(_)),
+    });
+};
+const de_MessageTemplateAttachment = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        attachmentId: smithy_client_dist_es/* expectString */.lK,
+        contentDisposition: smithy_client_dist_es/* expectString */.lK,
+        name: smithy_client_dist_es/* expectString */.lK,
+        uploadedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+        url: smithy_client_dist_es/* expectString */.lK,
+        urlExpiry: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+    });
+};
+const de_MessageTemplateAttachmentList = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_MessageTemplateAttachment(entry, context);
+    });
+    return retVal;
+};
+const de_MessageTemplateData = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        attributeTypes: smithy_client_dist_es/* _json */.Ss,
+        channelSubtype: smithy_client_dist_es/* expectString */.lK,
+        content: (_) => (0,smithy_client_dist_es/* _json */.Ss)((0,awsExpectUnion/* awsExpectUnion */.M)(_)),
+        createdTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+        defaultAttributes: smithy_client_dist_es/* _json */.Ss,
+        description: smithy_client_dist_es/* expectString */.lK,
+        groupingConfiguration: smithy_client_dist_es/* _json */.Ss,
+        knowledgeBaseArn: smithy_client_dist_es/* expectString */.lK,
+        knowledgeBaseId: smithy_client_dist_es/* expectString */.lK,
+        language: smithy_client_dist_es/* expectString */.lK,
+        lastModifiedBy: smithy_client_dist_es/* expectString */.lK,
+        lastModifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+        messageTemplateArn: smithy_client_dist_es/* expectString */.lK,
+        messageTemplateContentSha256: smithy_client_dist_es/* expectString */.lK,
+        messageTemplateId: smithy_client_dist_es/* expectString */.lK,
+        name: smithy_client_dist_es/* expectString */.lK,
+        tags: smithy_client_dist_es/* _json */.Ss,
+    });
+};
+const de_MessageTemplateSearchResultData = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        channelSubtype: smithy_client_dist_es/* expectString */.lK,
+        createdTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+        description: smithy_client_dist_es/* expectString */.lK,
+        groupingConfiguration: smithy_client_dist_es/* _json */.Ss,
+        isActive: smithy_client_dist_es/* expectBoolean */.ak,
+        knowledgeBaseArn: smithy_client_dist_es/* expectString */.lK,
+        knowledgeBaseId: smithy_client_dist_es/* expectString */.lK,
+        language: smithy_client_dist_es/* expectString */.lK,
+        lastModifiedBy: smithy_client_dist_es/* expectString */.lK,
+        lastModifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+        messageTemplateArn: smithy_client_dist_es/* expectString */.lK,
+        messageTemplateId: smithy_client_dist_es/* expectString */.lK,
+        name: smithy_client_dist_es/* expectString */.lK,
+        tags: smithy_client_dist_es/* _json */.Ss,
+        versionNumber: smithy_client_dist_es/* expectLong */.Yy,
+    });
+};
+const de_MessageTemplateSearchResultsList = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_MessageTemplateSearchResultData(entry, context);
+    });
+    return retVal;
+};
+const de_MessageTemplateSummary = (output, context) => {
+    return (0,smithy_client_dist_es/* take */.s)(output, {
+        activeVersionNumber: smithy_client_dist_es/* expectLong */.Yy,
+        channelSubtype: smithy_client_dist_es/* expectString */.lK,
+        createdTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+        description: smithy_client_dist_es/* expectString */.lK,
+        knowledgeBaseArn: smithy_client_dist_es/* expectString */.lK,
+        knowledgeBaseId: smithy_client_dist_es/* expectString */.lK,
+        lastModifiedBy: smithy_client_dist_es/* expectString */.lK,
+        lastModifiedTime: (_) => (0,smithy_client_dist_es/* expectNonNull */.Y0)((0,smithy_client_dist_es/* parseRfc3339DateTimeWithOffset */.t_)(_)),
+        messageTemplateArn: smithy_client_dist_es/* expectString */.lK,
+        messageTemplateId: smithy_client_dist_es/* expectString */.lK,
+        name: smithy_client_dist_es/* expectString */.lK,
+        tags: smithy_client_dist_es/* _json */.Ss,
+    });
+};
+const de_MessageTemplateSummaryList = (output, context) => {
+    const retVal = (output || [])
+        .filter((e) => e != null)
+        .map((entry) => {
+        return de_MessageTemplateSummary(entry, context);
+    });
+    return retVal;
 };
 const de_QueryResultsList = (output, context) => {
     const retVal = (output || [])
@@ -23479,10 +27341,36 @@ const deserializeMetadata = (output) => ({
 const collectBodyString = (streamBody, context) => collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 const _aAT = "aiAgentType";
 const _mR = "maxResults";
+const _nCT = "nextChunkToken";
+const _nMT = "nextMessageToken";
 const _nT = "nextToken";
 const _o = "origin";
 const _tK = "tagKeys";
 const _wTS = "waitTimeSeconds";
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/ActivateMessageTemplateCommand.js
+
+
+
+
+
+
+class ActivateMessageTemplateCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "ActivateMessageTemplate", {})
+    .n("QConnectClient", "ActivateMessageTemplateCommand")
+    .f(void 0, void 0)
+    .ser(se_ActivateMessageTemplateCommand)
+    .de(de_ActivateMessageTemplateCommand)
+    .build() {
+}
 
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/CreateAIAgentCommand.js
 
@@ -23529,6 +27417,56 @@ class CreateAIAgentVersionCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_CreateAIAgentVersionCommand)
     .de(de_CreateAIAgentVersionCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/CreateAIGuardrailCommand.js
+
+
+
+
+
+
+
+class CreateAIGuardrailCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "CreateAIGuardrail", {})
+    .n("QConnectClient", "CreateAIGuardrailCommand")
+    .f(CreateAIGuardrailRequestFilterSensitiveLog, CreateAIGuardrailResponseFilterSensitiveLog)
+    .ser(se_CreateAIGuardrailCommand)
+    .de(de_CreateAIGuardrailCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/CreateAIGuardrailVersionCommand.js
+
+
+
+
+
+
+
+class CreateAIGuardrailVersionCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "CreateAIGuardrailVersion", {})
+    .n("QConnectClient", "CreateAIGuardrailVersionCommand")
+    .f(void 0, CreateAIGuardrailVersionResponseFilterSensitiveLog)
+    .ser(se_CreateAIGuardrailVersionCommand)
+    .de(de_CreateAIGuardrailVersionCommand)
     .build() {
 }
 
@@ -23704,6 +27642,81 @@ class CreateKnowledgeBaseCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/CreateMessageTemplateAttachmentCommand.js
+
+
+
+
+
+
+
+class CreateMessageTemplateAttachmentCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "CreateMessageTemplateAttachment", {})
+    .n("QConnectClient", "CreateMessageTemplateAttachmentCommand")
+    .f(CreateMessageTemplateAttachmentRequestFilterSensitiveLog, CreateMessageTemplateAttachmentResponseFilterSensitiveLog)
+    .ser(se_CreateMessageTemplateAttachmentCommand)
+    .de(de_CreateMessageTemplateAttachmentCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/CreateMessageTemplateCommand.js
+
+
+
+
+
+
+
+class CreateMessageTemplateCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "CreateMessageTemplate", {})
+    .n("QConnectClient", "CreateMessageTemplateCommand")
+    .f(CreateMessageTemplateRequestFilterSensitiveLog, CreateMessageTemplateResponseFilterSensitiveLog)
+    .ser(se_CreateMessageTemplateCommand)
+    .de(de_CreateMessageTemplateCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/CreateMessageTemplateVersionCommand.js
+
+
+
+
+
+
+
+class CreateMessageTemplateVersionCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "CreateMessageTemplateVersion", {})
+    .n("QConnectClient", "CreateMessageTemplateVersionCommand")
+    .f(void 0, CreateMessageTemplateVersionResponseFilterSensitiveLog)
+    .ser(se_CreateMessageTemplateVersionCommand)
+    .de(de_CreateMessageTemplateVersionCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/CreateQuickResponseCommand.js
 
 
@@ -23753,6 +27766,30 @@ class CreateSessionCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/DeactivateMessageTemplateCommand.js
+
+
+
+
+
+
+class DeactivateMessageTemplateCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "DeactivateMessageTemplate", {})
+    .n("QConnectClient", "DeactivateMessageTemplateCommand")
+    .f(void 0, void 0)
+    .ser(se_DeactivateMessageTemplateCommand)
+    .de(de_DeactivateMessageTemplateCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/DeleteAIAgentCommand.js
 
 
@@ -23798,6 +27835,54 @@ class DeleteAIAgentVersionCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_DeleteAIAgentVersionCommand)
     .de(de_DeleteAIAgentVersionCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/DeleteAIGuardrailCommand.js
+
+
+
+
+
+
+class DeleteAIGuardrailCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "DeleteAIGuardrail", {})
+    .n("QConnectClient", "DeleteAIGuardrailCommand")
+    .f(void 0, void 0)
+    .ser(se_DeleteAIGuardrailCommand)
+    .de(de_DeleteAIGuardrailCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/DeleteAIGuardrailVersionCommand.js
+
+
+
+
+
+
+class DeleteAIGuardrailVersionCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "DeleteAIGuardrailVersion", {})
+    .n("QConnectClient", "DeleteAIGuardrailVersionCommand")
+    .f(void 0, void 0)
+    .ser(se_DeleteAIGuardrailVersionCommand)
+    .de(de_DeleteAIGuardrailVersionCommand)
     .build() {
 }
 
@@ -23993,6 +28078,54 @@ class DeleteKnowledgeBaseCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/DeleteMessageTemplateAttachmentCommand.js
+
+
+
+
+
+
+class DeleteMessageTemplateAttachmentCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "DeleteMessageTemplateAttachment", {})
+    .n("QConnectClient", "DeleteMessageTemplateAttachmentCommand")
+    .f(void 0, void 0)
+    .ser(se_DeleteMessageTemplateAttachmentCommand)
+    .de(de_DeleteMessageTemplateAttachmentCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/DeleteMessageTemplateCommand.js
+
+
+
+
+
+
+class DeleteMessageTemplateCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "DeleteMessageTemplate", {})
+    .n("QConnectClient", "DeleteMessageTemplateCommand")
+    .f(void 0, void 0)
+    .ser(se_DeleteMessageTemplateCommand)
+    .de(de_DeleteMessageTemplateCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/DeleteQuickResponseCommand.js
 
 
@@ -24038,6 +28171,31 @@ class GetAIAgentCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_GetAIAgentCommand)
     .de(de_GetAIAgentCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/GetAIGuardrailCommand.js
+
+
+
+
+
+
+
+class GetAIGuardrailCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "GetAIGuardrail", {})
+    .n("QConnectClient", "GetAIGuardrailCommand")
+    .f(void 0, GetAIGuardrailResponseFilterSensitiveLog)
+    .ser(se_GetAIGuardrailCommand)
+    .de(de_GetAIGuardrailCommand)
     .build() {
 }
 
@@ -24237,6 +28395,56 @@ class GetKnowledgeBaseCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/GetMessageTemplateCommand.js
+
+
+
+
+
+
+
+class GetMessageTemplateCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "GetMessageTemplate", {})
+    .n("QConnectClient", "GetMessageTemplateCommand")
+    .f(void 0, GetMessageTemplateResponseFilterSensitiveLog)
+    .ser(se_GetMessageTemplateCommand)
+    .de(de_GetMessageTemplateCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/GetNextMessageCommand.js
+
+
+
+
+
+
+
+class GetNextMessageCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "GetNextMessage", {})
+    .n("QConnectClient", "GetNextMessageCommand")
+    .f(void 0, GetNextMessageResponseFilterSensitiveLog)
+    .ser(se_GetNextMessageCommand)
+    .de(de_GetNextMessageCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/GetQuickResponseCommand.js
 
 
@@ -24356,6 +28564,56 @@ class ListAIAgentVersionsCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_ListAIAgentVersionsCommand)
     .de(de_ListAIAgentVersionsCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/ListAIGuardrailsCommand.js
+
+
+
+
+
+
+
+class ListAIGuardrailsCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "ListAIGuardrails", {})
+    .n("QConnectClient", "ListAIGuardrailsCommand")
+    .f(void 0, ListAIGuardrailsResponseFilterSensitiveLog)
+    .ser(se_ListAIGuardrailsCommand)
+    .de(de_ListAIGuardrailsCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/ListAIGuardrailVersionsCommand.js
+
+
+
+
+
+
+
+class ListAIGuardrailVersionsCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "ListAIGuardrailVersions", {})
+    .n("QConnectClient", "ListAIGuardrailVersionsCommand")
+    .f(void 0, ListAIGuardrailVersionsResponseFilterSensitiveLog)
+    .ser(se_ListAIGuardrailVersionsCommand)
+    .de(de_ListAIGuardrailVersionsCommand)
     .build() {
 }
 
@@ -24552,6 +28810,79 @@ class ListKnowledgeBasesCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/ListMessagesCommand.js
+
+
+
+
+
+
+
+class ListMessagesCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "ListMessages", {})
+    .n("QConnectClient", "ListMessagesCommand")
+    .f(void 0, ListMessagesResponseFilterSensitiveLog)
+    .ser(se_ListMessagesCommand)
+    .de(de_ListMessagesCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/ListMessageTemplatesCommand.js
+
+
+
+
+
+
+class ListMessageTemplatesCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "ListMessageTemplates", {})
+    .n("QConnectClient", "ListMessageTemplatesCommand")
+    .f(void 0, void 0)
+    .ser(se_ListMessageTemplatesCommand)
+    .de(de_ListMessageTemplatesCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/ListMessageTemplateVersionsCommand.js
+
+
+
+
+
+
+class ListMessageTemplateVersionsCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "ListMessageTemplateVersions", {})
+    .n("QConnectClient", "ListMessageTemplateVersionsCommand")
+    .f(void 0, void 0)
+    .ser(se_ListMessageTemplateVersionsCommand)
+    .de(de_ListMessageTemplateVersionsCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/ListQuickResponsesCommand.js
 
 
@@ -24657,6 +28988,7 @@ class PutFeedbackCommand extends smithy_client_dist_es/* Command */.uB
 
 
 
+
 class QueryAssistantCommand extends smithy_client_dist_es/* Command */.uB
     .classBuilder()
     .ep(commonParams)
@@ -24722,6 +29054,31 @@ class RemoveKnowledgeBaseTemplateUriCommand extends smithy_client_dist_es/* Comm
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/RenderMessageTemplateCommand.js
+
+
+
+
+
+
+
+class RenderMessageTemplateCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "RenderMessageTemplate", {})
+    .n("QConnectClient", "RenderMessageTemplateCommand")
+    .f(RenderMessageTemplateRequestFilterSensitiveLog, RenderMessageTemplateResponseFilterSensitiveLog)
+    .ser(se_RenderMessageTemplateCommand)
+    .de(de_RenderMessageTemplateCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/SearchContentCommand.js
 
 
@@ -24743,6 +29100,31 @@ class SearchContentCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_SearchContentCommand)
     .de(de_SearchContentCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/SearchMessageTemplatesCommand.js
+
+
+
+
+
+
+
+class SearchMessageTemplatesCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "SearchMessageTemplates", {})
+    .n("QConnectClient", "SearchMessageTemplatesCommand")
+    .f(void 0, SearchMessageTemplatesResponseFilterSensitiveLog)
+    .ser(se_SearchMessageTemplatesCommand)
+    .de(de_SearchMessageTemplatesCommand)
     .build() {
 }
 
@@ -24792,6 +29174,31 @@ class SearchSessionsCommand extends smithy_client_dist_es/* Command */.uB
     .f(void 0, void 0)
     .ser(se_SearchSessionsCommand)
     .de(de_SearchSessionsCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/SendMessageCommand.js
+
+
+
+
+
+
+
+class SendMessageCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "SendMessage", {})
+    .n("QConnectClient", "SendMessageCommand")
+    .f(SendMessageRequestFilterSensitiveLog, void 0)
+    .ser(se_SendMessageCommand)
+    .de(de_SendMessageCommand)
     .build() {
 }
 
@@ -24917,6 +29324,31 @@ class UpdateAIAgentCommand extends smithy_client_dist_es/* Command */.uB
     .build() {
 }
 
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/UpdateAIGuardrailCommand.js
+
+
+
+
+
+
+
+class UpdateAIGuardrailCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "UpdateAIGuardrail", {})
+    .n("QConnectClient", "UpdateAIGuardrailCommand")
+    .f(UpdateAIGuardrailRequestFilterSensitiveLog, UpdateAIGuardrailResponseFilterSensitiveLog)
+    .ser(se_UpdateAIGuardrailCommand)
+    .de(de_UpdateAIGuardrailCommand)
+    .build() {
+}
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/UpdateAIPromptCommand.js
 
 
@@ -25013,6 +29445,56 @@ class UpdateKnowledgeBaseTemplateUriCommand extends smithy_client_dist_es/* Comm
     .f(void 0, UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog)
     .ser(se_UpdateKnowledgeBaseTemplateUriCommand)
     .de(de_UpdateKnowledgeBaseTemplateUriCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/UpdateMessageTemplateCommand.js
+
+
+
+
+
+
+
+class UpdateMessageTemplateCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "UpdateMessageTemplate", {})
+    .n("QConnectClient", "UpdateMessageTemplateCommand")
+    .f(UpdateMessageTemplateRequestFilterSensitiveLog, UpdateMessageTemplateResponseFilterSensitiveLog)
+    .ser(se_UpdateMessageTemplateCommand)
+    .de(de_UpdateMessageTemplateCommand)
+    .build() {
+}
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/UpdateMessageTemplateMetadataCommand.js
+
+
+
+
+
+
+
+class UpdateMessageTemplateMetadataCommand extends smithy_client_dist_es/* Command */.uB
+    .classBuilder()
+    .ep(commonParams)
+    .m(function (Command, cs, config, o) {
+    return [
+        (0,middleware_serde_dist_es/* getSerdePlugin */.TM)(config, this.serialize, this.deserialize),
+        (0,middleware_endpoint_dist_es/* getEndpointPlugin */.rD)(config, Command.getEndpointParameterInstructions()),
+    ];
+})
+    .s("WisdomService", "UpdateMessageTemplateMetadata", {})
+    .n("QConnectClient", "UpdateMessageTemplateMetadataCommand")
+    .f(UpdateMessageTemplateMetadataRequestFilterSensitiveLog, UpdateMessageTemplateMetadataResponseFilterSensitiveLog)
+    .ser(se_UpdateMessageTemplateMetadataCommand)
+    .de(de_UpdateMessageTemplateMetadataCommand)
     .build() {
 }
 
@@ -25159,9 +29641,37 @@ class UpdateSessionDataCommand extends smithy_client_dist_es/* Command */.uB
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const commands = {
+    ActivateMessageTemplateCommand: ActivateMessageTemplateCommand,
     CreateAIAgentCommand: CreateAIAgentCommand,
     CreateAIAgentVersionCommand: CreateAIAgentVersionCommand,
+    CreateAIGuardrailCommand: CreateAIGuardrailCommand,
+    CreateAIGuardrailVersionCommand: CreateAIGuardrailVersionCommand,
     CreateAIPromptCommand: CreateAIPromptCommand,
     CreateAIPromptVersionCommand: CreateAIPromptVersionCommand,
     CreateAssistantCommand: CreateAssistantCommand,
@@ -25169,10 +29679,16 @@ const commands = {
     CreateContentCommand: CreateContentCommand,
     CreateContentAssociationCommand: CreateContentAssociationCommand,
     CreateKnowledgeBaseCommand: CreateKnowledgeBaseCommand,
+    CreateMessageTemplateCommand: CreateMessageTemplateCommand,
+    CreateMessageTemplateAttachmentCommand: CreateMessageTemplateAttachmentCommand,
+    CreateMessageTemplateVersionCommand: CreateMessageTemplateVersionCommand,
     CreateQuickResponseCommand: CreateQuickResponseCommand,
     CreateSessionCommand: CreateSessionCommand,
+    DeactivateMessageTemplateCommand: DeactivateMessageTemplateCommand,
     DeleteAIAgentCommand: DeleteAIAgentCommand,
     DeleteAIAgentVersionCommand: DeleteAIAgentVersionCommand,
+    DeleteAIGuardrailCommand: DeleteAIGuardrailCommand,
+    DeleteAIGuardrailVersionCommand: DeleteAIGuardrailVersionCommand,
     DeleteAIPromptCommand: DeleteAIPromptCommand,
     DeleteAIPromptVersionCommand: DeleteAIPromptVersionCommand,
     DeleteAssistantCommand: DeleteAssistantCommand,
@@ -25181,8 +29697,11 @@ const commands = {
     DeleteContentAssociationCommand: DeleteContentAssociationCommand,
     DeleteImportJobCommand: DeleteImportJobCommand,
     DeleteKnowledgeBaseCommand: DeleteKnowledgeBaseCommand,
+    DeleteMessageTemplateCommand: DeleteMessageTemplateCommand,
+    DeleteMessageTemplateAttachmentCommand: DeleteMessageTemplateAttachmentCommand,
     DeleteQuickResponseCommand: DeleteQuickResponseCommand,
     GetAIAgentCommand: GetAIAgentCommand,
+    GetAIGuardrailCommand: GetAIGuardrailCommand,
     GetAIPromptCommand: GetAIPromptCommand,
     GetAssistantCommand: GetAssistantCommand,
     GetAssistantAssociationCommand: GetAssistantAssociationCommand,
@@ -25191,11 +29710,15 @@ const commands = {
     GetContentSummaryCommand: GetContentSummaryCommand,
     GetImportJobCommand: GetImportJobCommand,
     GetKnowledgeBaseCommand: GetKnowledgeBaseCommand,
+    GetMessageTemplateCommand: GetMessageTemplateCommand,
+    GetNextMessageCommand: GetNextMessageCommand,
     GetQuickResponseCommand: GetQuickResponseCommand,
     GetRecommendationsCommand: GetRecommendationsCommand,
     GetSessionCommand: GetSessionCommand,
     ListAIAgentsCommand: ListAIAgentsCommand,
     ListAIAgentVersionsCommand: ListAIAgentVersionsCommand,
+    ListAIGuardrailsCommand: ListAIGuardrailsCommand,
+    ListAIGuardrailVersionsCommand: ListAIGuardrailVersionsCommand,
     ListAIPromptsCommand: ListAIPromptsCommand,
     ListAIPromptVersionsCommand: ListAIPromptVersionsCommand,
     ListAssistantAssociationsCommand: ListAssistantAssociationsCommand,
@@ -25204,6 +29727,9 @@ const commands = {
     ListContentsCommand: ListContentsCommand,
     ListImportJobsCommand: ListImportJobsCommand,
     ListKnowledgeBasesCommand: ListKnowledgeBasesCommand,
+    ListMessagesCommand: ListMessagesCommand,
+    ListMessageTemplatesCommand: ListMessageTemplatesCommand,
+    ListMessageTemplateVersionsCommand: ListMessageTemplateVersionsCommand,
     ListQuickResponsesCommand: ListQuickResponsesCommand,
     ListTagsForResourceCommand: ListTagsForResourceCommand,
     NotifyRecommendationsReceivedCommand: NotifyRecommendationsReceivedCommand,
@@ -25211,18 +29737,24 @@ const commands = {
     QueryAssistantCommand: QueryAssistantCommand,
     RemoveAssistantAIAgentCommand: RemoveAssistantAIAgentCommand,
     RemoveKnowledgeBaseTemplateUriCommand: RemoveKnowledgeBaseTemplateUriCommand,
+    RenderMessageTemplateCommand: RenderMessageTemplateCommand,
     SearchContentCommand: SearchContentCommand,
+    SearchMessageTemplatesCommand: SearchMessageTemplatesCommand,
     SearchQuickResponsesCommand: SearchQuickResponsesCommand,
     SearchSessionsCommand: SearchSessionsCommand,
+    SendMessageCommand: SendMessageCommand,
     StartContentUploadCommand: StartContentUploadCommand,
     StartImportJobCommand: StartImportJobCommand,
     TagResourceCommand: TagResourceCommand,
     UntagResourceCommand: UntagResourceCommand,
     UpdateAIAgentCommand: UpdateAIAgentCommand,
+    UpdateAIGuardrailCommand: UpdateAIGuardrailCommand,
     UpdateAIPromptCommand: UpdateAIPromptCommand,
     UpdateAssistantAIAgentCommand: UpdateAssistantAIAgentCommand,
     UpdateContentCommand: UpdateContentCommand,
     UpdateKnowledgeBaseTemplateUriCommand: UpdateKnowledgeBaseTemplateUriCommand,
+    UpdateMessageTemplateCommand: UpdateMessageTemplateCommand,
+    UpdateMessageTemplateMetadataCommand: UpdateMessageTemplateMetadataCommand,
     UpdateQuickResponseCommand: UpdateQuickResponseCommand,
     UpdateSessionCommand: UpdateSessionCommand,
     UpdateSessionDataCommand: UpdateSessionDataCommand,
@@ -25232,6 +29764,31 @@ class QConnect extends QConnectClient {
 (0,smithy_client_dist_es/* createAggregatedClient */.J1)(commands, QConnect);
 
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/commands/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25311,6 +29868,18 @@ const paginateListAIAgentVersions = (0,core_dist_es/* createPaginator */.KU)(QCo
 
 const paginateListAIAgents = (0,core_dist_es/* createPaginator */.KU)(QConnectClient, ListAIAgentsCommand, "nextToken", "nextToken", "maxResults");
 
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/pagination/ListAIGuardrailVersionsPaginator.js
+
+
+
+const paginateListAIGuardrailVersions = (0,core_dist_es/* createPaginator */.KU)(QConnectClient, ListAIGuardrailVersionsCommand, "nextToken", "nextToken", "maxResults");
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/pagination/ListAIGuardrailsPaginator.js
+
+
+
+const paginateListAIGuardrails = (0,core_dist_es/* createPaginator */.KU)(QConnectClient, ListAIGuardrailsCommand, "nextToken", "nextToken", "maxResults");
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/pagination/ListAIPromptVersionsPaginator.js
 
 
@@ -25359,6 +29928,24 @@ const paginateListImportJobs = (0,core_dist_es/* createPaginator */.KU)(QConnect
 
 const paginateListKnowledgeBases = (0,core_dist_es/* createPaginator */.KU)(QConnectClient, ListKnowledgeBasesCommand, "nextToken", "nextToken", "maxResults");
 
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/pagination/ListMessageTemplateVersionsPaginator.js
+
+
+
+const paginateListMessageTemplateVersions = (0,core_dist_es/* createPaginator */.KU)(QConnectClient, ListMessageTemplateVersionsCommand, "nextToken", "nextToken", "maxResults");
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/pagination/ListMessageTemplatesPaginator.js
+
+
+
+const paginateListMessageTemplates = (0,core_dist_es/* createPaginator */.KU)(QConnectClient, ListMessageTemplatesCommand, "nextToken", "nextToken", "maxResults");
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/pagination/ListMessagesPaginator.js
+
+
+
+const paginateListMessages = (0,core_dist_es/* createPaginator */.KU)(QConnectClient, ListMessagesCommand, "nextToken", "nextToken", "maxResults");
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/pagination/ListQuickResponsesPaginator.js
 
 
@@ -25376,6 +29963,12 @@ const paginateQueryAssistant = (0,core_dist_es/* createPaginator */.KU)(QConnect
 
 
 const paginateSearchContent = (0,core_dist_es/* createPaginator */.KU)(QConnectClient, SearchContentCommand, "nextToken", "nextToken", "maxResults");
+
+;// ./node_modules/@aws-sdk/client-qconnect/dist-es/pagination/SearchMessageTemplatesPaginator.js
+
+
+
+const paginateSearchMessageTemplates = (0,core_dist_es/* createPaginator */.KU)(QConnectClient, SearchMessageTemplatesCommand, "nextToken", "nextToken", "maxResults");
 
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/pagination/SearchQuickResponsesPaginator.js
 
@@ -25407,7 +30000,14 @@ const paginateSearchSessions = (0,core_dist_es/* createPaginator */.KU)(QConnect
 
 
 
+
+
+
+
+
+
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/models/index.js
+
 
 
 ;// ./node_modules/@aws-sdk/client-qconnect/dist-es/index.js
@@ -25533,7 +30133,7 @@ const AWSSDKSigV4Signer = (/* unused pure expression or super */ null && (AwsSdk
 
 /***/ }),
 
-/***/ 8088:
+/***/ 9538:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -25554,14 +30154,10 @@ function setCredentialFeature(credentials, feature, value) {
     return credentials;
 }
 
-// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/index.js + 17 modules
-var dist_es = __webpack_require__(2516);
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/index.js + 19 modules
+var dist_es = __webpack_require__(9142);
 // EXTERNAL MODULE: ./node_modules/@smithy/util-hex-encoding/dist-es/index.js
 var util_hex_encoding_dist_es = __webpack_require__(8004);
-// EXTERNAL MODULE: ./node_modules/@smithy/util-middleware/dist-es/index.js + 2 modules
-var util_middleware_dist_es = __webpack_require__(7135);
-// EXTERNAL MODULE: ./node_modules/@smithy/util-uri-escape/dist-es/escape-uri.js
-var escape_uri = __webpack_require__(2531);
 // EXTERNAL MODULE: ./node_modules/@smithy/util-utf8/dist-es/fromUtf8.browser.js
 var fromUtf8_browser = __webpack_require__(2637);
 ;// ./node_modules/@smithy/util-utf8/dist-es/toUint8Array.js
@@ -25676,37 +30272,6 @@ const getCanonicalHeaders = ({ headers }, unsignableHeaders, signableHeaders) =>
         canonical[canonicalHeaderName] = headers[headerName].trim().replace(/\s+/g, " ");
     }
     return canonical;
-};
-
-;// ./node_modules/@smithy/signature-v4/dist-es/getCanonicalQuery.js
-
-
-const getCanonicalQuery = ({ query = {} }) => {
-    const keys = [];
-    const serialized = {};
-    for (const key of Object.keys(query)) {
-        if (key.toLowerCase() === SIGNATURE_HEADER) {
-            continue;
-        }
-        const encodedKey = (0,escape_uri/* escapeUri */.o)(key);
-        keys.push(encodedKey);
-        const value = query[key];
-        if (typeof value === "string") {
-            serialized[encodedKey] = `${encodedKey}=${(0,escape_uri/* escapeUri */.o)(value)}`;
-        }
-        else if (Array.isArray(value)) {
-            serialized[encodedKey] = value
-                .slice(0)
-                .reduce((encoded, value) => encoded.concat([`${encodedKey}=${(0,escape_uri/* escapeUri */.o)(value)}`]), [])
-                .sort()
-                .join("&");
-        }
-    }
-    return keys
-        .sort()
-        .map((key) => serialized[key])
-        .filter((serialized) => serialized)
-        .join("&");
 };
 
 ;// ./node_modules/@smithy/is-array-buffer/dist-es/index.js
@@ -25924,6 +30489,41 @@ const prepareRequest = (request) => {
     return request;
 };
 
+// EXTERNAL MODULE: ./node_modules/@smithy/util-middleware/dist-es/index.js + 2 modules
+var util_middleware_dist_es = __webpack_require__(7135);
+// EXTERNAL MODULE: ./node_modules/@smithy/util-uri-escape/dist-es/escape-uri.js
+var escape_uri = __webpack_require__(2531);
+;// ./node_modules/@smithy/signature-v4/dist-es/getCanonicalQuery.js
+
+
+const getCanonicalQuery = ({ query = {} }) => {
+    const keys = [];
+    const serialized = {};
+    for (const key of Object.keys(query)) {
+        if (key.toLowerCase() === SIGNATURE_HEADER) {
+            continue;
+        }
+        const encodedKey = (0,escape_uri/* escapeUri */.o)(key);
+        keys.push(encodedKey);
+        const value = query[key];
+        if (typeof value === "string") {
+            serialized[encodedKey] = `${encodedKey}=${(0,escape_uri/* escapeUri */.o)(value)}`;
+        }
+        else if (Array.isArray(value)) {
+            serialized[encodedKey] = value
+                .slice(0)
+                .reduce((encoded, value) => encoded.concat([`${encodedKey}=${(0,escape_uri/* escapeUri */.o)(value)}`]), [])
+                .sort()
+                .join("&");
+        }
+    }
+    return keys
+        .sort()
+        .map((key) => serialized[key])
+        .filter((serialized) => serialized)
+        .join("&");
+};
+
 ;// ./node_modules/@smithy/signature-v4/dist-es/utilDate.js
 const iso8601 = (time) => toDate(time)
     .toISOString()
@@ -25941,6 +30541,81 @@ const toDate = (time) => {
     return time;
 };
 
+;// ./node_modules/@smithy/signature-v4/dist-es/SignatureV4Base.js
+
+
+
+
+
+
+class SignatureV4Base {
+    constructor({ applyChecksum, credentials, region, service, sha256, uriEscapePath = true, }) {
+        this.service = service;
+        this.sha256 = sha256;
+        this.uriEscapePath = uriEscapePath;
+        this.applyChecksum = typeof applyChecksum === "boolean" ? applyChecksum : true;
+        this.regionProvider = (0,util_middleware_dist_es/* normalizeProvider */.t)(region);
+        this.credentialProvider = (0,util_middleware_dist_es/* normalizeProvider */.t)(credentials);
+    }
+    createCanonicalRequest(request, canonicalHeaders, payloadHash) {
+        const sortedHeaders = Object.keys(canonicalHeaders).sort();
+        return `${request.method}
+${this.getCanonicalPath(request)}
+${getCanonicalQuery(request)}
+${sortedHeaders.map((name) => `${name}:${canonicalHeaders[name]}`).join("\n")}
+
+${sortedHeaders.join(";")}
+${payloadHash}`;
+    }
+    async createStringToSign(longDate, credentialScope, canonicalRequest, algorithmIdentifier) {
+        const hash = new this.sha256();
+        hash.update(toUint8Array(canonicalRequest));
+        const hashedRequest = await hash.digest();
+        return `${algorithmIdentifier}
+${longDate}
+${credentialScope}
+${(0,util_hex_encoding_dist_es/* toHex */.n)(hashedRequest)}`;
+    }
+    getCanonicalPath({ path }) {
+        if (this.uriEscapePath) {
+            const normalizedPathSegments = [];
+            for (const pathSegment of path.split("/")) {
+                if (pathSegment?.length === 0)
+                    continue;
+                if (pathSegment === ".")
+                    continue;
+                if (pathSegment === "..") {
+                    normalizedPathSegments.pop();
+                }
+                else {
+                    normalizedPathSegments.push(pathSegment);
+                }
+            }
+            const normalizedPath = `${path?.startsWith("/") ? "/" : ""}${normalizedPathSegments.join("/")}${normalizedPathSegments.length > 0 && path?.endsWith("/") ? "/" : ""}`;
+            const doubleEncoded = (0,escape_uri/* escapeUri */.o)(normalizedPath);
+            return doubleEncoded.replace(/%2F/g, "/");
+        }
+        return path;
+    }
+    validateResolvedCredentials(credentials) {
+        if (typeof credentials !== "object" ||
+            typeof credentials.accessKeyId !== "string" ||
+            typeof credentials.secretAccessKey !== "string") {
+            throw new Error("Resolved credential object is not valid");
+        }
+    }
+    formatDate(now) {
+        const longDate = iso8601(now).replace(/[\-:]/g, "");
+        return {
+            longDate,
+            shortDate: longDate.slice(0, 8),
+        };
+    }
+    getCanonicalHeaderList(headers) {
+        return Object.keys(headers).sort().join(";");
+    }
+}
+
 ;// ./node_modules/@smithy/signature-v4/dist-es/SignatureV4.js
 
 
@@ -25953,25 +30628,24 @@ const toDate = (time) => {
 
 
 
-
-
-
-class SignatureV4 {
+class SignatureV4 extends SignatureV4Base {
     constructor({ applyChecksum, credentials, region, service, sha256, uriEscapePath = true, }) {
+        super({
+            applyChecksum,
+            credentials,
+            region,
+            service,
+            sha256,
+            uriEscapePath,
+        });
         this.headerFormatter = new HeaderFormatter();
-        this.service = service;
-        this.sha256 = sha256;
-        this.uriEscapePath = uriEscapePath;
-        this.applyChecksum = typeof applyChecksum === "boolean" ? applyChecksum : true;
-        this.regionProvider = (0,util_middleware_dist_es/* normalizeProvider */.t)(region);
-        this.credentialProvider = (0,util_middleware_dist_es/* normalizeProvider */.t)(credentials);
     }
     async presign(originalRequest, options = {}) {
         const { signingDate = new Date(), expiresIn = 3600, unsignableHeaders, unhoistableHeaders, signableHeaders, hoistableHeaders, signingRegion, signingService, } = options;
         const credentials = await this.credentialProvider();
         this.validateResolvedCredentials(credentials);
         const region = signingRegion ?? (await this.regionProvider());
-        const { longDate, shortDate } = formatDate(signingDate);
+        const { longDate, shortDate } = this.formatDate(signingDate);
         if (expiresIn > MAX_PRESIGNED_TTL) {
             return Promise.reject("Signature version 4 presigned URLs" + " must have an expiration date less than one week in" + " the future");
         }
@@ -25985,7 +30659,7 @@ class SignatureV4 {
         request.query[AMZ_DATE_QUERY_PARAM] = longDate;
         request.query[EXPIRES_QUERY_PARAM] = expiresIn.toString(10);
         const canonicalHeaders = getCanonicalHeaders(request, unsignableHeaders, signableHeaders);
-        request.query[SIGNED_HEADERS_QUERY_PARAM] = getCanonicalHeaderList(canonicalHeaders);
+        request.query[SIGNED_HEADERS_QUERY_PARAM] = this.getCanonicalHeaderList(canonicalHeaders);
         request.query[SIGNATURE_QUERY_PARAM] = await this.getSignature(longDate, scope, this.getSigningKey(credentials, region, shortDate, signingService), this.createCanonicalRequest(request, canonicalHeaders, await getPayloadHash(originalRequest, this.sha256)));
         return request;
     }
@@ -26005,7 +30679,7 @@ class SignatureV4 {
     }
     async signEvent({ headers, payload }, { signingDate = new Date(), priorSignature, signingRegion, signingService }) {
         const region = signingRegion ?? (await this.regionProvider());
-        const { shortDate, longDate } = formatDate(signingDate);
+        const { shortDate, longDate } = this.formatDate(signingDate);
         const scope = createScope(shortDate, region, signingService ?? this.service);
         const hashedPayload = await getPayloadHash({ headers: {}, body: payload }, this.sha256);
         const hash = new this.sha256();
@@ -26039,7 +30713,7 @@ class SignatureV4 {
         const credentials = await this.credentialProvider();
         this.validateResolvedCredentials(credentials);
         const region = signingRegion ?? (await this.regionProvider());
-        const { shortDate } = formatDate(signingDate);
+        const { shortDate } = this.formatDate(signingDate);
         const hash = new this.sha256(await this.getSigningKey(credentials, region, shortDate, signingService));
         hash.update(toUint8Array(stringToSign));
         return (0,util_hex_encoding_dist_es/* toHex */.n)(await hash.digest());
@@ -26049,7 +30723,7 @@ class SignatureV4 {
         this.validateResolvedCredentials(credentials);
         const region = signingRegion ?? (await this.regionProvider());
         const request = prepareRequest(requestToSign);
-        const { longDate, shortDate } = formatDate(signingDate);
+        const { longDate, shortDate } = this.formatDate(signingDate);
         const scope = createScope(shortDate, region, signingService ?? this.service);
         request.headers[AMZ_DATE_HEADER] = longDate;
         if (credentials.sessionToken) {
@@ -26064,52 +30738,12 @@ class SignatureV4 {
         request.headers[AUTH_HEADER] =
             `${ALGORITHM_IDENTIFIER} ` +
                 `Credential=${credentials.accessKeyId}/${scope}, ` +
-                `SignedHeaders=${getCanonicalHeaderList(canonicalHeaders)}, ` +
+                `SignedHeaders=${this.getCanonicalHeaderList(canonicalHeaders)}, ` +
                 `Signature=${signature}`;
         return request;
     }
-    createCanonicalRequest(request, canonicalHeaders, payloadHash) {
-        const sortedHeaders = Object.keys(canonicalHeaders).sort();
-        return `${request.method}
-${this.getCanonicalPath(request)}
-${getCanonicalQuery(request)}
-${sortedHeaders.map((name) => `${name}:${canonicalHeaders[name]}`).join("\n")}
-
-${sortedHeaders.join(";")}
-${payloadHash}`;
-    }
-    async createStringToSign(longDate, credentialScope, canonicalRequest) {
-        const hash = new this.sha256();
-        hash.update(toUint8Array(canonicalRequest));
-        const hashedRequest = await hash.digest();
-        return `${ALGORITHM_IDENTIFIER}
-${longDate}
-${credentialScope}
-${(0,util_hex_encoding_dist_es/* toHex */.n)(hashedRequest)}`;
-    }
-    getCanonicalPath({ path }) {
-        if (this.uriEscapePath) {
-            const normalizedPathSegments = [];
-            for (const pathSegment of path.split("/")) {
-                if (pathSegment?.length === 0)
-                    continue;
-                if (pathSegment === ".")
-                    continue;
-                if (pathSegment === "..") {
-                    normalizedPathSegments.pop();
-                }
-                else {
-                    normalizedPathSegments.push(pathSegment);
-                }
-            }
-            const normalizedPath = `${path?.startsWith("/") ? "/" : ""}${normalizedPathSegments.join("/")}${normalizedPathSegments.length > 0 && path?.endsWith("/") ? "/" : ""}`;
-            const doubleEncoded = (0,escape_uri/* escapeUri */.o)(normalizedPath);
-            return doubleEncoded.replace(/%2F/g, "/");
-        }
-        return path;
-    }
     async getSignature(longDate, credentialScope, keyPromise, canonicalRequest) {
-        const stringToSign = await this.createStringToSign(longDate, credentialScope, canonicalRequest);
+        const stringToSign = await this.createStringToSign(longDate, credentialScope, canonicalRequest, ALGORITHM_IDENTIFIER);
         const hash = new this.sha256(await keyPromise);
         hash.update(toUint8Array(stringToSign));
         return (0,util_hex_encoding_dist_es/* toHex */.n)(await hash.digest());
@@ -26117,24 +30751,18 @@ ${(0,util_hex_encoding_dist_es/* toHex */.n)(hashedRequest)}`;
     getSigningKey(credentials, region, shortDate, service) {
         return getSigningKey(this.sha256, credentials, shortDate, region, service || this.service);
     }
-    validateResolvedCredentials(credentials) {
-        if (typeof credentials !== "object" ||
-            typeof credentials.accessKeyId !== "string" ||
-            typeof credentials.secretAccessKey !== "string") {
-            throw new Error("Resolved credential object is not valid");
-        }
-    }
 }
-const formatDate = (now) => {
-    const longDate = iso8601(now).replace(/[\-:]/g, "");
-    return {
-        longDate,
-        shortDate: longDate.slice(0, 8),
-    };
+
+;// ./node_modules/@smithy/signature-v4/dist-es/signature-v4a-container.js
+const signatureV4aContainer = {
+    SignatureV4a: null,
 };
-const getCanonicalHeaderList = (headers) => Object.keys(headers).sort().join(";");
 
 ;// ./node_modules/@smithy/signature-v4/dist-es/index.js
+
+
+
+
 
 
 
@@ -26148,24 +30776,37 @@ const getCanonicalHeaderList = (headers) => Object.keys(headers).sort().join(";"
 
 
 const resolveAwsSdkSigV4Config = (config) => {
-    let isUserSupplied = false;
-    let normalizedCreds;
-    if (config.credentials) {
-        isUserSupplied = true;
-        normalizedCreds = (0,dist_es/* memoizeIdentityProvider */.K4)(config.credentials, dist_es/* isIdentityExpired */.OC, dist_es/* doesIdentityRequireRefresh */.e);
-    }
-    if (!normalizedCreds) {
-        if (config.credentialDefaultProvider) {
-            normalizedCreds = (0,dist_es/* normalizeProvider */.te)(config.credentialDefaultProvider(Object.assign({}, config, {
-                parentClientConfig: config,
-            })));
-        }
-        else {
-            normalizedCreds = async () => {
-                throw new Error("`credentials` is missing");
-            };
-        }
-    }
+    let inputCredentials = config.credentials;
+    let isUserSupplied = !!config.credentials;
+    let resolvedCredentials = undefined;
+    Object.defineProperty(config, "credentials", {
+        set(credentials) {
+            if (credentials && credentials !== inputCredentials && credentials !== resolvedCredentials) {
+                isUserSupplied = true;
+            }
+            inputCredentials = credentials;
+            const memoizedProvider = normalizeCredentialProvider(config, {
+                credentials: inputCredentials,
+                credentialDefaultProvider: config.credentialDefaultProvider,
+            });
+            const boundProvider = bindCallerConfig(config, memoizedProvider);
+            if (isUserSupplied && !boundProvider.attributed) {
+                resolvedCredentials = async (options) => boundProvider(options).then((creds) => setCredentialFeature(creds, "CREDENTIALS_CODE", "e"));
+                resolvedCredentials.memoized = boundProvider.memoized;
+                resolvedCredentials.configBound = boundProvider.configBound;
+                resolvedCredentials.attributed = true;
+            }
+            else {
+                resolvedCredentials = boundProvider;
+            }
+        },
+        get() {
+            return resolvedCredentials;
+        },
+        enumerable: true,
+        configurable: true,
+    });
+    config.credentials = inputCredentials;
     const { signingEscapePath = true, systemClockOffset = config.systemClockOffset || 0, sha256, } = config;
     let signer;
     if (config.signer) {
@@ -26186,7 +30827,7 @@ const resolveAwsSdkSigV4Config = (config) => {
             config.signingName = config.signingName || signingService || config.serviceId;
             const params = {
                 ...config,
-                credentials: normalizedCreds,
+                credentials: config.credentials,
                 region: config.signingRegion,
                 service: config.signingName,
                 sha256,
@@ -26210,7 +30851,7 @@ const resolveAwsSdkSigV4Config = (config) => {
             config.signingName = config.signingName || signingService || config.serviceId;
             const params = {
                 ...config,
-                credentials: normalizedCreds,
+                credentials: config.credentials,
                 region: config.signingRegion,
                 service: config.signingName,
                 sha256,
@@ -26220,17 +30861,48 @@ const resolveAwsSdkSigV4Config = (config) => {
             return new SignerCtor(params);
         };
     }
-    return {
-        ...config,
+    const resolvedConfig = Object.assign(config, {
         systemClockOffset,
         signingEscapePath,
-        credentials: isUserSupplied
-            ? async () => normalizedCreds().then((creds) => setCredentialFeature(creds, "CREDENTIALS_CODE", "e"))
-            : normalizedCreds,
         signer,
-    };
+    });
+    return resolvedConfig;
 };
 const resolveAWSSDKSigV4Config = (/* unused pure expression or super */ null && (resolveAwsSdkSigV4Config));
+function normalizeCredentialProvider(config, { credentials, credentialDefaultProvider, }) {
+    let credentialsProvider;
+    if (credentials) {
+        if (!credentials?.memoized) {
+            credentialsProvider = (0,dist_es/* memoizeIdentityProvider */.K4)(credentials, dist_es/* isIdentityExpired */.OC, dist_es/* doesIdentityRequireRefresh */.e);
+        }
+        else {
+            credentialsProvider = credentials;
+        }
+    }
+    else {
+        if (credentialDefaultProvider) {
+            credentialsProvider = (0,dist_es/* normalizeProvider */.te)(credentialDefaultProvider(Object.assign({}, config, {
+                parentClientConfig: config,
+            })));
+        }
+        else {
+            credentialsProvider = async () => {
+                throw new Error("@aws-sdk/core::resolveAwsSdkSigV4Config - `credentials` not provided and no credentialDefaultProvider was configured.");
+            };
+        }
+    }
+    credentialsProvider.memoized = true;
+    return credentialsProvider;
+}
+function bindCallerConfig(config, credentialsProvider) {
+    if (credentialsProvider.configBound) {
+        return credentialsProvider;
+    }
+    const fn = async (options) => credentialsProvider({ ...options, callerClientConfig: config });
+    fn.memoized = credentialsProvider.memoized;
+    fn.configBound = true;
+    return fn;
+}
 
 
 /***/ }),
@@ -26242,7 +30914,7 @@ const resolveAWSSDKSigV4Config = (/* unused pure expression or super */ null && 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   M: () => (/* binding */ awsExpectUnion)
 /* harmony export */ });
-/* harmony import */ var _smithy_smithy_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5342);
+/* harmony import */ var _smithy_smithy_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6980);
 
 const awsExpectUnion = (value) => {
     if (value == null) {
@@ -26269,8 +30941,8 @@ __webpack_require__.d(__webpack_exports__, {
   CG: () => (/* binding */ parseJsonErrorBody)
 });
 
-// EXTERNAL MODULE: ./node_modules/@smithy/smithy-client/dist-es/index.js + 27 modules
-var dist_es = __webpack_require__(5342);
+// EXTERNAL MODULE: ./node_modules/@smithy/smithy-client/dist-es/index.js + 20 modules
+var dist_es = __webpack_require__(6980);
 ;// ./node_modules/@aws-sdk/core/dist-es/submodules/protocols/common.js
 
 const collectBodyString = (streamBody, context) => (0,dist_es/* collectBody */.Px)(streamBody, context).then((body) => context.utf8Encoder(body));
@@ -26320,11 +30992,14 @@ const loadRestJsonErrorCode = (output, data) => {
     if (headerKey !== undefined) {
         return sanitizeErrorCode(output.headers[headerKey]);
     }
-    if (data.code !== undefined) {
-        return sanitizeErrorCode(data.code);
-    }
-    if (data["__type"] !== undefined) {
-        return sanitizeErrorCode(data["__type"]);
+    if (data && typeof data === "object") {
+        const codeKey = findKey(data, "code");
+        if (codeKey && data[codeKey] !== undefined) {
+            return sanitizeErrorCode(data[codeKey]);
+        }
+        if (data["__type"] !== undefined) {
+            return sanitizeErrorCode(data["__type"]);
+        }
     }
 };
 
@@ -26455,9 +31130,12 @@ const ENV_LAMBDA_FUNCTION_NAME = "AWS_LAMBDA_FUNCTION_NAME";
 const ENV_TRACE_ID = "_X_AMZN_TRACE_ID";
 const recursionDetectionMiddleware = (options) => (next) => async (args) => {
     const { request } = args;
-    if (!_smithy_protocol_http__WEBPACK_IMPORTED_MODULE_0__/* .HttpRequest */ .Kd.isInstance(request) ||
-        options.runtime !== "node" ||
-        request.headers.hasOwnProperty(TRACE_ID_HEADER_NAME)) {
+    if (!_smithy_protocol_http__WEBPACK_IMPORTED_MODULE_0__/* .HttpRequest */ .Kd.isInstance(request) || options.runtime !== "node") {
+        return next(args);
+    }
+    const traceIdHeader = Object.keys(request.headers ?? {}).find((h) => h.toLowerCase() === TRACE_ID_HEADER_NAME.toLowerCase()) ??
+        TRACE_ID_HEADER_NAME;
+    if (request.headers.hasOwnProperty(traceIdHeader)) {
         return next(args);
     }
     const functionName = process.env[ENV_LAMBDA_FUNCTION_NAME];
@@ -26500,8 +31178,8 @@ __webpack_require__.d(__webpack_exports__, {
 
 // UNUSED EXPORTS: DEFAULT_UA_APP_ID, getUserAgentMiddlewareOptions, userAgentMiddleware
 
-// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/index.js + 17 modules
-var dist_es = __webpack_require__(2516);
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/index.js + 19 modules
+var dist_es = __webpack_require__(9142);
 ;// ./node_modules/@aws-sdk/middleware-user-agent/dist-es/configurations.js
 
 const DEFAULT_UA_APP_ID = undefined;
@@ -26513,9 +31191,9 @@ function isValidUserAgentAppId(appId) {
 }
 function resolveUserAgentConfig(input) {
     const normalizedAppIdProvider = (0,dist_es/* normalizeProvider */.te)(input.userAgentAppId ?? DEFAULT_UA_APP_ID);
-    return {
-        ...input,
-        customUserAgent: typeof input.customUserAgent === "string" ? [[input.customUserAgent]] : input.customUserAgent,
+    const { customUserAgent } = input;
+    return Object.assign(input, {
+        customUserAgent: typeof customUserAgent === "string" ? [[customUserAgent]] : customUserAgent,
         userAgentAppId: async () => {
             const appId = await normalizedAppIdProvider();
             if (!isValidUserAgentAppId(appId)) {
@@ -26529,7 +31207,7 @@ function resolveUserAgentConfig(input) {
             }
             return appId;
         },
-    };
+    });
 }
 
 // EXTERNAL MODULE: ./node_modules/@aws-sdk/util-endpoints/dist-es/index.js + 9 modules
@@ -26551,9 +31229,31 @@ function setFeature(context, feature, value) {
 
 ;// ./node_modules/@aws-sdk/middleware-user-agent/dist-es/check-features.js
 
+const ACCOUNT_ID_ENDPOINT_REGEX = /\d{12}\.ddb/;
 async function checkFeatures(context, config, args) {
     const request = args.request;
+    if (request?.headers?.["smithy-protocol"] === "rpc-v2-cbor") {
+        setFeature(context, "PROTOCOL_RPC_V2_CBOR", "M");
+    }
+    if (typeof config.retryStrategy === "function") {
+        const retryStrategy = await config.retryStrategy();
+        if (typeof retryStrategy.acquireInitialRetryToken === "function") {
+            if (retryStrategy.constructor?.name?.includes("Adaptive")) {
+                setFeature(context, "RETRY_MODE_ADAPTIVE", "F");
+            }
+            else {
+                setFeature(context, "RETRY_MODE_STANDARD", "E");
+            }
+        }
+        else {
+            setFeature(context, "RETRY_MODE_LEGACY", "D");
+        }
+    }
     if (typeof config.accountIdEndpointMode === "function") {
+        const endpointV2 = context.endpointV2;
+        if (String(endpointV2?.url?.hostname).match(ACCOUNT_ID_ENDPOINT_REGEX)) {
+            setFeature(context, "ACCOUNT_ID_ENDPOINT", "O");
+        }
         switch (await config.accountIdEndpointMode?.()) {
             case "disabled":
                 setFeature(context, "ACCOUNT_ID_MODE_DISABLED", "Q");
@@ -26566,17 +31266,14 @@ async function checkFeatures(context, config, args) {
                 break;
         }
     }
-    if (typeof config.credentials === "function") {
-        try {
-            const credentials = await config.credentials?.();
-            if (credentials.accountId) {
-                setFeature(context, "RESOLVED_ACCOUNT_ID", "T");
-            }
-            for (const [key, value] of Object.entries(credentials.$source ?? {})) {
-                setFeature(context, key, value);
-            }
+    const identity = context.__smithy_context?.selectedHttpAuthScheme?.identity;
+    if (identity?.$source) {
+        const credentials = identity;
+        if (credentials.accountId) {
+            setFeature(context, "RESOLVED_ACCOUNT_ID", "T");
         }
-        catch (e) {
+        for (const [key, value] of Object.entries(credentials.$source ?? {})) {
+            setFeature(context, key, value);
         }
     }
 }
@@ -26716,22 +31413,12 @@ __webpack_require__.d(__webpack_exports__, {
 
 ;// ./node_modules/@aws-sdk/region-config-resolver/dist-es/extensions/index.js
 const getAwsRegionExtensionConfiguration = (runtimeConfig) => {
-    let runtimeConfigRegion = async () => {
-        if (runtimeConfig.region === undefined) {
-            throw new Error("Region is missing from runtimeConfig");
-        }
-        const region = runtimeConfig.region;
-        if (typeof region === "string") {
-            return region;
-        }
-        return region();
-    };
     return {
         setRegion(region) {
-            runtimeConfigRegion = region;
+            runtimeConfig.region = region;
         },
         region() {
-            return runtimeConfigRegion;
+            return runtimeConfig.region;
         },
     };
 };
@@ -26832,7 +31519,7 @@ const parseArn = (value) => {
 };
 
 ;// ./node_modules/@aws-sdk/util-endpoints/dist-es/lib/aws/partitions.json
-const partitions_namespaceObject = /*#__PURE__*/JSON.parse('{"partitions":[{"id":"aws","outputs":{"dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","implicitGlobalRegion":"us-east-1","name":"aws","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^(us|eu|ap|sa|ca|me|af|il|mx)\\\\-\\\\w+\\\\-\\\\d+$","regions":{"af-south-1":{"description":"Africa (Cape Town)"},"ap-east-1":{"description":"Asia Pacific (Hong Kong)"},"ap-northeast-1":{"description":"Asia Pacific (Tokyo)"},"ap-northeast-2":{"description":"Asia Pacific (Seoul)"},"ap-northeast-3":{"description":"Asia Pacific (Osaka)"},"ap-south-1":{"description":"Asia Pacific (Mumbai)"},"ap-south-2":{"description":"Asia Pacific (Hyderabad)"},"ap-southeast-1":{"description":"Asia Pacific (Singapore)"},"ap-southeast-2":{"description":"Asia Pacific (Sydney)"},"ap-southeast-3":{"description":"Asia Pacific (Jakarta)"},"ap-southeast-4":{"description":"Asia Pacific (Melbourne)"},"ap-southeast-5":{"description":"Asia Pacific (Malaysia)"},"aws-global":{"description":"AWS Standard global region"},"ca-central-1":{"description":"Canada (Central)"},"ca-west-1":{"description":"Canada West (Calgary)"},"eu-central-1":{"description":"Europe (Frankfurt)"},"eu-central-2":{"description":"Europe (Zurich)"},"eu-north-1":{"description":"Europe (Stockholm)"},"eu-south-1":{"description":"Europe (Milan)"},"eu-south-2":{"description":"Europe (Spain)"},"eu-west-1":{"description":"Europe (Ireland)"},"eu-west-2":{"description":"Europe (London)"},"eu-west-3":{"description":"Europe (Paris)"},"il-central-1":{"description":"Israel (Tel Aviv)"},"me-central-1":{"description":"Middle East (UAE)"},"me-south-1":{"description":"Middle East (Bahrain)"},"sa-east-1":{"description":"South America (Sao Paulo)"},"us-east-1":{"description":"US East (N. Virginia)"},"us-east-2":{"description":"US East (Ohio)"},"us-west-1":{"description":"US West (N. California)"},"us-west-2":{"description":"US West (Oregon)"}}},{"id":"aws-cn","outputs":{"dnsSuffix":"amazonaws.com.cn","dualStackDnsSuffix":"api.amazonwebservices.com.cn","implicitGlobalRegion":"cn-northwest-1","name":"aws-cn","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^cn\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-cn-global":{"description":"AWS China global region"},"cn-north-1":{"description":"China (Beijing)"},"cn-northwest-1":{"description":"China (Ningxia)"}}},{"id":"aws-us-gov","outputs":{"dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","implicitGlobalRegion":"us-gov-west-1","name":"aws-us-gov","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^us\\\\-gov\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-us-gov-global":{"description":"AWS GovCloud (US) global region"},"us-gov-east-1":{"description":"AWS GovCloud (US-East)"},"us-gov-west-1":{"description":"AWS GovCloud (US-West)"}}},{"id":"aws-iso","outputs":{"dnsSuffix":"c2s.ic.gov","dualStackDnsSuffix":"c2s.ic.gov","implicitGlobalRegion":"us-iso-east-1","name":"aws-iso","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-iso\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-global":{"description":"AWS ISO (US) global region"},"us-iso-east-1":{"description":"US ISO East"},"us-iso-west-1":{"description":"US ISO WEST"}}},{"id":"aws-iso-b","outputs":{"dnsSuffix":"sc2s.sgov.gov","dualStackDnsSuffix":"sc2s.sgov.gov","implicitGlobalRegion":"us-isob-east-1","name":"aws-iso-b","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-isob\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-b-global":{"description":"AWS ISOB (US) global region"},"us-isob-east-1":{"description":"US ISOB East (Ohio)"}}},{"id":"aws-iso-e","outputs":{"dnsSuffix":"cloud.adc-e.uk","dualStackDnsSuffix":"cloud.adc-e.uk","implicitGlobalRegion":"eu-isoe-west-1","name":"aws-iso-e","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^eu\\\\-isoe\\\\-\\\\w+\\\\-\\\\d+$","regions":{"eu-isoe-west-1":{"description":"EU ISOE West"}}},{"id":"aws-iso-f","outputs":{"dnsSuffix":"csp.hci.ic.gov","dualStackDnsSuffix":"csp.hci.ic.gov","implicitGlobalRegion":"us-isof-south-1","name":"aws-iso-f","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-isof\\\\-\\\\w+\\\\-\\\\d+$","regions":{}}],"version":"1.1"}');
+const partitions_namespaceObject = /*#__PURE__*/JSON.parse('{"partitions":[{"id":"aws","outputs":{"dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","implicitGlobalRegion":"us-east-1","name":"aws","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^(us|eu|ap|sa|ca|me|af|il|mx)\\\\-\\\\w+\\\\-\\\\d+$","regions":{"af-south-1":{"description":"Africa (Cape Town)"},"ap-east-1":{"description":"Asia Pacific (Hong Kong)"},"ap-east-2":{"description":"Asia Pacific (Taipei)"},"ap-northeast-1":{"description":"Asia Pacific (Tokyo)"},"ap-northeast-2":{"description":"Asia Pacific (Seoul)"},"ap-northeast-3":{"description":"Asia Pacific (Osaka)"},"ap-south-1":{"description":"Asia Pacific (Mumbai)"},"ap-south-2":{"description":"Asia Pacific (Hyderabad)"},"ap-southeast-1":{"description":"Asia Pacific (Singapore)"},"ap-southeast-2":{"description":"Asia Pacific (Sydney)"},"ap-southeast-3":{"description":"Asia Pacific (Jakarta)"},"ap-southeast-4":{"description":"Asia Pacific (Melbourne)"},"ap-southeast-5":{"description":"Asia Pacific (Malaysia)"},"ap-southeast-7":{"description":"Asia Pacific (Thailand)"},"aws-global":{"description":"AWS Standard global region"},"ca-central-1":{"description":"Canada (Central)"},"ca-west-1":{"description":"Canada West (Calgary)"},"eu-central-1":{"description":"Europe (Frankfurt)"},"eu-central-2":{"description":"Europe (Zurich)"},"eu-north-1":{"description":"Europe (Stockholm)"},"eu-south-1":{"description":"Europe (Milan)"},"eu-south-2":{"description":"Europe (Spain)"},"eu-west-1":{"description":"Europe (Ireland)"},"eu-west-2":{"description":"Europe (London)"},"eu-west-3":{"description":"Europe (Paris)"},"il-central-1":{"description":"Israel (Tel Aviv)"},"me-central-1":{"description":"Middle East (UAE)"},"me-south-1":{"description":"Middle East (Bahrain)"},"mx-central-1":{"description":"Mexico (Central)"},"sa-east-1":{"description":"South America (Sao Paulo)"},"us-east-1":{"description":"US East (N. Virginia)"},"us-east-2":{"description":"US East (Ohio)"},"us-west-1":{"description":"US West (N. California)"},"us-west-2":{"description":"US West (Oregon)"}}},{"id":"aws-cn","outputs":{"dnsSuffix":"amazonaws.com.cn","dualStackDnsSuffix":"api.amazonwebservices.com.cn","implicitGlobalRegion":"cn-northwest-1","name":"aws-cn","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^cn\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-cn-global":{"description":"AWS China global region"},"cn-north-1":{"description":"China (Beijing)"},"cn-northwest-1":{"description":"China (Ningxia)"}}},{"id":"aws-us-gov","outputs":{"dnsSuffix":"amazonaws.com","dualStackDnsSuffix":"api.aws","implicitGlobalRegion":"us-gov-west-1","name":"aws-us-gov","supportsDualStack":true,"supportsFIPS":true},"regionRegex":"^us\\\\-gov\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-us-gov-global":{"description":"AWS GovCloud (US) global region"},"us-gov-east-1":{"description":"AWS GovCloud (US-East)"},"us-gov-west-1":{"description":"AWS GovCloud (US-West)"}}},{"id":"aws-iso","outputs":{"dnsSuffix":"c2s.ic.gov","dualStackDnsSuffix":"c2s.ic.gov","implicitGlobalRegion":"us-iso-east-1","name":"aws-iso","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-iso\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-global":{"description":"AWS ISO (US) global region"},"us-iso-east-1":{"description":"US ISO East"},"us-iso-west-1":{"description":"US ISO WEST"}}},{"id":"aws-iso-b","outputs":{"dnsSuffix":"sc2s.sgov.gov","dualStackDnsSuffix":"sc2s.sgov.gov","implicitGlobalRegion":"us-isob-east-1","name":"aws-iso-b","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-isob\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-b-global":{"description":"AWS ISOB (US) global region"},"us-isob-east-1":{"description":"US ISOB East (Ohio)"}}},{"id":"aws-iso-e","outputs":{"dnsSuffix":"cloud.adc-e.uk","dualStackDnsSuffix":"cloud.adc-e.uk","implicitGlobalRegion":"eu-isoe-west-1","name":"aws-iso-e","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^eu\\\\-isoe\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-e-global":{"description":"AWS ISOE (Europe) global region"},"eu-isoe-west-1":{"description":"EU ISOE West"}}},{"id":"aws-iso-f","outputs":{"dnsSuffix":"csp.hci.ic.gov","dualStackDnsSuffix":"csp.hci.ic.gov","implicitGlobalRegion":"us-isof-south-1","name":"aws-iso-f","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^us\\\\-isof\\\\-\\\\w+\\\\-\\\\d+$","regions":{"aws-iso-f-global":{"description":"AWS ISOF global region"},"us-isof-east-1":{"description":"US ISOF EAST"},"us-isof-south-1":{"description":"US ISOF SOUTH"}}},{"id":"aws-eusc","outputs":{"dnsSuffix":"amazonaws.eu","dualStackDnsSuffix":"amazonaws.eu","implicitGlobalRegion":"eusc-de-east-1","name":"aws-eusc","supportsDualStack":false,"supportsFIPS":true},"regionRegex":"^eusc\\\\-(de)\\\\-\\\\w+\\\\-\\\\d+$","regions":{"eusc-de-east-1":{"description":"EU (Germany)"}}}],"version":"1.1"}');
 ;// ./node_modules/@aws-sdk/util-endpoints/dist-es/lib/aws/partition.js
 
 let selectedPartitionsInfo = partitions_namespaceObject;
@@ -26917,12 +31604,13 @@ dist_es/* customEndpointFunctions */.mw.aws = awsEndpointFunctions;
 
 "use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   m: () => (/* binding */ defaultUserAgent)
+/* harmony export */   p: () => (/* binding */ createDefaultUserAgentProvider)
 /* harmony export */ });
+/* unused harmony export defaultUserAgent */
 /* harmony import */ var bowser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6880);
 /* harmony import */ var bowser__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bowser__WEBPACK_IMPORTED_MODULE_0__);
 
-const defaultUserAgent = ({ serviceId, clientVersion }) => async (config) => {
+const createDefaultUserAgentProvider = ({ serviceId, clientVersion }) => async (config) => {
     const parsedUA = typeof window !== "undefined" && window?.navigator?.userAgent
         ? bowser__WEBPACK_IMPORTED_MODULE_0___default().parse(window.navigator.userAgent)
         : undefined;
@@ -26942,6 +31630,7 @@ const defaultUserAgent = ({ serviceId, clientVersion }) => async (config) => {
     }
     return sections;
 };
+const defaultUserAgent = (/* unused pure expression or super */ null && (createDefaultUserAgentProvider));
 
 
 /***/ }),
@@ -27010,14 +31699,13 @@ var dist_es = __webpack_require__(7135);
 ;// ./node_modules/@smithy/config-resolver/dist-es/endpointsConfig/resolveCustomEndpointsConfig.js
 
 const resolveCustomEndpointsConfig = (input) => {
-    const { endpoint, urlParser } = input;
-    return {
-        ...input,
-        tls: input.tls ?? true,
+    const { tls, endpoint, urlParser, useDualstackEndpoint } = input;
+    return Object.assign(input, {
+        tls: tls ?? true,
         endpoint: normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint),
         isCustomEndpoint: true,
-        useDualstackEndpoint: normalizeProvider(input.useDualstackEndpoint ?? false),
-    };
+        useDualstackEndpoint: normalizeProvider(useDualstackEndpoint ?? false),
+    });
 };
 
 ;// ./node_modules/@smithy/config-resolver/dist-es/endpointsConfig/resolveEndpointsConfig.js
@@ -27025,16 +31713,15 @@ const resolveCustomEndpointsConfig = (input) => {
 
 const resolveEndpointsConfig = (input) => {
     const useDualstackEndpoint = normalizeProvider(input.useDualstackEndpoint ?? false);
-    const { endpoint, useFipsEndpoint, urlParser } = input;
-    return {
-        ...input,
-        tls: input.tls ?? true,
+    const { endpoint, useFipsEndpoint, urlParser, tls } = input;
+    return Object.assign(input, {
+        tls: tls ?? true,
         endpoint: endpoint
             ? normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint)
             : () => getEndpointFromRegion({ ...input, useDualstackEndpoint, useFipsEndpoint }),
         isCustomEndpoint: !!endpoint,
         useDualstackEndpoint,
-    };
+    });
 };
 
 ;// ./node_modules/@smithy/config-resolver/dist-es/endpointsConfig/index.js
@@ -27076,8 +31763,7 @@ const resolveRegionConfig = (input) => {
     if (!region) {
         throw new Error("Region is missing");
     }
-    return {
-        ...input,
+    return Object.assign(input, {
         region: async () => {
             if (typeof region === "string") {
                 return getRealRegion(region);
@@ -27092,7 +31778,7 @@ const resolveRegionConfig = (input) => {
             }
             return typeof useFipsEndpoint !== "function" ? Promise.resolve(!!useFipsEndpoint) : useFipsEndpoint();
         },
-    };
+    });
 };
 
 ;// ./node_modules/@smithy/config-resolver/dist-es/regionConfig/index.js
@@ -27107,7 +31793,7 @@ const resolveRegionConfig = (input) => {
 
 /***/ }),
 
-/***/ 2516:
+/***/ 9142:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27122,16 +31808,44 @@ __webpack_require__.d(__webpack_exports__, {
   OC: () => (/* reexport */ isIdentityExpired),
   K4: () => (/* reexport */ memoizeIdentityProvider),
   te: () => (/* reexport */ normalizeProvider),
-  lI: () => (/* reexport */ requestBuilder)
+  lI: () => (/* reexport */ protocols/* requestBuilder */.lI),
+  J7: () => (/* reexport */ setFeature)
 });
 
-// UNUSED EXPORTS: EXPIRATION_MS, HttpApiKeyAuthSigner, HttpBearerAuthSigner, NoAuthSigner, RequestBuilder, createIsIdentityExpiredFunction, getHttpAuthSchemePlugin, getSmithyContext, httpAuthSchemeEndpointRuleSetMiddlewareOptions, httpAuthSchemeMiddleware, httpAuthSchemeMiddlewareOptions, httpSigningMiddleware, httpSigningMiddlewareOptions
+// UNUSED EXPORTS: EXPIRATION_MS, HttpApiKeyAuthSigner, HttpBearerAuthSigner, NoAuthSigner, createIsIdentityExpiredFunction, getHttpAuthSchemePlugin, getSmithyContext, httpAuthSchemeEndpointRuleSetMiddlewareOptions, httpAuthSchemeMiddleware, httpAuthSchemeMiddlewareOptions, httpSigningMiddleware, httpSigningMiddlewareOptions
 
 // EXTERNAL MODULE: ./node_modules/@smithy/types/dist-es/index.js + 11 modules
 var dist_es = __webpack_require__(7523);
+;// ./node_modules/@smithy/core/dist-es/getSmithyContext.js
+
+const getSmithyContext = (context) => context[SMITHY_CONTEXT_KEY] || (context[SMITHY_CONTEXT_KEY] = {});
+
 // EXTERNAL MODULE: ./node_modules/@smithy/util-middleware/dist-es/index.js + 2 modules
 var util_middleware_dist_es = __webpack_require__(7135);
+;// ./node_modules/@smithy/core/dist-es/middleware-http-auth-scheme/resolveAuthOptions.js
+const resolveAuthOptions = (candidateAuthOptions, authSchemePreference) => {
+    if (!authSchemePreference || authSchemePreference.length === 0) {
+        return candidateAuthOptions;
+    }
+    const preferredAuthOptions = [];
+    for (const preferredSchemeName of authSchemePreference) {
+        for (const candidateAuthOption of candidateAuthOptions) {
+            const candidateAuthSchemeName = candidateAuthOption.schemeId.split("#")[1];
+            if (candidateAuthSchemeName === preferredSchemeName) {
+                preferredAuthOptions.push(candidateAuthOption);
+            }
+        }
+    }
+    for (const candidateAuthOption of candidateAuthOptions) {
+        if (!preferredAuthOptions.find(({ schemeId }) => schemeId === candidateAuthOption.schemeId)) {
+            preferredAuthOptions.push(candidateAuthOption);
+        }
+    }
+    return preferredAuthOptions;
+};
+
 ;// ./node_modules/@smithy/core/dist-es/middleware-http-auth-scheme/httpAuthSchemeMiddleware.js
+
 
 
 function convertHttpAuthSchemesToMap(httpAuthSchemes) {
@@ -27143,10 +31857,12 @@ function convertHttpAuthSchemesToMap(httpAuthSchemes) {
 }
 const httpAuthSchemeMiddleware_httpAuthSchemeMiddleware = (config, mwOptions) => (next, context) => async (args) => {
     const options = config.httpAuthSchemeProvider(await mwOptions.httpAuthSchemeParametersProvider(config, context, args.input));
+    const authSchemePreference = config.authSchemePreference ? await config.authSchemePreference() : [];
+    const resolvedOptions = resolveAuthOptions(options, authSchemePreference);
     const authSchemes = convertHttpAuthSchemesToMap(config.httpAuthSchemes);
     const smithyContext = (0,util_middleware_dist_es/* getSmithyContext */.u)(context);
     const failureReasons = [];
-    for (const option of options) {
+    for (const option of resolvedOptions) {
         const scheme = authSchemes.get(option.schemeId);
         if (!scheme) {
             failureReasons.push(`HttpAuthScheme \`${option.schemeId}\` was not enabled for this service.`);
@@ -27173,10 +31889,7 @@ const httpAuthSchemeMiddleware_httpAuthSchemeMiddleware = (config, mwOptions) =>
     return next(args);
 };
 
-// EXTERNAL MODULE: ./node_modules/@smithy/middleware-endpoint/dist-es/index.js + 8 modules
-var middleware_endpoint_dist_es = __webpack_require__(7012);
 ;// ./node_modules/@smithy/core/dist-es/middleware-http-auth-scheme/getHttpAuthSchemeEndpointRuleSetPlugin.js
-
 
 const httpAuthSchemeEndpointRuleSetMiddlewareOptions = {
     step: "serialize",
@@ -27184,7 +31897,7 @@ const httpAuthSchemeEndpointRuleSetMiddlewareOptions = {
     name: "httpAuthSchemeMiddleware",
     override: true,
     relation: "before",
-    toMiddleware: middleware_endpoint_dist_es/* endpointMiddlewareOptions */.ko.name,
+    toMiddleware: "endpointV2Middleware",
 };
 const getHttpAuthSchemeEndpointRuleSetPlugin = (config, { httpAuthSchemeParametersProvider, identityProviderConfigProvider, }) => ({
     applyToStack: (clientStack) => {
@@ -27250,10 +31963,7 @@ const httpSigningMiddleware = (config) => (next, context) => async (args) => {
     return output;
 };
 
-// EXTERNAL MODULE: ./node_modules/@smithy/middleware-retry/dist-es/index.js + 10 modules
-var middleware_retry_dist_es = __webpack_require__(6232);
 ;// ./node_modules/@smithy/core/dist-es/middleware-http-signing/getHttpSigningMiddleware.js
-
 
 const httpSigningMiddlewareOptions = {
     step: "finalizeRequest",
@@ -27262,7 +31972,7 @@ const httpSigningMiddlewareOptions = {
     aliases: ["apiKeyMiddleware", "tokenMiddleware", "awsAuthMiddleware"],
     override: true,
     relation: "after",
-    toMiddleware: middleware_retry_dist_es/* retryMiddlewareOptions */.j7.name,
+    toMiddleware: "retryMiddleware",
 };
 const getHttpSigningPlugin = (config) => ({
     applyToStack: (clientStack) => {
@@ -27273,6 +31983,75 @@ const getHttpSigningPlugin = (config) => ({
 ;// ./node_modules/@smithy/core/dist-es/middleware-http-signing/index.js
 
 
+
+;// ./node_modules/@smithy/core/dist-es/normalizeProvider.js
+const normalizeProvider = (input) => {
+    if (typeof input === "function")
+        return input;
+    const promisified = Promise.resolve(input);
+    return () => promisified;
+};
+
+;// ./node_modules/@smithy/core/dist-es/pagination/createPaginator.js
+const makePagedClientRequest = async (CommandCtor, client, input, withCommand = (_) => _, ...args) => {
+    let command = new CommandCtor(input);
+    command = withCommand(command) ?? command;
+    return await client.send(command, ...args);
+};
+function createPaginator(ClientCtor, CommandCtor, inputTokenName, outputTokenName, pageSizeTokenName) {
+    return async function* paginateOperation(config, input, ...additionalArguments) {
+        const _input = input;
+        let token = config.startingToken ?? _input[inputTokenName];
+        let hasNext = true;
+        let page;
+        while (hasNext) {
+            _input[inputTokenName] = token;
+            if (pageSizeTokenName) {
+                _input[pageSizeTokenName] = _input[pageSizeTokenName] ?? config.pageSize;
+            }
+            if (config.client instanceof ClientCtor) {
+                page = await makePagedClientRequest(CommandCtor, config.client, input, config.withCommand, ...additionalArguments);
+            }
+            else {
+                throw new Error(`Invalid client, expected instance of ${ClientCtor.name}`);
+            }
+            yield page;
+            const prevToken = token;
+            token = get(page, outputTokenName);
+            hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
+        }
+        return undefined;
+    };
+}
+const get = (fromObject, path) => {
+    let cursor = fromObject;
+    const pathComponents = path.split(".");
+    for (const step of pathComponents) {
+        if (!cursor || typeof cursor !== "object") {
+            return undefined;
+        }
+        cursor = cursor[step];
+    }
+    return cursor;
+};
+
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/submodules/protocols/index.js + 18 modules
+var protocols = __webpack_require__(3483);
+;// ./node_modules/@smithy/core/dist-es/protocols/requestBuilder.js
+
+
+;// ./node_modules/@smithy/core/dist-es/setFeature.js
+function setFeature(context, feature, value) {
+    if (!context.__smithy_context) {
+        context.__smithy_context = {
+            features: {},
+        };
+    }
+    else if (!context.__smithy_context.features) {
+        context.__smithy_context.features = {};
+    }
+    context.__smithy_context.features[feature] = value;
+}
 
 ;// ./node_modules/@smithy/core/dist-es/util-identity-and-auth/DefaultIdentityProviderConfig.js
 class DefaultIdentityProviderConfig {
@@ -27403,21 +32182,669 @@ const memoizeIdentityProvider = (provider, isExpired, requiresRefresh) => {
 
 
 
-;// ./node_modules/@smithy/core/dist-es/getSmithyContext.js
+;// ./node_modules/@smithy/core/dist-es/index.js
 
-const getSmithyContext = (context) => context[SMITHY_CONTEXT_KEY] || (context[SMITHY_CONTEXT_KEY] = {});
 
-;// ./node_modules/@smithy/core/dist-es/normalizeProvider.js
-const normalizeProvider = (input) => {
-    if (typeof input === "function")
-        return input;
-    const promisified = Promise.resolve(input);
-    return () => promisified;
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ 3483:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  Px: () => (/* reexport */ collect_stream_body_collectBody),
+  lI: () => (/* reexport */ requestBuilder)
+});
+
+// UNUSED EXPORTS: FromStringShapeDeserializer, HttpBindingProtocol, HttpInterceptingShapeDeserializer, HttpInterceptingShapeSerializer, RequestBuilder, RpcProtocol, ToStringShapeSerializer, determineTimestampFormat, extendedEncodeURIComponent, resolvedPath
+
+// EXTERNAL MODULE: ./node_modules/@smithy/util-base64/dist-es/index.js + 3 modules
+var dist_es = __webpack_require__(1302);
+// EXTERNAL MODULE: ./node_modules/@smithy/util-utf8/dist-es/toUtf8.browser.js
+var toUtf8_browser = __webpack_require__(5792);
+// EXTERNAL MODULE: ./node_modules/@smithy/util-utf8/dist-es/fromUtf8.browser.js
+var fromUtf8_browser = __webpack_require__(2637);
+;// ./node_modules/@smithy/util-stream/dist-es/blob/transforms.js
+
+
+
+function transformToString(payload, encoding = "utf-8") {
+    if (encoding === "base64") {
+        return (0,dist_es/* toBase64 */.n)(payload);
+    }
+    return (0,toUtf8_browser/* toUtf8 */.P)(payload);
+}
+function transformFromString(str, encoding) {
+    if (encoding === "base64") {
+        return Uint8ArrayBlobAdapter.mutate((0,dist_es/* fromBase64 */.E)(str));
+    }
+    return Uint8ArrayBlobAdapter.mutate((0,fromUtf8_browser/* fromUtf8 */.a)(str));
+}
+
+;// ./node_modules/@smithy/util-stream/dist-es/blob/Uint8ArrayBlobAdapter.js
+
+class Uint8ArrayBlobAdapter extends Uint8Array {
+    static fromString(source, encoding = "utf-8") {
+        switch (typeof source) {
+            case "string":
+                return transformFromString(source, encoding);
+            default:
+                throw new Error(`Unsupported conversion from ${typeof source} to Uint8ArrayBlobAdapter.`);
+        }
+    }
+    static mutate(source) {
+        Object.setPrototypeOf(source, Uint8ArrayBlobAdapter.prototype);
+        return source;
+    }
+    transformToString(encoding = "utf-8") {
+        return transformToString(this, encoding);
+    }
+}
+
+;// ./node_modules/@smithy/util-stream/dist-es/checksum/ChecksumStream.browser.js
+const ReadableStreamRef = typeof ReadableStream === "function" ? ReadableStream : function () { };
+class ChecksumStream_browser_ChecksumStream extends (/* unused pure expression or super */ null && (ReadableStreamRef)) {
+}
+
+;// ./node_modules/@smithy/util-stream/dist-es/checksum/createChecksumStream.browser.js
+
+
+
+const createChecksumStream = ({ expectedChecksum, checksum, source, checksumSourceLocation, base64Encoder, }) => {
+    if (!isReadableStream(source)) {
+        throw new Error(`@smithy/util-stream: unsupported source type ${source?.constructor?.name ?? source} in ChecksumStream.`);
+    }
+    const encoder = base64Encoder ?? toBase64;
+    if (typeof TransformStream !== "function") {
+        throw new Error("@smithy/util-stream: unable to instantiate ChecksumStream because API unavailable: ReadableStream/TransformStream.");
+    }
+    const transform = new TransformStream({
+        start() { },
+        async transform(chunk, controller) {
+            checksum.update(chunk);
+            controller.enqueue(chunk);
+        },
+        async flush(controller) {
+            const digest = await checksum.digest();
+            const received = encoder(digest);
+            if (expectedChecksum !== received) {
+                const error = new Error(`Checksum mismatch: expected "${expectedChecksum}" but received "${received}"` +
+                    ` in response header "${checksumSourceLocation}".`);
+                controller.error(error);
+            }
+            else {
+                controller.terminate();
+            }
+        },
+    });
+    source.pipeThrough(transform);
+    const readable = transform.readable;
+    Object.setPrototypeOf(readable, ChecksumStream.prototype);
+    return readable;
 };
 
-// EXTERNAL MODULE: ./node_modules/@smithy/smithy-client/dist-es/index.js + 27 modules
-var smithy_client_dist_es = __webpack_require__(5342);
-;// ./node_modules/@smithy/core/dist-es/protocols/requestBuilder.js
+// EXTERNAL MODULE: ./node_modules/@smithy/fetch-http-handler/dist-es/index.js + 5 modules
+var fetch_http_handler_dist_es = __webpack_require__(9389);
+// EXTERNAL MODULE: ./node_modules/@smithy/util-hex-encoding/dist-es/index.js
+var util_hex_encoding_dist_es = __webpack_require__(8004);
+;// ./node_modules/@smithy/util-stream/dist-es/sdk-stream-mixin.browser.js
+
+
+
+
+
+const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
+const sdk_stream_mixin_browser_sdkStreamMixin = (stream) => {
+    if (!isBlobInstance(stream) && !isReadableStream(stream)) {
+        const name = stream?.__proto__?.constructor?.name || stream;
+        throw new Error(`Unexpected stream implementation, expect Blob or ReadableStream, got ${name}`);
+    }
+    let transformed = false;
+    const transformToByteArray = async () => {
+        if (transformed) {
+            throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
+        }
+        transformed = true;
+        return await streamCollector(stream);
+    };
+    const blobToWebStream = (blob) => {
+        if (typeof blob.stream !== "function") {
+            throw new Error("Cannot transform payload Blob to web stream. Please make sure the Blob.stream() is polyfilled.\n" +
+                "If you are using React Native, this API is not yet supported, see: https://react-native.canny.io/feature-requests/p/fetch-streaming-body");
+        }
+        return blob.stream();
+    };
+    return Object.assign(stream, {
+        transformToByteArray: transformToByteArray,
+        transformToString: async (encoding) => {
+            const buf = await transformToByteArray();
+            if (encoding === "base64") {
+                return toBase64(buf);
+            }
+            else if (encoding === "hex") {
+                return toHex(buf);
+            }
+            else if (encoding === undefined || encoding === "utf8" || encoding === "utf-8") {
+                return toUtf8(buf);
+            }
+            else if (typeof TextDecoder === "function") {
+                return new TextDecoder(encoding).decode(buf);
+            }
+            else {
+                throw new Error("TextDecoder is not available, please make sure polyfill is provided.");
+            }
+        },
+        transformToWebStream: () => {
+            if (transformed) {
+                throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
+            }
+            transformed = true;
+            if (isBlobInstance(stream)) {
+                return blobToWebStream(stream);
+            }
+            else if (isReadableStream(stream)) {
+                return stream;
+            }
+            else {
+                throw new Error(`Cannot transform payload to web stream, got ${stream}`);
+            }
+        },
+    });
+};
+const isBlobInstance = (stream) => typeof Blob === "function" && stream instanceof Blob;
+
+;// ./node_modules/@smithy/util-stream/dist-es/index.js
+
+
+
+
+
+
+
+
+
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/collect-stream-body.js
+
+const collect_stream_body_collectBody = async (streamBody = new Uint8Array(), context) => {
+    if (streamBody instanceof Uint8Array) {
+        return Uint8ArrayBlobAdapter.mutate(streamBody);
+    }
+    if (!streamBody) {
+        return Uint8ArrayBlobAdapter.mutate(new Uint8Array());
+    }
+    const fromContext = context.streamCollector(streamBody);
+    return Uint8ArrayBlobAdapter.mutate(await fromContext);
+};
+
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/submodules/schema/index.js + 13 modules
+var schema = __webpack_require__(1700);
+// EXTERNAL MODULE: ./node_modules/@smithy/protocol-http/dist-es/index.js + 5 modules
+var protocol_http_dist_es = __webpack_require__(5479);
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/submodules/serde/index.js + 4 modules
+var serde = __webpack_require__(8739);
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/HttpProtocol.js
+
+
+
+
+
+class HttpProtocol_HttpProtocol {
+    constructor(options) {
+        this.options = options;
+    }
+    getRequestType() {
+        return HttpRequest;
+    }
+    getResponseType() {
+        return HttpResponse;
+    }
+    setSerdeContext(serdeContext) {
+        this.serdeContext = serdeContext;
+        this.serializer.setSerdeContext(serdeContext);
+        this.deserializer.setSerdeContext(serdeContext);
+        if (this.getPayloadCodec()) {
+            this.getPayloadCodec().setSerdeContext(serdeContext);
+        }
+    }
+    updateServiceEndpoint(request, endpoint) {
+        if ("url" in endpoint) {
+            request.protocol = endpoint.url.protocol;
+            request.hostname = endpoint.url.hostname;
+            request.port = endpoint.url.port ? Number(endpoint.url.port) : undefined;
+            request.path = endpoint.url.pathname;
+            request.fragment = endpoint.url.hash || void 0;
+            request.username = endpoint.url.username || void 0;
+            request.password = endpoint.url.password || void 0;
+            for (const [k, v] of endpoint.url.searchParams.entries()) {
+                if (!request.query) {
+                    request.query = {};
+                }
+                request.query[k] = v;
+            }
+            return request;
+        }
+        else {
+            request.protocol = endpoint.protocol;
+            request.hostname = endpoint.hostname;
+            request.port = endpoint.port ? Number(endpoint.port) : undefined;
+            request.path = endpoint.path;
+            request.query = {
+                ...endpoint.query,
+            };
+            return request;
+        }
+    }
+    setHostPrefix(request, operationSchema, input) {
+        const operationNs = NormalizedSchema.of(operationSchema);
+        const inputNs = NormalizedSchema.of(operationSchema.input);
+        if (operationNs.getMergedTraits().endpoint) {
+            let hostPrefix = operationNs.getMergedTraits().endpoint?.[0];
+            if (typeof hostPrefix === "string") {
+                const hostLabelInputs = [...inputNs.structIterator()].filter(([, member]) => member.getMergedTraits().hostLabel);
+                for (const [name] of hostLabelInputs) {
+                    const replacement = input[name];
+                    if (typeof replacement !== "string") {
+                        throw new Error(`@smithy/core/schema - ${name} in input must be a string as hostLabel.`);
+                    }
+                    hostPrefix = hostPrefix.replace(`{${name}}`, replacement);
+                }
+                request.hostname = hostPrefix + request.hostname;
+            }
+        }
+    }
+    deserializeMetadata(output) {
+        return {
+            httpStatusCode: output.statusCode,
+            requestId: output.headers["x-amzn-requestid"] ?? output.headers["x-amzn-request-id"] ?? output.headers["x-amz-request-id"],
+            extendedRequestId: output.headers["x-amz-id-2"],
+            cfId: output.headers["x-amz-cf-id"],
+        };
+    }
+    async deserializeHttpMessage(schema, context, response, arg4, arg5) {
+        let dataObject;
+        if (arg4 instanceof Set) {
+            dataObject = arg5;
+        }
+        else {
+            dataObject = arg4;
+        }
+        const deserializer = this.deserializer;
+        const ns = NormalizedSchema.of(schema);
+        const nonHttpBindingMembers = [];
+        for (const [memberName, memberSchema] of ns.structIterator()) {
+            const memberTraits = memberSchema.getMemberTraits();
+            if (memberTraits.httpPayload) {
+                const isStreaming = memberSchema.isStreaming();
+                if (isStreaming) {
+                    const isEventStream = memberSchema.isStructSchema();
+                    if (isEventStream) {
+                        const context = this.serdeContext;
+                        if (!context.eventStreamMarshaller) {
+                            throw new Error("@smithy/core - HttpProtocol: eventStreamMarshaller missing in serdeContext.");
+                        }
+                        const memberSchemas = memberSchema.getMemberSchemas();
+                        dataObject[memberName] = context.eventStreamMarshaller.deserialize(response.body, async (event) => {
+                            const unionMember = Object.keys(event).find((key) => {
+                                return key !== "__type";
+                            }) ?? "";
+                            if (unionMember in memberSchemas) {
+                                const eventStreamSchema = memberSchemas[unionMember];
+                                return {
+                                    [unionMember]: await deserializer.read(eventStreamSchema, event[unionMember].body),
+                                };
+                            }
+                            else {
+                                return {
+                                    $unknown: event,
+                                };
+                            }
+                        });
+                    }
+                    else {
+                        dataObject[memberName] = sdkStreamMixin(response.body);
+                    }
+                }
+                else if (response.body) {
+                    const bytes = await collectBody(response.body, context);
+                    if (bytes.byteLength > 0) {
+                        dataObject[memberName] = await deserializer.read(memberSchema, bytes);
+                    }
+                }
+            }
+            else if (memberTraits.httpHeader) {
+                const key = String(memberTraits.httpHeader).toLowerCase();
+                const value = response.headers[key];
+                if (null != value) {
+                    if (memberSchema.isListSchema()) {
+                        const headerListValueSchema = memberSchema.getValueSchema();
+                        let sections;
+                        if (headerListValueSchema.isTimestampSchema() &&
+                            headerListValueSchema.getSchema() === SCHEMA.TIMESTAMP_DEFAULT) {
+                            sections = splitEvery(value, ",", 2);
+                        }
+                        else {
+                            sections = splitHeader(value);
+                        }
+                        const list = [];
+                        for (const section of sections) {
+                            list.push(await deserializer.read([headerListValueSchema, { httpHeader: key }], section.trim()));
+                        }
+                        dataObject[memberName] = list;
+                    }
+                    else {
+                        dataObject[memberName] = await deserializer.read(memberSchema, value);
+                    }
+                }
+            }
+            else if (memberTraits.httpPrefixHeaders !== undefined) {
+                dataObject[memberName] = {};
+                for (const [header, value] of Object.entries(response.headers)) {
+                    if (header.startsWith(memberTraits.httpPrefixHeaders)) {
+                        dataObject[memberName][header.slice(memberTraits.httpPrefixHeaders.length)] = await deserializer.read([memberSchema.getValueSchema(), { httpHeader: header }], value);
+                    }
+                }
+            }
+            else if (memberTraits.httpResponseCode) {
+                dataObject[memberName] = response.statusCode;
+            }
+            else {
+                nonHttpBindingMembers.push(memberName);
+            }
+        }
+        return nonHttpBindingMembers;
+    }
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/HttpBindingProtocol.js
+
+
+
+
+
+class HttpBindingProtocol extends (/* unused pure expression or super */ null && (HttpProtocol)) {
+    async serializeRequest(operationSchema, input, context) {
+        const serializer = this.serializer;
+        const query = {};
+        const headers = {};
+        const endpoint = await context.endpoint();
+        const ns = NormalizedSchema.of(operationSchema?.input);
+        const schema = ns.getSchema();
+        let hasNonHttpBindingMember = false;
+        let payload;
+        const request = new HttpRequest({
+            protocol: "",
+            hostname: "",
+            port: undefined,
+            path: "",
+            fragment: undefined,
+            query: query,
+            headers: headers,
+            body: undefined,
+        });
+        if (endpoint) {
+            this.updateServiceEndpoint(request, endpoint);
+            this.setHostPrefix(request, operationSchema, input);
+            const opTraits = NormalizedSchema.translateTraits(operationSchema.traits);
+            if (opTraits.http) {
+                request.method = opTraits.http[0];
+                const [path, search] = opTraits.http[1].split("?");
+                if (request.path == "/") {
+                    request.path = path;
+                }
+                else {
+                    request.path += path;
+                }
+                const traitSearchParams = new URLSearchParams(search ?? "");
+                Object.assign(query, Object.fromEntries(traitSearchParams));
+            }
+        }
+        const _input = {
+            ...input,
+        };
+        for (const memberName of Object.keys(_input)) {
+            const memberNs = ns.getMemberSchema(memberName);
+            if (memberNs === undefined) {
+                continue;
+            }
+            const memberTraits = memberNs.getMergedTraits();
+            const inputMember = _input[memberName];
+            if (memberTraits.httpPayload) {
+                const isStreaming = memberNs.isStreaming();
+                if (isStreaming) {
+                    const isEventStream = memberNs.isStructSchema();
+                    if (isEventStream) {
+                        throw new Error("serialization of event streams is not yet implemented");
+                    }
+                    else {
+                        payload = inputMember;
+                    }
+                }
+                else {
+                    serializer.write(memberNs, inputMember);
+                    payload = serializer.flush();
+                }
+            }
+            else if (memberTraits.httpLabel) {
+                serializer.write(memberNs, inputMember);
+                const replacement = serializer.flush();
+                if (request.path.includes(`{${memberName}+}`)) {
+                    request.path = request.path.replace(`{${memberName}+}`, replacement.split("/").map(extendedEncodeURIComponent).join("/"));
+                }
+                else if (request.path.includes(`{${memberName}}`)) {
+                    request.path = request.path.replace(`{${memberName}}`, extendedEncodeURIComponent(replacement));
+                }
+                delete _input[memberName];
+            }
+            else if (memberTraits.httpHeader) {
+                serializer.write(memberNs, inputMember);
+                headers[memberTraits.httpHeader.toLowerCase()] = String(serializer.flush());
+                delete _input[memberName];
+            }
+            else if (typeof memberTraits.httpPrefixHeaders === "string") {
+                for (const [key, val] of Object.entries(inputMember)) {
+                    const amalgam = memberTraits.httpPrefixHeaders + key;
+                    serializer.write([memberNs.getValueSchema(), { httpHeader: amalgam }], val);
+                    headers[amalgam.toLowerCase()] = serializer.flush();
+                }
+                delete _input[memberName];
+            }
+            else if (memberTraits.httpQuery || memberTraits.httpQueryParams) {
+                this.serializeQuery(memberNs, inputMember, query);
+                delete _input[memberName];
+            }
+            else {
+                hasNonHttpBindingMember = true;
+            }
+        }
+        if (hasNonHttpBindingMember && input) {
+            serializer.write(schema, _input);
+            payload = serializer.flush();
+        }
+        request.headers = headers;
+        request.query = query;
+        request.body = payload;
+        return request;
+    }
+    serializeQuery(ns, data, query) {
+        const serializer = this.serializer;
+        const traits = ns.getMergedTraits();
+        if (traits.httpQueryParams) {
+            for (const [key, val] of Object.entries(data)) {
+                if (!(key in query)) {
+                    this.serializeQuery(NormalizedSchema.of([
+                        ns.getValueSchema(),
+                        {
+                            ...traits,
+                            httpQuery: key,
+                            httpQueryParams: undefined,
+                        },
+                    ]), val, query);
+                }
+            }
+            return;
+        }
+        if (ns.isListSchema()) {
+            const sparse = !!ns.getMergedTraits().sparse;
+            const buffer = [];
+            for (const item of data) {
+                serializer.write([ns.getValueSchema(), traits], item);
+                const serializable = serializer.flush();
+                if (sparse || serializable !== undefined) {
+                    buffer.push(serializable);
+                }
+            }
+            query[traits.httpQuery] = buffer;
+        }
+        else {
+            serializer.write([ns, traits], data);
+            query[traits.httpQuery] = serializer.flush();
+        }
+    }
+    async deserializeResponse(operationSchema, context, response) {
+        const deserializer = this.deserializer;
+        const ns = NormalizedSchema.of(operationSchema.output);
+        const dataObject = {};
+        if (response.statusCode >= 300) {
+            const bytes = await collectBody(response.body, context);
+            if (bytes.byteLength > 0) {
+                Object.assign(dataObject, await deserializer.read(SCHEMA.DOCUMENT, bytes));
+            }
+            await this.handleError(operationSchema, context, response, dataObject, this.deserializeMetadata(response));
+            throw new Error("@smithy/core/protocols - HTTP Protocol error handler failed to throw.");
+        }
+        for (const header in response.headers) {
+            const value = response.headers[header];
+            delete response.headers[header];
+            response.headers[header.toLowerCase()] = value;
+        }
+        const nonHttpBindingMembers = await this.deserializeHttpMessage(ns, context, response, dataObject);
+        if (nonHttpBindingMembers.length) {
+            const bytes = await collectBody(response.body, context);
+            if (bytes.byteLength > 0) {
+                const dataFromBody = await deserializer.read(ns, bytes);
+                for (const member of nonHttpBindingMembers) {
+                    dataObject[member] = dataFromBody[member];
+                }
+            }
+        }
+        const output = {
+            $metadata: this.deserializeMetadata(response),
+            ...dataObject,
+        };
+        return output;
+    }
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/RpcProtocol.js
+
+
+
+
+class RpcProtocol extends (/* unused pure expression or super */ null && (HttpProtocol)) {
+    async serializeRequest(operationSchema, input, context) {
+        const serializer = this.serializer;
+        const query = {};
+        const headers = {};
+        const endpoint = await context.endpoint();
+        const ns = NormalizedSchema.of(operationSchema?.input);
+        const schema = ns.getSchema();
+        let payload;
+        const request = new HttpRequest({
+            protocol: "",
+            hostname: "",
+            port: undefined,
+            path: "/",
+            fragment: undefined,
+            query: query,
+            headers: headers,
+            body: undefined,
+        });
+        if (endpoint) {
+            this.updateServiceEndpoint(request, endpoint);
+            this.setHostPrefix(request, operationSchema, input);
+        }
+        const _input = {
+            ...input,
+        };
+        if (input) {
+            serializer.write(schema, _input);
+            payload = serializer.flush();
+        }
+        request.headers = headers;
+        request.query = query;
+        request.body = payload;
+        request.method = "POST";
+        return request;
+    }
+    async deserializeResponse(operationSchema, context, response) {
+        const deserializer = this.deserializer;
+        const ns = NormalizedSchema.of(operationSchema.output);
+        const dataObject = {};
+        if (response.statusCode >= 300) {
+            const bytes = await collectBody(response.body, context);
+            if (bytes.byteLength > 0) {
+                Object.assign(dataObject, await deserializer.read(SCHEMA.DOCUMENT, bytes));
+            }
+            await this.handleError(operationSchema, context, response, dataObject, this.deserializeMetadata(response));
+            throw new Error("@smithy/core/protocols - RPC Protocol error handler failed to throw.");
+        }
+        for (const header in response.headers) {
+            const value = response.headers[header];
+            delete response.headers[header];
+            response.headers[header.toLowerCase()] = value;
+        }
+        const bytes = await collectBody(response.body, context);
+        if (bytes.byteLength > 0) {
+            Object.assign(dataObject, await deserializer.read(ns, bytes));
+        }
+        const output = {
+            $metadata: this.deserializeMetadata(response),
+            ...dataObject,
+        };
+        return output;
+    }
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/extended-encode-uri-component.js
+function extended_encode_uri_component_extendedEncodeURIComponent(str) {
+    return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+        return "%" + c.charCodeAt(0).toString(16).toUpperCase();
+    });
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/resolve-path.js
+
+const resolvedPath = (resolvedPath, input, memberName, labelValueProvider, uriLabel, isGreedyLabel) => {
+    if (input != null && input[memberName] !== undefined) {
+        const labelValue = labelValueProvider();
+        if (labelValue.length <= 0) {
+            throw new Error("Empty value provided for input HTTP label: " + memberName + ".");
+        }
+        resolvedPath = resolvedPath.replace(uriLabel, isGreedyLabel
+            ? labelValue
+                .split("/")
+                .map((segment) => extended_encode_uri_component_extendedEncodeURIComponent(segment))
+                .join("/")
+            : extended_encode_uri_component_extendedEncodeURIComponent(labelValue));
+    }
+    else {
+        throw new Error("No value provided for input HTTP label: " + memberName + ".");
+    }
+    return resolvedPath;
+};
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/requestBuilder.js
 
 
 function requestBuilder(input, context) {
@@ -27464,7 +32891,7 @@ class RequestBuilder {
     }
     p(memberName, labelValueProvider, uriLabel, isGreedyLabel) {
         this.resolvePathStack.push((path) => {
-            this.path = (0,smithy_client_dist_es/* resolvedPath */.un)(path, this.input, memberName, labelValueProvider, uriLabel, isGreedyLabel);
+            this.path = resolvedPath(path, this.input, memberName, labelValueProvider, uriLabel, isGreedyLabel);
         });
         return this;
     }
@@ -27486,47 +32913,260 @@ class RequestBuilder {
     }
 }
 
-;// ./node_modules/@smithy/core/dist-es/pagination/createPaginator.js
-const makePagedClientRequest = async (CommandCtor, client, input, ...args) => {
-    return await client.send(new CommandCtor(input), ...args);
-};
-function createPaginator(ClientCtor, CommandCtor, inputTokenName, outputTokenName, pageSizeTokenName) {
-    return async function* paginateOperation(config, input, ...additionalArguments) {
-        let token = config.startingToken || undefined;
-        let hasNext = true;
-        let page;
-        while (hasNext) {
-            input[inputTokenName] = token;
-            if (pageSizeTokenName) {
-                input[pageSizeTokenName] = input[pageSizeTokenName] ?? config.pageSize;
-            }
-            if (config.client instanceof ClientCtor) {
-                page = await makePagedClientRequest(CommandCtor, config.client, input, ...additionalArguments);
-            }
-            else {
-                throw new Error(`Invalid client, expected instance of ${ClientCtor.name}`);
-            }
-            yield page;
-            const prevToken = token;
-            token = get(page, outputTokenName);
-            hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-        }
-        return undefined;
-    };
-}
-const get = (fromObject, path) => {
-    let cursor = fromObject;
-    const pathComponents = path.split(".");
-    for (const step of pathComponents) {
-        if (!cursor || typeof cursor !== "object") {
-            return undefined;
-        }
-        cursor = cursor[step];
-    }
-    return cursor;
-};
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/serde/determineTimestampFormat.js
 
-;// ./node_modules/@smithy/core/dist-es/index.js
+function determineTimestampFormat_determineTimestampFormat(ns, settings) {
+    if (settings.timestampFormat.useTrait) {
+        if (ns.isTimestampSchema() &&
+            (ns.getSchema() === SCHEMA.TIMESTAMP_DATE_TIME ||
+                ns.getSchema() === SCHEMA.TIMESTAMP_HTTP_DATE ||
+                ns.getSchema() === SCHEMA.TIMESTAMP_EPOCH_SECONDS)) {
+            return ns.getSchema();
+        }
+    }
+    const { httpLabel, httpPrefixHeaders, httpHeader, httpQuery } = ns.getMergedTraits();
+    const bindingFormat = settings.httpBindings
+        ? typeof httpPrefixHeaders === "string" || Boolean(httpHeader)
+            ? SCHEMA.TIMESTAMP_HTTP_DATE
+            : Boolean(httpQuery) || Boolean(httpLabel)
+                ? SCHEMA.TIMESTAMP_DATE_TIME
+                : undefined
+        : undefined;
+    return bindingFormat ?? settings.timestampFormat.default;
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/serde/FromStringShapeDeserializer.js
+
+
+
+
+
+class FromStringShapeDeserializer_FromStringShapeDeserializer {
+    constructor(settings) {
+        this.settings = settings;
+    }
+    setSerdeContext(serdeContext) {
+        this.serdeContext = serdeContext;
+    }
+    read(_schema, data) {
+        const ns = NormalizedSchema.of(_schema);
+        if (ns.isListSchema()) {
+            return splitHeader(data).map((item) => this.read(ns.getValueSchema(), item));
+        }
+        if (ns.isBlobSchema()) {
+            return (this.serdeContext?.base64Decoder ?? fromBase64)(data);
+        }
+        if (ns.isTimestampSchema()) {
+            const format = determineTimestampFormat(ns, this.settings);
+            switch (format) {
+                case SCHEMA.TIMESTAMP_DATE_TIME:
+                    return parseRfc3339DateTimeWithOffset(data);
+                case SCHEMA.TIMESTAMP_HTTP_DATE:
+                    return parseRfc7231DateTime(data);
+                case SCHEMA.TIMESTAMP_EPOCH_SECONDS:
+                    return parseEpochTimestamp(data);
+                default:
+                    console.warn("Missing timestamp format, parsing value with Date constructor:", data);
+                    return new Date(data);
+            }
+        }
+        if (ns.isStringSchema()) {
+            const mediaType = ns.getMergedTraits().mediaType;
+            let intermediateValue = data;
+            if (mediaType) {
+                if (ns.getMergedTraits().httpHeader) {
+                    intermediateValue = this.base64ToUtf8(intermediateValue);
+                }
+                const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
+                if (isJson) {
+                    intermediateValue = LazyJsonString.from(intermediateValue);
+                }
+                return intermediateValue;
+            }
+        }
+        switch (true) {
+            case ns.isNumericSchema():
+                return Number(data);
+            case ns.isBigIntegerSchema():
+                return BigInt(data);
+            case ns.isBigDecimalSchema():
+                return new NumericValue(data, "bigDecimal");
+            case ns.isBooleanSchema():
+                return String(data).toLowerCase() === "true";
+        }
+        return data;
+    }
+    base64ToUtf8(base64String) {
+        return (this.serdeContext?.utf8Encoder ?? toUtf8)((this.serdeContext?.base64Decoder ?? fromBase64)(base64String));
+    }
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/serde/HttpInterceptingShapeDeserializer.js
+
+
+
+class HttpInterceptingShapeDeserializer {
+    constructor(codecDeserializer, codecSettings) {
+        this.codecDeserializer = codecDeserializer;
+        this.stringDeserializer = new FromStringShapeDeserializer(codecSettings);
+    }
+    setSerdeContext(serdeContext) {
+        this.stringDeserializer.setSerdeContext(serdeContext);
+        this.codecDeserializer.setSerdeContext(serdeContext);
+        this.serdeContext = serdeContext;
+    }
+    read(schema, data) {
+        const ns = NormalizedSchema.of(schema);
+        const traits = ns.getMergedTraits();
+        const toString = this.serdeContext?.utf8Encoder ?? toUtf8;
+        if (traits.httpHeader || traits.httpResponseCode) {
+            return this.stringDeserializer.read(ns, toString(data));
+        }
+        if (traits.httpPayload) {
+            if (ns.isBlobSchema()) {
+                const toBytes = this.serdeContext?.utf8Decoder ?? fromUtf8;
+                if (typeof data === "string") {
+                    return toBytes(data);
+                }
+                return data;
+            }
+            else if (ns.isStringSchema()) {
+                if ("byteLength" in data) {
+                    return toString(data);
+                }
+                return data;
+            }
+        }
+        return this.codecDeserializer.read(ns, data);
+    }
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/serde/ToStringShapeSerializer.js
+
+
+
+
+class ToStringShapeSerializer_ToStringShapeSerializer {
+    constructor(settings) {
+        this.settings = settings;
+        this.stringBuffer = "";
+        this.serdeContext = undefined;
+    }
+    setSerdeContext(serdeContext) {
+        this.serdeContext = serdeContext;
+    }
+    write(schema, value) {
+        const ns = NormalizedSchema.of(schema);
+        switch (typeof value) {
+            case "object":
+                if (value === null) {
+                    this.stringBuffer = "null";
+                    return;
+                }
+                if (ns.isTimestampSchema()) {
+                    if (!(value instanceof Date)) {
+                        throw new Error(`@smithy/core/protocols - received non-Date value ${value} when schema expected Date in ${ns.getName(true)}`);
+                    }
+                    const format = determineTimestampFormat(ns, this.settings);
+                    switch (format) {
+                        case SCHEMA.TIMESTAMP_DATE_TIME:
+                            this.stringBuffer = value.toISOString().replace(".000Z", "Z");
+                            break;
+                        case SCHEMA.TIMESTAMP_HTTP_DATE:
+                            this.stringBuffer = dateToUtcString(value);
+                            break;
+                        case SCHEMA.TIMESTAMP_EPOCH_SECONDS:
+                            this.stringBuffer = String(value.getTime() / 1000);
+                            break;
+                        default:
+                            console.warn("Missing timestamp format, using epoch seconds", value);
+                            this.stringBuffer = String(value.getTime() / 1000);
+                    }
+                    return;
+                }
+                if (ns.isBlobSchema() && "byteLength" in value) {
+                    this.stringBuffer = (this.serdeContext?.base64Encoder ?? toBase64)(value);
+                    return;
+                }
+                if (ns.isListSchema() && Array.isArray(value)) {
+                    let buffer = "";
+                    for (const item of value) {
+                        this.write([ns.getValueSchema(), ns.getMergedTraits()], item);
+                        const headerItem = this.flush();
+                        const serialized = ns.getValueSchema().isTimestampSchema() ? headerItem : quoteHeader(headerItem);
+                        if (buffer !== "") {
+                            buffer += ", ";
+                        }
+                        buffer += serialized;
+                    }
+                    this.stringBuffer = buffer;
+                    return;
+                }
+                this.stringBuffer = JSON.stringify(value, null, 2);
+                break;
+            case "string":
+                const mediaType = ns.getMergedTraits().mediaType;
+                let intermediateValue = value;
+                if (mediaType) {
+                    const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
+                    if (isJson) {
+                        intermediateValue = LazyJsonString.from(intermediateValue);
+                    }
+                    if (ns.getMergedTraits().httpHeader) {
+                        this.stringBuffer = (this.serdeContext?.base64Encoder ?? toBase64)(intermediateValue.toString());
+                        return;
+                    }
+                }
+                this.stringBuffer = value;
+                break;
+            default:
+                this.stringBuffer = String(value);
+        }
+    }
+    flush() {
+        const buffer = this.stringBuffer;
+        this.stringBuffer = "";
+        return buffer;
+    }
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/serde/HttpInterceptingShapeSerializer.js
+
+
+class HttpInterceptingShapeSerializer {
+    constructor(codecSerializer, codecSettings, stringSerializer = new ToStringShapeSerializer(codecSettings)) {
+        this.codecSerializer = codecSerializer;
+        this.stringSerializer = stringSerializer;
+    }
+    setSerdeContext(serdeContext) {
+        this.codecSerializer.setSerdeContext(serdeContext);
+        this.stringSerializer.setSerdeContext(serdeContext);
+    }
+    write(schema, value) {
+        const ns = NormalizedSchema.of(schema);
+        const traits = ns.getMergedTraits();
+        if (traits.httpHeader || traits.httpLabel || traits.httpQuery) {
+            this.stringSerializer.write(ns, value);
+            this.buffer = this.stringSerializer.flush();
+            return;
+        }
+        return this.codecSerializer.write(ns, value);
+    }
+    flush() {
+        if (this.buffer !== undefined) {
+            const buffer = this.buffer;
+            this.buffer = undefined;
+            return buffer;
+        }
+        return this.codecSerializer.flush();
+    }
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/protocols/index.js
+
+
+
+
 
 
 
@@ -27538,7 +33178,1169 @@ const get = (fromObject, path) => {
 
 /***/ }),
 
-/***/ 3957:
+/***/ 1700:
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+
+"use strict";
+
+// UNUSED EXPORTS: ErrorSchema, ListSchema, MapSchema, NormalizedSchema, OperationSchema, SCHEMA, Schema, SimpleSchema, StructureSchema, TypeRegistry, deref, deserializerMiddlewareOption, error, getSchemaSerdePlugin, list, map, op, serializerMiddlewareOption, sim, struct
+
+// EXTERNAL MODULE: ./node_modules/@smithy/protocol-http/dist-es/index.js + 5 modules
+var dist_es = __webpack_require__(5479);
+// EXTERNAL MODULE: ./node_modules/@smithy/util-middleware/dist-es/index.js + 2 modules
+var util_middleware_dist_es = __webpack_require__(7135);
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/middleware/schemaDeserializationMiddleware.js
+
+
+const schemaDeserializationMiddleware_schemaDeserializationMiddleware = (config) => (next, context) => async (args) => {
+    const { response } = await next(args);
+    const { operationSchema } = getSmithyContext(context);
+    try {
+        const parsed = await config.protocol.deserializeResponse(operationSchema, {
+            ...config,
+            ...context,
+        }, response);
+        return {
+            response,
+            output: parsed,
+        };
+    }
+    catch (error) {
+        Object.defineProperty(error, "$response", {
+            value: response,
+        });
+        if (!("$metadata" in error)) {
+            const hint = `Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.`;
+            try {
+                error.message += "\n  " + hint;
+            }
+            catch (e) {
+                if (!context.logger || context.logger?.constructor?.name === "NoOpLogger") {
+                    console.warn(hint);
+                }
+                else {
+                    context.logger?.warn?.(hint);
+                }
+            }
+            if (typeof error.$responseBodyText !== "undefined") {
+                if (error.$response) {
+                    error.$response.body = error.$responseBodyText;
+                }
+            }
+            try {
+                if (HttpResponse.isInstance(response)) {
+                    const { headers = {} } = response;
+                    const headerEntries = Object.entries(headers);
+                    error.$metadata = {
+                        httpStatusCode: response.statusCode,
+                        requestId: findHeader(/^x-[\w-]+-request-?id$/, headerEntries),
+                        extendedRequestId: findHeader(/^x-[\w-]+-id-2$/, headerEntries),
+                        cfId: findHeader(/^x-[\w-]+-cf-id$/, headerEntries),
+                    };
+                }
+            }
+            catch (e) {
+            }
+        }
+        throw error;
+    }
+};
+const findHeader = (pattern, headers) => {
+    return (headers.find(([k]) => {
+        return k.match(pattern);
+    }) || [void 0, void 1])[1];
+};
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/middleware/schemaSerializationMiddleware.js
+
+const schemaSerializationMiddleware_schemaSerializationMiddleware = (config) => (next, context) => async (args) => {
+    const { operationSchema } = getSmithyContext(context);
+    const endpoint = context.endpointV2?.url && config.urlParser
+        ? async () => config.urlParser(context.endpointV2.url)
+        : config.endpoint;
+    const request = await config.protocol.serializeRequest(operationSchema, args.input, {
+        ...config,
+        ...context,
+        endpoint,
+    });
+    return next({
+        ...args,
+        request,
+    });
+};
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/middleware/getSchemaSerdePlugin.js
+
+
+const deserializerMiddlewareOption = {
+    name: "deserializerMiddleware",
+    step: "deserialize",
+    tags: ["DESERIALIZER"],
+    override: true,
+};
+const serializerMiddlewareOption = {
+    name: "serializerMiddleware",
+    step: "serialize",
+    tags: ["SERIALIZER"],
+    override: true,
+};
+function getSchemaSerdePlugin(config) {
+    return {
+        applyToStack: (commandStack) => {
+            commandStack.add(schemaSerializationMiddleware(config), serializerMiddlewareOption);
+            commandStack.add(schemaDeserializationMiddleware(config), deserializerMiddlewareOption);
+            config.protocol.setSerdeContext(config);
+        },
+    };
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/TypeRegistry.js
+class TypeRegistry_TypeRegistry {
+    constructor(namespace, schemas = new Map()) {
+        this.namespace = namespace;
+        this.schemas = schemas;
+    }
+    static for(namespace) {
+        if (!TypeRegistry_TypeRegistry.registries.has(namespace)) {
+            TypeRegistry_TypeRegistry.registries.set(namespace, new TypeRegistry_TypeRegistry(namespace));
+        }
+        return TypeRegistry_TypeRegistry.registries.get(namespace);
+    }
+    register(shapeId, schema) {
+        const qualifiedName = this.normalizeShapeId(shapeId);
+        const registry = TypeRegistry_TypeRegistry.for(this.getNamespace(shapeId));
+        registry.schemas.set(qualifiedName, schema);
+    }
+    getSchema(shapeId) {
+        const id = this.normalizeShapeId(shapeId);
+        if (!this.schemas.has(id)) {
+            throw new Error(`@smithy/core/schema - schema not found for ${id}`);
+        }
+        return this.schemas.get(id);
+    }
+    getBaseException() {
+        for (const [id, schema] of this.schemas.entries()) {
+            if (id.startsWith("smithy.ts.sdk.synthetic.") && id.endsWith("ServiceException")) {
+                return schema;
+            }
+        }
+        return undefined;
+    }
+    find(predicate) {
+        return [...this.schemas.values()].find(predicate);
+    }
+    destroy() {
+        TypeRegistry_TypeRegistry.registries.delete(this.namespace);
+        this.schemas.clear();
+    }
+    normalizeShapeId(shapeId) {
+        if (shapeId.includes("#")) {
+            return shapeId;
+        }
+        return this.namespace + "#" + shapeId;
+    }
+    getNamespace(shapeId) {
+        return this.normalizeShapeId(shapeId).split("#")[0];
+    }
+}
+TypeRegistry_TypeRegistry.registries = new Map();
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/schemas/Schema.js
+class Schema {
+    constructor(name, traits) {
+        this.name = name;
+        this.traits = traits;
+    }
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/schemas/ListSchema.js
+
+
+class ListSchema_ListSchema extends Schema {
+    constructor(name, traits, valueSchema) {
+        super(name, traits);
+        this.name = name;
+        this.traits = traits;
+        this.valueSchema = valueSchema;
+    }
+}
+function list(namespace, name, traits = {}, valueSchema) {
+    const schema = new ListSchema_ListSchema(namespace + "#" + name, traits, typeof valueSchema === "function" ? valueSchema() : valueSchema);
+    TypeRegistry.for(namespace).register(name, schema);
+    return schema;
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/schemas/MapSchema.js
+
+
+class MapSchema_MapSchema extends Schema {
+    constructor(name, traits, keySchema, valueSchema) {
+        super(name, traits);
+        this.name = name;
+        this.traits = traits;
+        this.keySchema = keySchema;
+        this.valueSchema = valueSchema;
+    }
+}
+function map(namespace, name, traits = {}, keySchema, valueSchema) {
+    const schema = new MapSchema_MapSchema(namespace + "#" + name, traits, keySchema, typeof valueSchema === "function" ? valueSchema() : valueSchema);
+    TypeRegistry.for(namespace).register(name, schema);
+    return schema;
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/schemas/OperationSchema.js
+
+
+class OperationSchema extends Schema {
+    constructor(name, traits, input, output) {
+        super(name, traits);
+        this.name = name;
+        this.traits = traits;
+        this.input = input;
+        this.output = output;
+    }
+}
+function op(namespace, name, traits = {}, input, output) {
+    const schema = new OperationSchema(namespace + "#" + name, traits, input, output);
+    TypeRegistry.for(namespace).register(name, schema);
+    return schema;
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/schemas/StructureSchema.js
+
+
+class StructureSchema_StructureSchema extends Schema {
+    constructor(name, traits, memberNames, memberList) {
+        super(name, traits);
+        this.name = name;
+        this.traits = traits;
+        this.memberNames = memberNames;
+        this.memberList = memberList;
+        this.members = {};
+        for (let i = 0; i < memberNames.length; ++i) {
+            this.members[memberNames[i]] = Array.isArray(memberList[i])
+                ? memberList[i]
+                : [memberList[i], 0];
+        }
+    }
+}
+function struct(namespace, name, traits, memberNames, memberList) {
+    const schema = new StructureSchema_StructureSchema(namespace + "#" + name, traits, memberNames, memberList);
+    TypeRegistry.for(namespace).register(name, schema);
+    return schema;
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/schemas/ErrorSchema.js
+
+
+class ErrorSchema extends StructureSchema_StructureSchema {
+    constructor(name, traits, memberNames, memberList, ctor) {
+        super(name, traits, memberNames, memberList);
+        this.name = name;
+        this.traits = traits;
+        this.memberNames = memberNames;
+        this.memberList = memberList;
+        this.ctor = ctor;
+    }
+}
+function error(namespace, name, traits = {}, memberNames, memberList, ctor) {
+    const schema = new ErrorSchema(namespace + "#" + name, traits, memberNames, memberList, ctor);
+    TypeRegistry.for(namespace).register(name, schema);
+    return schema;
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/schemas/sentinels.js
+const sentinels_SCHEMA = {
+    BLOB: 21,
+    STREAMING_BLOB: 42,
+    BOOLEAN: 2,
+    STRING: 0,
+    NUMERIC: 1,
+    BIG_INTEGER: 17,
+    BIG_DECIMAL: 19,
+    DOCUMENT: 15,
+    TIMESTAMP_DEFAULT: 4,
+    TIMESTAMP_DATE_TIME: 5,
+    TIMESTAMP_HTTP_DATE: 6,
+    TIMESTAMP_EPOCH_SECONDS: 7,
+    LIST_MODIFIER: 64,
+    MAP_MODIFIER: 128,
+};
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/schemas/SimpleSchema.js
+
+
+class SimpleSchema_SimpleSchema extends Schema {
+    constructor(name, schemaRef, traits) {
+        super(name, traits);
+        this.name = name;
+        this.schemaRef = schemaRef;
+        this.traits = traits;
+    }
+}
+function sim(namespace, name, schemaRef, traits) {
+    const schema = new SimpleSchema_SimpleSchema(namespace + "#" + name, schemaRef, traits);
+    TypeRegistry.for(namespace).register(name, schema);
+    return schema;
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/schemas/NormalizedSchema.js
+
+
+
+
+
+
+class NormalizedSchema {
+    constructor(ref, memberName) {
+        this.ref = ref;
+        this.memberName = memberName;
+        const traitStack = [];
+        let _ref = ref;
+        let schema = ref;
+        this._isMemberSchema = false;
+        while (Array.isArray(_ref)) {
+            traitStack.push(_ref[1]);
+            _ref = _ref[0];
+            schema = deref(_ref);
+            this._isMemberSchema = true;
+        }
+        if (traitStack.length > 0) {
+            this.memberTraits = {};
+            for (let i = traitStack.length - 1; i >= 0; --i) {
+                const traitSet = traitStack[i];
+                Object.assign(this.memberTraits, NormalizedSchema.translateTraits(traitSet));
+            }
+        }
+        else {
+            this.memberTraits = 0;
+        }
+        if (schema instanceof NormalizedSchema) {
+            this.name = schema.name;
+            this.traits = schema.traits;
+            this._isMemberSchema = schema._isMemberSchema;
+            this.schema = schema.schema;
+            this.memberTraits = Object.assign({}, schema.getMemberTraits(), this.getMemberTraits());
+            this.normalizedTraits = void 0;
+            this.ref = schema.ref;
+            this.memberName = memberName ?? schema.memberName;
+            return;
+        }
+        this.schema = deref(schema);
+        if (this.schema && typeof this.schema === "object") {
+            this.traits = this.schema?.traits ?? {};
+        }
+        else {
+            this.traits = 0;
+        }
+        this.name =
+            (typeof this.schema === "object" ? this.schema?.name : void 0) ?? this.memberName ?? this.getSchemaName();
+        if (this._isMemberSchema && !memberName) {
+            throw new Error(`@smithy/core/schema - NormalizedSchema member schema ${this.getName(true)} must initialize with memberName argument.`);
+        }
+    }
+    static of(ref, memberName) {
+        if (ref instanceof NormalizedSchema) {
+            return ref;
+        }
+        return new NormalizedSchema(ref, memberName);
+    }
+    static translateTraits(indicator) {
+        if (typeof indicator === "object") {
+            return indicator;
+        }
+        indicator = indicator | 0;
+        const traits = {};
+        if ((indicator & 1) === 1) {
+            traits.httpLabel = 1;
+        }
+        if (((indicator >> 1) & 1) === 1) {
+            traits.idempotent = 1;
+        }
+        if (((indicator >> 2) & 1) === 1) {
+            traits.idempotencyToken = 1;
+        }
+        if (((indicator >> 3) & 1) === 1) {
+            traits.sensitive = 1;
+        }
+        if (((indicator >> 4) & 1) === 1) {
+            traits.httpPayload = 1;
+        }
+        if (((indicator >> 5) & 1) === 1) {
+            traits.httpResponseCode = 1;
+        }
+        if (((indicator >> 6) & 1) === 1) {
+            traits.httpQueryParams = 1;
+        }
+        return traits;
+    }
+    static memberFrom(memberSchema, memberName) {
+        if (memberSchema instanceof NormalizedSchema) {
+            memberSchema.memberName = memberName;
+            memberSchema._isMemberSchema = true;
+            return memberSchema;
+        }
+        return new NormalizedSchema(memberSchema, memberName);
+    }
+    getSchema() {
+        if (this.schema instanceof NormalizedSchema) {
+            return (this.schema = this.schema.getSchema());
+        }
+        if (this.schema instanceof SimpleSchema) {
+            return deref(this.schema.schemaRef);
+        }
+        return deref(this.schema);
+    }
+    getName(withNamespace = false) {
+        if (!withNamespace) {
+            if (this.name && this.name.includes("#")) {
+                return this.name.split("#")[1];
+            }
+        }
+        return this.name || undefined;
+    }
+    getMemberName() {
+        if (!this.isMemberSchema()) {
+            throw new Error(`@smithy/core/schema - cannot get member name on non-member schema: ${this.getName(true)}`);
+        }
+        return this.memberName;
+    }
+    isMemberSchema() {
+        return this._isMemberSchema;
+    }
+    isUnitSchema() {
+        return this.getSchema() === "unit";
+    }
+    isListSchema() {
+        const inner = this.getSchema();
+        if (typeof inner === "number") {
+            return inner >= SCHEMA.LIST_MODIFIER && inner < SCHEMA.MAP_MODIFIER;
+        }
+        return inner instanceof ListSchema;
+    }
+    isMapSchema() {
+        const inner = this.getSchema();
+        if (typeof inner === "number") {
+            return inner >= SCHEMA.MAP_MODIFIER && inner <= 255;
+        }
+        return inner instanceof MapSchema;
+    }
+    isDocumentSchema() {
+        return this.getSchema() === SCHEMA.DOCUMENT;
+    }
+    isStructSchema() {
+        const inner = this.getSchema();
+        return (inner !== null && typeof inner === "object" && "members" in inner) || inner instanceof StructureSchema;
+    }
+    isBlobSchema() {
+        return this.getSchema() === SCHEMA.BLOB || this.getSchema() === SCHEMA.STREAMING_BLOB;
+    }
+    isTimestampSchema() {
+        const schema = this.getSchema();
+        return typeof schema === "number" && schema >= SCHEMA.TIMESTAMP_DEFAULT && schema <= SCHEMA.TIMESTAMP_EPOCH_SECONDS;
+    }
+    isStringSchema() {
+        return this.getSchema() === SCHEMA.STRING;
+    }
+    isBooleanSchema() {
+        return this.getSchema() === SCHEMA.BOOLEAN;
+    }
+    isNumericSchema() {
+        return this.getSchema() === SCHEMA.NUMERIC;
+    }
+    isBigIntegerSchema() {
+        return this.getSchema() === SCHEMA.BIG_INTEGER;
+    }
+    isBigDecimalSchema() {
+        return this.getSchema() === SCHEMA.BIG_DECIMAL;
+    }
+    isStreaming() {
+        const streaming = !!this.getMergedTraits().streaming;
+        if (streaming) {
+            return true;
+        }
+        return this.getSchema() === SCHEMA.STREAMING_BLOB;
+    }
+    getMergedTraits() {
+        if (this.normalizedTraits) {
+            return this.normalizedTraits;
+        }
+        this.normalizedTraits = {
+            ...this.getOwnTraits(),
+            ...this.getMemberTraits(),
+        };
+        return this.normalizedTraits;
+    }
+    getMemberTraits() {
+        return NormalizedSchema.translateTraits(this.memberTraits);
+    }
+    getOwnTraits() {
+        return NormalizedSchema.translateTraits(this.traits);
+    }
+    getKeySchema() {
+        if (this.isDocumentSchema()) {
+            return NormalizedSchema.memberFrom([SCHEMA.DOCUMENT, 0], "key");
+        }
+        if (!this.isMapSchema()) {
+            throw new Error(`@smithy/core/schema - cannot get key schema for non-map schema: ${this.getName(true)}`);
+        }
+        const schema = this.getSchema();
+        if (typeof schema === "number") {
+            return NormalizedSchema.memberFrom([63 & schema, 0], "key");
+        }
+        return NormalizedSchema.memberFrom([schema.keySchema, 0], "key");
+    }
+    getValueSchema() {
+        const schema = this.getSchema();
+        if (typeof schema === "number") {
+            if (this.isMapSchema()) {
+                return NormalizedSchema.memberFrom([63 & schema, 0], "value");
+            }
+            else if (this.isListSchema()) {
+                return NormalizedSchema.memberFrom([63 & schema, 0], "member");
+            }
+        }
+        if (schema && typeof schema === "object") {
+            if (this.isStructSchema()) {
+                throw new Error(`cannot call getValueSchema() with StructureSchema ${this.getName(true)}`);
+            }
+            const collection = schema;
+            if ("valueSchema" in collection) {
+                if (this.isMapSchema()) {
+                    return NormalizedSchema.memberFrom([collection.valueSchema, 0], "value");
+                }
+                else if (this.isListSchema()) {
+                    return NormalizedSchema.memberFrom([collection.valueSchema, 0], "member");
+                }
+            }
+        }
+        if (this.isDocumentSchema()) {
+            return NormalizedSchema.memberFrom([SCHEMA.DOCUMENT, 0], "value");
+        }
+        throw new Error(`@smithy/core/schema - the schema ${this.getName(true)} does not have a value member.`);
+    }
+    getMemberSchema(member) {
+        if (this.isStructSchema()) {
+            const struct = this.getSchema();
+            if (!(member in struct.members)) {
+                throw new Error(`@smithy/core/schema - the schema ${this.getName(true)} does not have a member with name=${member}.`);
+            }
+            return NormalizedSchema.memberFrom(struct.members[member], member);
+        }
+        if (this.isDocumentSchema()) {
+            return NormalizedSchema.memberFrom([SCHEMA.DOCUMENT, 0], member);
+        }
+        throw new Error(`@smithy/core/schema - the schema ${this.getName(true)} does not have members.`);
+    }
+    getMemberSchemas() {
+        const { schema } = this;
+        const struct = schema;
+        if (!struct || typeof struct !== "object") {
+            return {};
+        }
+        if ("members" in struct) {
+            const buffer = {};
+            for (const member of struct.memberNames) {
+                buffer[member] = this.getMemberSchema(member);
+            }
+            return buffer;
+        }
+        return {};
+    }
+    *structIterator() {
+        if (this.isUnitSchema()) {
+            return;
+        }
+        if (!this.isStructSchema()) {
+            throw new Error("@smithy/core/schema - cannot acquire structIterator on non-struct schema.");
+        }
+        const struct = this.getSchema();
+        for (let i = 0; i < struct.memberNames.length; ++i) {
+            yield [struct.memberNames[i], NormalizedSchema.memberFrom([struct.memberList[i], 0], struct.memberNames[i])];
+        }
+    }
+    getSchemaName() {
+        const schema = this.getSchema();
+        if (typeof schema === "number") {
+            const _schema = 63 & schema;
+            const container = 192 & schema;
+            const type = Object.entries(SCHEMA).find(([, value]) => {
+                return value === _schema;
+            })?.[0] ?? "Unknown";
+            switch (container) {
+                case SCHEMA.MAP_MODIFIER:
+                    return `${type}Map`;
+                case SCHEMA.LIST_MODIFIER:
+                    return `${type}List`;
+                case 0:
+                    return type;
+            }
+        }
+        return "Unknown";
+    }
+}
+
+;// ./node_modules/@smithy/core/dist-es/submodules/schema/index.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ 8739:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  ak: () => (/* reexport */ expectBoolean),
+  ET: () => (/* reexport */ expectInt32),
+  Yy: () => (/* reexport */ expectLong),
+  Y0: () => (/* reexport */ expectNonNull),
+  r$: () => (/* reexport */ expectNumber),
+  Xk: () => (/* reexport */ expectObject),
+  lK: () => (/* reexport */ expectString),
+  tN: () => (/* reexport */ expectUnion),
+  JW: () => (/* reexport */ limitedParseDouble),
+  Zx: () => (/* reexport */ limitedParseFloat32),
+  l3: () => (/* reexport */ parseEpochTimestamp),
+  t_: () => (/* reexport */ parseRfc3339DateTimeWithOffset)
+});
+
+// UNUSED EXPORTS: LazyJsonString, NumericValue, copyDocumentWithTransform, dateToUtcString, expectByte, expectFloat32, expectInt, expectShort, handleFloat, limitedParseFloat, logger, nv, parseBoolean, parseRfc3339DateTime, parseRfc7231DateTime, quoteHeader, splitEvery, splitHeader, strictParseByte, strictParseDouble, strictParseFloat, strictParseFloat32, strictParseInt, strictParseInt32, strictParseLong, strictParseShort
+
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/submodules/schema/index.js + 13 modules
+var schema = __webpack_require__(1700);
+;// ./node_modules/@smithy/core/dist-es/submodules/serde/copyDocumentWithTransform.js
+
+const copyDocumentWithTransform = (source, schemaRef, transform = (_) => _) => {
+    const ns = NormalizedSchema.of(schemaRef);
+    switch (typeof source) {
+        case "undefined":
+        case "boolean":
+        case "number":
+        case "string":
+        case "bigint":
+        case "symbol":
+            return transform(source, ns);
+        case "function":
+        case "object":
+            if (source === null) {
+                return transform(null, ns);
+            }
+            if (Array.isArray(source)) {
+                const newArray = new Array(source.length);
+                let i = 0;
+                for (const item of source) {
+                    newArray[i++] = copyDocumentWithTransform(item, ns.getValueSchema(), transform);
+                }
+                return transform(newArray, ns);
+            }
+            if ("byteLength" in source) {
+                const newBytes = new Uint8Array(source.byteLength);
+                newBytes.set(source, 0);
+                return transform(newBytes, ns);
+            }
+            if (source instanceof Date) {
+                return transform(source, ns);
+            }
+            const newObject = {};
+            if (ns.isMapSchema()) {
+                for (const key of Object.keys(source)) {
+                    newObject[key] = copyDocumentWithTransform(source[key], ns.getValueSchema(), transform);
+                }
+            }
+            else if (ns.isStructSchema()) {
+                for (const [key, memberSchema] of ns.structIterator()) {
+                    newObject[key] = copyDocumentWithTransform(source[key], memberSchema, transform);
+                }
+            }
+            else if (ns.isDocumentSchema()) {
+                for (const key of Object.keys(source)) {
+                    newObject[key] = copyDocumentWithTransform(source[key], ns.getValueSchema(), transform);
+                }
+            }
+            return transform(newObject, ns);
+        default:
+            return transform(source, ns);
+    }
+};
+
+;// ./node_modules/@smithy/core/dist-es/submodules/serde/parse-utils.js
+const parseBoolean = (value) => {
+    switch (value) {
+        case "true":
+            return true;
+        case "false":
+            return false;
+        default:
+            throw new Error(`Unable to parse boolean value "${value}"`);
+    }
+};
+const expectBoolean = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value === "number") {
+        if (value === 0 || value === 1) {
+            logger.warn(stackTraceWarning(`Expected boolean, got ${typeof value}: ${value}`));
+        }
+        if (value === 0) {
+            return false;
+        }
+        if (value === 1) {
+            return true;
+        }
+    }
+    if (typeof value === "string") {
+        const lower = value.toLowerCase();
+        if (lower === "false" || lower === "true") {
+            logger.warn(stackTraceWarning(`Expected boolean, got ${typeof value}: ${value}`));
+        }
+        if (lower === "false") {
+            return false;
+        }
+        if (lower === "true") {
+            return true;
+        }
+    }
+    if (typeof value === "boolean") {
+        return value;
+    }
+    throw new TypeError(`Expected boolean, got ${typeof value}: ${value}`);
+};
+const expectNumber = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value === "string") {
+        const parsed = parseFloat(value);
+        if (!Number.isNaN(parsed)) {
+            if (String(parsed) !== String(value)) {
+                logger.warn(stackTraceWarning(`Expected number but observed string: ${value}`));
+            }
+            return parsed;
+        }
+    }
+    if (typeof value === "number") {
+        return value;
+    }
+    throw new TypeError(`Expected number, got ${typeof value}: ${value}`);
+};
+const MAX_FLOAT = Math.ceil(2 ** 127 * (2 - 2 ** -23));
+const expectFloat32 = (value) => {
+    const expected = expectNumber(value);
+    if (expected !== undefined && !Number.isNaN(expected) && expected !== Infinity && expected !== -Infinity) {
+        if (Math.abs(expected) > MAX_FLOAT) {
+            throw new TypeError(`Expected 32-bit float, got ${value}`);
+        }
+    }
+    return expected;
+};
+const expectLong = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (Number.isInteger(value) && !Number.isNaN(value)) {
+        return value;
+    }
+    throw new TypeError(`Expected integer, got ${typeof value}: ${value}`);
+};
+const expectInt = (/* unused pure expression or super */ null && (expectLong));
+const expectInt32 = (value) => expectSizedInt(value, 32);
+const expectShort = (value) => expectSizedInt(value, 16);
+const expectByte = (value) => expectSizedInt(value, 8);
+const expectSizedInt = (value, size) => {
+    const expected = expectLong(value);
+    if (expected !== undefined && castInt(expected, size) !== expected) {
+        throw new TypeError(`Expected ${size}-bit integer, got ${value}`);
+    }
+    return expected;
+};
+const castInt = (value, size) => {
+    switch (size) {
+        case 32:
+            return Int32Array.of(value)[0];
+        case 16:
+            return Int16Array.of(value)[0];
+        case 8:
+            return Int8Array.of(value)[0];
+    }
+};
+const expectNonNull = (value, location) => {
+    if (value === null || value === undefined) {
+        if (location) {
+            throw new TypeError(`Expected a non-null value for ${location}`);
+        }
+        throw new TypeError("Expected a non-null value");
+    }
+    return value;
+};
+const expectObject = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value === "object" && !Array.isArray(value)) {
+        return value;
+    }
+    const receivedType = Array.isArray(value) ? "array" : typeof value;
+    throw new TypeError(`Expected object, got ${receivedType}: ${value}`);
+};
+const expectString = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value === "string") {
+        return value;
+    }
+    if (["boolean", "number", "bigint"].includes(typeof value)) {
+        logger.warn(stackTraceWarning(`Expected string, got ${typeof value}: ${value}`));
+        return String(value);
+    }
+    throw new TypeError(`Expected string, got ${typeof value}: ${value}`);
+};
+const expectUnion = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    const asObject = expectObject(value);
+    const setKeys = Object.entries(asObject)
+        .filter(([, v]) => v != null)
+        .map(([k]) => k);
+    if (setKeys.length === 0) {
+        throw new TypeError(`Unions must have exactly one non-null member. None were found.`);
+    }
+    if (setKeys.length > 1) {
+        throw new TypeError(`Unions must have exactly one non-null member. Keys ${setKeys} were not null.`);
+    }
+    return asObject;
+};
+const strictParseDouble = (value) => {
+    if (typeof value == "string") {
+        return expectNumber(parseNumber(value));
+    }
+    return expectNumber(value);
+};
+const strictParseFloat = (/* unused pure expression or super */ null && (strictParseDouble));
+const strictParseFloat32 = (value) => {
+    if (typeof value == "string") {
+        return expectFloat32(parseNumber(value));
+    }
+    return expectFloat32(value);
+};
+const NUMBER_REGEX = /(-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?)|(-?Infinity)|(NaN)/g;
+const parseNumber = (value) => {
+    const matches = value.match(NUMBER_REGEX);
+    if (matches === null || matches[0].length !== value.length) {
+        throw new TypeError(`Expected real number, got implicit NaN`);
+    }
+    return parseFloat(value);
+};
+const limitedParseDouble = (value) => {
+    if (typeof value == "string") {
+        return parseFloatString(value);
+    }
+    return expectNumber(value);
+};
+const handleFloat = (/* unused pure expression or super */ null && (limitedParseDouble));
+const limitedParseFloat = (/* unused pure expression or super */ null && (limitedParseDouble));
+const limitedParseFloat32 = (value) => {
+    if (typeof value == "string") {
+        return parseFloatString(value);
+    }
+    return expectFloat32(value);
+};
+const parseFloatString = (value) => {
+    switch (value) {
+        case "NaN":
+            return NaN;
+        case "Infinity":
+            return Infinity;
+        case "-Infinity":
+            return -Infinity;
+        default:
+            throw new Error(`Unable to parse float value: ${value}`);
+    }
+};
+const strictParseLong = (value) => {
+    if (typeof value === "string") {
+        return expectLong(parseNumber(value));
+    }
+    return expectLong(value);
+};
+const strictParseInt = (/* unused pure expression or super */ null && (strictParseLong));
+const strictParseInt32 = (value) => {
+    if (typeof value === "string") {
+        return expectInt32(parseNumber(value));
+    }
+    return expectInt32(value);
+};
+const parse_utils_strictParseShort = (value) => {
+    if (typeof value === "string") {
+        return expectShort(parseNumber(value));
+    }
+    return expectShort(value);
+};
+const strictParseByte = (value) => {
+    if (typeof value === "string") {
+        return expectByte(parseNumber(value));
+    }
+    return expectByte(value);
+};
+const stackTraceWarning = (message) => {
+    return String(new TypeError(message).stack || message)
+        .split("\n")
+        .slice(0, 5)
+        .filter((s) => !s.includes("stackTraceWarning"))
+        .join("\n");
+};
+const logger = {
+    warn: console.warn,
+};
+
+;// ./node_modules/@smithy/core/dist-es/submodules/serde/date-utils.js
+
+const DAYS = (/* unused pure expression or super */ null && (["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]));
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function dateToUtcString(date) {
+    const year = date.getUTCFullYear();
+    const month = date.getUTCMonth();
+    const dayOfWeek = date.getUTCDay();
+    const dayOfMonthInt = date.getUTCDate();
+    const hoursInt = date.getUTCHours();
+    const minutesInt = date.getUTCMinutes();
+    const secondsInt = date.getUTCSeconds();
+    const dayOfMonthString = dayOfMonthInt < 10 ? `0${dayOfMonthInt}` : `${dayOfMonthInt}`;
+    const hoursString = hoursInt < 10 ? `0${hoursInt}` : `${hoursInt}`;
+    const minutesString = minutesInt < 10 ? `0${minutesInt}` : `${minutesInt}`;
+    const secondsString = secondsInt < 10 ? `0${secondsInt}` : `${secondsInt}`;
+    return `${DAYS[dayOfWeek]}, ${dayOfMonthString} ${MONTHS[month]} ${year} ${hoursString}:${minutesString}:${secondsString} GMT`;
+}
+const RFC3339 = (/* unused pure expression or super */ null && (new RegExp(/^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?[zZ]$/)));
+const parseRfc3339DateTime = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value !== "string") {
+        throw new TypeError("RFC-3339 date-times must be expressed as strings");
+    }
+    const match = RFC3339.exec(value);
+    if (!match) {
+        throw new TypeError("Invalid RFC-3339 date-time value");
+    }
+    const [_, yearStr, monthStr, dayStr, hours, minutes, seconds, fractionalMilliseconds] = match;
+    const year = strictParseShort(stripLeadingZeroes(yearStr));
+    const month = parseDateValue(monthStr, "month", 1, 12);
+    const day = parseDateValue(dayStr, "day", 1, 31);
+    return buildDate(year, month, day, { hours, minutes, seconds, fractionalMilliseconds });
+};
+const RFC3339_WITH_OFFSET = new RegExp(/^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?(([-+]\d{2}\:\d{2})|[zZ])$/);
+const parseRfc3339DateTimeWithOffset = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value !== "string") {
+        throw new TypeError("RFC-3339 date-times must be expressed as strings");
+    }
+    const match = RFC3339_WITH_OFFSET.exec(value);
+    if (!match) {
+        throw new TypeError("Invalid RFC-3339 date-time value");
+    }
+    const [_, yearStr, monthStr, dayStr, hours, minutes, seconds, fractionalMilliseconds, offsetStr] = match;
+    const year = parse_utils_strictParseShort(stripLeadingZeroes(yearStr));
+    const month = parseDateValue(monthStr, "month", 1, 12);
+    const day = parseDateValue(dayStr, "day", 1, 31);
+    const date = buildDate(year, month, day, { hours, minutes, seconds, fractionalMilliseconds });
+    if (offsetStr.toUpperCase() != "Z") {
+        date.setTime(date.getTime() - parseOffsetToMilliseconds(offsetStr));
+    }
+    return date;
+};
+const IMF_FIXDATE = (/* unused pure expression or super */ null && (new RegExp(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? GMT$/)));
+const RFC_850_DATE = (/* unused pure expression or super */ null && (new RegExp(/^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\d{2})-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d{2}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? GMT$/)));
+const ASC_TIME = (/* unused pure expression or super */ null && (new RegExp(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ( [1-9]|\d{2}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? (\d{4})$/)));
+const parseRfc7231DateTime = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    if (typeof value !== "string") {
+        throw new TypeError("RFC-7231 date-times must be expressed as strings");
+    }
+    let match = IMF_FIXDATE.exec(value);
+    if (match) {
+        const [_, dayStr, monthStr, yearStr, hours, minutes, seconds, fractionalMilliseconds] = match;
+        return buildDate(strictParseShort(stripLeadingZeroes(yearStr)), parseMonthByShortName(monthStr), parseDateValue(dayStr, "day", 1, 31), { hours, minutes, seconds, fractionalMilliseconds });
+    }
+    match = RFC_850_DATE.exec(value);
+    if (match) {
+        const [_, dayStr, monthStr, yearStr, hours, minutes, seconds, fractionalMilliseconds] = match;
+        return adjustRfc850Year(buildDate(parseTwoDigitYear(yearStr), parseMonthByShortName(monthStr), parseDateValue(dayStr, "day", 1, 31), {
+            hours,
+            minutes,
+            seconds,
+            fractionalMilliseconds,
+        }));
+    }
+    match = ASC_TIME.exec(value);
+    if (match) {
+        const [_, monthStr, dayStr, hours, minutes, seconds, fractionalMilliseconds, yearStr] = match;
+        return buildDate(strictParseShort(stripLeadingZeroes(yearStr)), parseMonthByShortName(monthStr), parseDateValue(dayStr.trimLeft(), "day", 1, 31), { hours, minutes, seconds, fractionalMilliseconds });
+    }
+    throw new TypeError("Invalid RFC-7231 date-time value");
+};
+const parseEpochTimestamp = (value) => {
+    if (value === null || value === undefined) {
+        return undefined;
+    }
+    let valueAsDouble;
+    if (typeof value === "number") {
+        valueAsDouble = value;
+    }
+    else if (typeof value === "string") {
+        valueAsDouble = strictParseDouble(value);
+    }
+    else if (typeof value === "object" && value.tag === 1) {
+        valueAsDouble = value.value;
+    }
+    else {
+        throw new TypeError("Epoch timestamps must be expressed as floating point numbers or their string representation");
+    }
+    if (Number.isNaN(valueAsDouble) || valueAsDouble === Infinity || valueAsDouble === -Infinity) {
+        throw new TypeError("Epoch timestamps must be valid, non-Infinite, non-NaN numerics");
+    }
+    return new Date(Math.round(valueAsDouble * 1000));
+};
+const buildDate = (year, month, day, time) => {
+    const adjustedMonth = month - 1;
+    validateDayOfMonth(year, adjustedMonth, day);
+    return new Date(Date.UTC(year, adjustedMonth, day, parseDateValue(time.hours, "hour", 0, 23), parseDateValue(time.minutes, "minute", 0, 59), parseDateValue(time.seconds, "seconds", 0, 60), parseMilliseconds(time.fractionalMilliseconds)));
+};
+const parseTwoDigitYear = (value) => {
+    const thisYear = new Date().getUTCFullYear();
+    const valueInThisCentury = Math.floor(thisYear / 100) * 100 + strictParseShort(stripLeadingZeroes(value));
+    if (valueInThisCentury < thisYear) {
+        return valueInThisCentury + 100;
+    }
+    return valueInThisCentury;
+};
+const FIFTY_YEARS_IN_MILLIS = (/* unused pure expression or super */ null && (50 * 365 * 24 * 60 * 60 * 1000));
+const adjustRfc850Year = (input) => {
+    if (input.getTime() - new Date().getTime() > FIFTY_YEARS_IN_MILLIS) {
+        return new Date(Date.UTC(input.getUTCFullYear() - 100, input.getUTCMonth(), input.getUTCDate(), input.getUTCHours(), input.getUTCMinutes(), input.getUTCSeconds(), input.getUTCMilliseconds()));
+    }
+    return input;
+};
+const parseMonthByShortName = (value) => {
+    const monthIdx = MONTHS.indexOf(value);
+    if (monthIdx < 0) {
+        throw new TypeError(`Invalid month: ${value}`);
+    }
+    return monthIdx + 1;
+};
+const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const validateDayOfMonth = (year, month, day) => {
+    let maxDays = DAYS_IN_MONTH[month];
+    if (month === 1 && isLeapYear(year)) {
+        maxDays = 29;
+    }
+    if (day > maxDays) {
+        throw new TypeError(`Invalid day for ${MONTHS[month]} in ${year}: ${day}`);
+    }
+};
+const isLeapYear = (year) => {
+    return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+};
+const parseDateValue = (value, type, lower, upper) => {
+    const dateVal = strictParseByte(stripLeadingZeroes(value));
+    if (dateVal < lower || dateVal > upper) {
+        throw new TypeError(`${type} must be between ${lower} and ${upper}, inclusive`);
+    }
+    return dateVal;
+};
+const parseMilliseconds = (value) => {
+    if (value === null || value === undefined) {
+        return 0;
+    }
+    return strictParseFloat32("0." + value) * 1000;
+};
+const parseOffsetToMilliseconds = (value) => {
+    const directionStr = value[0];
+    let direction = 1;
+    if (directionStr == "+") {
+        direction = 1;
+    }
+    else if (directionStr == "-") {
+        direction = -1;
+    }
+    else {
+        throw new TypeError(`Offset direction, ${directionStr}, must be "+" or "-"`);
+    }
+    const hour = Number(value.substring(1, 3));
+    const minute = Number(value.substring(4, 6));
+    return direction * (hour * 60 + minute) * 60 * 1000;
+};
+const stripLeadingZeroes = (value) => {
+    let idx = 0;
+    while (idx < value.length - 1 && value.charAt(idx) === "0") {
+        idx++;
+    }
+    if (idx === 0) {
+        return value;
+    }
+    return value.slice(idx);
+};
+
+;// ./node_modules/@smithy/core/dist-es/submodules/serde/lazy-json.js
+const LazyJsonString = function LazyJsonString(val) {
+    const str = Object.assign(new String(val), {
+        deserializeJSON() {
+            return JSON.parse(String(val));
+        },
+        toString() {
+            return String(val);
+        },
+        toJSON() {
+            return String(val);
+        },
+    });
+    return str;
+};
+LazyJsonString.from = (object) => {
+    if (object && typeof object === "object" && (object instanceof LazyJsonString || "deserializeJSON" in object)) {
+        return object;
+    }
+    else if (typeof object === "string" || Object.getPrototypeOf(object) === String.prototype) {
+        return LazyJsonString(String(object));
+    }
+    return LazyJsonString(JSON.stringify(object));
+};
+LazyJsonString.fromObject = LazyJsonString.from;
+
+;// ./node_modules/@smithy/core/dist-es/submodules/serde/index.js
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ 9389:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27578,6 +34380,11 @@ function buildQueryString(query) {
     return parts.join("&");
 }
 
+;// ./node_modules/@smithy/fetch-http-handler/dist-es/create-request.js
+function createRequest(url, requestOptions) {
+    return new Request(url, requestOptions);
+}
+
 ;// ./node_modules/@smithy/fetch-http-handler/dist-es/request-timeout.js
 function requestTimeout(timeoutInMs = 0) {
     return new Promise((resolve, reject) => {
@@ -27592,6 +34399,7 @@ function requestTimeout(timeoutInMs = 0) {
 }
 
 ;// ./node_modules/@smithy/fetch-http-handler/dist-es/fetch-http-handler.js
+
 
 
 
@@ -27614,7 +34422,7 @@ class FetchHttpHandler {
             this.configProvider = Promise.resolve(this.config);
         }
         if (keepAliveSupport.supported === undefined) {
-            keepAliveSupport.supported = Boolean(typeof Request !== "undefined" && "keepalive" in new Request("https://[::1]"));
+            keepAliveSupport.supported = Boolean(typeof Request !== "undefined" && "keepalive" in createRequest("https://[::1]"));
         }
     }
     destroy() {
@@ -27670,7 +34478,7 @@ class FetchHttpHandler {
             Object.assign(requestOptions, this.config.requestInit(request));
         }
         let removeSignalEventListener = () => { };
-        const fetchRequest = new Request(url, requestOptions);
+        const fetchRequest = createRequest(url, requestOptions);
         const raceOfPromises = [
             fetch(fetchRequest).then((response) => {
                 const fetchHeaders = response.headers;
@@ -27735,8 +34543,11 @@ class FetchHttpHandler {
 var util_base64_dist_es = __webpack_require__(1302);
 ;// ./node_modules/@smithy/fetch-http-handler/dist-es/stream-collector.js
 
-const streamCollector = (stream) => {
-    if (typeof Blob === "function" && stream instanceof Blob) {
+const streamCollector = async (stream) => {
+    if ((typeof Blob === "function" && stream instanceof Blob) || stream.constructor?.name === "Blob") {
+        if (Blob.prototype.arrayBuffer !== undefined) {
+            return new Uint8Array(await stream.arrayBuffer());
+        }
         return collectBlob(stream);
     }
     return collectStream(stream);
@@ -27863,15 +34674,16 @@ const getContentLengthPlugin = (options) => ({
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  ko: () => (/* reexport */ endpointMiddlewareOptions),
   rD: () => (/* reexport */ getEndpointPlugin),
   Co: () => (/* reexport */ resolveEndpointConfig)
 });
 
-// UNUSED EXPORTS: endpointMiddleware, getEndpointFromInstructions, resolveParams, toEndpointV1
+// UNUSED EXPORTS: endpointMiddleware, endpointMiddlewareOptions, getEndpointFromInstructions, resolveParams, toEndpointV1
 
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/index.js + 19 modules
+var dist_es = __webpack_require__(9142);
 // EXTERNAL MODULE: ./node_modules/@smithy/util-middleware/dist-es/index.js + 2 modules
-var dist_es = __webpack_require__(7135);
+var util_middleware_dist_es = __webpack_require__(7135);
 ;// ./node_modules/@smithy/middleware-endpoint/dist-es/service-customizations/s3.js
 const resolveParamsForS3 = async (endpointParams) => {
     const bucket = endpointParams?.Bucket || "";
@@ -28009,6 +34821,9 @@ const resolveParams = async (commandInput, instructionsSupplier, clientConfig) =
             case "builtInParams":
                 endpointParams[name] = await createConfigValueProvider(instruction.name, name, clientConfig)();
                 break;
+            case "operationContextParams":
+                endpointParams[name] = instruction.get(commandInput);
+                break;
             default:
                 throw new Error("Unrecognized endpoint parameter instruction: " + JSON.stringify(instruction));
         }
@@ -28025,8 +34840,12 @@ const resolveParams = async (commandInput, instructionsSupplier, clientConfig) =
 ;// ./node_modules/@smithy/middleware-endpoint/dist-es/endpointMiddleware.js
 
 
+
 const endpointMiddleware = ({ config, instructions, }) => {
     return (next, context) => async (args) => {
+        if (config.endpoint) {
+            (0,dist_es/* setFeature */.J7)(context, "ENDPOINT_OVERRIDE", "N");
+        }
         const endpoint = await getEndpointFromInstructions(args.input, {
             getEndpointParameterInstructions() {
                 return instructions;
@@ -28038,7 +34857,7 @@ const endpointMiddleware = ({ config, instructions, }) => {
         if (authScheme) {
             context["signing_region"] = authScheme.signingRegion;
             context["signing_service"] = authScheme.signingName;
-            const smithyContext = (0,dist_es/* getSmithyContext */.u)(context);
+            const smithyContext = (0,util_middleware_dist_es/* getSmithyContext */.u)(context);
             const httpAuthOption = smithyContext?.selectedHttpAuthScheme?.httpAuthOption;
             if (httpAuthOption) {
                 httpAuthOption.signingProperties = Object.assign(httpAuthOption.signingProperties || {}, {
@@ -28084,17 +34903,16 @@ const getEndpointPlugin = (config, instructions) => ({
 
 const resolveEndpointConfig = (input) => {
     const tls = input.tls ?? true;
-    const { endpoint } = input;
-    const customEndpointProvider = endpoint != null ? async () => toEndpointV1(await (0,dist_es/* normalizeProvider */.t)(endpoint)()) : undefined;
+    const { endpoint, useDualstackEndpoint, useFipsEndpoint } = input;
+    const customEndpointProvider = endpoint != null ? async () => toEndpointV1(await (0,util_middleware_dist_es/* normalizeProvider */.t)(endpoint)()) : undefined;
     const isCustomEndpoint = !!endpoint;
-    const resolvedConfig = {
-        ...input,
+    const resolvedConfig = Object.assign(input, {
         endpoint: customEndpointProvider,
         tls,
         isCustomEndpoint,
-        useDualstackEndpoint: (0,dist_es/* normalizeProvider */.t)(input.useDualstackEndpoint ?? false),
-        useFipsEndpoint: (0,dist_es/* normalizeProvider */.t)(input.useFipsEndpoint ?? false),
-    };
+        useDualstackEndpoint: (0,util_middleware_dist_es/* normalizeProvider */.t)(useDualstackEndpoint ?? false),
+        useFipsEndpoint: (0,util_middleware_dist_es/* normalizeProvider */.t)(useFipsEndpoint ?? false),
+    });
     let configuredEndpointPromise = undefined;
     resolvedConfig.serviceConfiguredEndpoint = async () => {
         if (input.serviceId && !configuredEndpointPromise) {
@@ -28123,11 +34941,10 @@ const resolveEndpointConfig = (input) => {
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   ey: () => (/* reexport */ getRetryPlugin),
-  $z: () => (/* reexport */ resolveRetryConfig),
-  j7: () => (/* reexport */ retryMiddlewareOptions)
+  $z: () => (/* reexport */ resolveRetryConfig)
 });
 
-// UNUSED EXPORTS: AdaptiveRetryStrategy, CONFIG_MAX_ATTEMPTS, CONFIG_RETRY_MODE, ENV_MAX_ATTEMPTS, ENV_RETRY_MODE, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS, StandardRetryStrategy, defaultDelayDecider, defaultRetryDecider, getOmitRetryHeadersPlugin, getRetryAfterHint, omitRetryHeadersMiddleware, omitRetryHeadersMiddlewareOptions, retryMiddleware
+// UNUSED EXPORTS: AdaptiveRetryStrategy, CONFIG_MAX_ATTEMPTS, CONFIG_RETRY_MODE, ENV_MAX_ATTEMPTS, ENV_RETRY_MODE, NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS, StandardRetryStrategy, defaultDelayDecider, defaultRetryDecider, getOmitRetryHeadersPlugin, getRetryAfterHint, omitRetryHeadersMiddleware, omitRetryHeadersMiddlewareOptions, retryMiddleware, retryMiddlewareOptions
 
 // EXTERNAL MODULE: ./node_modules/@smithy/util-retry/dist-es/index.js + 8 modules
 var dist_es = __webpack_require__(3323);
@@ -28335,22 +35152,21 @@ const NODE_MAX_ATTEMPT_CONFIG_OPTIONS = {
     default: dist_es/* DEFAULT_MAX_ATTEMPTS */.Gz,
 };
 const resolveRetryConfig = (input) => {
-    const { retryStrategy } = input;
-    const maxAttempts = (0,util_middleware_dist_es/* normalizeProvider */.t)(input.maxAttempts ?? dist_es/* DEFAULT_MAX_ATTEMPTS */.Gz);
-    return {
-        ...input,
+    const { retryStrategy, retryMode: _retryMode, maxAttempts: _maxAttempts } = input;
+    const maxAttempts = (0,util_middleware_dist_es/* normalizeProvider */.t)(_maxAttempts ?? dist_es/* DEFAULT_MAX_ATTEMPTS */.Gz);
+    return Object.assign(input, {
         maxAttempts,
         retryStrategy: async () => {
             if (retryStrategy) {
                 return retryStrategy;
             }
-            const retryMode = await (0,util_middleware_dist_es/* normalizeProvider */.t)(input.retryMode)();
+            const retryMode = await (0,util_middleware_dist_es/* normalizeProvider */.t)(_retryMode)();
             if (retryMode === dist_es/* RETRY_MODES */.cm.ADAPTIVE) {
                 return new dist_es/* AdaptiveRetryStrategy */.Y(maxAttempts);
             }
             return new dist_es/* StandardRetryStrategy */.ru(maxAttempts);
         },
-    };
+    });
 };
 const ENV_RETRY_MODE = "AWS_RETRY_MODE";
 const CONFIG_RETRY_MODE = "retry_mode";
@@ -28384,8 +35200,8 @@ const getOmitRetryHeadersPlugin = (options) => ({
     },
 });
 
-// EXTERNAL MODULE: ./node_modules/@smithy/smithy-client/dist-es/index.js + 27 modules
-var smithy_client_dist_es = __webpack_require__(5342);
+// EXTERNAL MODULE: ./node_modules/@smithy/smithy-client/dist-es/index.js + 20 modules
+var smithy_client_dist_es = __webpack_require__(6980);
 ;// ./node_modules/@smithy/middleware-retry/dist-es/isStreamingPayload/isStreamingPayload.browser.js
 const isStreamingPayload = (request) => request?.body instanceof ReadableStream;
 
@@ -28528,8 +35344,11 @@ __webpack_require__.d(__webpack_exports__, {
 
 // UNUSED EXPORTS: deserializerMiddleware, deserializerMiddlewareOption, serializerMiddleware
 
+// EXTERNAL MODULE: ./node_modules/@smithy/protocol-http/dist-es/index.js + 5 modules
+var dist_es = __webpack_require__(5479);
 ;// ./node_modules/@smithy/middleware-serde/dist-es/deserializerMiddleware.js
-const deserializerMiddleware = (options, deserializer) => (next) => async (args) => {
+
+const deserializerMiddleware = (options, deserializer) => (next, context) => async (args) => {
     const { response } = await next(args);
     try {
         const parsed = await deserializer(response, options);
@@ -28544,22 +35363,52 @@ const deserializerMiddleware = (options, deserializer) => (next) => async (args)
         });
         if (!("$metadata" in error)) {
             const hint = `Deserialization error: to see the raw response, inspect the hidden field {error}.$response on this object.`;
-            error.message += "\n  " + hint;
+            try {
+                error.message += "\n  " + hint;
+            }
+            catch (e) {
+                if (!context.logger || context.logger?.constructor?.name === "NoOpLogger") {
+                    console.warn(hint);
+                }
+                else {
+                    context.logger?.warn?.(hint);
+                }
+            }
             if (typeof error.$responseBodyText !== "undefined") {
                 if (error.$response) {
                     error.$response.body = error.$responseBodyText;
                 }
             }
+            try {
+                if (dist_es/* HttpResponse */.cS.isInstance(response)) {
+                    const { headers = {} } = response;
+                    const headerEntries = Object.entries(headers);
+                    error.$metadata = {
+                        httpStatusCode: response.statusCode,
+                        requestId: findHeader(/^x-[\w-]+-request-?id$/, headerEntries),
+                        extendedRequestId: findHeader(/^x-[\w-]+-id-2$/, headerEntries),
+                        cfId: findHeader(/^x-[\w-]+-cf-id$/, headerEntries),
+                    };
+                }
+            }
+            catch (e) {
+            }
         }
         throw error;
     }
 };
+const findHeader = (pattern, headers) => {
+    return (headers.find(([k]) => {
+        return k.match(pattern);
+    }) || [void 0, void 1])[1];
+};
 
 ;// ./node_modules/@smithy/middleware-serde/dist-es/serializerMiddleware.js
 const serializerMiddleware = (options, serializer) => (next, context) => async (args) => {
-    const endpoint = context.endpointV2?.url && options.urlParser
-        ? async () => options.urlParser(context.endpointV2.url)
-        : options.endpoint;
+    const endpointConfig = options;
+    const endpoint = context.endpointV2?.url && endpointConfig.urlParser
+        ? async () => endpointConfig.urlParser(context.endpointV2.url)
+        : endpointConfig.endpoint;
     if (!endpoint) {
         throw new Error("No valid endpoint provider available.");
     }
@@ -28619,19 +35468,18 @@ __webpack_require__.d(__webpack_exports__, {
 
 ;// ./node_modules/@smithy/protocol-http/dist-es/extensions/httpExtensionConfiguration.js
 const getHttpHandlerExtensionConfiguration = (runtimeConfig) => {
-    let httpHandler = runtimeConfig.httpHandler;
     return {
         setHttpHandler(handler) {
-            httpHandler = handler;
+            runtimeConfig.httpHandler = handler;
         },
         httpHandler() {
-            return httpHandler;
+            return runtimeConfig.httpHandler;
         },
         updateHttpClientConfig(key, value) {
-            httpHandler.updateHttpClientConfig(key, value);
+            runtimeConfig.httpHandler?.updateHttpClientConfig(key, value);
         },
         httpHandlerConfigs() {
-            return httpHandler.httpHandlerConfigs();
+            return runtimeConfig.httpHandler.httpHandlerConfigs();
         },
     };
 };
@@ -28769,7 +35617,7 @@ __webpack_require__.d(__webpack_exports__, {
   bV: () => (/* binding */ isTransientError)
 });
 
-// UNUSED EXPORTS: isClockSkewCorrectedError
+// UNUSED EXPORTS: isBrowserNetworkError, isClockSkewCorrectedError
 
 ;// ./node_modules/@smithy/service-error-classification/dist-es/constants.js
 const CLOCK_SKEW_ERROR_CODES = [
@@ -28805,13 +35653,29 @@ const NODEJS_TIMEOUT_ERROR_CODES = ["ECONNRESET", "ECONNREFUSED", "EPIPE", "ETIM
 const isRetryableByTrait = (error) => error.$retryable !== undefined;
 const isClockSkewError = (error) => CLOCK_SKEW_ERROR_CODES.includes(error.name);
 const isClockSkewCorrectedError = (error) => error.$metadata?.clockSkewCorrected;
+const isBrowserNetworkError = (error) => {
+    const errorMessages = new Set([
+        "Failed to fetch",
+        "NetworkError when attempting to fetch resource",
+        "The Internet connection appears to be offline",
+        "Load failed",
+        "Network request failed",
+    ]);
+    const isValid = error && error instanceof TypeError;
+    if (!isValid) {
+        return false;
+    }
+    return errorMessages.has(error.message);
+};
 const isThrottlingError = (error) => error.$metadata?.httpStatusCode === 429 ||
     THROTTLING_ERROR_CODES.includes(error.name) ||
     error.$retryable?.throttling == true;
-const isTransientError = (error) => isClockSkewCorrectedError(error) ||
+const isTransientError = (error, depth = 0) => isClockSkewCorrectedError(error) ||
     TRANSIENT_ERROR_CODES.includes(error.name) ||
     NODEJS_TIMEOUT_ERROR_CODES.includes(error?.code || "") ||
-    TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0);
+    TRANSIENT_ERROR_STATUS_CODES.includes(error.$metadata?.httpStatusCode || 0) ||
+    isBrowserNetworkError(error) ||
+    (error.cause !== undefined && depth <= 10 && isTransientError(error.cause, depth + 1));
 const isServerError = (error) => {
     if (error.$metadata?.httpStatusCode !== undefined) {
         const statusCode = error.$metadata.httpStatusCode;
@@ -28826,7 +35690,7 @@ const isServerError = (error) => {
 
 /***/ }),
 
-/***/ 5342:
+/***/ 6980:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28839,32 +35703,31 @@ __webpack_require__.d(__webpack_exports__, {
   $H: () => (/* reexport */ SENSITIVE_STRING),
   TJ: () => (/* reexport */ ServiceException),
   Ss: () => (/* reexport */ _json),
-  Px: () => (/* reexport */ collectBody),
+  Px: () => (/* reexport */ protocols/* collectBody */.Px),
   J1: () => (/* reexport */ createAggregatedClient),
   Mw: () => (/* reexport */ decorateServiceException),
-  ak: () => (/* reexport */ expectBoolean),
-  ET: () => (/* reexport */ expectInt32),
-  Yy: () => (/* reexport */ expectLong),
-  Y0: () => (/* reexport */ expectNonNull),
-  r$: () => (/* reexport */ expectNumber),
-  Xk: () => (/* reexport */ expectObject),
-  lK: () => (/* reexport */ expectString),
-  tN: () => (/* reexport */ expectUnion),
+  ak: () => (/* reexport */ serde/* expectBoolean */.ak),
+  ET: () => (/* reexport */ serde/* expectInt32 */.ET),
+  Yy: () => (/* reexport */ serde/* expectLong */.Yy),
+  Y0: () => (/* reexport */ serde/* expectNonNull */.Y0),
+  r$: () => (/* reexport */ serde/* expectNumber */.r$),
+  Xk: () => (/* reexport */ serde/* expectObject */.Xk),
+  lK: () => (/* reexport */ serde/* expectString */.lK),
+  tN: () => (/* reexport */ serde/* expectUnion */.tN),
   xA: () => (/* reexport */ getDefaultExtensionConfiguration),
-  JW: () => (/* reexport */ limitedParseDouble),
-  Zx: () => (/* reexport */ limitedParseFloat32),
+  JW: () => (/* reexport */ serde/* limitedParseDouble */.JW),
+  Zx: () => (/* reexport */ serde/* limitedParseFloat32 */.Zx),
   lT: () => (/* reexport */ loadConfigsForDefaultMode),
   Tj: () => (/* reexport */ map),
-  l3: () => (/* reexport */ parseEpochTimestamp),
-  t_: () => (/* reexport */ parseRfc3339DateTimeWithOffset),
+  l3: () => (/* reexport */ serde/* parseEpochTimestamp */.l3),
+  t_: () => (/* reexport */ serde/* parseRfc3339DateTimeWithOffset */.t_),
   uv: () => (/* reexport */ resolveDefaultRuntimeConfig),
-  un: () => (/* reexport */ resolvedPath),
   VA: () => (/* reexport */ serializeFloat),
   s: () => (/* reexport */ take),
   jr: () => (/* reexport */ withBaseException)
 });
 
-// UNUSED EXPORTS: LazyJsonString, StringWrapper, convertMap, dateToUtcString, emitWarningIfUnsupportedVersion, expectByte, expectFloat32, expectInt, expectShort, extendedEncodeURIComponent, getArrayIfSingleItem, getDefaultClientConfiguration, getValueFromTextNode, handleFloat, isSerializableHeaderValue, limitedParseFloat, logger, parseBoolean, parseRfc3339DateTime, parseRfc7231DateTime, quoteHeader, serializeDateTime, splitEvery, splitHeader, strictParseByte, strictParseDouble, strictParseFloat, strictParseFloat32, strictParseInt, strictParseInt32, strictParseLong, strictParseShort, throwDefaultError
+// UNUSED EXPORTS: LazyJsonString, NumericValue, convertMap, copyDocumentWithTransform, dateToUtcString, emitWarningIfUnsupportedVersion, expectByte, expectFloat32, expectInt, expectShort, extendedEncodeURIComponent, getArrayIfSingleItem, getDefaultClientConfiguration, getValueFromTextNode, handleFloat, isSerializableHeaderValue, limitedParseFloat, logger, nv, parseBoolean, parseRfc3339DateTime, parseRfc7231DateTime, quoteHeader, resolvedPath, serializeDateTime, splitEvery, splitHeader, strictParseByte, strictParseDouble, strictParseFloat, strictParseFloat32, strictParseInt, strictParseInt32, strictParseLong, strictParseShort, throwDefaultError
 
 ;// ./node_modules/@smithy/middleware-stack/dist-es/MiddlewareStack.js
 const getAllAliases = (name, aliases) => {
@@ -29196,142 +36059,13 @@ class Client {
     }
 }
 
-// EXTERNAL MODULE: ./node_modules/@smithy/util-base64/dist-es/index.js + 3 modules
-var dist_es = __webpack_require__(1302);
-// EXTERNAL MODULE: ./node_modules/@smithy/util-utf8/dist-es/toUtf8.browser.js
-var toUtf8_browser = __webpack_require__(5792);
-// EXTERNAL MODULE: ./node_modules/@smithy/util-utf8/dist-es/fromUtf8.browser.js
-var fromUtf8_browser = __webpack_require__(2637);
-;// ./node_modules/@smithy/util-stream/dist-es/blob/transforms.js
-
-
-
-function transformToString(payload, encoding = "utf-8") {
-    if (encoding === "base64") {
-        return (0,dist_es/* toBase64 */.n)(payload);
-    }
-    return (0,toUtf8_browser/* toUtf8 */.P)(payload);
-}
-function transformFromString(str, encoding) {
-    if (encoding === "base64") {
-        return Uint8ArrayBlobAdapter.mutate((0,dist_es/* fromBase64 */.E)(str));
-    }
-    return Uint8ArrayBlobAdapter.mutate((0,fromUtf8_browser/* fromUtf8 */.a)(str));
-}
-
-;// ./node_modules/@smithy/util-stream/dist-es/blob/Uint8ArrayBlobAdapter.js
-
-class Uint8ArrayBlobAdapter extends Uint8Array {
-    static fromString(source, encoding = "utf-8") {
-        switch (typeof source) {
-            case "string":
-                return transformFromString(source, encoding);
-            default:
-                throw new Error(`Unsupported conversion from ${typeof source} to Uint8ArrayBlobAdapter.`);
-        }
-    }
-    static mutate(source) {
-        Object.setPrototypeOf(source, Uint8ArrayBlobAdapter.prototype);
-        return source;
-    }
-    transformToString(encoding = "utf-8") {
-        return transformToString(this, encoding);
-    }
-}
-
-// EXTERNAL MODULE: ./node_modules/@smithy/fetch-http-handler/dist-es/index.js + 4 modules
-var fetch_http_handler_dist_es = __webpack_require__(3957);
-// EXTERNAL MODULE: ./node_modules/@smithy/util-hex-encoding/dist-es/index.js
-var util_hex_encoding_dist_es = __webpack_require__(8004);
-;// ./node_modules/@smithy/util-stream/dist-es/sdk-stream-mixin.browser.js
-
-
-
-
-
-const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
-const sdkStreamMixin = (stream) => {
-    if (!isBlobInstance(stream) && !isReadableStream(stream)) {
-        const name = stream?.__proto__?.constructor?.name || stream;
-        throw new Error(`Unexpected stream implementation, expect Blob or ReadableStream, got ${name}`);
-    }
-    let transformed = false;
-    const transformToByteArray = async () => {
-        if (transformed) {
-            throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
-        }
-        transformed = true;
-        return await streamCollector(stream);
-    };
-    const blobToWebStream = (blob) => {
-        if (typeof blob.stream !== "function") {
-            throw new Error("Cannot transform payload Blob to web stream. Please make sure the Blob.stream() is polyfilled.\n" +
-                "If you are using React Native, this API is not yet supported, see: https://react-native.canny.io/feature-requests/p/fetch-streaming-body");
-        }
-        return blob.stream();
-    };
-    return Object.assign(stream, {
-        transformToByteArray: transformToByteArray,
-        transformToString: async (encoding) => {
-            const buf = await transformToByteArray();
-            if (encoding === "base64") {
-                return toBase64(buf);
-            }
-            else if (encoding === "hex") {
-                return toHex(buf);
-            }
-            else if (encoding === undefined || encoding === "utf8" || encoding === "utf-8") {
-                return toUtf8(buf);
-            }
-            else if (typeof TextDecoder === "function") {
-                return new TextDecoder(encoding).decode(buf);
-            }
-            else {
-                throw new Error("TextDecoder is not available, please make sure polyfill is provided.");
-            }
-        },
-        transformToWebStream: () => {
-            if (transformed) {
-                throw new Error(ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED);
-            }
-            transformed = true;
-            if (isBlobInstance(stream)) {
-                return blobToWebStream(stream);
-            }
-            else if (isReadableStream(stream)) {
-                return stream;
-            }
-            else {
-                throw new Error(`Cannot transform payload to web stream, got ${stream}`);
-            }
-        },
-    });
-};
-const isBlobInstance = (stream) => typeof Blob === "function" && stream instanceof Blob;
-
-;// ./node_modules/@smithy/util-stream/dist-es/index.js
-
-
-
-
-
-
-
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/submodules/protocols/index.js + 18 modules
+var protocols = __webpack_require__(3483);
 ;// ./node_modules/@smithy/smithy-client/dist-es/collect-stream-body.js
 
-const collectBody = async (streamBody = new Uint8Array(), context) => {
-    if (streamBody instanceof Uint8Array) {
-        return Uint8ArrayBlobAdapter.mutate(streamBody);
-    }
-    if (!streamBody) {
-        return Uint8ArrayBlobAdapter.mutate(new Uint8Array());
-    }
-    const fromContext = context.streamCollector(streamBody);
-    return Uint8ArrayBlobAdapter.mutate(await fromContext);
-};
 
 // EXTERNAL MODULE: ./node_modules/@smithy/types/dist-es/index.js + 11 modules
-var types_dist_es = __webpack_require__(7523);
+var dist_es = __webpack_require__(7523);
 ;// ./node_modules/@smithy/smithy-client/dist-es/command.js
 
 
@@ -29354,7 +36088,7 @@ class Command {
             commandName,
             inputFilterSensitiveLog,
             outputFilterSensitiveLog,
-            [types_dist_es/* SMITHY_CONTEXT_KEY */.Vf]: {
+            [dist_es/* SMITHY_CONTEXT_KEY */.Vf]: {
                 commandInstance: this,
                 ...smithyContext,
             },
@@ -29419,6 +36153,11 @@ class ClassBuilder {
         this._deserializer = deserializer;
         return this;
     }
+    sc(operation) {
+        this._operationSchema = operation;
+        this._smithyContext.operationSchema = operation;
+        return this;
+    }
     build() {
         const closure = this;
         let CommandRef;
@@ -29432,6 +36171,7 @@ class ClassBuilder {
                 this.deserialize = closure._deserializer;
                 this.input = input ?? {};
                 closure._init(this);
+                this.schema = closure._operationSchema;
             }
             resolveMiddleware(stack, configuration, options) {
                 return this.resolveMiddlewareWithContext(stack, configuration, options, {
@@ -29475,438 +36215,38 @@ const createAggregatedClient = (commands, Client) => {
     }
 };
 
-;// ./node_modules/@smithy/smithy-client/dist-es/parse-utils.js
-const parseBoolean = (value) => {
-    switch (value) {
-        case "true":
-            return true;
-        case "false":
-            return false;
-        default:
-            throw new Error(`Unable to parse boolean value "${value}"`);
-    }
-};
-const expectBoolean = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    if (typeof value === "number") {
-        if (value === 0 || value === 1) {
-            logger.warn(stackTraceWarning(`Expected boolean, got ${typeof value}: ${value}`));
-        }
-        if (value === 0) {
-            return false;
-        }
-        if (value === 1) {
-            return true;
-        }
-    }
-    if (typeof value === "string") {
-        const lower = value.toLowerCase();
-        if (lower === "false" || lower === "true") {
-            logger.warn(stackTraceWarning(`Expected boolean, got ${typeof value}: ${value}`));
-        }
-        if (lower === "false") {
-            return false;
-        }
-        if (lower === "true") {
-            return true;
-        }
-    }
-    if (typeof value === "boolean") {
-        return value;
-    }
-    throw new TypeError(`Expected boolean, got ${typeof value}: ${value}`);
-};
-const expectNumber = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    if (typeof value === "string") {
-        const parsed = parseFloat(value);
-        if (!Number.isNaN(parsed)) {
-            if (String(parsed) !== String(value)) {
-                logger.warn(stackTraceWarning(`Expected number but observed string: ${value}`));
-            }
-            return parsed;
-        }
-    }
-    if (typeof value === "number") {
-        return value;
-    }
-    throw new TypeError(`Expected number, got ${typeof value}: ${value}`);
-};
-const MAX_FLOAT = Math.ceil(2 ** 127 * (2 - 2 ** -23));
-const expectFloat32 = (value) => {
-    const expected = expectNumber(value);
-    if (expected !== undefined && !Number.isNaN(expected) && expected !== Infinity && expected !== -Infinity) {
-        if (Math.abs(expected) > MAX_FLOAT) {
-            throw new TypeError(`Expected 32-bit float, got ${value}`);
-        }
-    }
-    return expected;
-};
-const expectLong = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    if (Number.isInteger(value) && !Number.isNaN(value)) {
-        return value;
-    }
-    throw new TypeError(`Expected integer, got ${typeof value}: ${value}`);
-};
-const expectInt = (/* unused pure expression or super */ null && (expectLong));
-const expectInt32 = (value) => expectSizedInt(value, 32);
-const expectShort = (value) => expectSizedInt(value, 16);
-const expectByte = (value) => expectSizedInt(value, 8);
-const expectSizedInt = (value, size) => {
-    const expected = expectLong(value);
-    if (expected !== undefined && castInt(expected, size) !== expected) {
-        throw new TypeError(`Expected ${size}-bit integer, got ${value}`);
-    }
-    return expected;
-};
-const castInt = (value, size) => {
-    switch (size) {
-        case 32:
-            return Int32Array.of(value)[0];
-        case 16:
-            return Int16Array.of(value)[0];
-        case 8:
-            return Int8Array.of(value)[0];
-    }
-};
-const expectNonNull = (value, location) => {
-    if (value === null || value === undefined) {
-        if (location) {
-            throw new TypeError(`Expected a non-null value for ${location}`);
-        }
-        throw new TypeError("Expected a non-null value");
-    }
-    return value;
-};
-const expectObject = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    if (typeof value === "object" && !Array.isArray(value)) {
-        return value;
-    }
-    const receivedType = Array.isArray(value) ? "array" : typeof value;
-    throw new TypeError(`Expected object, got ${receivedType}: ${value}`);
-};
-const expectString = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    if (typeof value === "string") {
-        return value;
-    }
-    if (["boolean", "number", "bigint"].includes(typeof value)) {
-        logger.warn(stackTraceWarning(`Expected string, got ${typeof value}: ${value}`));
-        return String(value);
-    }
-    throw new TypeError(`Expected string, got ${typeof value}: ${value}`);
-};
-const expectUnion = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    const asObject = expectObject(value);
-    const setKeys = Object.entries(asObject)
-        .filter(([, v]) => v != null)
-        .map(([k]) => k);
-    if (setKeys.length === 0) {
-        throw new TypeError(`Unions must have exactly one non-null member. None were found.`);
-    }
-    if (setKeys.length > 1) {
-        throw new TypeError(`Unions must have exactly one non-null member. Keys ${setKeys} were not null.`);
-    }
-    return asObject;
-};
-const strictParseDouble = (value) => {
-    if (typeof value == "string") {
-        return expectNumber(parseNumber(value));
-    }
-    return expectNumber(value);
-};
-const strictParseFloat = (/* unused pure expression or super */ null && (strictParseDouble));
-const strictParseFloat32 = (value) => {
-    if (typeof value == "string") {
-        return expectFloat32(parseNumber(value));
-    }
-    return expectFloat32(value);
-};
-const NUMBER_REGEX = /(-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?)|(-?Infinity)|(NaN)/g;
-const parseNumber = (value) => {
-    const matches = value.match(NUMBER_REGEX);
-    if (matches === null || matches[0].length !== value.length) {
-        throw new TypeError(`Expected real number, got implicit NaN`);
-    }
-    return parseFloat(value);
-};
-const limitedParseDouble = (value) => {
-    if (typeof value == "string") {
-        return parseFloatString(value);
-    }
-    return expectNumber(value);
-};
-const handleFloat = (/* unused pure expression or super */ null && (limitedParseDouble));
-const limitedParseFloat = (/* unused pure expression or super */ null && (limitedParseDouble));
-const limitedParseFloat32 = (value) => {
-    if (typeof value == "string") {
-        return parseFloatString(value);
-    }
-    return expectFloat32(value);
-};
-const parseFloatString = (value) => {
-    switch (value) {
-        case "NaN":
-            return NaN;
-        case "Infinity":
-            return Infinity;
-        case "-Infinity":
-            return -Infinity;
-        default:
-            throw new Error(`Unable to parse float value: ${value}`);
-    }
-};
-const strictParseLong = (value) => {
-    if (typeof value === "string") {
-        return expectLong(parseNumber(value));
-    }
-    return expectLong(value);
-};
-const strictParseInt = (/* unused pure expression or super */ null && (strictParseLong));
-const strictParseInt32 = (value) => {
-    if (typeof value === "string") {
-        return expectInt32(parseNumber(value));
-    }
-    return expectInt32(value);
-};
-const parse_utils_strictParseShort = (value) => {
-    if (typeof value === "string") {
-        return expectShort(parseNumber(value));
-    }
-    return expectShort(value);
-};
-const strictParseByte = (value) => {
-    if (typeof value === "string") {
-        return expectByte(parseNumber(value));
-    }
-    return expectByte(value);
-};
-const stackTraceWarning = (message) => {
-    return String(new TypeError(message).stack || message)
-        .split("\n")
-        .slice(0, 5)
-        .filter((s) => !s.includes("stackTraceWarning"))
-        .join("\n");
-};
-const logger = {
-    warn: console.warn,
-};
-
-;// ./node_modules/@smithy/smithy-client/dist-es/date-utils.js
-
-const DAYS = (/* unused pure expression or super */ null && (["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]));
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-function dateToUtcString(date) {
-    const year = date.getUTCFullYear();
-    const month = date.getUTCMonth();
-    const dayOfWeek = date.getUTCDay();
-    const dayOfMonthInt = date.getUTCDate();
-    const hoursInt = date.getUTCHours();
-    const minutesInt = date.getUTCMinutes();
-    const secondsInt = date.getUTCSeconds();
-    const dayOfMonthString = dayOfMonthInt < 10 ? `0${dayOfMonthInt}` : `${dayOfMonthInt}`;
-    const hoursString = hoursInt < 10 ? `0${hoursInt}` : `${hoursInt}`;
-    const minutesString = minutesInt < 10 ? `0${minutesInt}` : `${minutesInt}`;
-    const secondsString = secondsInt < 10 ? `0${secondsInt}` : `${secondsInt}`;
-    return `${DAYS[dayOfWeek]}, ${dayOfMonthString} ${MONTHS[month]} ${year} ${hoursString}:${minutesString}:${secondsString} GMT`;
-}
-const RFC3339 = (/* unused pure expression or super */ null && (new RegExp(/^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?[zZ]$/)));
-const parseRfc3339DateTime = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    if (typeof value !== "string") {
-        throw new TypeError("RFC-3339 date-times must be expressed as strings");
-    }
-    const match = RFC3339.exec(value);
-    if (!match) {
-        throw new TypeError("Invalid RFC-3339 date-time value");
-    }
-    const [_, yearStr, monthStr, dayStr, hours, minutes, seconds, fractionalMilliseconds] = match;
-    const year = strictParseShort(stripLeadingZeroes(yearStr));
-    const month = parseDateValue(monthStr, "month", 1, 12);
-    const day = parseDateValue(dayStr, "day", 1, 31);
-    return buildDate(year, month, day, { hours, minutes, seconds, fractionalMilliseconds });
-};
-const RFC3339_WITH_OFFSET = new RegExp(/^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?(([-+]\d{2}\:\d{2})|[zZ])$/);
-const parseRfc3339DateTimeWithOffset = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    if (typeof value !== "string") {
-        throw new TypeError("RFC-3339 date-times must be expressed as strings");
-    }
-    const match = RFC3339_WITH_OFFSET.exec(value);
-    if (!match) {
-        throw new TypeError("Invalid RFC-3339 date-time value");
-    }
-    const [_, yearStr, monthStr, dayStr, hours, minutes, seconds, fractionalMilliseconds, offsetStr] = match;
-    const year = parse_utils_strictParseShort(stripLeadingZeroes(yearStr));
-    const month = parseDateValue(monthStr, "month", 1, 12);
-    const day = parseDateValue(dayStr, "day", 1, 31);
-    const date = buildDate(year, month, day, { hours, minutes, seconds, fractionalMilliseconds });
-    if (offsetStr.toUpperCase() != "Z") {
-        date.setTime(date.getTime() - parseOffsetToMilliseconds(offsetStr));
-    }
-    return date;
-};
-const IMF_FIXDATE = (/* unused pure expression or super */ null && (new RegExp(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d{2}) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? GMT$/)));
-const RFC_850_DATE = (/* unused pure expression or super */ null && (new RegExp(/^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\d{2})-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d{2}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? GMT$/)));
-const ASC_TIME = (/* unused pure expression or super */ null && (new RegExp(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ( [1-9]|\d{2}) (\d{1,2}):(\d{2}):(\d{2})(?:\.(\d+))? (\d{4})$/)));
-const parseRfc7231DateTime = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    if (typeof value !== "string") {
-        throw new TypeError("RFC-7231 date-times must be expressed as strings");
-    }
-    let match = IMF_FIXDATE.exec(value);
-    if (match) {
-        const [_, dayStr, monthStr, yearStr, hours, minutes, seconds, fractionalMilliseconds] = match;
-        return buildDate(strictParseShort(stripLeadingZeroes(yearStr)), parseMonthByShortName(monthStr), parseDateValue(dayStr, "day", 1, 31), { hours, minutes, seconds, fractionalMilliseconds });
-    }
-    match = RFC_850_DATE.exec(value);
-    if (match) {
-        const [_, dayStr, monthStr, yearStr, hours, minutes, seconds, fractionalMilliseconds] = match;
-        return adjustRfc850Year(buildDate(parseTwoDigitYear(yearStr), parseMonthByShortName(monthStr), parseDateValue(dayStr, "day", 1, 31), {
-            hours,
-            minutes,
-            seconds,
-            fractionalMilliseconds,
-        }));
-    }
-    match = ASC_TIME.exec(value);
-    if (match) {
-        const [_, monthStr, dayStr, hours, minutes, seconds, fractionalMilliseconds, yearStr] = match;
-        return buildDate(strictParseShort(stripLeadingZeroes(yearStr)), parseMonthByShortName(monthStr), parseDateValue(dayStr.trimLeft(), "day", 1, 31), { hours, minutes, seconds, fractionalMilliseconds });
-    }
-    throw new TypeError("Invalid RFC-7231 date-time value");
-};
-const parseEpochTimestamp = (value) => {
-    if (value === null || value === undefined) {
-        return undefined;
-    }
-    let valueAsDouble;
-    if (typeof value === "number") {
-        valueAsDouble = value;
-    }
-    else if (typeof value === "string") {
-        valueAsDouble = strictParseDouble(value);
-    }
-    else if (typeof value === "object" && value.tag === 1) {
-        valueAsDouble = value.value;
-    }
-    else {
-        throw new TypeError("Epoch timestamps must be expressed as floating point numbers or their string representation");
-    }
-    if (Number.isNaN(valueAsDouble) || valueAsDouble === Infinity || valueAsDouble === -Infinity) {
-        throw new TypeError("Epoch timestamps must be valid, non-Infinite, non-NaN numerics");
-    }
-    return new Date(Math.round(valueAsDouble * 1000));
-};
-const buildDate = (year, month, day, time) => {
-    const adjustedMonth = month - 1;
-    validateDayOfMonth(year, adjustedMonth, day);
-    return new Date(Date.UTC(year, adjustedMonth, day, parseDateValue(time.hours, "hour", 0, 23), parseDateValue(time.minutes, "minute", 0, 59), parseDateValue(time.seconds, "seconds", 0, 60), parseMilliseconds(time.fractionalMilliseconds)));
-};
-const parseTwoDigitYear = (value) => {
-    const thisYear = new Date().getUTCFullYear();
-    const valueInThisCentury = Math.floor(thisYear / 100) * 100 + strictParseShort(stripLeadingZeroes(value));
-    if (valueInThisCentury < thisYear) {
-        return valueInThisCentury + 100;
-    }
-    return valueInThisCentury;
-};
-const FIFTY_YEARS_IN_MILLIS = (/* unused pure expression or super */ null && (50 * 365 * 24 * 60 * 60 * 1000));
-const adjustRfc850Year = (input) => {
-    if (input.getTime() - new Date().getTime() > FIFTY_YEARS_IN_MILLIS) {
-        return new Date(Date.UTC(input.getUTCFullYear() - 100, input.getUTCMonth(), input.getUTCDate(), input.getUTCHours(), input.getUTCMinutes(), input.getUTCSeconds(), input.getUTCMilliseconds()));
-    }
-    return input;
-};
-const parseMonthByShortName = (value) => {
-    const monthIdx = MONTHS.indexOf(value);
-    if (monthIdx < 0) {
-        throw new TypeError(`Invalid month: ${value}`);
-    }
-    return monthIdx + 1;
-};
-const DAYS_IN_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const validateDayOfMonth = (year, month, day) => {
-    let maxDays = DAYS_IN_MONTH[month];
-    if (month === 1 && isLeapYear(year)) {
-        maxDays = 29;
-    }
-    if (day > maxDays) {
-        throw new TypeError(`Invalid day for ${MONTHS[month]} in ${year}: ${day}`);
-    }
-};
-const isLeapYear = (year) => {
-    return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
-};
-const parseDateValue = (value, type, lower, upper) => {
-    const dateVal = strictParseByte(stripLeadingZeroes(value));
-    if (dateVal < lower || dateVal > upper) {
-        throw new TypeError(`${type} must be between ${lower} and ${upper}, inclusive`);
-    }
-    return dateVal;
-};
-const parseMilliseconds = (value) => {
-    if (value === null || value === undefined) {
-        return 0;
-    }
-    return strictParseFloat32("0." + value) * 1000;
-};
-const parseOffsetToMilliseconds = (value) => {
-    const directionStr = value[0];
-    let direction = 1;
-    if (directionStr == "+") {
-        direction = 1;
-    }
-    else if (directionStr == "-") {
-        direction = -1;
-    }
-    else {
-        throw new TypeError(`Offset direction, ${directionStr}, must be "+" or "-"`);
-    }
-    const hour = Number(value.substring(1, 3));
-    const minute = Number(value.substring(4, 6));
-    return direction * (hour * 60 + minute) * 60 * 1000;
-};
-const stripLeadingZeroes = (value) => {
-    let idx = 0;
-    while (idx < value.length - 1 && value.charAt(idx) === "0") {
-        idx++;
-    }
-    if (idx === 0) {
-        return value;
-    }
-    return value.slice(idx);
-};
-
 ;// ./node_modules/@smithy/smithy-client/dist-es/exceptions.js
 class ServiceException extends Error {
     constructor(options) {
         super(options.message);
-        Object.setPrototypeOf(this, ServiceException.prototype);
+        Object.setPrototypeOf(this, Object.getPrototypeOf(this).constructor.prototype);
         this.name = options.name;
         this.$fault = options.$fault;
         this.$metadata = options.$metadata;
+    }
+    static isInstance(value) {
+        if (!value)
+            return false;
+        const candidate = value;
+        return (ServiceException.prototype.isPrototypeOf(candidate) ||
+            (Boolean(candidate.$fault) &&
+                Boolean(candidate.$metadata) &&
+                (candidate.$fault === "client" || candidate.$fault === "server")));
+    }
+    static [Symbol.hasInstance](instance) {
+        if (!instance)
+            return false;
+        const candidate = instance;
+        if (this === ServiceException) {
+            return ServiceException.isInstance(instance);
+        }
+        if (ServiceException.isInstance(instance)) {
+            if (candidate.name && this.name) {
+                return this.prototype.isPrototypeOf(instance) || candidate.name === this.name;
+            }
+            return this.prototype.isPrototypeOf(instance);
+        }
+        return false;
     }
 }
 const decorateServiceException = (exception, additions = {}) => {
@@ -29975,13 +36315,16 @@ const loadConfigsForDefaultMode = (mode) => {
     }
 };
 
+;// ./node_modules/@smithy/smithy-client/dist-es/extended-encode-uri-component.js
+
+
 ;// ./node_modules/@smithy/smithy-client/dist-es/extensions/checksum.js
 
 
 const getChecksumConfiguration = (runtimeConfig) => {
     const checksumAlgorithms = [];
-    for (const id in types_dist_es/* AlgorithmId */.dB) {
-        const algorithmId = types_dist_es/* AlgorithmId */.dB[id];
+    for (const id in dist_es/* AlgorithmId */.dB) {
+        const algorithmId = dist_es/* AlgorithmId */.dB[id];
         if (runtimeConfig[algorithmId] === undefined) {
             continue;
         }
@@ -29991,12 +36334,11 @@ const getChecksumConfiguration = (runtimeConfig) => {
         });
     }
     return {
-        _checksumAlgorithms: checksumAlgorithms,
         addChecksumAlgorithm(algo) {
-            this._checksumAlgorithms.push(algo);
+            checksumAlgorithms.push(algo);
         },
         checksumAlgorithms() {
-            return this._checksumAlgorithms;
+            return checksumAlgorithms;
         },
     };
 };
@@ -30010,13 +36352,12 @@ const resolveChecksumRuntimeConfig = (clientConfig) => {
 
 ;// ./node_modules/@smithy/smithy-client/dist-es/extensions/retry.js
 const getRetryConfiguration = (runtimeConfig) => {
-    let _retryStrategy = runtimeConfig.retryStrategy;
     return {
         setRetryStrategy(retryStrategy) {
-            _retryStrategy = retryStrategy;
+            runtimeConfig.retryStrategy = retryStrategy;
         },
         retryStrategy() {
-            return _retryStrategy;
+            return runtimeConfig.retryStrategy;
         },
     };
 };
@@ -30030,56 +36371,15 @@ const resolveRetryRuntimeConfig = (retryStrategyConfiguration) => {
 
 
 const getDefaultExtensionConfiguration = (runtimeConfig) => {
-    return {
-        ...getChecksumConfiguration(runtimeConfig),
-        ...getRetryConfiguration(runtimeConfig),
-    };
+    return Object.assign(getChecksumConfiguration(runtimeConfig), getRetryConfiguration(runtimeConfig));
 };
 const getDefaultClientConfiguration = (/* unused pure expression or super */ null && (getDefaultExtensionConfiguration));
 const resolveDefaultRuntimeConfig = (config) => {
-    return {
-        ...resolveChecksumRuntimeConfig(config),
-        ...resolveRetryRuntimeConfig(config),
-    };
+    return Object.assign(resolveChecksumRuntimeConfig(config), resolveRetryRuntimeConfig(config));
 };
 
 ;// ./node_modules/@smithy/smithy-client/dist-es/extensions/index.js
 
-
-;// ./node_modules/@smithy/smithy-client/dist-es/lazy-json.js
-const StringWrapper = function () {
-    const Class = Object.getPrototypeOf(this).constructor;
-    const Constructor = Function.bind.apply(String, [null, ...arguments]);
-    const instance = new Constructor();
-    Object.setPrototypeOf(instance, Class.prototype);
-    return instance;
-};
-StringWrapper.prototype = Object.create(String.prototype, {
-    constructor: {
-        value: StringWrapper,
-        enumerable: false,
-        writable: true,
-        configurable: true,
-    },
-});
-Object.setPrototypeOf(StringWrapper, String);
-class LazyJsonString extends (/* unused pure expression or super */ null && (StringWrapper)) {
-    deserializeJSON() {
-        return JSON.parse(super.toString());
-    }
-    toJSON() {
-        return super.toString();
-    }
-    static fromObject(object) {
-        if (object instanceof LazyJsonString) {
-            return object;
-        }
-        else if (object instanceof String || typeof object === "string") {
-            return new LazyJsonString(object);
-        }
-        return new LazyJsonString(JSON.stringify(object));
-    }
-}
 
 ;// ./node_modules/@smithy/smithy-client/dist-es/NoOpLogger.js
 class NoOpLogger {
@@ -30184,33 +36484,8 @@ const applyInstruction = (target, source, instructions, targetKey) => {
 const nonNullish = (_) => _ != null;
 const pass = (_) => _;
 
-;// ./node_modules/@smithy/smithy-client/dist-es/extended-encode-uri-component.js
-function extendedEncodeURIComponent(str) {
-    return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
-        return "%" + c.charCodeAt(0).toString(16).toUpperCase();
-    });
-}
-
 ;// ./node_modules/@smithy/smithy-client/dist-es/resolve-path.js
 
-const resolvedPath = (resolvedPath, input, memberName, labelValueProvider, uriLabel, isGreedyLabel) => {
-    if (input != null && input[memberName] !== undefined) {
-        const labelValue = labelValueProvider();
-        if (labelValue.length <= 0) {
-            throw new Error("Empty value provided for input HTTP label: " + memberName + ".");
-        }
-        resolvedPath = resolvedPath.replace(uriLabel, isGreedyLabel
-            ? labelValue
-                .split("/")
-                .map((segment) => extendedEncodeURIComponent(segment))
-                .join("/")
-            : extendedEncodeURIComponent(labelValue));
-    }
-    else {
-        throw new Error("No value provided for input HTTP label: " + memberName + ".");
-    }
-    return resolvedPath;
-};
 
 ;// ./node_modules/@smithy/smithy-client/dist-es/ser-utils.js
 const serializeFloat = (value) => {
@@ -30249,12 +36524,9 @@ const _json = (obj) => {
     return obj;
 };
 
+// EXTERNAL MODULE: ./node_modules/@smithy/core/dist-es/submodules/serde/index.js + 4 modules
+var serde = __webpack_require__(8739);
 ;// ./node_modules/@smithy/smithy-client/dist-es/index.js
-
-
-
-
-
 
 
 
@@ -30346,12 +36618,11 @@ const checksum_getChecksumConfiguration = (runtimeConfig) => {
         });
     }
     return {
-        _checksumAlgorithms: checksumAlgorithms,
         addChecksumAlgorithm(algo) {
-            this._checksumAlgorithms.push(algo);
+            checksumAlgorithms.push(algo);
         },
         checksumAlgorithms() {
-            return this._checksumAlgorithms;
+            return checksumAlgorithms;
         },
     };
 };
@@ -30366,14 +36637,10 @@ const checksum_resolveChecksumRuntimeConfig = (clientConfig) => {
 ;// ./node_modules/@smithy/types/dist-es/extensions/defaultClientConfiguration.js
 
 const getDefaultClientConfiguration = (runtimeConfig) => {
-    return {
-        ...getChecksumConfiguration(runtimeConfig),
-    };
+    return getChecksumConfiguration(runtimeConfig);
 };
 const resolveDefaultRuntimeConfig = (config) => {
-    return {
-        ...resolveChecksumRuntimeConfig(config),
-    };
+    return resolveChecksumRuntimeConfig(config);
 };
 
 ;// ./node_modules/@smithy/types/dist-es/extensions/index.js
@@ -30408,6 +36675,10 @@ var RequestHandlerProtocol;
 })(RequestHandlerProtocol || (RequestHandlerProtocol = {}));
 
 ;// ./node_modules/@smithy/types/dist-es/index.js
+
+
+
+
 
 
 
@@ -31578,7 +37849,7 @@ class DefaultRateLimiter {
         this.refillTokenBucket();
         if (amount > this.currentCapacity) {
             const delay = ((amount - this.currentCapacity) / this.fillRate) * 1000;
-            await new Promise((resolve) => setTimeout(resolve, delay));
+            await new Promise((resolve) => DefaultRateLimiter.setTimeoutFn(resolve, delay));
         }
         this.currentCapacity = this.currentCapacity - amount;
     }
@@ -31643,6 +37914,7 @@ class DefaultRateLimiter {
         return parseFloat(num.toFixed(8));
     }
 }
+DefaultRateLimiter.setTimeoutFn = setTimeout;
 
 ;// ./node_modules/@smithy/util-retry/dist-es/constants.js
 const DEFAULT_RETRY_DELAY_BASE = 100;
@@ -31998,7 +38270,7 @@ exports.Command = Command;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeContact = void 0;
-const client_connect_1 = __webpack_require__(6924);
+const client_connect_1 = __webpack_require__(4701);
 const command_1 = __webpack_require__(7518);
 const buildClientMiddleware_1 = __webpack_require__(1421);
 const vendorCodes_1 = __webpack_require__(1742);
@@ -32051,7 +38323,7 @@ exports.DescribeContact = DescribeContact;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DescribeContactFlow = void 0;
-const client_connect_1 = __webpack_require__(6924);
+const client_connect_1 = __webpack_require__(4701);
 const command_1 = __webpack_require__(7518);
 const buildClientMiddleware_1 = __webpack_require__(1421);
 const vendorCodes_1 = __webpack_require__(1742);
@@ -32200,7 +38472,7 @@ exports.GetContact = GetContact;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetContent = void 0;
-const client_qconnect_1 = __webpack_require__(252);
+const client_qconnect_1 = __webpack_require__(221);
 const command_1 = __webpack_require__(7518);
 const buildClientMiddleware_1 = __webpack_require__(1421);
 const vendorCodes_1 = __webpack_require__(1742);
@@ -32249,7 +38521,7 @@ exports.GetContent = GetContent;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.GetRecommendations = void 0;
-const client_qconnect_1 = __webpack_require__(252);
+const client_qconnect_1 = __webpack_require__(221);
 const command_1 = __webpack_require__(7518);
 const fetchHttpHandler_1 = __webpack_require__(6086);
 const buildClientMiddleware_1 = __webpack_require__(1421);
@@ -32325,7 +38597,7 @@ tslib_1.__exportStar(__webpack_require__(8729), exports);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListContentAssociations = void 0;
-const client_qconnect_1 = __webpack_require__(252);
+const client_qconnect_1 = __webpack_require__(221);
 const command_1 = __webpack_require__(7518);
 const buildClientMiddleware_1 = __webpack_require__(1421);
 const vendorCodes_1 = __webpack_require__(1742);
@@ -32374,7 +38646,7 @@ exports.ListContentAssociations = ListContentAssociations;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ListIntegrationAssociations = void 0;
-const client_connect_1 = __webpack_require__(6924);
+const client_connect_1 = __webpack_require__(4701);
 const command_1 = __webpack_require__(7518);
 const buildClientMiddleware_1 = __webpack_require__(1421);
 const vendorCodes_1 = __webpack_require__(1742);
@@ -32424,7 +38696,7 @@ exports.ListIntegrationAssociations = ListIntegrationAssociations;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.NotifyRecommendationsReceived = void 0;
-const client_qconnect_1 = __webpack_require__(252);
+const client_qconnect_1 = __webpack_require__(221);
 const command_1 = __webpack_require__(7518);
 const buildClientMiddleware_1 = __webpack_require__(1421);
 const vendorCodes_1 = __webpack_require__(1742);
@@ -32476,7 +38748,7 @@ exports.NotifyRecommendationsReceived = NotifyRecommendationsReceived;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PutFeedback = void 0;
-const client_qconnect_1 = __webpack_require__(252);
+const client_qconnect_1 = __webpack_require__(221);
 const command_1 = __webpack_require__(7518);
 const buildClientMiddleware_1 = __webpack_require__(1421);
 const vendorCodes_1 = __webpack_require__(1742);
@@ -32531,7 +38803,7 @@ exports.PutFeedback = PutFeedback;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.QueryAssistant = void 0;
-const client_qconnect_1 = __webpack_require__(252);
+const client_qconnect_1 = __webpack_require__(221);
 const command_1 = __webpack_require__(7518);
 const buildClientMiddleware_1 = __webpack_require__(1421);
 const vendorCodes_1 = __webpack_require__(1742);
@@ -32577,7 +38849,7 @@ exports.QueryAssistant = QueryAssistant;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SearchSessions = void 0;
-const client_qconnect_1 = __webpack_require__(252);
+const client_qconnect_1 = __webpack_require__(221);
 const command_1 = __webpack_require__(7518);
 const buildClientMiddleware_1 = __webpack_require__(1421);
 const vendorCodes_1 = __webpack_require__(1742);
@@ -32898,8 +39170,8 @@ exports.QConnectClient = QConnectClient;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SDKHandler = void 0;
-const client_connect_1 = __webpack_require__(6924);
-const client_qconnect_1 = __webpack_require__(252);
+const client_connect_1 = __webpack_require__(4701);
+const client_qconnect_1 = __webpack_require__(221);
 const communicationProxy_1 = __webpack_require__(1588);
 const buildAmzTarget_1 = __webpack_require__(4373);
 const buildClientMiddleware_1 = __webpack_require__(1421);
@@ -33164,10 +39436,10 @@ exports.Commands = {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TargetType = exports.SourceContentType = exports.RelevanceLevel = exports.Relevance = exports.RecommendationType = exports.RecommendationTriggerType = exports.RecommendationTriggerData = exports.RecommendationSourceType = exports.QueryResultType = exports.QueryConditionFieldName = exports.QueryConditionComparisonOperator = exports.QueryCondition = exports.FilterOperator = exports.FilterField = exports.DataReference = exports.DataDetails = exports.ContentStatus = exports.ContentFeedbackData = exports.SourceType = exports.IntegrationType = void 0;
-var client_connect_1 = __webpack_require__(6924);
+var client_connect_1 = __webpack_require__(4701);
 Object.defineProperty(exports, "IntegrationType", ({ enumerable: true, get: function () { return client_connect_1.IntegrationType; } }));
 Object.defineProperty(exports, "SourceType", ({ enumerable: true, get: function () { return client_connect_1.SourceType; } }));
-var client_qconnect_1 = __webpack_require__(252);
+var client_qconnect_1 = __webpack_require__(221);
 Object.defineProperty(exports, "ContentFeedbackData", ({ enumerable: true, get: function () { return client_qconnect_1.ContentFeedbackData; } }));
 Object.defineProperty(exports, "ContentStatus", ({ enumerable: true, get: function () { return client_qconnect_1.ContentStatus; } }));
 Object.defineProperty(exports, "DataDetails", ({ enumerable: true, get: function () { return client_qconnect_1.DataDetails; } }));
