@@ -11,6 +11,7 @@ import { HttpHeaders, HttpResponse, HttpHandlerOptions } from './types/http';
 import { Logger } from './types/logger';
 import { ServiceIds } from './types/serviceIds';
 import { CallSources } from './types/callSources';
+import { AccessSections } from './types/accessSections';
 
 /*
  * The resolved configuration interface of the Client class.
@@ -48,6 +49,10 @@ export interface ClientResolvedConfig {
    * Unique service identifier.
    */
   serviceId: ServiceIds;
+  /*
+   * Unique access section identifier.
+   */
+  accessSection?: AccessSections;
 
   frameWindow?: HTMLIFrameElement;
 }
