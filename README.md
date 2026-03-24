@@ -7,6 +7,7 @@ Amazon Q in Connect automatically detects customer intent during calls and chats
 The library uses an Amazon Connect authentication token to make API calls to Amazon Q in Connect and supports all Amazon Q in Connect `Agent Assistant` functionality. For example, in addition to receiving automatic recommendations, you can also query Amazon Q directly using natural language or keywords to answer customer requests.
 
 QConnectJS supports the following APIs:
+* [DescribeContact](#describecontact)
 * [DescribeContactFlow](#describecontactflow)
 * [GetContact](#getcontact)
 * [GetContent](#getcontent)
@@ -16,7 +17,6 @@ QConnectJS supports the following APIs:
 * [NotifyRecommendationsReceived](#notifyrecommendationsreceived)
 * [PutFeedback](#putfeedback)
 * [QueryAssistant](#queryassistant)
-* [SearchSessions](#searchsessions)
 
 Note that this library must be used in conjunction with [amazon-connect-streams](https://github.com/amazon-connect/amazon-connect-streams).
 
@@ -244,6 +244,63 @@ qConnectClient.getRecommendations({
 
 # APIs
 
+## DescribeContact
+
+Retrieves contact details, including the Amazon Q in Connect `sessionArn`, for a specified contact.
+
+### URI Request Parameters
+
+* `InstanceId`: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+* `contactId`: The identifier of the Connect contact. Can be either the ID or the ARN. URLs cannot contain the ARN.
+
+#### A few things to note:
+
+* One of the request parameters of the `DescribeContact` API is the Amazon Connect `contactId`. The StreamsJS Contact API provides event subscription methods and action methods which can be called on behalf of a Contact and used to retrieve the Amazon Connect `contactId`. See [StreamsJS Integration](#streamsjs-integration) below for more information.
+
+### Response Syntax
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```json
+{
+  "Contact": {
+    "AgentInfo": { ... },
+    "Arn": "string",
+    "Attributes": {},
+    "Channel": "CHAT",
+    "ConnectedToSystemTimestamp": "number",
+    "ContactAssociationId": "string",
+    "ContactDetails": {},
+    "Id": "string",
+    "InitiationMethod": "string",
+    "InitiationTimestamp": "number",
+    "LastUpdateTimestamp": "number",
+    "QueueInfo": { ... },
+    "References": [],
+    "SegmentAttributes": { ... },
+    "Tags": { ... },
+    "TotalPauseCount": "number",
+    "WisdomInfo": { ... }
+  }
+}
+```
+
+### Sample Query
+
+```ts
+const describeContactCommand = new DescribeContact({
+  instanceId: <instanceId>,
+  contactId: <contactId>,
+});
+
+try {
+  const response = await qConnectClient.call(describeContactCommand);
+    // process response.
+} catch (error) {
+  // error handling.
+}
+```
+
 ## DescribeContactFlow
 
 Describes the specified flow, including the associated step-by-step guide.
@@ -296,6 +353,9 @@ try {
 ```
 
 ## GetContact
+
+> [!WARNING]
+> This API has been discontinued. The `session ARN` can be retrieved by used the `DescribeContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [DescribeContact](#describecontact) for more information.
 
 Retrieves contact details, including the Amazon Q in Connect `sessionArn`, for a specified contact.
 
@@ -1250,65 +1310,6 @@ try {
 ```
 
 We recommend making the [QueryAssistant](#queryassistant) call only when the agent is sure that they would like an answer addressing the intent. E.g. when you receive an intent via the [GetRecommendations](#getrecommendations) API, you may want to display to the agent a clickable button containing the intent text, and make the QueryAssistant call only when the agent clicks on the button.
-
-## SearchSessions
-
-> [!WARNING]
-> This API has been discontinued. The `session ARN` can be retrieved by used the `GetContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [GetContact](#getcontact) for more information.
-
-
-Searches for sessions. For more information check out the [SearchSessions](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_SearchSessions.html) API reference.
-
-### URI Request Parameters
-
-* `assistantId`: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-* `searchExpression`: The search expression to filter results.
-* `maxResults`: The maximum number of results to return per page.
-* `nextToken`: The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-
-#### A few things to note:
-
-* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q in Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
-
-### Response Syntax
-
-```json
-{
-  "nextToken": "string",
-  "sessionSummaries": [
-    {
-      "assistantArn": "string",
-      "assistantId": "string",
-      "sessionArn": "string",
-      "sessionId": "string"
-    }
-  ]
-}
-```
-
-### Sample Query
-
-```ts
-const searchSessionsCommand = new SearchSessions({
-  assistantId: <assistantId>,
-  searchExpression: {
-    filters: [
-      {
-        field: FilterField.NAME,
-        operator: FilterOperator.EQUALS,
-        value: <name>,
-      }
-    ]
-  }
-});
-
-try {
-  const response = await qConnectClient.call(searchSessionsCommand);
-    // process response.
-} catch (error) {
-  // error handling.
-}
-```
 
 # StreamsJS Integration
 

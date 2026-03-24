@@ -4,7 +4,6 @@ import {
   SDKHandler,
   DescribeContact,
   DescribeContactFlow,
-  GetAuthorizedWidgetsForUser,
   GetContact,
   GetContent,
   GetRecommendations,
@@ -13,7 +12,6 @@ import {
   NotifyRecommendationsReceived,
   PutFeedback,
   QueryAssistant,
-  SearchSessions,
 } from './index';
 
 (() => {
@@ -29,7 +27,6 @@ import {
   qconnectjs.commands = {
     DescribeContact,
     DescribeContactFlow,
-    GetAuthorizedWidgetsForUser,
     GetContact,
     GetContent,
     GetRecommendations,
@@ -38,6 +35,5 @@ import {
     NotifyRecommendationsReceived,
     PutFeedback,
     QueryAssistant,
-    SearchSessions,
   }
 })();

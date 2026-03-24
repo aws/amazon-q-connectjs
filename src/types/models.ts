@@ -54,22 +54,6 @@ export type {
   TextData,
 } from '@aws-sdk/client-qconnect';
 
-export interface GetAuthorizedWidgetsForUserRequest {}
-
-export interface GetAuthorizedWidgetsForUserResponse {
-  widgets?: {
-    [widget: string]: string[],
-  }
-  widgetsDataPermission?: {
-    name: string,
-    endpoint: string,
-    allowedTopicSubscriptions: string[],
-    allowedTopicPublications: string[],
-    enableLifeCycleEvents: boolean,
-    version: string,
-  }[],
-}
-
 export interface GetContactRequest {
   /*
    * The identifier of the AWS account. Can be either the ID or the ARN. URLs cannot contain the ARN.

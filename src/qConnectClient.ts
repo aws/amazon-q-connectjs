@@ -7,14 +7,12 @@ import { Client, ClientConfiguration, ClientResolvedConfig } from './client';
 import {
   DescribeContact, DescribeContactInput, DescribeContactOutput,
   DescribeContactFlow, DescribeContactFlowInput, DescribeContactFlowOutput,
-  GetAuthorizedWidgetsForUser, GetAuthorizedWidgetsForUserInput, GetAuthorizedWidgetsForUserOutput,
   GetContent, GetContentInput, GetContentOutput,
   GetRecommendations, GetRecommendationsInput, GetRecommendationsOutput,
   ListContentAssociations, ListContentAssociationsInput, ListContentAssociationsOutput,
   ListIntegrationAssociations, ListIntegrationAssociationsInput, ListIntegrationAssociationsOutput,
   NotifyRecommendationsReceived, NotifyRecommendationsReceivedInput, NotifyRecommendationsReceivedOutput,
   QueryAssistant, QueryAssistantInput, QueryAssistantOutput,
-  SearchSessions, SearchSessionsInput, SearchSessionsOutput,
   GetContact, GetContactInput, GetContactOutput,
   PutFeedback, PutFeedbackInput, PutFeedbackOutput,
 } from './commands';
@@ -24,28 +22,24 @@ import { HttpResponse, HttpHandlerOptions } from './types/http';
 export type ServiceInputTypes =
   | DescribeContactInput
   | DescribeContactFlowInput
-  | GetAuthorizedWidgetsForUserInput
   | GetContentInput
   | GetRecommendationsInput
   | ListContentAssociationsInput
   | ListIntegrationAssociationsInput
   | NotifyRecommendationsReceivedInput
   | QueryAssistantInput
-  | SearchSessionsInput
   | GetContactInput
   | PutFeedbackInput;
 
 export type ServiceOutputTypes =
   | DescribeContactOutput
   | DescribeContactFlowOutput
-  | GetAuthorizedWidgetsForUserOutput
   | GetContentOutput
   | GetRecommendationsOutput
   | ListContentAssociationsOutput
   | ListIntegrationAssociationsOutput
   | NotifyRecommendationsReceivedOutput
   | QueryAssistantOutput
-  | SearchSessionsOutput
   | GetContactOutput
   | PutFeedbackOutput;
 
@@ -100,17 +94,6 @@ export class QConnectClient extends Client<
     options?: HttpHandlerOptions,
   ): Promise<HttpResponse<DescribeContactFlowOutput>> {
     const command = new DescribeContactFlow(args);
-    return this.call(command, options);
-  }
-
-  /*
-   * Retrieves authorized widgets settings for Connect instance ID.
-   */
-  public getAuthorizedWidgetsForUser(
-    args: GetAuthorizedWidgetsForUserInput,
-    options?: HttpHandlerOptions,
-  ): Promise<HttpResponse<GetAuthorizedWidgetsForUserOutput>> {
-    const command = new GetAuthorizedWidgetsForUser(args);
     return this.call(command, options);
   }
 
@@ -209,17 +192,6 @@ export class QConnectClient extends Client<
     options?: HttpHandlerOptions,
   ): Promise<HttpResponse<QueryAssistantOutput>> {
     const command = new QueryAssistant(args);
-    return this.call(command, options);
-  }
-
-  /*
-   * Searches for sessions.
-   */
-  public searchSessions(
-    args: SearchSessionsInput,
-    options?: HttpHandlerOptions,
-  ): Promise<HttpResponse<SearchSessionsOutput>> {
-    const command = new SearchSessions(args);
     return this.call(command, options);
   }
 }

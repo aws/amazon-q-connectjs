@@ -51,7 +51,7 @@ export class SDKHandler implements RequestHandler<HttpRequestOptions, HttpRespon
   }
 
   initializeClients() {
-    const endpoint = `${this.runtimeConfig?.endpoint}/api-proxy`;
+    const endpoint = `${this.runtimeConfig?.instanceUrl}/api-proxy`;
 
     this.sdkClients = {
       [VendorCodes.Connect]: new ConnectSDKClient({

@@ -12,7 +12,6 @@ import {
 import { QConnectClient } from './qConnectClient';
 import { DescribeContact } from './commands/describeContact';
 import { DescribeContactFlow } from './commands/describeContactFlow';
-import { GetAuthorizedWidgetsForUser } from './commands/getAuthorizedWidgetsForUser';
 import { GetContact } from './commands/getContact';
 import { GetContent } from './commands/getContent';
 import { GetRecommendations } from './commands/getRecommendations';
@@ -21,7 +20,6 @@ import { ListIntegrationAssociations } from './commands/listIntegrationAssociati
 import { NotifyRecommendationsReceived } from './commands/notifyRecommendationsReceived';
 import { PutFeedback } from './commands/putFeedback';
 import { QueryAssistant } from './commands/queryAssistant';
-import { SearchSessions } from './commands/searchSessions';
 
 describe('QConnectClient', () => {
   let client: QConnectClient;
@@ -90,14 +88,6 @@ describe('QConnectClient', () => {
         InstanceId: instanceId,
         ContactFlowId: contactFlowId,
       }),
-    ).resolves.toEqual('success response');
-  });
-
-  it('should return a response promise when calling getAuthorizedWidgetsForUser', async () => {
-    GetAuthorizedWidgetsForUser.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
-
-    await expect(
-      client.getAuthorizedWidgetsForUser({}),
     ).resolves.toEqual('success response');
   });
 
@@ -186,25 +176,6 @@ describe('QConnectClient', () => {
             },
           },
         ],
-      }),
-    ).resolves.toEqual('success response');
-  });
-
-  it('should return a response promise when calling searchSessions', async () => {
-    SearchSessions.prototype.resolveRequestHandler = mockResolveRequestHandler as any;
-
-    await expect(
-      client.searchSessions({
-        assistantId: assistantId,
-        searchExpression: {
-          filters: [
-            {
-              operator: FilterOperator.EQUALS,
-              field: FilterField.NAME,
-              value: sessionId,
-            },
-          ],
-        },
       }),
     ).resolves.toEqual('success response');
   });
