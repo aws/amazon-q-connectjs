@@ -9,13 +9,17 @@ import { Logger } from '../types/logger';
 import { CallSources } from '../types/callSources';
 import { ServiceIds } from '../types/serviceIds';
 import { generateEndpoint } from '../utils/appConfig';
+import { Proxies } from '../types/proxies';
 
 export const getRuntimeConfig = (config: ClientConfiguration) => {
   return {
     logger: config?.logger ?? ({} as Logger),
     serviceId: config?.serviceId ?? ServiceIds.Wisdom,
-    callSource: config?.callSource ?? CallSources.AgentApp,
+    callSource: config?.callSource ?? CallSources.PublicApiProxy,
     instanceUrl: config?.instanceUrl ?? getBaseUrl(),
-    endpoint: config?.endpoint || generateEndpoint(config?.instanceUrl || getBaseUrl()),
+    endpoint: config?.endpoint || generateEndpoint(
+      config?.instanceUrl || getBaseUrl(),
+      config?.callSource === CallSources.PublicApiProxy ? Proxies.PublicApiProxy : Proxies.AgentApp,
+    ),
   }
 }
