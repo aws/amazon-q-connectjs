@@ -17,6 +17,9 @@ export enum ClientMethods {
   QueryAssistant = 'queryAssistant',
   GetContact = 'getContact',
   PutFeedback = 'putFeedback',
+  SendMessage = 'sendMessage',
+  GetNextMessage = 'getNextMessage',
+  GetSession = 'getSession',
 }
 
 export enum QConnectMethods {
@@ -26,6 +29,9 @@ export enum QConnectMethods {
   NotifyRecommendationsReceived = 'notifyRecommendationsReceived',
   QueryAssistant = 'queryAssistant',
   PutFeedback = 'putFeedback',
+  SendMessage = 'sendMessage',
+  GetNextMessage = 'getNextMessage',
+  GetSession = 'getSession',
 }
 
 export enum AcsMethods {

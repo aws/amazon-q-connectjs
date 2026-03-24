@@ -8,6 +8,7 @@ import {
   DescribeContact, DescribeContactInput, DescribeContactOutput,
   DescribeContactFlow, DescribeContactFlowInput, DescribeContactFlowOutput,
   GetContent, GetContentInput, GetContentOutput,
+  GetNextMessage, GetNextMessageInput, GetNextMessageOutput,
   GetRecommendations, GetRecommendationsInput, GetRecommendationsOutput,
   ListContentAssociations, ListContentAssociationsInput, ListContentAssociationsOutput,
   ListIntegrationAssociations, ListIntegrationAssociationsInput, ListIntegrationAssociationsOutput,
@@ -15,6 +16,8 @@ import {
   QueryAssistant, QueryAssistantInput, QueryAssistantOutput,
   GetContact, GetContactInput, GetContactOutput,
   PutFeedback, PutFeedbackInput, PutFeedbackOutput,
+  SendMessage, SendMessageInput, SendMessageOutput,
+  GetSession, GetSessionInput, GetSessionOutput,
 } from './commands';
 import { RequestHandler } from './types/requestHandler';
 import { HttpResponse, HttpHandlerOptions } from './types/http';
@@ -23,25 +26,31 @@ export type ServiceInputTypes =
   | DescribeContactInput
   | DescribeContactFlowInput
   | GetContentInput
+  | GetNextMessageInput
   | GetRecommendationsInput
   | ListContentAssociationsInput
   | ListIntegrationAssociationsInput
   | NotifyRecommendationsReceivedInput
   | QueryAssistantInput
+  | SendMessageInput
   | GetContactInput
-  | PutFeedbackInput;
+  | PutFeedbackInput
+  | GetSessionInput;
 
 export type ServiceOutputTypes =
   | DescribeContactOutput
   | DescribeContactFlowOutput
   | GetContentOutput
+  | GetNextMessageOutput
   | GetRecommendationsOutput
   | ListContentAssociationsOutput
   | ListIntegrationAssociationsOutput
   | NotifyRecommendationsReceivedOutput
   | QueryAssistantOutput
+  | SendMessageOutput
   | GetContactOutput
-  | PutFeedbackOutput;
+  | PutFeedbackOutput
+  | GetSessionOutput;
 
 /*
  * The configuration interface of the QConnectClient class constructor that sets the instance url and other options.
@@ -192,6 +201,39 @@ export class QConnectClient extends Client<
     options?: HttpHandlerOptions,
   ): Promise<HttpResponse<QueryAssistantOutput>> {
     const command = new QueryAssistant(args);
+    return this.call(command, options);
+  }
+
+  /*
+   * Sends a message to the specified session.
+   */
+  public sendMessage(
+    args: SendMessageInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<SendMessageOutput>> {
+    const command = new SendMessage(args);
+    return this.call(command, options);
+  }
+
+  /*
+   * Retrieves the next message for the specified session using the provided next message token.
+   */
+  public getNextMessage(
+    args: GetNextMessageInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<GetNextMessageOutput>> {
+    const command = new GetNextMessage(args);
+    return this.call(command, options);
+  }
+
+  /*
+   * Retrieves details about the specified session.
+   */
+  public getSession(
+    args: GetSessionInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<GetSessionOutput>> {
+    const command = new GetSession(args);
     return this.call(command, options);
   }
 }

@@ -52,6 +52,7 @@ export type {
   SearchExpression,
   SessionSummary,
   TextData,
+  MessageOutput,
 } from '@aws-sdk/client-qconnect';
 
 export interface GetContactRequest {

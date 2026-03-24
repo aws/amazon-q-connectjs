@@ -16,6 +16,9 @@ import {
   QueryAssistant,
   GetContact,
   PutFeedback,
+  SendMessage,
+  GetNextMessage,
+  GetSession,
 } from '../commands';
 
 /*
@@ -51,4 +54,7 @@ export const Commands = {
   queryAssistant: QueryAssistant,
   getContact: GetContact,
   putFeedback: PutFeedback,
+  sendMessage: SendMessage,
+  getNextMessage: GetNextMessage,
+  getSession: GetSession,
 };
