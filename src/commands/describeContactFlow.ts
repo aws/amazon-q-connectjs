@@ -16,6 +16,8 @@ import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
 import { ServiceIds } from '../types/serviceIds';
+import { AccessSections } from '../types/accessSections';
+import { getDefaultHeaders } from '../utils/getDefaultHeaders';
 
 export interface DescribeContactFlowInput extends DescribeContactFlowCommandInput {}
 
@@ -40,7 +42,7 @@ export class DescribeContactFlow extends Command<
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<DescribeContactFlowCommandOutput>> {
-    const { requestHandler } = configuration;
+    const requestHandler = super.getRequestHandler(configuration);
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
@@ -62,13 +64,26 @@ export class DescribeContactFlow extends Command<
     return super.serializeRequest({
       ...configuration,
       serviceId: ServiceIds.Acs,
+      headers: {
+        ...configuration.headers,
+        ...getDefaultHeaders({
+          ...configuration,
+          accessSection: configuration.accessSection ?? AccessSections.DESCRIBE_CONTACT_FLOW,
+        }),
+      },
     });
   }
 
   serializeCommand(configuration: QConnectClientResolvedConfig): DescribeContactFlowCommand {
     const command = new DescribeContactFlowCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<DescribeContactFlowInput, DescribeContactFlowOutput>(configuration.headers);
+    const [middleware, opt] = buildClientRequestMiddleware<DescribeContactFlowInput, DescribeContactFlowOutput>({
+      ...configuration.headers,
+      ...getDefaultHeaders({
+        ...configuration,
+        accessSection: configuration.accessSection ?? AccessSections.DESCRIBE_CONTACT_FLOW,
+      }),
+    });
 
     command.middlewareStack.add(middleware, opt);
 

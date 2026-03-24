@@ -4,9 +4,12 @@
  */
 
 import { GetContact } from './getContact';
+import { FetchHttpHandler } from '../fetchHttpHandler';
 import { getRuntimeConfig } from '../utils/runtimeConfig.browser';
 import { ClientMethods } from '../types/clientMethods';
 import { VendorCodes } from '../types/vendorCodes';
+import { CallSources } from '../types/callSources';
+import { AccessSections } from '../types/accessSections';
 
 describe('GetContact', () => {
   let command: GetContact;
@@ -34,19 +37,110 @@ describe('GetContact', () => {
     });
   });
 
-  it('should construct an HTTP request when calling serializeRequest', () => {
+  it('should return the expected requestHandler with overrides when calling getRequestHandler', () => {
     command = new GetContact({
       awsAccountId,
       instanceId,
       contactId,
     });
 
-    expect(command.serializeRequest(config)).toEqual(
+    expect(command.getRequestHandler(config)).toBeInstanceOf(
+      FetchHttpHandler,
+    );
+  });
+
+  it('should construct an HTTP request when calling serializeRequest, call source is AgentApp, and an access section is not provided', () => {
+    command = new GetContact({
+      awsAccountId,
+      instanceId,
+      contactId,
+    });
+
+    expect(command.serializeRequest({ ...config, callSource: CallSources.AgentApp })).toEqual(
       expect.objectContaining({
         headers: expect.objectContaining({
           'x-access-section': 'WISDOM',
           'x-amazon-call-source': 'agent-app',
           'x-amz-access-section': 'Wisdom',
+          'x-amz-target': 'AgentAppService.Lcms.getContact',
+          'x-amz-vendor': 'connect',
+        }),
+        body: JSON.stringify({
+          awsAccountId,
+          instanceId,
+          contactId,
+        }),
+      }),
+    );
+  });
+
+  it('should construct an HTTP request when calling serializeRequest, call source is AgentApp, and an access section is explicitly provided', () => {
+    command = new GetContact({
+      awsAccountId,
+      instanceId,
+      contactId,
+    });
+
+    expect(command.serializeRequest({ ...config, callSource: CallSources.AgentApp, accessSection: 'SOME_ACCESS_SECTION' as AccessSections })).toEqual(
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          'x-access-section': 'SOME_ACCESS_SECTION',
+          'x-amazon-call-source': 'agent-app',
+          'x-amz-access-section': 'SOME_ACCESS_SECTION',
+          'x-amz-target': 'AgentAppService.Lcms.getContact',
+          'x-amz-vendor': 'connect',
+        }),
+        body: JSON.stringify({
+          awsAccountId,
+          instanceId,
+          contactId,
+        }),
+      }),
+    );
+  });
+
+  it('should construct an HTTP request when calling serializeRequest, call source is PublicApiProxy, and an access section is not provided', () => {
+    command = new GetContact({
+      awsAccountId,
+      instanceId,
+      contactId,
+    });
+
+    // GetContact unavailable via Public API Proxy (LPAPI)
+    // Call source is overridden to HudsonServer (AgentApp)
+    expect(command.serializeRequest({ ...config, callSource: CallSources.PublicApiProxy })).toEqual(
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          'x-access-section': 'WISDOM',
+          'x-amazon-call-source': 'agent-app',
+          'x-amz-access-section': 'Wisdom',
+          'x-amz-target': 'AgentAppService.Lcms.getContact',
+          'x-amz-vendor': 'connect',
+        }),
+        body: JSON.stringify({
+          awsAccountId,
+          instanceId,
+          contactId,
+        }),
+      }),
+    );
+  });
+
+  it('should construct an HTTP request when calling serializeRequest, call source is PublicApiProxy, and an access section is explicitly provided', () => {
+    command = new GetContact({
+      awsAccountId,
+      instanceId,
+      contactId,
+    });
+
+    // GetContact unavailable via Public API Proxy (LPAPI)
+    // Call source is overridden to HudsonServer (AgentApp)
+    expect(command.serializeRequest({ ...config, callSource: CallSources.PublicApiProxy, accessSection: 'SOME_ACCESS_SECTION' as AccessSections })).toEqual(
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          'x-access-section': 'SOME_ACCESS_SECTION',
+          'x-amazon-call-source': 'agent-app',
+          'x-amz-access-section': 'SOME_ACCESS_SECTION',
           'x-amz-target': 'AgentAppService.Lcms.getContact',
           'x-amz-vendor': 'connect',
         }),

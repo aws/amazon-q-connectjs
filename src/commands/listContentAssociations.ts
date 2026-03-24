@@ -15,6 +15,8 @@ import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
+import { AccessSections } from '../types/accessSections';
+import { getDefaultHeaders } from '../utils/getDefaultHeaders';
 
 export interface ListContentAssociationsInput extends ListContentAssociationsCommandInput {}
 
@@ -39,7 +41,7 @@ export class ListContentAssociations extends Command<
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<ListContentAssociationsOutput>> {
-    const { requestHandler } = configuration;
+    const requestHandler = super.getRequestHandler(configuration);
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
@@ -58,13 +60,28 @@ export class ListContentAssociations extends Command<
       throw new Error('Invalid knowledgeBaseId.');
     }
 
-    return super.serializeRequest(configuration);
+    return super.serializeRequest({
+      ...configuration,
+      headers: {
+        ...configuration.headers,
+        ...getDefaultHeaders({
+          ...configuration,
+          accessSection: configuration.accessSection ?? AccessSections.WISDOM_LIST_CONTENT_ASSOCIATIONS,
+        }),
+      },
+    });
   }
 
   serializeCommand(configuration: QConnectClientResolvedConfig): ListContentAssociationsCommand {
     const command = new ListContentAssociationsCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<ListContentAssociationsInput, ListContentAssociationsOutput>(configuration.headers);
+    const [middleware, opt] = buildClientRequestMiddleware<ListContentAssociationsInput, ListContentAssociationsOutput>({
+      ...configuration.headers,
+      ...getDefaultHeaders({
+        ...configuration,
+        accessSection: configuration.accessSection ?? AccessSections.WISDOM_LIST_CONTENT_ASSOCIATIONS,
+      }),
+    });
 
     command.middlewareStack.add(middleware, opt);
 

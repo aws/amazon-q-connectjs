@@ -16,6 +16,8 @@ import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
 import { ServiceIds } from '../types/serviceIds';
+import { AccessSections } from '../types/accessSections';
+import { getDefaultHeaders } from '../utils/getDefaultHeaders';
 
 export interface ListIntegrationAssociationsInput extends ListIntegrationAssociationsCommandInput {}
 
@@ -40,7 +42,7 @@ export class ListIntegrationAssociations extends Command<
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<ListIntegrationAssociationsOutput>> {
-    const { requestHandler } = configuration;
+    const requestHandler = super.getRequestHandler(configuration);
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
@@ -58,13 +60,26 @@ export class ListIntegrationAssociations extends Command<
     return super.serializeRequest({
       ...configuration,
       serviceId: ServiceIds.Acs,
+      headers: {
+        ...configuration.headers,
+        ...getDefaultHeaders({
+          ...configuration,
+          accessSection: configuration.accessSection ?? AccessSections.LIST_INTEGRATION_ASSOCIATIONS,
+        }),
+      },
     });
   }
 
   serializeCommand(configuration: QConnectClientResolvedConfig): ListIntegrationAssociationsCommand {
     const command = new ListIntegrationAssociationsCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<ListIntegrationAssociationsInput, ListIntegrationAssociationsOutput>(configuration.headers);
+    const [middleware, opt] = buildClientRequestMiddleware<ListIntegrationAssociationsInput, ListIntegrationAssociationsOutput>({
+      ...configuration.headers,
+      ...getDefaultHeaders({
+        ...configuration,
+        accessSection: configuration.accessSection ?? AccessSections.LIST_INTEGRATION_ASSOCIATIONS,
+      }),
+    });
 
     command.middlewareStack.add(middleware, opt);
 

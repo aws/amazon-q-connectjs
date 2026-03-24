@@ -4,10 +4,13 @@
  */
 
 import { DescribeContact } from './describeContact';
+import { SDKHandler } from '../sdkHandler';
 import * as clientMiddlware from '../utils/buildClientMiddleware';
 import { getRuntimeConfig } from '../utils/runtimeConfig.browser';
 import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
+import { CallSources } from '../types/callSources';
+import { AccessSections } from '../types/accessSections';
 
 describe('DescribeContact', () => {
   let command: DescribeContact;
@@ -34,18 +37,52 @@ describe('DescribeContact', () => {
     });
   });
 
-  it('should consturct an HTTP request when calling serializeRequest', () => {
+  it('should return the expected requestHandler with overrides when calling getRequestHandler', () => {
     command = new DescribeContact({
       InstanceId: instanceId,
       ContactId: contactId,
     });
 
-    expect(command.serializeRequest(config)).toEqual(
+    expect(command.getRequestHandler(config)).toBeInstanceOf(
+      SDKHandler,
+    );
+  });
+
+  it('should construct an HTTP request when calling serializeRequest, call source is PublicApiProxy, and no access section is provided', () => {
+    command = new DescribeContact({
+      InstanceId: instanceId,
+      ContactId: contactId,
+    });
+
+    expect(command.serializeRequest({ ...config, callSource: CallSources.PublicApiProxy })).toEqual(
       expect.objectContaining({
         headers: expect.objectContaining({
-          'x-access-section': 'WISDOM',
-          'x-amazon-call-source': 'agent-app',
-          'x-amz-access-section': 'Wisdom',
+          'x-access-section': 'DESCRIBE_CONTACT',
+          'x-amazon-call-source': 'public-api-proxy',
+          'x-amz-access-section': 'DESCRIBE_CONTACT',
+          'x-amz-target': 'AgentAppService.Acs.describeContact',
+          'x-amz-vendor': 'connect',
+        }),
+        body: JSON.stringify({
+          InstanceId: instanceId,
+          ContactId: contactId,
+        }),
+      }),
+    );
+  });
+
+  it('should construct an HTTP request when calling serializeRequest, call source is PublicApiProxy, and an access section is explicitly provided', () => {
+    command = new DescribeContact({
+      InstanceId: instanceId,
+      ContactId: contactId,
+    });
+
+    expect(command.serializeRequest({ ...config, accessSection: 'SOME_ACCESS_SECTION' as AccessSections })).toEqual(
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          'x-access-section': 'SOME_ACCESS_SECTION',
+          'x-amazon-call-source': 'public-api-proxy',
+          'x-amz-access-section': 'SOME_ACCESS_SECTION',
           'x-amz-target': 'AgentAppService.Acs.describeContact',
           'x-amz-vendor': 'connect',
         }),
@@ -74,7 +111,7 @@ describe('DescribeContact', () => {
 
     expect(mockBuildClientRequestMiddlware).not.toHaveBeenCalled();
 
-    command.serializeCommand({} as any);
+    command.serializeCommand(config);
 
     expect(mockBuildClientRequestMiddlware).toHaveBeenCalled();
   });

@@ -15,6 +15,8 @@ import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
+import { AccessSections } from '../types/accessSections';
+import { getDefaultHeaders } from '../utils/getDefaultHeaders';
 
 export interface NotifyRecommendationsReceivedInput extends NotifyRecommendationsReceivedCommandInput {}
 
@@ -39,7 +41,7 @@ export class NotifyRecommendationsReceived extends Command<
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<NotifyRecommendationsReceivedOutput>> {
-    const { requestHandler } = configuration;
+    const requestHandler = super.getRequestHandler(configuration);
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
@@ -62,13 +64,28 @@ export class NotifyRecommendationsReceived extends Command<
       throw new Error('Invalid recommendationIds.');
     }
 
-    return super.serializeRequest(configuration);
+    return super.serializeRequest({
+      ...configuration,
+      headers: {
+        ...configuration.headers,
+        ...getDefaultHeaders({
+          ...configuration,
+          accessSection: configuration.accessSection ?? AccessSections.WISDOM_NOTIFIY_RECOMMENDATIONS_RECEIVED,
+        }),
+      },
+    });
   }
 
   serializeCommand(configuration: QConnectClientResolvedConfig): NotifyRecommendationsReceivedCommand {
     const command = new NotifyRecommendationsReceivedCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<NotifyRecommendationsReceivedInput, NotifyRecommendationsReceivedOutput>(configuration.headers);
+    const [middleware, opt] = buildClientRequestMiddleware<NotifyRecommendationsReceivedInput, NotifyRecommendationsReceivedOutput>({
+      ...configuration.headers,
+      ...getDefaultHeaders({
+        ...configuration,
+        accessSection: configuration.accessSection ?? AccessSections.WISDOM_NOTIFIY_RECOMMENDATIONS_RECEIVED,
+      }),
+    });
 
     command.middlewareStack.add(middleware, opt);
 

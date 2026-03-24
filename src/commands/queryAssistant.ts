@@ -15,6 +15,8 @@ import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
+import { AccessSections } from '../types/accessSections';
+import { getDefaultHeaders } from '../utils/getDefaultHeaders';
 
 export interface QueryAssistantInput extends QueryAssistantCommandInput {}
 
@@ -39,7 +41,7 @@ export class QueryAssistant extends Command<
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<QueryAssistantOutput>> {
-    const { requestHandler } = configuration;
+    const requestHandler = super.getRequestHandler(configuration);
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
@@ -54,13 +56,28 @@ export class QueryAssistant extends Command<
       throw new Error('Invalid assistantId.');
     }
 
-    return super.serializeRequest(configuration);
+    return super.serializeRequest({
+      ...configuration,
+      headers: {
+        ...configuration.headers,
+        ...getDefaultHeaders({
+          ...configuration,
+          accessSection: configuration.accessSection ?? AccessSections.WISDOM_QUERY_ASSISTANT,
+        }),
+      },
+    });
   }
 
   serializeCommand(configuration: QConnectClientResolvedConfig): QueryAssistantCommand {
     const command = new QueryAssistantCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<QueryAssistantInput, QueryAssistantOutput>(configuration.headers);
+    const [middleware, opt] = buildClientRequestMiddleware<QueryAssistantInput, QueryAssistantOutput>({
+      ...configuration.headers,
+      ...getDefaultHeaders({
+        ...configuration,
+        accessSection: configuration.accessSection ?? AccessSections.WISDOM_QUERY_ASSISTANT,
+      }),
+    });
 
     command.middlewareStack.add(middleware, opt);
 
