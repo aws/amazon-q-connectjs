@@ -11,12 +11,15 @@ QConnectJS supports the following APIs:
 * [DescribeContactFlow](#describecontactflow)
 * [GetContact](#getcontact)
 * [GetContent](#getcontent)
+* [GetNextMessage](#getnextmessage)
 * [GetRecommendations](#getrecommendations)
+* [GetSession](#getsession)
 * [ListContentAssociations](#listcontentassociations)
 * [ListIntegrationAssociations](#listintegrationassociations)
 * [NotifyRecommendationsReceived](#notifyrecommendationsreceived)
 * [PutFeedback](#putfeedback)
 * [QueryAssistant](#queryassistant)
+* [SendMessage](#sendmessage)
 
 Note that this library must be used in conjunction with [amazon-connect-streams](https://github.com/amazon-connect/amazon-connect-streams).
 
@@ -475,6 +478,67 @@ try {
 }
 ```
 
+## GetNextMessage
+
+Retrieves next message on an Amazon Q in Connect session. For more information check out the [GetNextMessage](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetNextMessage.html) API reference.
+
+### URI Request Parameters
+
+* `assistantId`: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `sessionId`: The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `nextMessageToken`: The token for the next message. Use the value returned in the previous response in the next request to retrieve the next message.
+
+#### A few things to note:
+
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q in Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
+* The `session ARN` can be retrieved by using the `DescribeContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [DescribeContact](#describecontact) for more information.
+* The `nextMessageToken` is returned by the [SendMessage](#sendmessage) API response.
+
+### Response Syntax
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```json
+{
+   "conversationSessionData": [
+      {
+         "key": "string",
+         "value": { ... }
+      }
+   ],
+   "conversationState": {
+      "reason": "string",
+      "status": "string"
+   },
+   "nextMessageToken": "string",
+   "requestMessageId": "string",
+   "response": {
+      "messageId": "string",
+      "participant": "string",
+      "timestamp": number,
+      "value": { ... }
+   },
+   "type": "string"
+}
+```
+
+### Sample Query
+
+```ts
+const getNextMessageCommand = new GetNextMessage({
+  assistantId: <assistantId>,
+  sessionId: <sessionId>,
+  nextMessageToken: <nextMessageToken>,
+});
+
+try {
+  const response = await qConnectClient.call(getNextMessageCommand);
+    // process response.
+} catch (error) {
+  // error handling.
+}
+```
+
 ## GetRecommendations
 
 The GetRecommendations API serves two distinct purposes:
@@ -803,6 +867,58 @@ If the action is successful, the service sends back an HTTP 200 response.
 ```
 Note: When chunking is enabled, the response may include a nextChunkToken at the root level. This token should be used in subsequent GetRecommendations calls to retrieve the next chunk of recommendations. For generative recommendations, each recommendation may also include a generativeChunkData object within the details field. The completion field in generativeChunkData contains the chunk of the generative response. The last chunk will have a null or missing nextChunkToken.
 
+
+## GetSession
+
+Retrieves information for a specified session. For more information check out the [GetSession](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetSession.html) API reference.
+
+### URI Request Parameters
+
+* `assistantId`: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `sessionId`: The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+
+#### A few things to note:
+
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q in Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
+* The `session ARN` can be retrieved by using the `DescribeContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [DescribeContact](#describecontact) for more information.
+
+### Response Syntax
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```json
+{
+  "session": {
+    "aiAgentConfiguration": { ... },
+    "description": "string",
+    "integrationConfiguration": {
+      "topicIntegrationArn": "string"
+    },
+    "name": "string",
+    "sessionArn": "string",
+    "sessionId": "string",
+    "tagFilter": { ... },
+    "tags": {
+      "string": "string"
+    }
+  }
+}
+```
+### Sample Query
+
+```ts
+const getSessionCommand = new GetSession({
+  assistantId: <assistantId>,
+  sessionId: <sessionId>,
+});
+
+try {
+  const response = await qConnectClient.call(getSessionCommand);
+    // process response.
+} catch (error) {
+  // error handling.
+}
+```
 
 ## ListContentAssociations
 
@@ -1310,6 +1426,60 @@ try {
 ```
 
 We recommend making the [QueryAssistant](#queryassistant) call only when the agent is sure that they would like an answer addressing the intent. E.g. when you receive an intent via the [GetRecommendations](#getrecommendations) API, you may want to display to the agent a clickable button containing the intent text, and make the QueryAssistant call only when the agent clicks on the button.
+
+## SendMessage
+
+Submits a message to the Amazon Q in Connect session. For more information check out the [SendMessage](https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_SendMessage.html) API reference.
+
+### URI Request Parameters
+
+* `assistantId`: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `sessionId`: The identifier of the session. Can be either the ID or the ARN. URLs cannot contain the ARN.
+* `message`: The message data to send.
+* `type`: The message type.
+* `clientToken`: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If not provided, the AWS SDK populates this field.
+* `conversationContext`: The conversation context before the message is sent.
+
+#### A few things to note:
+
+* The `assistantId` can be retrieved by using the `ListIntegrationAssociations` API provided by QConnectJS to look up the `assistant` and `knowledge base` that has been configured for Amazon Q in Connect. See [ListIntegrationAssociations](#listintegrationassociations) for more information.
+* The `session ARN` can be retrieved by using the `DescribeContact` API provided by QConnectJS to look up the `session` associated with a given active `contact`. See [DescribeContact](#describecontact) for more information.
+* Use the `nextMessageToken` from the response with [GetNextMessage](#getnextmessage) to retrieve the assistant's response.
+
+### Response Syntax
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+```json
+{
+  "nextMessageToken": "string",
+  "requestMessageId": "string"
+}
+```
+
+### Sample Query
+
+```ts
+const sendMessageCommand = new SendMessage({
+  assistantId: <assistantId>,
+  sessionId: <sessionId>,
+  message: {
+    value: {
+      text: {
+        value: <messageText>,
+      },
+    },
+  },
+  type: <messageType>,
+});
+
+try {
+  const response = await qConnectClient.call(sendMessageCommand);
+    // process response.
+} catch (error) {
+  // error handling.
+}
+```
 
 # StreamsJS Integration
 
