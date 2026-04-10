@@ -4,10 +4,13 @@
  */
 
 import { ListIntegrationAssociations } from './listIntegrationAssociations';
+import { SDKHandler } from '../sdkHandler';
 import * as clientMiddlware from '../utils/buildClientMiddleware';
 import { getRuntimeConfig } from '../utils/runtimeConfig.browser';
 import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
+import { CallSources } from '../types/callSources';
+import { AccessSections } from '../types/accessSections';
 
 describe('ListIntegrationAssociations', () => {
   let command: ListIntegrationAssociations;
@@ -31,17 +34,48 @@ describe('ListIntegrationAssociations', () => {
     });
   });
 
-  it('should construct an HTTP request when calling serializeRequest', () => {
+  it('should return the expected requestHandler with overrides when calling getRequestHandler', () => {
     command = new ListIntegrationAssociations({
       InstanceId: instanceId,
     });
 
-    expect(command.serializeRequest(config)).toEqual(
+    expect(command.getRequestHandler(config)).toBeInstanceOf(
+      SDKHandler,
+    );
+  });
+
+  it('should construct an HTTP request when calling serializeRequest, call source is PublicApiProxy, and an access section is not provided', () => {
+    command = new ListIntegrationAssociations({
+      InstanceId: instanceId,
+    });
+
+    expect(command.serializeRequest({ ...config, callSource: CallSources.PublicApiProxy })).toEqual(
       expect.objectContaining({
         headers: expect.objectContaining({
-          'x-access-section': 'WISDOM',
-          'x-amazon-call-source': 'agent-app',
-          'x-amz-access-section': 'Wisdom',
+          'x-access-section': 'LIST_INTEGRATION_ASSOCIATIONS',
+          'x-amazon-call-source': 'public-api-proxy',
+          'x-amz-access-section': 'LIST_INTEGRATION_ASSOCIATIONS',
+          'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations',
+          'x-amz-vendor': 'connect',
+        }),
+        body: JSON.stringify({
+          InstanceId: instanceId,
+        }),
+      }),
+    );
+  });
+
+  it('should construct an HTTP request when calling serializeRequest, call source is PublicApiProxy, and an access section is explicitly provided', () => {
+    command = new ListIntegrationAssociations({
+      InstanceId: instanceId,
+    });
+
+    expect(command.serializeRequest({ ...config, callSource: CallSources.PublicApiProxy, accessSection: 'SOME_ACCESS_SECTION' as AccessSections })).toEqual(
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          'x-access-section': 'SOME_ACCESS_SECTION',
+          'x-amazon-call-source': 'public-api-proxy',
+          'x-amz-access-section': 'SOME_ACCESS_SECTION',
           'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations',
           'x-amz-vendor': 'connect',
         }),
@@ -69,7 +103,7 @@ describe('ListIntegrationAssociations', () => {
 
     expect(mockBuildClientRequestMiddlware).not.toHaveBeenCalled();
 
-    command.serializeCommand({} as any);
+    command.serializeCommand(config);
 
     expect(mockBuildClientRequestMiddlware).toHaveBeenCalled();
   });

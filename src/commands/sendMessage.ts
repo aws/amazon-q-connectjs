@@ -4,8 +4,8 @@
  */
 
 import {
-  DescribeContactCommand, DescribeContactCommandInput, DescribeContactCommandOutput,
-} from '@aws-sdk/client-connect';
+  SendMessageCommand, SendMessageCommandInput, SendMessageCommandOutput,
+} from '@aws-sdk/client-qconnect';
 
 import { Command } from './command';
 import { QConnectClientResolvedConfig } from '../qConnectClient';
@@ -15,73 +15,71 @@ import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
-import { ServiceIds } from '../types/serviceIds';
 import { AccessSections } from '../types/accessSections';
 import { getDefaultHeaders } from '../utils/getDefaultHeaders';
 
-export interface DescribeContactInput extends DescribeContactCommandInput {}
+export interface SendMessageInput extends SendMessageCommandInput {}
 
-export interface DescribeContactOutput extends DescribeContactCommandOutput {}
+export interface SendMessageOutput extends SendMessageCommandOutput {}
 
-export class DescribeContact extends Command<
-  DescribeContactCommandInput,
-  DescribeContactCommandOutput,
+export class SendMessage extends Command<
+  SendMessageInput,
+  SendMessageOutput,
   QConnectClientResolvedConfig
 > {
   readonly vendorCode: VendorCodes;
 
   readonly clientMethod: ClientMethods;
 
-  constructor(readonly clientInput: DescribeContactCommandInput) {
+  constructor(readonly clientInput: SendMessageInput) {
     super();
-    this.vendorCode = VendorCodes.Connect;
-    this.clientMethod = ClientMethods.DescribeContact;
+    this.vendorCode = VendorCodes.Wisdom;
+    this.clientMethod = ClientMethods.SendMessage;
   }
 
   resolveRequestHandler(
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
-  ): InvokeFunction<HttpResponse<DescribeContactCommandOutput>> {
+  ): InvokeFunction<HttpResponse<SendMessageOutput>> {
     const requestHandler = super.getRequestHandler(configuration);
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
-      options: options || {},
+      options: options || {}
     });
   }
 
   serializeRequest(configuration: QConnectClientResolvedConfig): HttpRequest {
-    const { InstanceId, ContactId } = this.clientInput;
+    const { assistantId, sessionId } = this.clientInput;
 
-    if ((InstanceId === undefined) || !InstanceId.length) {
-      throw new Error('Invalid InstanceId.');
+    if ((assistantId === undefined) || !assistantId.length) {
+      throw new Error('Invalid assistantId.');
     }
 
-    if ((ContactId === undefined) || !ContactId.length) {
-      throw new Error('Invalid ContactId.');
+    if ((sessionId === undefined) || !sessionId.length) {
+      throw new Error('Invalid sessionId.');
     }
 
     return super.serializeRequest({
       ...configuration,
-      serviceId: ServiceIds.Acs,
       headers: {
         ...configuration.headers,
         ...getDefaultHeaders({
           ...configuration,
-          accessSection: configuration.accessSection ?? AccessSections.DESCRIBE_CONTACT,
+          accessSection: configuration.accessSection ?? AccessSections.WISDOM_SEND_MESSAGE,
         }),
       },
     });
   }
 
-  serializeCommand(configuration: QConnectClientResolvedConfig): DescribeContactCommand {
-    const command = new DescribeContactCommand(this.clientInput);
+  serializeCommand(configuration: QConnectClientResolvedConfig): SendMessageCommand {
+    const command = new SendMessageCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<DescribeContactInput, DescribeContactOutput>({
+    const [middleware, opt] = buildClientRequestMiddleware<SendMessageInput, SendMessageOutput>({
       ...configuration.headers,
       ...getDefaultHeaders({
         ...configuration,
-        accessSection: configuration.accessSection ?? AccessSections.DESCRIBE_CONTACT,
+        accessSection: configuration.accessSection ?? AccessSections.WISDOM_SEND_MESSAGE,
       }),
     });
 

@@ -10,11 +10,11 @@ const BASE_HEADERS = {
   'Content-Type': 'application/json',
 };
 
-export const getDefaultHeaders = ({ callSource, serviceId }: any): HttpHeaders => {
+export const getDefaultHeaders = ({ callSource, serviceId, accessSection }: any): HttpHeaders => {
   return {
     ...BASE_HEADERS,
-    'x-access-section': serviceId.toUpperCase(),
+    'x-access-section': accessSection || serviceId.toUpperCase(),
     'x-amazon-call-source': callSource,
-    'x-amz-access-section': serviceId,
+    'x-amz-access-section': accessSection || serviceId,
   };
 }

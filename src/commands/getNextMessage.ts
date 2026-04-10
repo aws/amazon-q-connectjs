@@ -4,8 +4,8 @@
  */
 
 import {
-  DescribeContactCommand, DescribeContactCommandInput, DescribeContactCommandOutput,
-} from '@aws-sdk/client-connect';
+  GetNextMessageCommand, GetNextMessageCommandInput, GetNextMessageCommandOutput,
+} from '@aws-sdk/client-qconnect';
 
 import { Command } from './command';
 import { QConnectClientResolvedConfig } from '../qConnectClient';
@@ -15,73 +15,75 @@ import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
-import { ServiceIds } from '../types/serviceIds';
 import { AccessSections } from '../types/accessSections';
 import { getDefaultHeaders } from '../utils/getDefaultHeaders';
 
-export interface DescribeContactInput extends DescribeContactCommandInput {}
+export interface GetNextMessageInput extends GetNextMessageCommandInput {}
 
-export interface DescribeContactOutput extends DescribeContactCommandOutput {}
+export interface GetNextMessageOutput extends GetNextMessageCommandOutput {}
 
-export class DescribeContact extends Command<
-  DescribeContactCommandInput,
-  DescribeContactCommandOutput,
+export class GetNextMessage extends Command<
+  GetNextMessageInput,
+  GetNextMessageOutput,
   QConnectClientResolvedConfig
 > {
   readonly vendorCode: VendorCodes;
 
   readonly clientMethod: ClientMethods;
 
-  constructor(readonly clientInput: DescribeContactCommandInput) {
+  constructor(readonly clientInput: GetNextMessageInput) {
     super();
-    this.vendorCode = VendorCodes.Connect;
-    this.clientMethod = ClientMethods.DescribeContact;
+    this.vendorCode = VendorCodes.Wisdom;
+    this.clientMethod = ClientMethods.GetNextMessage;
   }
 
   resolveRequestHandler(
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
-  ): InvokeFunction<HttpResponse<DescribeContactCommandOutput>> {
+  ): InvokeFunction<HttpResponse<GetNextMessageOutput>> {
     const requestHandler = super.getRequestHandler(configuration);
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
-      options: options || {},
+      options: options || {}
     });
   }
 
   serializeRequest(configuration: QConnectClientResolvedConfig): HttpRequest {
-    const { InstanceId, ContactId } = this.clientInput;
+    const { assistantId, sessionId, nextMessageToken } = this.clientInput;
 
-    if ((InstanceId === undefined) || !InstanceId.length) {
-      throw new Error('Invalid InstanceId.');
+    if ((assistantId === undefined) || !assistantId.length) {
+      throw new Error('Invalid assistantId.');
     }
 
-    if ((ContactId === undefined) || !ContactId.length) {
-      throw new Error('Invalid ContactId.');
+    if ((sessionId === undefined) || !sessionId.length) {
+      throw new Error('Invalid sessionId.');
+    }
+
+    if ((nextMessageToken === undefined) || !nextMessageToken.length) {
+      throw new Error('Invalid nextMessageToken.');
     }
 
     return super.serializeRequest({
       ...configuration,
-      serviceId: ServiceIds.Acs,
       headers: {
         ...configuration.headers,
         ...getDefaultHeaders({
           ...configuration,
-          accessSection: configuration.accessSection ?? AccessSections.DESCRIBE_CONTACT,
+          accessSection: configuration.accessSection ?? AccessSections.WISDOM_GET_NEXT_MESSAGE,
         }),
       },
     });
   }
 
-  serializeCommand(configuration: QConnectClientResolvedConfig): DescribeContactCommand {
-    const command = new DescribeContactCommand(this.clientInput);
+  serializeCommand(configuration: QConnectClientResolvedConfig): GetNextMessageCommand {
+    const command = new GetNextMessageCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<DescribeContactInput, DescribeContactOutput>({
+    const [middleware, opt] = buildClientRequestMiddleware<GetNextMessageInput, GetNextMessageOutput>({
       ...configuration.headers,
       ...getDefaultHeaders({
         ...configuration,
-        accessSection: configuration.accessSection ?? AccessSections.DESCRIBE_CONTACT,
+        accessSection: configuration.accessSection ?? AccessSections.WISDOM_GET_NEXT_MESSAGE,
       }),
     });
 

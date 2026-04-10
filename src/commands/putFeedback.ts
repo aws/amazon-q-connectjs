@@ -15,6 +15,8 @@ import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
+import { AccessSections } from '../types/accessSections';
+import { getDefaultHeaders } from '../utils/getDefaultHeaders';
 
 export interface PutFeedbackInput extends PutFeedbackCommandInput {}
 
@@ -39,7 +41,7 @@ export class PutFeedback extends Command<
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<PutFeedbackOutput>> {
-    const { requestHandler } = configuration;
+    const requestHandler = super.getRequestHandler(configuration);
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
@@ -66,13 +68,28 @@ export class PutFeedback extends Command<
       throw new Error('Invalid contentFeedback.');
     }
 
-    return super.serializeRequest(configuration);
+    return super.serializeRequest({
+      ...configuration,
+      headers: {
+        ...configuration.headers,
+        ...getDefaultHeaders({
+          ...configuration,
+          accessSection: configuration.accessSection ?? AccessSections.WISDOM_PUT_FEEDBACK,
+        }),
+      },
+    });
   }
 
   serializeCommand(configuration: QConnectClientResolvedConfig): PutFeedbackCommand {
     const command = new PutFeedbackCommand(this.clientInput);
 
-    const [middleware, opt] = buildClientRequestMiddleware<PutFeedbackInput, PutFeedbackOutput>(configuration.headers);
+    const [middleware, opt] = buildClientRequestMiddleware<PutFeedbackInput, PutFeedbackOutput>({
+      ...configuration.headers,
+      ...getDefaultHeaders({
+        ...configuration,
+        accessSection: configuration.accessSection ?? AccessSections.WISDOM_PUT_FEEDBACK,
+      }),
+    });
 
     command.middlewareStack.add(middleware, opt);
 

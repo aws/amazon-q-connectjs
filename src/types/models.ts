@@ -52,23 +52,8 @@ export type {
   SearchExpression,
   SessionSummary,
   TextData,
+  MessageOutput,
 } from '@aws-sdk/client-qconnect';
-
-export interface GetAuthorizedWidgetsForUserRequest {}
-
-export interface GetAuthorizedWidgetsForUserResponse {
-  widgets?: {
-    [widget: string]: string[],
-  }
-  widgetsDataPermission?: {
-    name: string,
-    endpoint: string,
-    allowedTopicSubscriptions: string[],
-    allowedTopicPublications: string[],
-    enableLifeCycleEvents: boolean,
-    version: string,
-  }[],
-}
 
 export interface GetContactRequest {
   /*

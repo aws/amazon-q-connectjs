@@ -12,7 +12,11 @@ import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { InvokeFunction } from '../types/command';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
+import { Proxies } from '../types/proxies';
+import { CallSources } from '../types/callSources';
 import { ServiceIds } from '../types/serviceIds';
+import { generateEndpoint } from '../utils/appConfig';
+import { getDefaultHeaders } from '../utils/getDefaultHeaders';
 
 export interface GetContactCommand {}
 
@@ -33,18 +37,16 @@ export class GetContact extends Command<
     super();
     this.vendorCode = VendorCodes.Connect;
     this.clientMethod = ClientMethods.GetContact;
+    this.overrideHandler = new FetchHttpHandler({
+      overrideChannelSupport: true,
+    });
   }
 
   resolveRequestHandler(
     configuration: QConnectClientResolvedConfig,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<GetContactOutput>> {
-    let { requestHandler } = configuration;
-
-    // Override RequestHandler on internal APIs
-    // Public API proxy requires public vendor code.
-
-    requestHandler = new FetchHttpHandler();
+    const requestHandler = super.getRequestHandler(configuration);
     return () => requestHandler.handle({
       request: this.serializeRequest(configuration),
       command: this.serializeCommand(configuration),
@@ -70,6 +72,15 @@ export class GetContact extends Command<
     return super.serializeRequest({
       ...configuration,
       serviceId: ServiceIds.Lcms,
+      callSource: CallSources.AgentApp,
+      endpoint: generateEndpoint(configuration.instanceUrl, Proxies.AgentApp),
+      headers: {
+        ...configuration.headers,
+        ...getDefaultHeaders({
+          ...configuration,
+          callSource: CallSources.AgentApp,
+        }),
+      },
     });
   }
 

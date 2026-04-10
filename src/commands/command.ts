@@ -12,6 +12,7 @@ import { Command as $Command, InvokeFunction } from '../types/command';
 import { VendorCodes } from '../types/vendorCodes';
 import { ClientMethods } from '../types/clientMethods';
 import { HttpResponse, HttpHandlerOptions } from '../types/http';
+import { RequestHandler } from '../types/requestHandler';
 
 export abstract class Command<
   Input extends ClientInput,
@@ -26,10 +27,22 @@ export abstract class Command<
 
   abstract clientMethod: ClientMethods;
 
+  overrideHandler?: RequestHandler<any, any, HttpHandlerOptions>;
+
   abstract resolveRequestHandler(
     configuration: ClientConfiguration,
     options: HttpHandlerOptions,
   ): InvokeFunction<HttpResponse<Output>>;
+
+  getRequestHandler(configuration: QConnectClientResolvedConfig) {
+    // Override RequestHandler on internal APIs
+    // Public API proxy requires public vendor code.
+    if (this.overrideHandler) {
+      this.overrideHandler.setRuntimeConfig(configuration);
+      return this.overrideHandler;
+    }
+    return configuration.requestHandler;
+  }
 
   serializeRequest(configuration: QConnectClientResolvedConfig) {
     return new HttpRequest({

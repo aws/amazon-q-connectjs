@@ -20,6 +20,7 @@ import { Commands } from './types/command';
    * terminated.
    */
   requestTimeout?: number;
+  overrideChannelSupport?: boolean;
 }
 
 export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, HttpResponse<any>, HttpHandlerOptions> {
@@ -29,7 +30,9 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
   constructor(config?: FetchHttpHandlerOptions) {
     this.config = config ?? {};
 
-    subscribeToChannel(this.channelRequestHandler.bind(this));
+    if (!config?.overrideChannelSupport) {
+      subscribeToChannel(this.channelRequestHandler.bind(this));
+    }
   }
 
   setRuntimeConfig(config: QConnectClientResolvedConfig) {
@@ -106,8 +109,11 @@ export class FetchHttpHandler implements RequestHandler<HttpRequestOptions, Http
 
       const config = this.runtimeConfig as QConnectClientResolvedConfig;
 
-      return this.handle({
+      const handler = clientCommand.getRequestHandler(config);
+
+      return handler.handle({
         request: clientCommand.serializeRequest(config),
+        command: clientCommand.serializeCommand(config),
       });
     } catch (e: any) {
       console.error(`Something went wrong during request: ${e?.message}`);

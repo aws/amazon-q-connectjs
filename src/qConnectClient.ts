@@ -7,16 +7,17 @@ import { Client, ClientConfiguration, ClientResolvedConfig } from './client';
 import {
   DescribeContact, DescribeContactInput, DescribeContactOutput,
   DescribeContactFlow, DescribeContactFlowInput, DescribeContactFlowOutput,
-  GetAuthorizedWidgetsForUser, GetAuthorizedWidgetsForUserInput, GetAuthorizedWidgetsForUserOutput,
   GetContent, GetContentInput, GetContentOutput,
+  GetNextMessage, GetNextMessageInput, GetNextMessageOutput,
   GetRecommendations, GetRecommendationsInput, GetRecommendationsOutput,
   ListContentAssociations, ListContentAssociationsInput, ListContentAssociationsOutput,
   ListIntegrationAssociations, ListIntegrationAssociationsInput, ListIntegrationAssociationsOutput,
   NotifyRecommendationsReceived, NotifyRecommendationsReceivedInput, NotifyRecommendationsReceivedOutput,
   QueryAssistant, QueryAssistantInput, QueryAssistantOutput,
-  SearchSessions, SearchSessionsInput, SearchSessionsOutput,
   GetContact, GetContactInput, GetContactOutput,
   PutFeedback, PutFeedbackInput, PutFeedbackOutput,
+  SendMessage, SendMessageInput, SendMessageOutput,
+  GetSession, GetSessionInput, GetSessionOutput,
 } from './commands';
 import { RequestHandler } from './types/requestHandler';
 import { HttpResponse, HttpHandlerOptions } from './types/http';
@@ -24,30 +25,32 @@ import { HttpResponse, HttpHandlerOptions } from './types/http';
 export type ServiceInputTypes =
   | DescribeContactInput
   | DescribeContactFlowInput
-  | GetAuthorizedWidgetsForUserInput
   | GetContentInput
+  | GetNextMessageInput
   | GetRecommendationsInput
   | ListContentAssociationsInput
   | ListIntegrationAssociationsInput
   | NotifyRecommendationsReceivedInput
   | QueryAssistantInput
-  | SearchSessionsInput
+  | SendMessageInput
   | GetContactInput
-  | PutFeedbackInput;
+  | PutFeedbackInput
+  | GetSessionInput;
 
 export type ServiceOutputTypes =
   | DescribeContactOutput
   | DescribeContactFlowOutput
-  | GetAuthorizedWidgetsForUserOutput
   | GetContentOutput
+  | GetNextMessageOutput
   | GetRecommendationsOutput
   | ListContentAssociationsOutput
   | ListIntegrationAssociationsOutput
   | NotifyRecommendationsReceivedOutput
   | QueryAssistantOutput
-  | SearchSessionsOutput
+  | SendMessageOutput
   | GetContactOutput
-  | PutFeedbackOutput;
+  | PutFeedbackOutput
+  | GetSessionOutput;
 
 /*
  * The configuration interface of the QConnectClient class constructor that sets the instance url and other options.
@@ -100,17 +103,6 @@ export class QConnectClient extends Client<
     options?: HttpHandlerOptions,
   ): Promise<HttpResponse<DescribeContactFlowOutput>> {
     const command = new DescribeContactFlow(args);
-    return this.call(command, options);
-  }
-
-  /*
-   * Retrieves authorized widgets settings for Connect instance ID.
-   */
-  public getAuthorizedWidgetsForUser(
-    args: GetAuthorizedWidgetsForUserInput,
-    options?: HttpHandlerOptions,
-  ): Promise<HttpResponse<GetAuthorizedWidgetsForUserOutput>> {
-    const command = new GetAuthorizedWidgetsForUser(args);
     return this.call(command, options);
   }
 
@@ -213,13 +205,35 @@ export class QConnectClient extends Client<
   }
 
   /*
-   * Searches for sessions.
+   * Sends a message to the specified session.
    */
-  public searchSessions(
-    args: SearchSessionsInput,
+  public sendMessage(
+    args: SendMessageInput,
     options?: HttpHandlerOptions,
-  ): Promise<HttpResponse<SearchSessionsOutput>> {
-    const command = new SearchSessions(args);
+  ): Promise<HttpResponse<SendMessageOutput>> {
+    const command = new SendMessage(args);
+    return this.call(command, options);
+  }
+
+  /*
+   * Retrieves the next message for the specified session using the provided next message token.
+   */
+  public getNextMessage(
+    args: GetNextMessageInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<GetNextMessageOutput>> {
+    const command = new GetNextMessage(args);
+    return this.call(command, options);
+  }
+
+  /*
+   * Retrieves details about the specified session.
+   */
+  public getSession(
+    args: GetSessionInput,
+    options?: HttpHandlerOptions,
+  ): Promise<HttpResponse<GetSessionOutput>> {
+    const command = new GetSession(args);
     return this.call(command, options);
   }
 }

@@ -5,7 +5,7 @@
 
 import { FetchHttpHandler } from './fetchHttpHandler';
 import { HttpRequest } from './httpRequest';
-import { getRuntimeConfig } from './utils/runtimeConfig.shared';
+import { getRuntimeConfig } from './utils/runtimeConfig.browser';
 import { QConnectClientResolvedConfig } from './qConnectClient';
 
 describe('FetchHttpHandler', () => {
@@ -107,17 +107,18 @@ describe('FetchHttpHandler', () => {
   });
 
   it('should not make requests if already aborted', async () => {
-    await expect(
-      fetchHttpHandler.handle({
-        request: {} as any,
-        options: {
-          abortSignal: {
-            aborted: true,
-            onabort: null,
-          } as any,
-        },
-      }),
-    ).rejects.toHaveProperty('name', 'AbortError');
+    const response = fetchHttpHandler.handle({
+      request: {} as any,
+      options: {
+        abortSignal: {
+          aborted: true,
+          onabort: null,
+        } as any,
+      },
+    });
+
+    await expect(response).rejects.toHaveProperty('name', 'AbortError');
+    await expect(response).rejects.toThrow('Request aborted');
 
     expect(mockFetch.mock.calls.length).toBe(0);
   });
@@ -238,10 +239,12 @@ describe('FetchHttpHandler', () => {
     const requestUrl = 'https://other-origin-domain.amazonaws.com';
     const requestOptions = {
       headers: {
-        'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations',
+        'x-amz-target': 'AgentAppService.Lcms.getContact',
       },
       body: JSON.stringify({
-        InstanceId: '1234567890',
+        awsAccountId: '1234567890',
+        instanceId: '1234567890',
+        contactId: '1234567890'
       }),
     };
 
@@ -252,11 +255,18 @@ describe('FetchHttpHandler', () => {
       {
         method: 'POST',
         headers: {
-          'x-amz-target': 'AgentAppService.Acs.listIntegrationAssociations',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'x-access-section': 'WISDOM',
+          'x-amazon-call-source': 'agent-app',
+          'x-amz-access-section': 'Wisdom',
+          'x-amz-target': 'AgentAppService.Lcms.getContact',
           'x-amz-vendor': 'connect',
         },
         body: JSON.stringify({
-          InstanceId: '1234567890',
+          awsAccountId: '1234567890',
+          instanceId: '1234567890',
+          contactId: '1234567890'
         }),
       },
     ]);
