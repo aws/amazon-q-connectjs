@@ -21,6 +21,11 @@ module.exports = {
     },
   },
   module: {
+    parser: {
+      javascript: {
+        dynamicImportMode: 'eager',
+      },
+    },
     rules: [
       {
         test: /\.(ts)$/,
@@ -33,6 +38,7 @@ module.exports = {
     extensions: ['.ts', '.js'],
   },
   optimization: {
+    splitChunks: false,
     minimize: true,
     minimizer: [
       new TerserPlugin({
