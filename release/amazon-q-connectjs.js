@@ -995,16 +995,44 @@ const isIpAddress = (value) => IP_V4_REGEX.test(value) || (value.startsWith("[")
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.subscribeToChannel = exports.fetchWithChannel = void 0;
+exports.subscribeToChannel = exports.fetchWithChannel = exports.CHANNEL_READY_REQUEST_MSG = exports.CHANNEL_READY_MSG = void 0;
 const appNames_1 = __webpack_require__(8201);
-const fetchWithChannel = (destination, origin, data) => {
+exports.CHANNEL_READY_MSG = 'CHANNEL_READY';
+exports.CHANNEL_READY_REQUEST_MSG = 'CHANNEL_READY_REQUEST';
+const CHANNEL_TIMEOUT_MS = 30000;
+const fetchWithChannel = (destination, origin, data, timeoutMs = CHANNEL_TIMEOUT_MS) => {
+    var _a, _b;
+    const LOG_PREFIX = 'Amazon Q Connect [fetchWithChannel]:';
+    const requestUrl = (data === null || data === void 0 ? void 0 : data.url) || 'unknown';
+    const amzTarget = ((_b = (_a = data === null || data === void 0 ? void 0 : data.options) === null || _a === void 0 ? void 0 : _a.headers) === null || _b === void 0 ? void 0 : _b['x-amz-target']) || 'unknown';
+    console.debug(`${LOG_PREFIX} sending request. url=${requestUrl}, x-amz-target=${amzTarget}, timeout=${timeoutMs}ms`);
     return new Promise((resolve, reject) => {
+        let settled = false;
+        let timeoutId;
         try {
             const channel = new MessageChannel();
             const { port1, port2 } = channel;
+            timeoutId = timeoutMs > 0
+                ? setTimeout(() => {
+                    if (!settled) {
+                        settled = true;
+                        port1.close();
+                        const msg = `${LOG_PREFIX} request timed out after ${timeoutMs}ms. url=${requestUrl}, x-amz-target=${amzTarget}`;
+                        console.error(msg);
+                        reject(new Error(msg));
+                    }
+                }, timeoutMs)
+                : undefined;
             port1.onmessage = (e) => {
-                port1.close();
-                resolve(e.data.data);
+                var _a, _b;
+                if (!settled) {
+                    settled = true;
+                    if (timeoutId !== undefined)
+                        clearTimeout(timeoutId);
+                    port1.close();
+                    console.debug(`${LOG_PREFIX} received response. url=${requestUrl}, x-amz-target=${amzTarget}, status=${(_b = (_a = e.data) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.status}`);
+                    resolve(e.data.data);
+                }
             };
             destination.postMessage({
                 source: appNames_1.AppNames.QConnectJS,
@@ -1012,7 +1040,14 @@ const fetchWithChannel = (destination, origin, data) => {
             }, origin, [port2]);
         }
         catch (e) {
-            reject(e);
+            settled = true;
+            if (timeoutId !== undefined)
+                clearTimeout(timeoutId);
+            const msg = `${LOG_PREFIX} failed to send request. url=${requestUrl}, x-amz-target=${amzTarget}. Error: ${e === null || e === void 0 ? void 0 : e.message}`;
+            console.error(msg);
+            const err = new Error(msg);
+            err.cause = e;
+            reject(err);
         }
     });
 };
@@ -1021,10 +1056,19 @@ const subscribeToChannel = (cb) => {
     if (window.self == window.top)
         return;
     window.addEventListener('message', async (e) => {
-        var _a;
+        var _a, _b, _c, _d;
         if (e.data.source !== appNames_1.AppNames.QConnectJS)
             return;
-        if (((_a = e.source) === null || _a === void 0 ? void 0 : _a.location) !== ((window.top || window.parent).location))
+        if (e.data.type === exports.CHANNEL_READY_MSG)
+            return;
+        if (e.data.type === exports.CHANNEL_READY_REQUEST_MSG) {
+            if (e.source === window.parent || e.source === window.top) {
+                sendChannelReadySignal();
+            }
+            return;
+        }
+        if (((_a = e.source) === null || _a === void 0 ? void 0 : _a.location) !== ((_b = window.parent) === null || _b === void 0 ? void 0 : _b.location) &&
+            ((_c = e.source) === null || _c === void 0 ? void 0 : _c.location) !== ((_d = window.top) === null || _d === void 0 ? void 0 : _d.location))
             return;
         const port = e.ports[0];
         const { url, options } = e.data.data;
@@ -1034,8 +1078,25 @@ const subscribeToChannel = (cb) => {
             data: response,
         });
     });
+    sendChannelReadySignal();
 };
 exports.subscribeToChannel = subscribeToChannel;
+function sendChannelReadySignal() {
+    try {
+        const readyPayload = {
+            source: appNames_1.AppNames.QConnectJS,
+            type: exports.CHANNEL_READY_MSG,
+        };
+        window.parent.postMessage(readyPayload, '*');
+        if (window.top && window.top !== window.parent) {
+            window.top.postMessage(readyPayload, '*');
+        }
+        console.debug(`Amazon Q Connect [subscribeToChannel]: ${exports.CHANNEL_READY_MSG} signal sent to parent.`);
+    }
+    catch (e) {
+        console.warn(`Amazon Q Connect [subscribeToChannel]: failed to send ${exports.CHANNEL_READY_MSG} signal: ${e === null || e === void 0 ? void 0 : e.message}`);
+    }
+}
 
 
 /***/ }),
@@ -5478,12 +5539,18 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Client = void 0;
 const runtimeConfig_browser_1 = __webpack_require__(6662);
 const serviceIds_1 = __webpack_require__(571);
+const appNames_1 = __webpack_require__(8201);
+const communicationProxy_1 = __webpack_require__(1588);
 class Client {
     constructor(config) {
+        this._frameResolved = false;
         const _config = (0, runtimeConfig_browser_1.getRuntimeConfig)(config);
         this.config = _config;
         this._frameReady = new Promise((resolve) => {
-            this._resolveFrameReady = resolve;
+            this._resolveFrameReady = () => {
+                this._frameResolved = true;
+                resolve();
+            };
         });
         if (document.readyState === 'complete') {
             this.initFrameConduit();
@@ -5497,69 +5564,142 @@ class Client {
         }
         this.config.requestHandler.setRuntimeConfig(this.config);
     }
+    listenForChannelReady(onReady) {
+        const expectedOrigin = new URL(this.config.instanceUrl).origin;
+        const handler = (e) => {
+            var _a, _b;
+            if (e.origin !== expectedOrigin)
+                return;
+            if (((_a = e.data) === null || _a === void 0 ? void 0 : _a.source) === appNames_1.AppNames.QConnectJS &&
+                ((_b = e.data) === null || _b === void 0 ? void 0 : _b.type) === communicationProxy_1.CHANNEL_READY_MSG) {
+                window.removeEventListener('message', handler);
+                const wisdomIframe = document.querySelector('iframe[src*="wisdom-v2"]')
+                    || document.getElementById(serviceIds_1.ServiceIds.AmazonQConnect);
+                if (wisdomIframe) {
+                    this.config.frameWindow = wisdomIframe;
+                }
+                console.debug(`Amazon Q in Connect [initFrameConduit]: received ${communicationProxy_1.CHANNEL_READY_MSG} handshake. ` +
+                    `frameWindow=${wisdomIframe ? 'set' : 'not found'}. Resolving _frameReady.`);
+                onReady();
+            }
+        };
+        window.addEventListener('message', handler);
+        return () => window.removeEventListener('message', handler);
+    }
     initFrameConduit() {
         var _a, _b;
-        if (this.config.frameWindow || this.config.instanceUrl.includes((_a = window === null || window === void 0 ? void 0 : window.location) === null || _a === void 0 ? void 0 : _a.origin)) {
+        const LOG = 'Amazon Q in Connect [initFrameConduit]:';
+        if (this.config.frameWindow) {
+            console.debug(`${LOG} frameWindow already set, resolving immediately.`);
             this._resolveFrameReady();
             return;
         }
-        const iframe = document.querySelector('iframe[src*="wisdom-v2"]');
-        if (iframe && iframe.contentWindow) {
-            this.config.frameWindow = iframe;
+        if (this.config.instanceUrl.includes((_a = window === null || window === void 0 ? void 0 : window.location) === null || _a === void 0 ? void 0 : _a.origin)) {
+            console.debug(`${LOG} same-origin detected, no iframe proxy needed.`);
             this._resolveFrameReady();
+            return;
         }
-        else {
-            if (!((_b = window === null || window === void 0 ? void 0 : window.connect) === null || _b === void 0 ? void 0 : _b.core)) {
-                console.warn('Amazon Q Connect: connect.core is not available. Iframe proxy will not be established. ' +
-                    'Ensure QConnectClient is instantiated after connect.agentApp.initApp.');
-                this._resolveFrameReady();
-                return;
-            }
-            const timeoutId = setTimeout(() => {
-                console.warn('Amazon Q Connect: iframe initialization timed out.');
-                this._resolveFrameReady();
-            }, 30000);
+        console.debug(`${LOG} cross-origin detected. instanceUrl=${this.config.instanceUrl}`);
+        const timeoutId = setTimeout(() => {
+            removeHandshakeListener();
+            console.warn(`${LOG} initialization timed out after 30s. Resolving without handshake.`);
+            this._resolveFrameReady();
+        }, 30000);
+        const removeHandshakeListener = this.listenForChannelReady(() => {
+            clearTimeout(timeoutId);
+            this._resolveFrameReady();
+        });
+        const resolveWithCleanup = () => {
+            clearTimeout(timeoutId);
+            removeHandshakeListener();
+            this._resolveFrameReady();
+        };
+        const existingIframe = document.querySelector('iframe[src*="wisdom-v2"]');
+        if (existingIframe && existingIframe.contentWindow) {
+            console.debug(`${LOG} found pre-existing wisdom-v2 iframe. Sending CHANNEL_READY_REQUEST probe.`);
+            this.config.frameWindow = existingIframe;
             try {
-                window.connect.core.onInitialized(() => {
-                    var _a;
-                    let container = document.querySelector('q-connect-container');
-                    if (!container) {
-                        container = document.createElement('div');
-                        container.id = 'q-connect-container';
-                        document.body.appendChild(container);
-                    }
-                    (_a = window === null || window === void 0 ? void 0 : window.connect) === null || _a === void 0 ? void 0 : _a.agentApp.initApp(serviceIds_1.ServiceIds.AmazonQConnect, 'q-connect-container', `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`, {
-                        style: 'display: none',
-                    });
-                    const createdIframe = document.getElementById(serviceIds_1.ServiceIds.AmazonQConnect);
-                    if (createdIframe) {
-                        createdIframe.addEventListener('load', () => {
-                            clearTimeout(timeoutId);
-                            this.config.frameWindow = createdIframe;
-                            this._resolveFrameReady();
-                        });
-                        createdIframe.addEventListener('error', () => {
-                            clearTimeout(timeoutId);
-                            console.warn('Amazon Q Connect: iframe failed to load.');
-                            this._resolveFrameReady();
-                        });
-                    }
-                    else {
-                        clearTimeout(timeoutId);
-                        console.warn('Amazon Q Connect: iframe element was not created.');
-                        this._resolveFrameReady();
-                    }
-                });
+                const targetOrigin = new URL(this.config.instanceUrl).origin;
+                existingIframe.contentWindow.postMessage({
+                    source: appNames_1.AppNames.QConnectJS,
+                    type: communicationProxy_1.CHANNEL_READY_REQUEST_MSG,
+                }, targetOrigin);
             }
             catch (e) {
-                clearTimeout(timeoutId);
-                console.error('There was an error initializing Amazon Q Connect');
-                this._resolveFrameReady();
+                console.warn(`${LOG} failed to send CHANNEL_READY_REQUEST: ${e === null || e === void 0 ? void 0 : e.message}`);
             }
+            return;
+        }
+        if (existingIframe) {
+            console.debug(`${LOG} found wisdom-v2 iframe element but contentWindow is null.`);
+        }
+        else {
+            console.debug(`${LOG} no pre-existing wisdom-v2 iframe found.`);
+        }
+        if (!((_b = window === null || window === void 0 ? void 0 : window.connect) === null || _b === void 0 ? void 0 : _b.core)) {
+            console.warn(`${LOG} connect.core is not available. Iframe proxy will not be established.`);
+            resolveWithCleanup();
+            return;
+        }
+        console.debug(`${LOG} connect.core available. Registering onInitialized callback.`);
+        let iframeCreationStarted = false;
+        const createWisdomIframe = () => {
+            var _a, _b;
+            if (iframeCreationStarted || this._frameResolved)
+                return;
+            iframeCreationStarted = true;
+            try {
+                let container = document.querySelector('#q-connect-container');
+                if (!container) {
+                    container = document.createElement('div');
+                    container.id = 'q-connect-container';
+                    document.body.appendChild(container);
+                }
+                (_b = (_a = window === null || window === void 0 ? void 0 : window.connect) === null || _a === void 0 ? void 0 : _a.agentApp) === null || _b === void 0 ? void 0 : _b.initApp(serviceIds_1.ServiceIds.AmazonQConnect, 'q-connect-container', `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`, { style: 'display: none' });
+                const createdIframe = document.getElementById(serviceIds_1.ServiceIds.AmazonQConnect);
+                if (createdIframe) {
+                    console.debug(`${LOG} wisdom-v2 iframe created. Waiting for CHANNEL_READY handshake.`);
+                    createdIframe.addEventListener('load', () => {
+                        console.debug(`${LOG} wisdom-v2 iframe load event fired. frameWindow set.`);
+                        this.config.frameWindow = createdIframe;
+                    });
+                    createdIframe.addEventListener('error', () => {
+                        console.warn(`${LOG} wisdom-v2 iframe error event. Resolving without proxy.`);
+                        resolveWithCleanup();
+                    });
+                }
+                else {
+                    console.warn(`${LOG} agentApp.initApp did not create iframe element. Resolving without proxy.`);
+                    resolveWithCleanup();
+                }
+            }
+            catch (e) {
+                console.error(`${LOG} error creating wisdom iframe: ${e === null || e === void 0 ? void 0 : e.message}`);
+                resolveWithCleanup();
+            }
+        };
+        try {
+            window.connect.core.onInitialized(() => {
+                console.debug(`${LOG} connect.core.onInitialized fired.`);
+                createWisdomIframe();
+            });
+            if (document.querySelector('iframe[src*="ccp-v2"]')) {
+                console.debug(`${LOG} CCP iframe already present. Creating wisdom iframe immediately.`);
+                createWisdomIframe();
+            }
+            else {
+                console.debug(`${LOG} CCP iframe not yet present. Waiting for onInitialized.`);
+            }
+        }
+        catch (e) {
+            console.error(`${LOG} error during initialization: ${e === null || e === void 0 ? void 0 : e.message}`);
+            resolveWithCleanup();
         }
     }
     async call(command, options) {
-        await this._frameReady;
+        if (!this._frameResolved) {
+            await this._frameReady;
+        }
         const handler = command.resolveRequestHandler(this.config, options);
         return handler().then((response) => response);
     }
