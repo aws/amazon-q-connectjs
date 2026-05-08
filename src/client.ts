@@ -12,6 +12,20 @@ import { Logger } from './types/logger';
 import { ServiceIds } from './types/serviceIds';
 import { CallSources } from './types/callSources';
 import { AccessSections } from './types/accessSections';
+import { AppNames } from './types/appNames';
+import { CHANNEL_READY_MSG, CHANNEL_READY_REQUEST_MSG } from './utils/communicationProxy';
+
+interface ConnectWindow extends Window {
+  connect?: {
+    core?: {
+      onInitialized: (callback: () => void) => void;
+    };
+    agentApp?: {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      initApp: (appName: string, containerId: string, url: string, options: any) => void;
+    };
+  };
+}
 
 /*
  * The resolved configuration interface of the Client class.
@@ -76,13 +90,17 @@ export class Client<
    */
   private _frameReady: Promise<void>;
   private _resolveFrameReady!: () => void;
+  private _frameResolved = false;
 
   constructor(config: ClientConfiguration) {
     const _config = getRuntimeConfig(config) as ClientConfig;
     this.config = _config;
 
     this._frameReady = new Promise<void>((resolve) => {
-      this._resolveFrameReady = resolve;
+      this._resolveFrameReady = () => {
+        this._frameResolved = true;
+        resolve();
+      };
     });
 
     if (document.readyState === 'complete') {
@@ -98,84 +116,171 @@ export class Client<
     this.config.requestHandler.setRuntimeConfig(this.config)
   }
 
+  /*
+   * Listens for the CHANNEL_READY handshake from the iframe's
+   * subscribeToChannel.  Returns a cleanup function to remove the listener.
+   */
+  private listenForChannelReady(onReady: () => void): () => void {
+    const expectedOrigin = new URL(this.config.instanceUrl).origin;
+    const handler = (e: MessageEvent) => {
+      if (e.origin !== expectedOrigin) return;
+      if (
+        e.data?.source === AppNames.QConnectJS &&
+        e.data?.type === CHANNEL_READY_MSG
+      ) {
+        window.removeEventListener('message', handler);
+
+        const wisdomIframe = document.querySelector('iframe[src*="wisdom-v2"]') as HTMLIFrameElement
+          || document.getElementById(ServiceIds.AmazonQConnect) as HTMLIFrameElement;
+
+        if (wisdomIframe) {
+          this.config.frameWindow = wisdomIframe;
+        }
+
+        console.debug(
+          `Amazon Q in Connect [initFrameConduit]: received ${CHANNEL_READY_MSG} handshake. ` +
+          `frameWindow=${wisdomIframe ? 'set' : 'not found'}. Resolving _frameReady.`,
+        );
+        onReady();
+      }
+    };
+    window.addEventListener('message', handler);
+    return () => window.removeEventListener('message', handler);
+  }
+
   initFrameConduit() {
-    // No iframe needed for same-origin or if frameWindow is already set.
-    if (this.config.frameWindow || this.config.instanceUrl.includes(window?.location?.origin)) {
+    const LOG = 'Amazon Q in Connect [initFrameConduit]:';
+
+    if (this.config.frameWindow) {
+      console.debug(`${LOG} frameWindow already set, resolving immediately.`);
       this._resolveFrameReady();
       return;
     }
 
-    // Check if Amazon Q Connect is already initialized
-    const iframe = document.querySelector('iframe[src*="wisdom-v2"]') as HTMLIFrameElement;
-    
-    if (iframe && iframe.contentWindow) {
-      this.config.frameWindow = iframe;
+    if (this.config.instanceUrl.includes(window?.location?.origin)) {
+      console.debug(`${LOG} same-origin detected, no iframe proxy needed.`);
       this._resolveFrameReady();
-    } else {
-      // If connect.core is not available, resolve immediately so calls fall through
-      // to direct fetch (which may fail with CORS in cross-origin environments).
-      if (!(window as any)?.connect?.core) {
-        console.warn('Amazon Q Connect: connect.core is not available. Iframe proxy will not be established. ' +
-          'Ensure QConnectClient is instantiated after connect.agentApp.initApp.');
-        this._resolveFrameReady();
-        return;
-      }
+      return;
+    }
 
-      // Safety timeout: unblock API calls if initialization never completes.
-      // Placed after the connect.core guard so it is only started when we
-      // actually attempt iframe initialization.
-      const timeoutId = setTimeout(() => {
-        console.warn('Amazon Q Connect: iframe initialization timed out.');
-        this._resolveFrameReady();
-      }, 30_000);
+    console.debug(`${LOG} cross-origin detected. instanceUrl=${this.config.instanceUrl}`);
+
+    // 30s safety timeout — also serves as backward-compat fallback for
+    // older iframes that don't send CHANNEL_READY.
+    const timeoutId = setTimeout(() => {
+      removeHandshakeListener();
+      console.warn(`${LOG} initialization timed out after 30s. Resolving without handshake.`);
+      this._resolveFrameReady();
+    }, 30_000);
+
+    const removeHandshakeListener = this.listenForChannelReady(() => {
+      clearTimeout(timeoutId);
+      this._resolveFrameReady();
+    });
+
+    const resolveWithCleanup = () => {
+      clearTimeout(timeoutId);
+      removeHandshakeListener();
+      this._resolveFrameReady();
+    };
+
+    const existingIframe = document.querySelector('iframe[src*="wisdom-v2"]') as HTMLIFrameElement;
+
+    if (existingIframe && existingIframe.contentWindow) {
+      // Set frameWindow and wait for CHANNEL_READY before resolving.
+      // If the iframe bootstrapped before this Client was instantiated,
+      // its initial CHANNEL_READY was missed — send a CHANNEL_READY_REQUEST
+      // so the iframe re-sends it immediately.
+      console.debug(`${LOG} found pre-existing wisdom-v2 iframe. Sending CHANNEL_READY_REQUEST probe.`);
+      this.config.frameWindow = existingIframe;
+      try {
+        const targetOrigin = new URL(this.config.instanceUrl).origin;
+        existingIframe.contentWindow.postMessage({
+          source: AppNames.QConnectJS,
+          type: CHANNEL_READY_REQUEST_MSG,
+        }, targetOrigin);
+      } catch (e) {
+        console.warn(`${LOG} failed to send CHANNEL_READY_REQUEST: ${(e as Error)?.message}`);
+      }
+      return;
+    }
+
+    if (existingIframe) {
+      console.debug(`${LOG} found wisdom-v2 iframe element but contentWindow is null.`);
+    } else {
+      console.debug(`${LOG} no pre-existing wisdom-v2 iframe found.`);
+    }
+
+    if (!(window as ConnectWindow)?.connect?.core) {
+      console.warn(`${LOG} connect.core is not available. Iframe proxy will not be established.`);
+      resolveWithCleanup();
+      return;
+    }
+
+    console.debug(`${LOG} connect.core available. Registering onInitialized callback.`);
+
+    let iframeCreationStarted = false;
+    const createWisdomIframe = () => {
+      if (iframeCreationStarted || this._frameResolved) return;
+      iframeCreationStarted = true;
 
       try {
-        (window as any).connect.core.onInitialized(() => {
-          let container = document.querySelector('q-connect-container');
+        let container = document.querySelector('#q-connect-container');
+        if (!container) {
+          container = document.createElement('div');
+          container.id = 'q-connect-container';
+          document.body.appendChild(container);
+        }
 
-          if (!container) {
-            container = document.createElement('div');
-            container.id = 'q-connect-container';
-            document.body.appendChild(container);
-          }
+        (window as ConnectWindow)?.connect?.agentApp?.initApp(
+          ServiceIds.AmazonQConnect,
+          'q-connect-container',
+          `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`,
+          { style: 'display: none' },
+        );
 
-          (window as any)?.connect?.agentApp.initApp(
-            ServiceIds.AmazonQConnect,
-            'q-connect-container',
-            `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`,
-            {
-              style: 'display: none',
-            }
-          );
+        const createdIframe = document.getElementById(ServiceIds.AmazonQConnect) as HTMLIFrameElement;
 
-          const createdIframe = document.getElementById(ServiceIds.AmazonQConnect) as HTMLIFrameElement;
+        if (createdIframe) {
+          console.debug(`${LOG} wisdom-v2 iframe created. Waiting for CHANNEL_READY handshake.`);
 
-          if (createdIframe) {
-            // Wait for the iframe content to fully load before resolving.
-            // This ensures the wisdom-v2 page has registered its message listener
-            // so that proxied requests via postMessage are not silently dropped.
-            createdIframe.addEventListener('load', () => {
-              clearTimeout(timeoutId);
-              this.config.frameWindow = createdIframe;
-              this._resolveFrameReady();
-            });
-            createdIframe.addEventListener('error', () => {
-              clearTimeout(timeoutId);
-              console.warn('Amazon Q Connect: iframe failed to load.');
-              this._resolveFrameReady();
-            });
-          } else {
-            // Iframe element not found — resolve to unblock calls (will fall through to direct fetch).
-            clearTimeout(timeoutId);
-            console.warn('Amazon Q Connect: iframe element was not created.');
-            this._resolveFrameReady();
-          }
-        });
+          // load sets frameWindow but does NOT resolve _frameReady —
+          // only the CHANNEL_READY handshake does that.
+          createdIframe.addEventListener('load', () => {
+            console.debug(`${LOG} wisdom-v2 iframe load event fired. frameWindow set.`);
+            this.config.frameWindow = createdIframe;
+          });
+          createdIframe.addEventListener('error', () => {
+            console.warn(`${LOG} wisdom-v2 iframe error event. Resolving without proxy.`);
+            resolveWithCleanup();
+          });
+        } else {
+          console.warn(`${LOG} agentApp.initApp did not create iframe element. Resolving without proxy.`);
+          resolveWithCleanup();
+        }
       } catch (e) {
-        clearTimeout(timeoutId);
-        console.error('There was an error initializing Amazon Q Connect');
-        this._resolveFrameReady();
+        console.error(`${LOG} error creating wisdom iframe: ${(e as Error)?.message}`);
+        resolveWithCleanup();
       }
+    };
+
+    try {
+      (window as ConnectWindow).connect!.core!.onInitialized(() => {
+        console.debug(`${LOG} connect.core.onInitialized fired.`);
+        createWisdomIframe();
+      });
+
+      // onInitialized only fires for *future* events.  If CCP is already
+      // initialized, detect via the CCP iframe and proceed immediately.
+      if (document.querySelector('iframe[src*="ccp-v2"]')) {
+        console.debug(`${LOG} CCP iframe already present. Creating wisdom iframe immediately.`);
+        createWisdomIframe();
+      } else {
+        console.debug(`${LOG} CCP iframe not yet present. Waiting for onInitialized.`);
+      }
+    } catch (e) {
+      console.error(`${LOG} error during initialization: ${(e as Error)?.message}`);
+      resolveWithCleanup();
     }
   }
 
@@ -183,10 +288,9 @@ export class Client<
     command: Command<ClientInput, InputType, ClientOutput, OutputType, ClientConfig>,
     options?: HandlerOptions,
   ): Promise<HttpResponse<OutputType>> {
-    // Wait for the iframe conduit to be fully established before dispatching.
-    // This prevents CORS errors and silent failures caused by sending requests
-    // before the iframe proxy is ready to handle postMessage communication.
-    await this._frameReady;
+    if (!this._frameResolved) {
+      await this._frameReady;
+    }
 
     const handler = command.resolveRequestHandler(this.config, options);
     return handler().then((response: HttpResponse<OutputType>) => response);
