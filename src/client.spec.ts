@@ -488,4 +488,99 @@ describe('Client', () => {
       warnSpy.mockRestore();
     });
   });
+
+  describe('one client per Regional instance URL', () => {
+    const westUrl = 'https://us-west-2.example.my.connect.aws';
+    const eastUrl = 'https://us-east-1.example.my.connect.aws';
+    let originalConnect: any;
+    let initApp: jest.Mock;
+
+    const flush = async () => {
+      for (let i = 0; i < 5; i++) await Promise.resolve();
+    };
+
+    beforeEach(() => {
+      jest.useFakeTimers();
+      originalConnect = (window as any).connect;
+      // Mirrors Streams' agentApp.initApp: an iframe with id = app name and src = app URL.
+      initApp = jest.fn((name: string, containerId: string, url: string) => {
+        const iframe = document.createElement('iframe');
+        iframe.id = name;
+        iframe.src = url;
+        document.getElementById(containerId)!.appendChild(iframe);
+      });
+      (window as any).connect = { core: { onInitialized: (cb: () => void) => cb() }, agentApp: { initApp } };
+      document.querySelectorAll('iframe, #q-connect-container').forEach((el) => el.remove());
+    });
+
+    afterEach(() => {
+      jest.runOnlyPendingTimers();
+      jest.useRealTimers();
+      (window as any).connect = originalConnect;
+      document.querySelectorAll('iframe, #q-connect-container').forEach((el) => el.remove());
+    });
+
+    it('should give each client its own app name and its own wisdom-v2 iframe', async () => {
+      const west = new Client({ instanceUrl: westUrl } as any);
+      const east = new Client({ instanceUrl: eastUrl } as any);
+      await flush();
+
+      expect(initApp).toHaveBeenNthCalledWith(
+        1, 'AmazonQConnect', 'q-connect-container', `${westUrl}/wisdom-v2/?theme=hidden_page`, { style: 'display: none' },
+      );
+      expect(initApp).toHaveBeenNthCalledWith(
+        2, 'AmazonQConnect2', 'q-connect-container', `${eastUrl}/wisdom-v2/?theme=hidden_page`, { style: 'display: none' },
+      );
+
+      simulateChannelReady(eastUrl);
+      simulateChannelReady(westUrl);
+      await flush();
+
+      expect(west.config.frameWindow).toBe(document.getElementById('AmazonQConnect'));
+      expect(east.config.frameWindow).toBe(document.getElementById('AmazonQConnect2'));
+    });
+
+    it("should not use another instance's wisdom-v2 iframe", async () => {
+      const otherIframe = document.createElement('iframe');
+      otherIframe.id = 'AmazonQConnect';
+      otherIframe.src = `${westUrl}/wisdom-v2/?theme=hidden_page`;
+      document.body.appendChild(otherIframe);
+
+      const east = new Client({ instanceUrl: eastUrl } as any);
+      await flush();
+      simulateChannelReady(eastUrl);
+      await flush();
+
+      expect(initApp).toHaveBeenCalledWith('AmazonQConnect2', expect.any(String), expect.any(String), expect.any(Object));
+      expect(east.config.frameWindow).toBe(document.getElementById('AmazonQConnect2'));
+    });
+
+    it.each([
+      ['an uppercase host', 'https://US-West-2.Example.my.connect.aws'],
+      ['the default port', 'https://us-west-2.example.my.connect.aws:443'],
+      ['a trailing slash', 'https://us-west-2.example.my.connect.aws/'],
+    ])('should reuse the instance\'s existing wisdom-v2 iframe when instanceUrl has %s', async (_case, instanceUrl) => {
+      const existingIframe = document.createElement('iframe');
+      existingIframe.src = `${westUrl}/wisdom-v2/?theme=hidden_page`;
+      document.body.appendChild(existingIframe);
+
+      const west = new Client({ instanceUrl } as any);
+      await flush();
+
+      expect(initApp).not.toHaveBeenCalled();
+      expect(west.config.frameWindow).toBe(existingIframe);
+    });
+
+    it('should find the iframe when instanceUrl ends with a slash', async () => {
+      const west = new Client({ instanceUrl: `${westUrl}/` } as any);
+      await flush();
+      simulateChannelReady(westUrl);
+      await flush();
+
+      expect(initApp).toHaveBeenCalledWith(
+        'AmazonQConnect', 'q-connect-container', `${westUrl}/wisdom-v2/?theme=hidden_page`, { style: 'display: none' },
+      );
+      expect(west.config.frameWindow).toBe(document.getElementById('AmazonQConnect'));
+    });
+  });
 });
