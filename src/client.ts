@@ -28,6 +28,34 @@ interface ConnectWindow extends Window {
 }
 
 /*
+ * Returns `<instanceUrl>/wisdom-v2`, normalized the way the browser reports an
+ * iframe's src (lowercase host, no default port).
+ */
+const wisdomUrl = (instanceUrl: string): string => new URL(`${instanceUrl.replace(/\/+$/, '')}/wisdom-v2`).href;
+
+/*
+ * Returns a wisdom-v2 iframe already on the page for the given instance, so
+ * another instance's iframe is never picked up.
+ */
+const findExistingWisdomIframe = (instanceUrl: string): HTMLIFrameElement | undefined => {
+  const prefix = wisdomUrl(instanceUrl);
+  return Array.from(document.querySelectorAll('iframe')).find((frame) => frame.src.startsWith(prefix));
+};
+
+/*
+ * Returns an app name not yet used on the page: AmazonQConnect, then
+ * AmazonQConnect2, AmazonQConnect3, ... Streams uses the name as the app's
+ * registry key and iframe id, so each client needs its own.
+ */
+const pickAppName = (): string => {
+  let name: string = ServiceIds.AmazonQConnect;
+  for (let n = 2; document.getElementById(name); n++) {
+    name = `${ServiceIds.AmazonQConnect}${n}`;
+  }
+  return name;
+};
+
+/*
  * The resolved configuration interface of the Client class.
  */
 export interface ClientResolvedConfig {
@@ -92,6 +120,11 @@ export class Client<
   private _resolveFrameReady!: () => void;
   private _frameResolved = false;
 
+  /*
+   * The hidden wisdom-v2 iframe this client uses, found on the page or created by it.
+   */
+  private _wisdomIframe?: HTMLIFrameElement;
+
   constructor(config: ClientConfiguration) {
     const _config = getRuntimeConfig(config) as ClientConfig;
     this.config = _config;
@@ -130,16 +163,13 @@ export class Client<
       ) {
         window.removeEventListener('message', handler);
 
-        const wisdomIframe = document.querySelector('iframe[src*="wisdom-v2"]') as HTMLIFrameElement
-          || document.getElementById(ServiceIds.AmazonQConnect) as HTMLIFrameElement;
-
-        if (wisdomIframe) {
-          this.config.frameWindow = wisdomIframe;
+        if (this._wisdomIframe) {
+          this.config.frameWindow = this._wisdomIframe;
         }
 
         console.debug(
           `Amazon Q in Connect [initFrameConduit]: received ${CHANNEL_READY_MSG} handshake. ` +
-          `frameWindow=${wisdomIframe ? 'set' : 'not found'}. Resolving _frameReady.`,
+          `frameWindow=${this._wisdomIframe ? 'set' : 'not found'}. Resolving _frameReady.`,
         );
         onReady();
       }
@@ -184,7 +214,7 @@ export class Client<
       this._resolveFrameReady();
     };
 
-    const existingIframe = document.querySelector('iframe[src*="wisdom-v2"]') as HTMLIFrameElement;
+    const existingIframe = findExistingWisdomIframe(this.config.instanceUrl);
 
     if (existingIframe && existingIframe.contentWindow) {
       // Set frameWindow and wait for CHANNEL_READY before resolving.
@@ -192,6 +222,7 @@ export class Client<
       // its initial CHANNEL_READY was missed — send a CHANNEL_READY_REQUEST
       // so the iframe re-sends it immediately.
       console.debug(`${LOG} found pre-existing wisdom-v2 iframe. Sending CHANNEL_READY_REQUEST probe.`);
+      this._wisdomIframe = existingIframe;
       this.config.frameWindow = existingIframe;
       try {
         const targetOrigin = new URL(this.config.instanceUrl).origin;
@@ -232,16 +263,19 @@ export class Client<
           document.body.appendChild(container);
         }
 
+        const appName = pickAppName();
         (window as ConnectWindow)?.connect?.agentApp?.initApp(
-          ServiceIds.AmazonQConnect,
+          appName,
           'q-connect-container',
-          `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`,
+          `${wisdomUrl(this.config.instanceUrl)}/?theme=hidden_page`,
           { style: 'display: none' },
         );
 
-        const createdIframe = document.getElementById(ServiceIds.AmazonQConnect) as HTMLIFrameElement;
+        // Streams creates the app's iframe synchronously, with the app name as its id.
+        const createdIframe = document.getElementById(appName) as HTMLIFrameElement | null;
 
         if (createdIframe) {
+          this._wisdomIframe = createdIframe;
           console.debug(`${LOG} wisdom-v2 iframe created. Waiting for CHANNEL_READY handshake.`);
 
           // load sets frameWindow but does NOT resolve _frameReady —
