@@ -1522,6 +1522,57 @@ The StreamsJS Contact API can be used to retrieve the Amazon Connect `contactId`
 const contactId = contact.getContactId();
 ```
 
+# Global Resiliency
+
+With [global routing](https://docs.aws.amazon.com/connect/latest/adminguide/global-routing-across-acgr-regions.html) in Amazon Connect Global Resiliency, an agent can handle a contact that started in another Region. The contact's Amazon Q in Connect session is in the Region where the contact started, so API calls for that session must be sent to that Region.
+
+## Prerequisites
+
+Set up Streams for Global Resiliency as described in [Global Resiliency Streams](https://github.com/amazon-connect/amazon-connect-streams/blob/master/Documentation-GR.md).
+
+## Configuration
+
+Create one client per Region, each with that Region's instance URL, `https://<region>.<alias>.my.connect.aws`:
+
+```js
+const regions = ['us-west-2', 'us-east-1'];
+const clients = {};
+regions.forEach((region) => {
+  clients[region] = new connect.qconnectjs.QConnectClient({
+    instanceUrl: `https://${region}.my-instance-alias.my.connect.aws`,
+  });
+});
+```
+
+## Sending a session's API calls to its Region
+
+When the agent's contact is connected, get the Region from the contact's session ARN and use that Region's client for the session API calls:
+
+```js
+connect.contact((contact) => {
+  contact.onConnected(async () => {
+    const activeRegion = connect.globalResiliency.getActiveRegion();
+    const contactResponse = await clients[activeRegion].describeContact({
+      InstanceId: instanceId,
+      ContactId: contact.getContactId(),
+    });
+
+    // arn:aws:wisdom:<region>:<account-id>:session/<assistant-id>/<session-id>
+    const sessionArn = contactResponse.body.Contact.WisdomInfo.SessionArn;
+    const arnSegments = sessionArn.split(':');
+    const sessionRegion = arnSegments[3];
+    const resourceSegments = arnSegments[5].split('/');
+    const assistantId = resourceSegments[1];
+    const sessionId = resourceSegments[2];
+
+    const recommendationsResponse = await clients[sessionRegion].getRecommendations({
+      assistantId,
+      sessionId,
+    });
+  });
+});
+```
+
 # Troubleshooting
 
 When the service returns an exception, the error will include the exception information.

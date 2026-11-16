@@ -5541,6 +5541,18 @@ const runtimeConfig_browser_1 = __webpack_require__(6662);
 const serviceIds_1 = __webpack_require__(571);
 const appNames_1 = __webpack_require__(8201);
 const communicationProxy_1 = __webpack_require__(1588);
+const wisdomUrl = (instanceUrl) => new URL(`${instanceUrl.replace(/\/+$/, '')}/wisdom-v2`).href;
+const findExistingWisdomIframe = (instanceUrl) => {
+    const prefix = wisdomUrl(instanceUrl);
+    return Array.from(document.querySelectorAll('iframe')).find((frame) => frame.src.startsWith(prefix));
+};
+const pickAppName = () => {
+    let name = serviceIds_1.ServiceIds.AmazonQConnect;
+    for (let n = 2; document.getElementById(name); n++) {
+        name = `${serviceIds_1.ServiceIds.AmazonQConnect}${n}`;
+    }
+    return name;
+};
 class Client {
     constructor(config) {
         this._frameResolved = false;
@@ -5573,13 +5585,11 @@ class Client {
             if (((_a = e.data) === null || _a === void 0 ? void 0 : _a.source) === appNames_1.AppNames.QConnectJS &&
                 ((_b = e.data) === null || _b === void 0 ? void 0 : _b.type) === communicationProxy_1.CHANNEL_READY_MSG) {
                 window.removeEventListener('message', handler);
-                const wisdomIframe = document.querySelector('iframe[src*="wisdom-v2"]')
-                    || document.getElementById(serviceIds_1.ServiceIds.AmazonQConnect);
-                if (wisdomIframe) {
-                    this.config.frameWindow = wisdomIframe;
+                if (this._wisdomIframe) {
+                    this.config.frameWindow = this._wisdomIframe;
                 }
                 console.debug(`Amazon Q in Connect [initFrameConduit]: received ${communicationProxy_1.CHANNEL_READY_MSG} handshake. ` +
-                    `frameWindow=${wisdomIframe ? 'set' : 'not found'}. Resolving _frameReady.`);
+                    `frameWindow=${this._wisdomIframe ? 'set' : 'not found'}. Resolving _frameReady.`);
                 onReady();
             }
         };
@@ -5614,9 +5624,10 @@ class Client {
             removeHandshakeListener();
             this._resolveFrameReady();
         };
-        const existingIframe = document.querySelector('iframe[src*="wisdom-v2"]');
+        const existingIframe = findExistingWisdomIframe(this.config.instanceUrl);
         if (existingIframe && existingIframe.contentWindow) {
             console.debug(`${LOG} found pre-existing wisdom-v2 iframe. Sending CHANNEL_READY_REQUEST probe.`);
+            this._wisdomIframe = existingIframe;
             this.config.frameWindow = existingIframe;
             try {
                 const targetOrigin = new URL(this.config.instanceUrl).origin;
@@ -5655,9 +5666,11 @@ class Client {
                     container.id = 'q-connect-container';
                     document.body.appendChild(container);
                 }
-                (_b = (_a = window === null || window === void 0 ? void 0 : window.connect) === null || _a === void 0 ? void 0 : _a.agentApp) === null || _b === void 0 ? void 0 : _b.initApp(serviceIds_1.ServiceIds.AmazonQConnect, 'q-connect-container', `${this.config.instanceUrl}/wisdom-v2/?theme=hidden_page`, { style: 'display: none' });
-                const createdIframe = document.getElementById(serviceIds_1.ServiceIds.AmazonQConnect);
+                const appName = pickAppName();
+                (_b = (_a = window === null || window === void 0 ? void 0 : window.connect) === null || _a === void 0 ? void 0 : _a.agentApp) === null || _b === void 0 ? void 0 : _b.initApp(appName, 'q-connect-container', `${wisdomUrl(this.config.instanceUrl)}/?theme=hidden_page`, { style: 'display: none' });
+                const createdIframe = document.getElementById(appName);
                 if (createdIframe) {
+                    this._wisdomIframe = createdIframe;
                     console.debug(`${LOG} wisdom-v2 iframe created. Waiting for CHANNEL_READY handshake.`);
                     createdIframe.addEventListener('load', () => {
                         console.debug(`${LOG} wisdom-v2 iframe load event fired. frameWindow set.`);
